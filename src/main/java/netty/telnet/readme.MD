@@ -1,0 +1,1 @@
+Telnet协议是TCP/IP协议族中的一员，是Internet远程登陆服务的标准协议和主要方式
