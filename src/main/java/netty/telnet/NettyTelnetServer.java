@@ -17,8 +17,16 @@ import io.netty.handler.logging.LoggingHandler;
 public class NettyTelnetServer {
 
     private static final int PORT = 8888;
+    /**
+     * 使用服务器的ServerBootStrap，用于接受客户端的连接以及为已接受的连接创建子通道。
+     */
     private ServerBootstrap serverBootstrap;
 
+    /**
+     * BossGroup和WorkerGroup都是NioEventLoopGroup
+     * BossGroup用来处理nio的Accept
+     * Worker处理nio的Read和Write事件
+     */
     private EventLoopGroup bossGroup = new NioEventLoopGroup(1);
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
@@ -27,7 +35,7 @@ public class NettyTelnetServer {
         serverBootstrap = new ServerBootstrap();
         //指定socket的一些特性
         serverBootstrap.option(ChannelOption.SO_BACKLOG,1024);
-        serverBootstrap.group(bossGroup,workerGroup)
+        serverBootstrap.group(bossGroup,workerGroup)//args：EventLoopGroup parentGroup, EventLoopGroup childGroup
                 .channel(NioServerSocketChannel.class) //指定是一个NIO连接通道
                 .handler(new LoggingHandler(LogLevel.INFO))
                 .childHandler(new NettyTelnetInitializer());
