@@ -33,7 +33,10 @@ public class WordCountApp {
 		//获取要操作的HDFS文件系统
 		FileSystem fs = FileSystem.get(new URI(properties.getProperty(Constants.HDFS_URI)),new Configuration());
 		RemoteIterator<LocatedFileStatus> iterator = fs.listFiles(input, false);
-		Mapper mapper = new WordCountMapper();
+
+//		Mapper mapper = new WordCountMapper();
+		Class clazz = Class.forName(properties.getProperty(Constants.MAPPER_CLASS));
+		Mapper mapper = (Mapper)clazz.newInstance();
 		Context context = new Context();
 
 		while (iterator.hasNext()){

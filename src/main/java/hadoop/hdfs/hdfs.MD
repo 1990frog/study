@@ -360,8 +360,13 @@ HDFS has been designed to be easily portable from one platform to another. This 
 写成可配置的
 
 
+HDFS的元数据管理：
+元数据：HDFS的目录结构以及每个的BLOCK信息（id、副本系数、block存放在那个ND上）
+存在什么地方：${hadoop.tmp.dir}/name/......
 
+checkpoint
 
+safemode
 
 
 

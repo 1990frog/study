@@ -12,4 +12,6 @@ public class Constants {
 	public static final String OUTPUT_FILE = "OUTPUT_FILE";
 
 	public static final String HDFS_URI = "HDFS_URI";
+
+	public static final String MAPPER_CLASS="MAPPER_CLASS";
 }
