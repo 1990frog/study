@@ -23,10 +23,24 @@ import java.net.URI;
  */
 public class HDFSApp {
 
+    /**
+     * The constant HDFS_PATH.
+     */
     public static final String HDFS_PATH="hdfs://localhost:8020";
+    /**
+     * The File system.
+     */
     FileSystem fileSystem = null;
+    /**
+     * The Configuration.
+     */
     Configuration configuration = null;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception{
         configuration = new Configuration();
@@ -40,24 +54,42 @@ public class HDFSApp {
         fileSystem = FileSystem.get(new URI(HDFS_PATH),configuration,"cai");
     }
 
+    /**
+     * Tear down.
+     */
     @After
     public void tearDown(){
         configuration = null;
         fileSystem = null;
     }
 
+    /**
+     * Mkdir.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void mkdir() throws Exception{
         fileSystem.mkdirs(new Path("/test"));
     }
 
+    /**
+     * Text.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void text() throws  Exception{
 		FSDataInputStream in = fileSystem.open(new Path("/hadoop.md"));
 	    IOUtils.copyBytes(in,System.out,1024);
     }
 
-	@Test
+    /**
+     * Create.
+     *
+     * @throws Exception the exception
+     */
+    @Test
     public void create() throws Exception{
 	    FSDataOutputStream out = fileSystem.create(new Path("/create.md"));
     	out.writeUTF("hello pk");
@@ -65,7 +97,10 @@ public class HDFSApp {
     	out.close();
     }
 
-	@Test
+    /**
+     * Test replication.
+     */
+    @Test
     public void testReplication(){
 		/**
 		 * print 3，系统hadoop设置为1，但是因为configuration为一个空的未传入参数的对象，
@@ -77,6 +112,11 @@ public class HDFSApp {
 		System.out.println(configuration.get("hadoop.tmp.dir"));
     }
 
+    /**
+     * Rename.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void rename() throws  Exception{
 
@@ -87,17 +127,24 @@ public class HDFSApp {
     	System.out.println(result);
     }
 
-	@Test
+    /**
+     * Copy from local file.
+     *
+     * @throws Exception the exception
+     */
+    @Test
     public void copyFromLocalFile() throws Exception{
 	    Path src = new Path("/home/cai/Downloads/hadoop-2.6.0-cdh5.15.1.tar.gz");
 	    Path dst = new Path("/hadoop-2.6.0-cdh5.15.1.tar.gz");
 	    fileSystem.copyFromLocalFile(src,dst);
     }
 
-	/**
-	 * 拷贝大文件，带进度条
-	 */
-	@Test
+    /**
+     * 拷贝大文件，带进度条
+     *
+     * @throws Exception the exception
+     */
+    @Test
 	public void copyFromLocalFileBigFile() throws Exception{
 
 		InputStream in = new BufferedInputStream(new FileInputStream(new File("/home/cai/Downloads/hadoop-2.6.0-cdh5.15.1.tar.gz")));
@@ -113,14 +160,24 @@ public class HDFSApp {
 
 	}
 
-	@Test
+    /**
+     * Copy to local file.
+     *
+     * @throws Exception the exception
+     */
+    @Test
 	public void copyToLocalFile() throws Exception{
 		Path src = new Path("/file");
 		Path dst = new Path("/home/cai/Desktop/hadoop-2.6.0-cdh5.15.1.tar.gz");
 		fileSystem.copyToLocalFile(src,dst);
 	}
 
-	@Test
+    /**
+     * List files.
+     *
+     * @throws Exception the exception
+     */
+    @Test
 	public void listFiles() throws Exception{
 		FileStatus[] statuses = fileSystem.listStatus(new Path("/"));
 		for(FileStatus file : statuses) {
@@ -134,7 +191,12 @@ public class HDFSApp {
 		}
 	}
 
-	@Test
+    /**
+     * List files recursive.
+     *
+     * @throws Exception the exception
+     */
+    @Test
 	public void listFilesRecursive() throws Exception{
 
 		RemoteIterator<LocatedFileStatus> files = fileSystem.listFiles(new Path("/"), true);
@@ -151,7 +213,12 @@ public class HDFSApp {
 
 	}
 
-	@Test
+    /**
+     * Gets file block locations.
+     *
+     * @throws Exception the exception
+     */
+    @Test
 	public void getFileBlockLocations() throws Exception{
 		FileStatus fileStatus = fileSystem.getFileStatus(new Path("/hadoop-2.6.0-cdh5.15.1.tar.gz"));
 		BlockLocation[] blocks = fileSystem.getFileBlockLocations(fileStatus,0,fileStatus.getLen());
@@ -163,7 +230,12 @@ public class HDFSApp {
 		}
 	}
 
-	@Test
+    /**
+     * Delete.
+     *
+     * @throws Exception the exception
+     */
+    @Test
 	public void delete() throws Exception{
 		//非递归
 		fileSystem.delete(new Path("/hadoop-2.6.0-cdh5.15.1.tar.gz"));

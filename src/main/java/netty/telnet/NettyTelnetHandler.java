@@ -8,6 +8,9 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.net.InetAddress;
 import java.util.Date;
 
+/**
+ * The type Netty telnet handler.
+ */
 public class NettyTelnetHandler extends SimpleChannelInboundHandler<String> {
 
     @Override

@@ -12,9 +12,9 @@ import java.util.Set;
 
 /**
  * 使用HDFS API完成wordcount统计
- *
+ * <p>
  * 需求：统计HDFS上的文件的wc，然后讲统计的结果输出到HDFS
- *
+ * <p>
  * 功能拆解：
  * 1）读取HDFS上的文件 ==> HDFS API
  * 2）业务处理（词频统计）：对文件中的每一行数据都要进行业务处理（按照分隔符分割）==> Mapper
@@ -23,7 +23,13 @@ import java.util.Set;
  */
 public class WordCountApp {
 
-	public static void main(String[] args) throws Exception{
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
+    public static void main(String[] args) throws Exception{
 
 		Properties properties = ParamsUtils.getProperties();
 

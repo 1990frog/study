@@ -12,14 +12,22 @@ import java.io.IOException;
 
 /**
  * 使用MR统计HDFS上的文件对应的词频
- *
+ * <p>
  * Driver：配置Mapper、Reducer的相关属性
- *
+ * <p>
  * 提交到本地运行：开发过程中使用
  */
 public class WordCountLocalApp {
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws InterruptedException   the interrupted exception
+     */
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
 //		System.setProperty("HADOOP_USER_NAME","cai");
 //

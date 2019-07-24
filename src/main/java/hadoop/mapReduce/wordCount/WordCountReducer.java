@@ -7,6 +7,9 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 import java.util.Iterator;
 
+/**
+ * The type Word count reducer.
+ */
 public class WordCountReducer extends Reducer <Text, IntWritable, Text, IntWritable>{
 
 	/**
@@ -23,7 +26,8 @@ public class WordCountReducer extends Reducer <Text, IntWritable, Text, IntWrita
 	 *
 	 * Reducer和Mapper中使用模板设计模式
 	 */
-	protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+	@Override
+    protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 
 		int count = 0;
 

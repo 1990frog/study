@@ -11,7 +11,7 @@ import io.netty.handler.logging.LoggingHandler;
 
 /**
  * NioEventLoopGroup对应一个被封装好的NIO线程池，bossGroup负责收集客户端连接，workerGroup负责处理每个连接的IO读写。
- *
+ * <p>
  * ServerBootstrap是Socket服务端启动类。通过这个类的实例，用户可以创建对应的服务端程序。
  */
 public class NettyTelnetServer {
@@ -30,6 +30,11 @@ public class NettyTelnetServer {
     private EventLoopGroup bossGroup = new NioEventLoopGroup(1);
     private EventLoopGroup workerGroup = new NioEventLoopGroup();
 
+    /**
+     * Open.
+     *
+     * @throws InterruptedException the interrupted exception
+     */
     public void open() throws  InterruptedException {
 
         serverBootstrap = new ServerBootstrap();
@@ -46,6 +51,9 @@ public class NettyTelnetServer {
         ch.closeFuture().sync();
     }
 
+    /**
+     * Close.
+     */
     public void close(){
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();

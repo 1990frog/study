@@ -15,14 +15,23 @@ import java.net.URISyntaxException;
 
 /**
  * 使用MR统计HDFS上的文件对应的词频
- *
+ * <p>
  * Driver：配置Mapper、Reducer的相关属性
- *
+ * <p>
  * 提交到本地运行：开发过程中使用
  */
 public class WordCountApp {
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException, URISyntaxException {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws InterruptedException   the interrupted exception
+     * @throws URISyntaxException     the uri syntax exception
+     */
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException, URISyntaxException {
 
 		System.setProperty("HADOOP_USER_NAME","cai");
 

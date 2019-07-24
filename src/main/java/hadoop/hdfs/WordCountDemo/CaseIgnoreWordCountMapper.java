@@ -1,5 +1,8 @@
 package hadoop.hdfs.WordCountDemo;
 
+/**
+ * The type Case ignore word count mapper.
+ */
 public class CaseIgnoreWordCountMapper implements Mapper {
 
 	@Override

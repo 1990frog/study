@@ -8,6 +8,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -17,7 +18,15 @@ import java.io.IOException;
  */
 public class WordCountCombinerLocalApp {
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
+     * @throws InterruptedException   the interrupted exception
+     */
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 
 //		System.setProperty("HADOOP_USER_NAME","cai");
 //

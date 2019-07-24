@@ -3,6 +3,9 @@ package hadoop.hdfs.WordCountDemo;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * The type Params utils.
+ */
 public class ParamsUtils {
 
 	private static Properties properties = new Properties();
@@ -15,11 +18,21 @@ public class ParamsUtils {
 		}
 	}
 
-	public static Properties getProperties(){
+    /**
+     * Get properties properties.
+     *
+     * @return the properties
+     */
+    public static Properties getProperties(){
 		return properties;
 	}
 
-	public static void main(String[] args) {
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
 		System.out.println(getProperties().getProperty("INPUT_PATH"));
 	}
 
