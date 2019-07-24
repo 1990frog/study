@@ -22,8 +22,10 @@ import java.io.IOException;
  * Hadoop自定义类型：序列号和反序列化
  * <p>
  * LongWritable,Text
+ *
+ * Mapper<KEYIN, VALUEIN, KEYOUT, VALUEOUT>
  */
-public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class WordCountMapper extends Mapper<LongWritable, Text,  Text, IntWritable> {
 
 	@Override
 	protected void map(LongWritable key,Text value,Context context) throws IOException,InterruptedException {
@@ -32,7 +34,10 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 		String[] words = value.toString().split(",");
 
 		for(String word : words){
-			//  (hello,1)   (world,1)
+            /**
+             * KEYOUT key, VALUEOUT value
+             * (hello,1)   (world,1)
+             */
 			context.write(new Text(word.toLowerCase()),new IntWritable(1));
 		}
 	}

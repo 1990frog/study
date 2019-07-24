@@ -9,6 +9,9 @@ import java.util.Iterator;
 
 /**
  * The type Word count reducer.
+ *
+ * Reducer<KEYIN,VALUEIN,KEYOUT,VALUEOUT>
+ *
  */
 public class WordCountReducer extends Reducer <Text, IntWritable, Text, IntWritable>{
 
@@ -25,6 +28,7 @@ public class WordCountReducer extends Reducer <Text, IntWritable, Text, IntWrita
 	 * reduce3:(welcome,1)==> (welcome,<1>)
 	 *
 	 * Reducer和Mapper中使用模板设计模式
+     *
 	 */
 	@Override
     protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
