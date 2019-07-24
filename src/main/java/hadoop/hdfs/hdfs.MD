@@ -144,13 +144,13 @@ Hadoop（HDFS）安装：
 		</property>
 		<property>
 			<name>hadoop.tmp.dir</name>
-			<value>/home/....</value>
+			<value>/home/cai/hadoop/hdfs</value>
 		</property>
 	slaves
 		127.0.0.1/hadoop000
 启动HDFS：第一次执行的时候一定要格式化文件系统，不要重复执行
 $HADOOP_HOME/bin
-hdfs namebode -format
+hdfs namenode -format
 启动集群：
 $HADOOP_HOME/sbin
 ./start-dfs.sh
@@ -242,7 +242,7 @@ systemctl start sshd.service 立即启动
     </property>
 </configuration>
 
-2）etc/hadoop/hdfs-site.xml:)
+2）etc/hadoop/hdfs-site.xml:
 <configuration>
     <property>
         <name>dfs.replication</name>
