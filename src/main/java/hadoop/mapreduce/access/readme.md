@@ -31,3 +31,6 @@ HashPartitioner：是MapReduce默认的分区规则
 13* >> .. 
 15* >> .. 
 other >> ..
+
+Partitioner决定maptask输出的数据交由哪个reducetask处理
+默认实现：分发的key的hash值与reduce task个数取模
