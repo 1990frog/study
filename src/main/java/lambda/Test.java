@@ -1,4 +1,4 @@
-package demo.lambda;
+package lambda;
 
 import java.util.concurrent.atomic.AtomicReference;
 
