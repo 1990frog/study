@@ -1,4 +1,4 @@
-package hadoop.mapReduce.wordCount;
+package hadoop.maprdeduce.wordCount;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
