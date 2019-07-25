@@ -1,4 +1,4 @@
-package hadoop.hdfs.WordCountDemo;
+package hadoop.hdfs.wordcountdemo;
 
 import java.util.HashMap;
 import java.util.Map;

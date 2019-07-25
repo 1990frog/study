@@ -1,4 +1,4 @@
-package hadoop.hdfs.WordCountDemo;
+package hadoop.hdfs.wordcountdemo;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;

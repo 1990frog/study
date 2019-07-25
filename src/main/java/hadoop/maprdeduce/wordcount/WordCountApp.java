@@ -1,6 +1,7 @@
-package hadoop.maprdeduce.wordCount;
+package hadoop.maprdeduce.wordcount;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -9,13 +10,17 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
- * Combiner操作
- * 优点：能减少IO、提升作业的执行性能
- * 局限性：求平均数（总数/个数）
+ * 使用MR统计HDFS上的文件对应的词频
+ * <p>
+ * Driver：配置Mapper、Reducer的相关属性
+ * <p>
+ * 提交到本地运行：开发过程中使用
  */
-public class WordCountCombinerLocalApp {
+public class WordCountApp {
 
     /**
      * The entry point of application.
@@ -24,26 +29,24 @@ public class WordCountCombinerLocalApp {
      * @throws IOException            the io exception
      * @throws ClassNotFoundException the class not found exception
      * @throws InterruptedException   the interrupted exception
+     * @throws URISyntaxException     the uri syntax exception
      */
-    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException, URISyntaxException {
 
-//		System.setProperty("HADOOP_USER_NAME","cai");
-//
+		System.setProperty("HADOOP_USER_NAME","cai");
+
 		Configuration configuration = new Configuration();
-//		configuration.set("fs.defaultFS","hdfs://localhost:8020");
+		configuration.set("fs.defaultFS","hdfs://localhost:8020");
 
 		//  创建一个Job
 		Job job = Job.getInstance(configuration);
 
 		//  设置Job对应的参数：主类
-		job.setJarByClass(WordCountCombinerLocalApp.class);
+		job.setJarByClass(WordCountApp.class);
 
 		//  设置Job对应的参数：设置自定义的Mapper和Reduce处理类
 		job.setMapperClass(WordCountMapper.class);
 		job.setReducerClass(WordCountReducer.class);
-
-		//  添加Combiner的设置即可
-		job.setCombinerClass(WordCountReducer.class);
 
 		//  设置Job对应的参数：Mapper输出key和value的类型
 		job.setMapOutputKeyClass(Text.class);
@@ -53,9 +56,16 @@ public class WordCountCombinerLocalApp {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 
+		//  如果输出目录已经存在，则先删除
+		FileSystem fileSystem = FileSystem.get(new URI("hdfs://localhost:8020"),configuration);
+		Path outputPath = new Path("/wordcount/output");
+		if(fileSystem.exists(outputPath)){
+			fileSystem.delete(outputPath,true);
+		}
+
 		//  设置job对应的参数：Mapper输出key和value的类型：作业输入和输出的路径
-		FileInputFormat.setInputPaths(job,new Path("input"));
-		FileOutputFormat.setOutputPath(job,new Path("output"));
+		FileInputFormat.setInputPaths(job,new Path("/wordcount/input"));
+		FileOutputFormat.setOutputPath(job,new Path("/wordcount/output"));
 
 		//  提交job
 		boolean result = job.waitForCompletion(true);

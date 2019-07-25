@@ -1,4 +1,4 @@
-package hadoop.hdfs.WordCountDemo;
+package hadoop.hdfs.wordcountdemo;
 
 /**
  * The type Case ignore word count mapper.
