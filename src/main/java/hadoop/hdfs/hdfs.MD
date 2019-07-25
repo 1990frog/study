@@ -369,6 +369,17 @@ checkpoint
 safemode
 
 
+-------------------------------------------------------
+![Image text](hdfs_01.jpg)
+NameNode：HDFS群集包含单个NameNode（主服务器），它管理文件系统命名空间并控制客户端对文件的访问权限。
+它维护和管理文件系统元数据；例如由哪些块构成文件，以及存储这些块的数据节点。
+
+DataNode可以有多个DataNode，通常是集群中每个节点有一个DataNode，它负责管理着运行节点的存储访问。
+HDFS中的DataNode存储实际数据，可以添加更多的DataNode来增加可用空间。
+
+备用NameNode ：备用NameNode服务并非真正的备用NameNode，尽管名称是称为备用NameNode。
+具体来说，它并不为NameNode提供高可用性(HA)。
+
 
 
 
