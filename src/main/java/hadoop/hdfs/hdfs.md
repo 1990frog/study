@@ -1,4 +1,4 @@
- 大数据之4V特征：
+大数据之4V特征：
 数据量（Volume）
 基于高度分析的新价值（Value）
 速度（Velocity）
@@ -274,7 +274,7 @@ $HADOOP_HOME/sbin/start-dfs.sh
 stop-dfs.sh
 
 6.查看启动成功：
-jpa
+jps
 http://127.0.0.1:50070
 
 
