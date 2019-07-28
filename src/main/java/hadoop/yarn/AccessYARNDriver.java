@@ -19,6 +19,7 @@ import java.io.IOException;
  * jar run
  * hadoop jar thisjar hadoop.yarn.AccessYARNDriver /input.log /output.log
  *
+ *
  */
 public class AccessYARNDriver {
 
