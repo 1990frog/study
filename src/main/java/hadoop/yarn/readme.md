@@ -44,19 +44,35 @@ Configure parameters as follows:
 
 etc/hadoop/mapred-site.xml:
 <configuration>
-    <property>
-        <name>mapreduce.framework.name</name>
-        <value>yarn</value>
-    </property>
+<property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+</property>
 </configuration>
 
 etc/hadoop/yarn-site.xml:
 <configuration>
-    <property>
-        <name>yarn.nodemanager.aux-services</name>
-        <value>mapreduce_shuffle</value>
-    </property>
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+</property>
 </configuration>
+
+
+<property>
+<name>yarn.resourcemanager.scheduler.class</name>
+<value>org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler</value>
+</property>
+<property>
+<name>yarn.scheduler.minimum-allocation-mb</name>
+<value>512</value>
+</property>
+
+
+
+
+
+
 Start ResourceManager daemon and NodeManager daemon:
 
 $ sbin/start-yarn.sh
