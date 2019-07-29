@@ -1,3 +1,6 @@
+Yarn是Yet Another Resource Negotiator的缩写
+
+
 资源调度框架YARN
 YARN产生背景
 YARN概述
