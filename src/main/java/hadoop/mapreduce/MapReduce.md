@@ -39,3 +39,16 @@ Partitioner
 2 接下来对分割的文本进行Map阶段的操作，其分发的标签（key）是单词本身，分发的内容是每一段文本里出现该单词的数量。
 3 接下来会进行一个分发操作，即相同标签（key）的数据会被收集到一起。
 4 Reduce对收集之后分配过来的数据进行处理，最终结果汇总，就是单词计数的结果。
+
+
+map
+reducer
+setup：初始化
+
+打包运行：
+vim pv.sh
+hadoop jar /hadoop.xx.xx.jar com.hadoop.class1 hdfs://localhost:8020/project/input/raw/ hdfs://localhost:8020/project/v1/pvstat/
+chmod u+x pv.sh
+./pv.sh
+
+Sqoop：把HDFS上的统计结果导出到mysql中
