@@ -130,24 +130,27 @@ Hadoop（HDFS）安装：
 解压
 添加HADOOP_HOME/bin到系统环境变量
 修改Hadoop配置文件
-	hadoop-env.sh
-		export JAVA_HOME=...
-	core-site.xml
-		<property>
-			<name>fs.defaultFS</name>
-			<value>hdfs://hadoop000:8020</value>
-		</property>
-	hdfs-site.xml
-		<property>
-			<name>dfs.replication</name>
-			<value>1</value>
-		</property>
-		<property>
-			<name>hadoop.tmp.dir</name>
-			<value>/home/cai/hadoop/hdfs</value>
-		</property>
-	slaves
-		127.0.0.1/hadoop000
+hadoop-env.sh
+export JAVA_HOME=...
+core-site.xml
+<property>
+<name>fs.defaultFS</name>
+<value>hdfs://hadoop000:8020</value>
+</property>
+
+hdfs-site.xml
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/home/cai/hadoop/hdfs</value>
+</property>
+
+slaves
+127.0.0.1/hadoop000
+
 启动HDFS：第一次执行的时候一定要格式化文件系统，不要重复执行
 $HADOOP_HOME/bin
 hdfs namenode -format
