@@ -45,7 +45,7 @@ hive-site.xml
 <configuration>
 <property>
 <name>javax.jdo.option.ConnectionURL</name>
-<value>jdbc:mysql://hadoop000:3306/hadoop_hive?creatDatabaseIfNotExist=true</value>
+<value>jdbc:mysql://0.0.0.0:3306/db?createDatabaseIfNotExist=true&amp;useSSL=false</value>  
 </property>
 
 <property>
@@ -59,7 +59,7 @@ hive-site.xml
 </property>
 
 <property>
-<name>javax.jdo.option.ConnectionUserPassword</name>
+<name>javax.jdo.option.ConnectionPassword</name>    
 <value>root</value>
 </property>
 </configuration>
