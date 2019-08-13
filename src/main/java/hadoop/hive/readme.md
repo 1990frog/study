@@ -45,7 +45,7 @@ hive-site.xml
 <configuration>
 <property>
 <name>javax.jdo.option.ConnectionURL</name>
-<value>jdbc:mysql://hadoop000:3306/hadoop_hive?creatDatabaseIfNotExist=true</value>
+<value>jdbc:mysql://hadoop000:3306/hadoop_hive?createDatabaseIfNotExist=true</value>
 </property>
 
 <property>
