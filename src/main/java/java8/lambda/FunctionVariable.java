@@ -1,4 +1,4 @@
-package lambda;
+package java8.lambda;
 
 /**
  * {{传递函数变量}}

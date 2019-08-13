@@ -1,4 +1,4 @@
-package lambda;
+package java8.lambda;
 
 /**
  * Lambda 与 内部类

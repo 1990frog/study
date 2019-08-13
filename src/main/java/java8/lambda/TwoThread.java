@@ -1,4 +1,4 @@
-package lambda;
+package java8.lambda;
 
 /**
  * The type Two thread.

@@ -1,4 +1,4 @@
-package lambda;
+package java8.lambda;
 
 /**
  * {{使用外部变量}}
