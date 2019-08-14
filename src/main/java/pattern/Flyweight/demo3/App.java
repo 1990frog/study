@@ -1,7 +1,7 @@
 package pattern.Flyweight.demo3;
 
 /**
- * 
+ *
  * Flyweight pattern is useful when the program needs a huge amount of objects. It provides means to
  * decrease resource usage by sharing object instances.
  * <p>
@@ -12,17 +12,17 @@ package pattern.Flyweight.demo3;
  * <p>
  * To enable safe sharing, between clients and threads, Flyweight objects must be immutable.
  * Flyweight objects are by definition value objects.
- * 
+ *
  */
 public class App {
 
-  /**
-   * Program entry point
-   * 
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-    AlchemistShop alchemistShop = new AlchemistShop();
-    alchemistShop.enumerate();
-  }
+    /**
+     * Program entry point
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
+        AlchemistShop alchemistShop = new AlchemistShop();
+        alchemistShop.enumerate();
+    }
 }
