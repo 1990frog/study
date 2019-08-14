@@ -1,9 +1,12 @@
 package java8.stream;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -108,5 +111,40 @@ public class StreamDemo {
         numbers.stream().sorted(desc_system).forEach(System.out::println);
     }
 
+    /**
+     * {@link Stream#map}
+     * <R> Stream<R> map(Function<? super T, ? extends R> mapper);
+     *
+     */
+    @Test
+    public void map(){
 
+        @Data
+        @AllArgsConstructor
+        class Words {
+            private String key;
+            private String value;
+        }
+
+        List<Words> numbers = Arrays.asList(
+                new Words("1","哈哈"),
+                new Words("2","呵呵"),
+                new Words("3","嘿嘿"));
+        numbers.stream()
+                .map(Words::getKey)
+                .forEach(System.out::println);
+
+        List list1 = numbers.stream().map(n->{
+            HashMap result = new HashMap();
+            result.put("key",n.getKey());
+            result.put("value",n.getValue());
+            return result;
+        }).collect(Collectors.toList());
+        System.out.println(list1);
+
+        numbers.stream()
+                .map(Words::getValue)
+                .map(String::length)
+                .forEach(System.out::println);
+    }
 }
