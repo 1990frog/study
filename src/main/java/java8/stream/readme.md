@@ -5,7 +5,7 @@
 ### 特点一：内部迭代
 就现在来说，您可以把它简单的当成一种高级的迭代器（Iterator），或者是高级的 for 循环，区别在于，前面两者都是属于外部迭代，而流采用内部迭代。  
 
-![内部迭代][../../../resources/image/inner_iterator.png]
+![内部迭代][../../../resources/images/inner_iterator.png]
 
 上图简要说明了内部迭代与外部迭代的差异，我们再举一个生活中实际的例子（引自《Java 8 实战》），比如您想让您两岁的孩子索菲亚把她的玩具都收到盒子里面去，你们之间可能会产生如下的对话：
 + 你：“索菲亚，我们把玩具收起来吧，地上还有玩具吗？”
@@ -97,8 +97,9 @@ words.stream()
 // wmyskxz
 // wow
 ```
-![内部迭代][../../../resources/image/stream_filter.png]  
-当然如果您不是想要输出而是想要返回一个集合，那么可以使用 .collect(toList())，就像下面这样：  
+![内部迭代][../../../resources/images/stream_filter.png]  
+当然如果您不是想要输出而是想要返回一个集合，那么可以使用
+.collect(toList())，就像下面这样：
 ```
 List<String> words = Arrays.asList("wmyskxz", "say", "wow", "to", "everybody");
 List<String> filteredWords = words.stream()
@@ -203,7 +204,7 @@ words.stream()
 
 为什么会这样呢？这个方法的问题自傲与，传递给 map 方法的 lambda 表达式为每个单词返回了一个 String[]，所以经过 map 方法之后返回的流就不是我们预想的 Stream<String>，而是 Stream<String[]>，下图就说明了这个问题：  
 
-![错误的用法][../../../resources/image/stream_error_1.png]  
+![错误的用法][../../../resources/images/stream_error_1.png]
 
 幸好我们可以使用 flatMap 来解决这个问题：  
 ```
@@ -223,8 +224,11 @@ words.stream()
 // r
 // d
 ```
-使用 flatMap 方法的效果是，各个数组并不是分别映射成一个流，而是映射成流的内容。一言蔽之就是 flatMap 让你一个流中的每个值都转换成另一个六，然后把所有的流连接起来成为一个流，具体过程如下图：  
-![错误的用法][../../../resources/image/stream_error_2.png]
+使用 flatMap
+方法的效果是，各个数组并不是分别映射成一个流，而是映射成流的内容。一言蔽之就是
+flatMap
+让你一个流中的每个值都转换成另一个六，然后把所有的流连接起来成为一个流，具体过程如下图：  
+![错误的用法][../../../resources/images/stream_error_2.png]
 ### 3、查找和匹配
 另一个常见的数据处理套路是看看数据集中的某些元素是否匹配一个给定的属性，Stream API 通过 allMatch、anyMatch、noneMatch、findFirst 和 findAny 方法提供了这样的工具(其实到这里看名字就会大概能够知道怎么使用了)。  
 
@@ -294,7 +298,7 @@ int product = numbers.stream().reduce(0, (a, b) -> a * b);
 ```
 我们先来深入研究一下 reduce 是如何对一个数字流进行求和的：  
 
-![reduce][../../../resources/image/stream_reduce.png]  
+![reduce][../../../resources/images/stream_reduce.png]
 
 如上图所示一样的，reduce 每一次都把结果返回并与下一次的元素进行操作，比如第一次当遍历到元素 1 时，此时返回初始值 0 + 1 = 1，然后再用此时的返回值 1 与第二个元素进行叠加操作，如此往复，便完成了对数字列表的求和运算。  
 
