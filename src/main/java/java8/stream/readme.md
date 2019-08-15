@@ -202,7 +202,10 @@ words.stream()
 // [Ljava.lang.String;@31221be2
 ```
 
-为什么会这样呢？这个方法的问题自傲与，传递给 map 方法的 lambda 表达式为每个单词返回了一个 String[]，所以经过 map 方法之后返回的流就不是我们预想的 Stream<String>，而是 Stream<String[]>，下图就说明了这个问题：  
+为什么会这样呢？这个方法的问题出自，传递给 map 方法的 lambda
+表达式为每个单词返回了一个 String[]，所以经过 map
+方法之后返回的流就不是我们预想的 Stream<String>，而是
+Stream<String[]>，下图就说明了这个问题：
 
 ![错误的用法][../../../resources/images/stream_error_1.png]
 
@@ -227,7 +230,7 @@ words.stream()
 使用 flatMap
 方法的效果是，各个数组并不是分别映射成一个流，而是映射成流的内容。一言蔽之就是
 flatMap
-让你一个流中的每个值都转换成另一个六，然后把所有的流连接起来成为一个流，具体过程如下图：  
+让你一个流中的每个值都转换成另一个流，然后把所有的流连接起来成为一个流，具体过程如下图：  
 ![错误的用法][../../../resources/images/stream_error_2.png]
 ### 3、查找和匹配
 另一个常见的数据处理套路是看看数据集中的某些元素是否匹配一个给定的属性，Stream API 通过 allMatch、anyMatch、noneMatch、findFirst 和 findAny 方法提供了这样的工具(其实到这里看名字就会大概能够知道怎么使用了)。  
