@@ -5,10 +5,8 @@ import lombok.Data;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -330,8 +328,12 @@ public class StreamDemo {
                 .forEach(System.out::println);
     }
 
+    /**
+     * {@link Stream#peek}
+     */
     @Test
     public void peek(){
+
         IntStream.range(1, 10)
                 .peek(x -> System.out.print("\nA" + x))
                 .limit(3)
@@ -343,6 +345,14 @@ public class StreamDemo {
                 .skip(6)
                 .peek(x -> System.out.print("B" + x))
                 .forEach(x -> System.out.print("C" + x));
+
+        Stream.of("one", "two", "three", "four")
+                .filter(e -> e.length() > 3)
+                .peek(e -> System.out.println("Filtered value: " + e))
+                .map(String::toUpperCase)
+                .peek(e -> System.out.println("Mapped value: " + e))
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
     }
 
     @Test
@@ -364,9 +374,135 @@ public class StreamDemo {
         Stream.of(7,1,2,3,4,5).parallel().forEachOrdered(n->System.out.print(n+" "));
     }
 
+    /**
+     * Object[] toArray();
+     * <A> A[] toArray(IntFunction<A[]> generator);
+     */
     @Test
     public void toArray(){
         Arrays.asList(Stream.of(1, 2, 3, 4, 5).toArray()).forEach(System.out::println);
     }
+
+    /**
+     *  {@link Stream#reduce}
+     *
+     *  T reduce(T identity, BinaryOperator<T> accumulator);
+     *
+     *  Optional<T> reduce(BinaryOperator<T> accumulator);
+     *
+     *  <U> U reduce(U identity,
+     *                  BiFunction<U, ? super T, U> accumulator,
+     *                  BinaryOperator<U> combiner);
+     */
+    @Test
+    public void reduce(){
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        int sum1 = numbers.stream().reduce(0, (a, b) -> a + b);
+        System.out.println(sum1);
+
+        int sum2 = numbers.stream().reduce(0, Integer::sum);
+        System.out.println(sum2);
+
+        /**
+         * 无初始值
+         * reduce 还有一个重载的变体，它不接受初始值，但是会返回一个 Optional 对象(考虑到流中没有任何元素的情况)：
+         */
+        Optional<Integer> sum3 = numbers.stream().reduce(Integer::sum);
+        System.out.println(sum3);
+
+        int product1 = numbers.stream().reduce(1, (a, b) -> a * b);
+        System.out.println(product1);
+
+        Optional product2 = numbers.stream().reduce((a, b) -> a * b);
+        System.out.println(product2);
+
+        // 最大值
+        Optional<Integer> max = numbers.stream().reduce(Integer::max);
+        System.out.println(max);
+
+        // 最小值
+        Optional<Integer> min = numbers.stream().reduce(Integer::min);
+        System.out.println(min);
+
+    }
+
+    /**
+     *  <R> R collect(Supplier<R> supplier,
+     *                   BiConsumer<R, ? super T> accumulator,
+     *                   BiConsumer<R, R> combiner);
+     *
+     *  <R, A> R collect(Collector<? super T, A, R> collector);
+     */
+    @Test
+    public void collect(){
+        Arrays.stream("hello,java8".split(""))
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
+    }
+
+    @Test
+    public void min(){
+        Optional<Integer> min = Stream.of(1,2,3,4,5,6,7,8,9).min(Comparator.comparingInt(a -> a));
+        System.out.println(min.get());
+    }
+
+    @Test
+    public void max(){
+        Optional<Integer> max = Stream.of(1,2,3,4,5,6,7,8,9).max(Comparator.comparingInt(a -> a));
+        System.out.println(max.get());
+    }
+
+    @Test
+    public void count(){
+        long count = Stream.of(1,2,3,4,5,6,7,8,9).count();
+        System.out.println(count);
+    }
+
+    @Test
+    public void anyMatch(){
+        boolean flag1 = Stream.of(1,2,3,4,5,6,7,8,9).anyMatch(n->n>4);
+        System.out.println(flag1);
+
+        boolean flag2 = Stream.of(1,2,3,4,5,6,7,8,9).anyMatch(n->n>14);
+        System.out.println(flag2);
+    }
+
+    @Test
+    public void allMatch(){
+        boolean flag1 = Stream.of(1,2,3,4,5,6,7,8,9).allMatch(n->n>0);
+        System.out.println(flag1);
+
+        boolean flag2 = Stream.of(1,2,3,4,5,6,7,8,9).allMatch(n->n>2);
+        System.out.println(flag2);
+    }
+
+    @Test
+    public void noneMatch(){
+        boolean flag1 = Stream.of(1,2,3,4,5,6,7,8,9).noneMatch(n->n>0);
+        System.out.println(flag1);
+
+        boolean flag2 = Stream.of(1,2,3,4,5,6,7,8,9).noneMatch(n->n>12);
+        System.out.println(flag2);
+    }
+
+    @Test
+    public void findFirst(){
+        Optional<Integer> first = Stream.of(1,2,3,4,5,6,7,8,9).findFirst();
+        System.out.println(first.get());
+    }
+
+    /**
+     * findAny和findFirst返回的，都是第一个对象；
+     * 而在并行的流中，findAny返回的是最快处理完的那个线程的数据
+     */
+    @Test
+    public void findAny(){
+        Optional<Integer> first = Stream.of(1,2,3,4,5,6,7,8,9).findAny();
+        System.out.println(first.get());
+    }
+
+
 
 }

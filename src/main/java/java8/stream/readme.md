@@ -297,7 +297,8 @@ System.out.println(sum);
 + 一个是 BinaryOperator 来将两个元素结合起来产生一个新值，这里我们用的是 lambda (a, b) -&gt; a + b；
 你也可以很容易改造成所有元素相乘的形式，只需要将另一个 Lambda：(a, b) -> a * b 传递给 reduce 就可以了：
 ```
-int product = numbers.stream().reduce(0, (a, b) -> a * b);
+//起始值是1
+int product = numbers.stream().reduce(1, (a, b) -> a * b);
 ```
 我们先来深入研究一下 reduce 是如何对一个数字流进行求和的：  
 
@@ -320,7 +321,7 @@ Optional<Integer> sum = numbers.stream().reduce(Integer::sum);
 // 最大值
 Optional<Integer> max = numbers.stream().reduce(Integer::max);
 // 最小值
-Optional<Integer> max = numbers.stream().reduce(Integer::min);
+Optional<Integer> min = numbers.stream().reduce(Integer::min);
 ```
 ### 5、中间操作和结束操作（终端操作）
 Stream API 上的所有操作分为两类：中间操作和结束操作。中间操作只是一种标记，只有结束操作才会触发实际计算。
