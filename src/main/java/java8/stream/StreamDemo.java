@@ -440,6 +440,16 @@ public class StreamDemo {
         Arrays.stream("hello,java8".split(""))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
+
+        /**
+         * <R> R collect(Supplier<R> supplier,
+         *                 BiConsumer<R, ? super T> accumulator,
+         *                 BiConsumer<R, R> combiner);
+         *
+         * HashMap paramMap = paramList.parallelStream().collect(//list转map
+         *                 HashMap::new, (m, v) -> m.put(v.get("CODE"), v.get("VALUE")), HashMap::putAll);
+         */
+
     }
 
     @Test
