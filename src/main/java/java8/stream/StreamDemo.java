@@ -11,8 +11,9 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- *
- *
+ * 1.filter {@link #filter()}
+ * 2.distinct {@link #distinct() #distinctBean()}
+ * 3.
  *
  *
  *
