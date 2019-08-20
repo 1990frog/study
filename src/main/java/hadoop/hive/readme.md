@@ -62,12 +62,11 @@ hive-site.xml
 <name>javax.jdo.option.ConnectionPassword</name>    
 <value>root</value>
 </property>
-</configuration>
 
 <property>
 	<name>hive.cli.print.header</name>
 	<value>true</value>
-</property>l
+</property>
 
 <property>
 	<name>hive.cli.print.current.db</name>
