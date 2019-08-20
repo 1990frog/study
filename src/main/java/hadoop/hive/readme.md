@@ -74,7 +74,7 @@ hive-site.xml
 	<name>hive.cli.print.current.db</name>
 	<value>true</value>
 </property>
-
+</configuration>
 
 5.拷贝数据库驱动包到$HIVE_HOME/lib
 cp 数据库驱动到 hive/lib
