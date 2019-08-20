@@ -64,7 +64,6 @@ hive-site.xml
 </property>
 </configuration>
 
-
 <property>
 	<name>hive.cli.print.header</name>
 	<value>true</value>
