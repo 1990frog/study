@@ -62,6 +62,16 @@ hive-site.xml
 <name>javax.jdo.option.ConnectionPassword</name>    
 <value>root</value>
 </property>
+
+<property>
+	<name>hive.cli.print.header</name>
+	<value>true</value>
+</property>
+
+<property>
+	<name>hive.cli.print.current.db</name>
+	<value>true</value>
+</property>
 </configuration>
 
 5.拷贝数据库驱动包到$HIVE_HOME/lib
