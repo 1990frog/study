@@ -1,4 +1,4 @@
-package genericity;
+package Generic;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package genericity;
+package Generic;
 
 interface Generator<T> {
     T next();
