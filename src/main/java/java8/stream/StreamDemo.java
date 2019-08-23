@@ -11,14 +11,36 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
+ * @See Stream
  * 1.filter {@link #filter()}
- * 2.distinct {@link #distinct() #distinctBean()}
- * 3.
- *
- *
- *
- *
- *
+ * 2.distinct {@link #distinct()}
+ * 3.distinctBean {@link #distinctBean()}
+ * 4.limit {@link #limit()}
+ * 5.skip {@link #skip()}
+ * 6.sorted {@link #sorted()}
+ * 7.sortedConditon {@link #sortedConditon()}
+ * 8.map {@link #map()}
+ * 9.mapToInt {@link #mapToInt()}
+ * 10.mapToLong {@link #mapToLong()}
+ * 11.mapToDouble {@link #mapToDouble()}
+ * 12.flatMap {@link #flatMap()}
+ * 13.flatMapToInt {@link #flatMapToInt()}
+ * 14.flatMapToDouble {@link #flatMapToDouble()}
+ * 15.flatMapToLong {@link #flatMapToLong()}
+ * 16.peek {@link #peek()}
+ * 17.foreach {@link #foreach()}
+ * 18.forEachOrdered {@link #forEachOrdered()}
+ * 19.toArray {@link #toArray()}
+ * 20.reduce {@link #reduce()}
+ * 21.collect {@link #collect()}
+ * 22.min {@link #min()}
+ * 23.max {@link #max()}
+ * 24.count {@link #count()}
+ * 25.anyMatch {@link #anyMatch()}
+ * 26.allMatch {@link #allMatch()}
+ * 27.noneMatch {@link #noneMatch()}
+ * 28.findFirst {@link #findFirst()}
+ * 29.findAny {@link #findAny()}
  */
 public class StreamDemo {
 
@@ -69,7 +91,7 @@ public class StreamDemo {
      */
     @Test
     public void distinctBean(){
-        Entity.getEntityList().stream().distinct().forEach(n->System.out.println(n.toString()));
+        Entity.getEntityList().stream().distinct().forEach(System.out::println);
     }
 
     @Test
@@ -94,6 +116,8 @@ public class StreamDemo {
     public void sorted(){
         List<Integer> numbers = Arrays.asList(2, 3, 4, 5, 6, 7, 1, 8);
         numbers.stream().sorted().forEach(System.out::println);
+
+        Stream.of(2, 3, 4, 5, 6, 7, 1, 8).sorted().forEach(System.out::println);
     }
 
     /**
