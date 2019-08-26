@@ -163,6 +163,7 @@ public class CopyDemo {
      * 序列化
      * 方案2：Json
      */
+    @Test
     public void test6(){
 
     }
