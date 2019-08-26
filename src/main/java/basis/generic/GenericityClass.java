@@ -1,4 +1,4 @@
-package generic;
+package basis.generic;
 
 import org.junit.Test;
 import org.mortbay.log.Log;
@@ -41,8 +41,8 @@ public class GenericityClass {
         List<String> stringArrayList = new ArrayList<>();
         List<Integer> integerArrayList = new ArrayList<>();
 
-        java.lang.Class classStringArrayList = stringArrayList.getClass();
-        java.lang.Class classIntegerArrayList = integerArrayList.getClass();
+        Class classStringArrayList = stringArrayList.getClass();
+        Class classIntegerArrayList = integerArrayList.getClass();
 
         if(classStringArrayList.equals(classIntegerArrayList)){
             Log.info("泛型测试：类型相同");
@@ -133,7 +133,7 @@ public class GenericityClass {
             Log.info("instance yes");
         }
 
-        /*if(generic instanceof Generic<Integer>){
+        /*if(base.copy.generic instanceof Generic<Integer>){
 
         }*/
 

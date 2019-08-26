@@ -1,4 +1,4 @@
-package generic;
+package basis.generic;
 
 import org.junit.Test;
 

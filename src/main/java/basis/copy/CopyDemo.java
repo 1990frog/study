@@ -1,4 +1,4 @@
-package base.copy;
+package basis.copy;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
