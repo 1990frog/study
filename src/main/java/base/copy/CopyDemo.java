@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.junit.Test;
 import org.mortbay.log.Log;
 
+import java.io.*;
 import java.util.HashMap;
 
 public class CopyDemo {
@@ -94,5 +95,75 @@ public class CopyDemo {
         en1.setValue("2");
         Log.info("en1 value change to 2");
         Log.info("en3.next.value："+en3.next.getValue());
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T extends Serializable> T clone(T obj){
+        T cloneObj = null;
+        try {
+            //写入字节流
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            ObjectOutputStream obs = new ObjectOutputStream(out);
+            obs.writeObject(obj);
+            obs.close();
+
+            //分配内存，写入原始对象，生成新对象
+            ByteArrayInputStream ios = new ByteArrayInputStream(out.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(ios);
+            //返回生成的新对象
+            cloneObj = (T) ois.readObject();
+            ois.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cloneObj;
+    }
+
+    /**
+     * 深拷贝
+     * 方案一：序列化
+     */
+    @Test
+    public void test5()  {
+
+//        /**
+//         *  序列化这样的内部类实例将导致其关联的外部类实例的序列化
+//         *  内部类的序列化（即，嵌套类不属于静态成员的类），包括本地和匿名类，被强烈反对
+//         *
+//         *  内部类不能被序列化
+//         */
+//        @Getter
+//        @Setter
+//        @AllArgsConstructor
+//        class Entity implements Cloneable,Serializable {
+//            private static final long serialVersionUID = 6802841645328821581L;
+//            private String value;
+//            private Entity next;
+//            public Entity(){
+//            }
+//        }
+
+        CopyEntity en1 = new CopyEntity();
+        en1.setValue("1");
+
+        CopyEntity en2 = en1;
+        Log.info(en2.getValue());
+
+        en1.setValue("2");
+        Log.info(en2.getValue());
+
+        CopyEntity en3 = CopyDemo.clone(en1);
+        Log.info(en3.getValue());
+
+        en1.setValue("3");
+        Log.info(en3.getValue());
+    }
+
+    /**
+     * 序列化
+     * 方案2：Json
+     */
+    public void test6(){
+
     }
 }
