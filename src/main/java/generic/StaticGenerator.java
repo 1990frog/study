@@ -1,4 +1,4 @@
-package Generic;
+package generic;
 
 public class StaticGenerator<T> {
     /**

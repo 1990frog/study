@@ -1,4 +1,4 @@
-package Generic;
+package generic;
 
 import java.util.Iterator;
 
