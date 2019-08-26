@@ -78,5 +78,6 @@ hive-site.xml
 cp 数据库驱动到 hive/lib
 
 
+卡死： set hive.exec.mode.local.auto=true;
 
 
