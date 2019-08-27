@@ -1,4 +1,4 @@
-package netty.telnet;
+package telnet;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

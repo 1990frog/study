@@ -1,4 +1,4 @@
-package netty.telnet;
+package telnet;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

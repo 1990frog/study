@@ -1,4 +1,4 @@
-package netty.telnet;
+package telnet;
 
 import org.junit.Test;
 
