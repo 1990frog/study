@@ -1,4 +1,4 @@
-package java8.stream;
+package stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
