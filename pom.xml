@@ -23,6 +23,7 @@
         <module>java8</module>
         <module>netty</module>
         <module>commons</module>
+        <module>java8</module>
     </modules>
 
     <repositories>
