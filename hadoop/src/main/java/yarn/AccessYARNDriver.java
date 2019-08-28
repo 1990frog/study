@@ -1,9 +1,9 @@
 package yarn;
 
-import hadoop.mapreduce.access.Access;
-import hadoop.mapreduce.access.AccessMapper;
-import hadoop.mapreduce.access.AccessPartitioner;
-import hadoop.mapreduce.access.AccessReducer;
+import mapreduce.access.Access;
+import mapreduce.access.AccessMapper;
+import mapreduce.access.AccessPartitioner;
+import mapreduce.access.AccessReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.NullWritable;

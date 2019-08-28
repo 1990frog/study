@@ -1,4 +1,4 @@
-package proxy.dynamicproxy;
+package proxy.dynamicproxy.demo1;
 
 public interface DoSomething {
     void doSomething();
