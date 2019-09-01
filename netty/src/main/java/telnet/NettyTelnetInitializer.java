@@ -17,7 +17,7 @@ public class NettyTelnetInitializer extends ChannelInitializer<SocketChannel> {
     private static final StringEncoder ENCODER = new StringEncoder();
 
     @Override
-    protected void initChannel(SocketChannel channel) throws Exception {
+    protected void initChannel(SocketChannel channel) {
 
         ChannelPipeline pipeline = channel.pipeline();
 
