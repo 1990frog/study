@@ -20,3 +20,9 @@ GUI 或通过网络机制，例如 JMX 或 Web
 
 疑问： Thread类是怎么获取到当前线程的
 Thread.currentThread()和this是一致的，所以打印结果会打印出true
+
+
+volatile设置boolean标记位
+错误原因：
+    在面对线程遇到长时间阻塞的情况，是没办法及时唤醒的。如果阻塞发生在while循环体里面，是没有检查逻辑的
+修正方式

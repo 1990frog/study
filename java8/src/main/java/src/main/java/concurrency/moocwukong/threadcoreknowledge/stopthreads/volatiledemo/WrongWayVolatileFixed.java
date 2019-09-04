@@ -4,11 +4,13 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 描述：     用中断来修复刚才的无尽等待问题
+ * 描述：
+ * 用中断来修复刚才的无尽等待问题
  */
 public class WrongWayVolatileFixed {
 
     public static void main(String[] args) throws InterruptedException {
+        //内部类要被实例化，要求它的外部类先被实例化
         WrongWayVolatileFixed body = new WrongWayVolatileFixed();
         ArrayBlockingQueue storage = new ArrayBlockingQueue(10);
 
