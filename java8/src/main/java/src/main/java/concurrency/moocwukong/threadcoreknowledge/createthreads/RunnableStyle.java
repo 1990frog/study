@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads;
 
 /**
- * 描述：     用Runnable方式创建线程
+ * 描述：
+ * 用Runnable方式创建线程
  */
 public class RunnableStyle implements Runnable{
 

@@ -5,6 +5,9 @@ import java.util.concurrent.Executors;
 
 /**
  * 描述：线程池创建线程的方法
+ *
+ * @NotNull Future<?> submit(Runnable task);
+ *
  */
 public class ThreadPool5 {
 

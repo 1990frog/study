@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads.wrongways;
 
 /**
- * 描述：     lambda表达式创建线程
+ * 描述：
+ * lambda表达式创建线程
  */
 public class Lambda {
 

@@ -1,8 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads.wrongways;
 
-
 /**
- * 描述：     匿名内部类的方式
+ * 描述：
+ * 匿名内部类的方式
  */
 public class AnonymousInnerClassDemo {
 

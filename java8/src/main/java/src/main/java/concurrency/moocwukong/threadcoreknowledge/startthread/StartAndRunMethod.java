@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.startthread;
 
 /**
- * 描述：     对比start和run两种启动线程的方式
+ * 描述：
+ * 对比start和run两种启动线程的方式
  */
 public class StartAndRunMethod {
 

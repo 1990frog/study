@@ -1,7 +1,9 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads;
 
 /**
- * 描述：     注意Thread.interrupted()方法的目标对象是“当前线程”，而不管本方法来自于哪个对象
+ * 描述：
+ * 注意Thread.interrupted()方法的目标对象是“当前线程”，而不管本方法来自于哪个对象
+ * 可将Thread看成this类似
  */
 public class RightWayInterrupted {
 

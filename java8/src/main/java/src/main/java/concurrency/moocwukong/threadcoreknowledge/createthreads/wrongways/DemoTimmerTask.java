@@ -4,7 +4,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 描述：     定时器创建线程
+ * 描述：
+ * 定时器创建线程
+ *
+ * TimerTask implements Runnable
+ *
+ * Timer源码值得研究一下
+ *
  */
 public class DemoTimmerTask {
 
