@@ -50,16 +50,22 @@ public class RightWayStopThreadWithoutSleep implements Runnable {
      * Interrupts this thread.
      * 中断此线程。
      *
-     * Unless the current thread is interrupting itself, which is always permitted, the checkAccess method of this thread is invoked, which may cause a SecurityException to be thrown.
+     * Unless the current thread is interrupting itself, which is always permitted, t
+     * he checkAccess method of this thread is invoked, which may cause a SecurityException to be thrown.
      * 除非当前线程正在中断自身（始终允许），否则将调用此线程的checkAccess方法，这可能导致抛出SecurityException。
      *
-     * If this thread is blocked in an invocation of the wait(), wait(long), or wait(long, int) methods of the Object class, or of the join(), join(long), join(long, int), sleep(long), or sleep(long, int), methods of this class, then its interrupt status will be cleared and it will receive an InterruptedException.
-     * 如果在调用Object类的wait（），wait（long）或wait（long，int）方法，或者join（），join（long），join（long，int）方法中阻塞了这个线程，sleep（long）或sleep（long，int），这个类的方法，然后它的中断状态将被清除，它将收到InterruptedException。
+     * If this thread is blocked in an invocation of the wait(), wait(long), or wait(long, int) methods of the Object class,
+     * or of the join(), join(long), join(long, int), sleep(long), or sleep(long, int), methods of this class,
+     * then its interrupt status will be cleared and it will receive an InterruptedException.
+     * 如果在调用Object类的wait（），wait（long）或wait（long，int）方法，或者join（），join（long），join（long，int）方法中阻塞了这个线程，
+     * sleep（long）或sleep（long，int），这个类的方法，然后它的中断状态将被清除，它将收到InterruptedException。
      *
-     * If this thread is blocked in an I/O operation upon an InterruptibleChannel then the channel will be closed, the thread's interrupt status will be set, and the thread will receive a ClosedByInterruptException.
+     * If this thread is blocked in an I/O operation upon an InterruptibleChannel then the channel will be closed,
+     * the thread's interrupt status will be set, and the thread will receive a ClosedByInterruptException.
      * 如果在InterruptibleChannel上的I / O操作中阻塞了该线程，则该通道将被关闭，线程的中断状态将被设置，并且线程将收到ClosedByInterruptException。
      *
-     * If this thread is blocked in a Selector then the thread's interrupt status will be set and it will return immediately from the selection operation, possibly with a non-zero value, just as if the selector's wakeup method were invoked.
+     * If this thread is blocked in a Selector then the thread's interrupt status will be set and it will return immediately from the selection operation,
+     * possibly with a non-zero value, just as if the selector's wakeup method were invoked.
      * 如果此线程在Selector中被阻塞，则线程的中断状态将被设置，并且它将立即从选择操作返回，可能具有非零值，就像调用选择器的唤醒方法一样。
      *
      * If none of the previous conditions hold then this thread's interrupt status will be set.
