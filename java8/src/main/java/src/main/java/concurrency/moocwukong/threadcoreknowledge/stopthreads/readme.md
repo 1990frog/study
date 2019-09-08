@@ -6,8 +6,8 @@
 
 
 实际开发中的两种最佳实践
-方法一：优先选择：传递中断RightWayStopThreadInProd
-方法二：不想或无法传递：恢复中断
+方法一：优先选择传递中断RightWayStopThreadInProd
+方法二：不想或无法传递中断时，可选择恢复中断
 
 不应屏蔽中断
 
@@ -25,3 +25,18 @@ volatile设置boolean标记位
 错误原因：
     在面对线程遇到长时间阻塞的情况，是没办法及时唤醒的。如果阻塞发生在while循环体里面，是没有检查逻辑的
 修正方式
+
+
+
+
+创建Runnable的两种方式：
+1.实现Runnable接口
+2.Runnable接受lumbda表达式
+
+java设计sleep函数理念：如果sleep一旦响应中断，便会把interupted这个标记位清除
+
+RightWayStopThreadWithoutSleep 中断未阻塞线程
+RightWayStopThreadWithSleep 中断阻塞线程
+RightWayStopThreadWithSleepEveryLoop 在循环中中断阻塞线程
+
+CantInterrupt 如果while里面放try/catch，会导致中断失效（while内try/catch问题）

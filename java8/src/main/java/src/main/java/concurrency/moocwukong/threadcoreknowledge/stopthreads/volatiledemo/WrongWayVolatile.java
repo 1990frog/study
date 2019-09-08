@@ -17,7 +17,8 @@ public class WrongWayVolatile implements Runnable {
                     System.out.println(num + "是100的倍数。");
                 }
                 num++;
-                Thread.sleep(1);
+                Thread.sleep(1);//阻塞时间短，不会发生在阻塞期间更改中断状态
+//                Thread.sleep(100000);//阻塞时间长，此时发生中断状态更改，volatile无效
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -30,6 +31,7 @@ public class WrongWayVolatile implements Runnable {
         thread.start();
         Thread.sleep(5000);
         r.canceled = true;
+        System.out.println("发起中断");
     }
 }
 

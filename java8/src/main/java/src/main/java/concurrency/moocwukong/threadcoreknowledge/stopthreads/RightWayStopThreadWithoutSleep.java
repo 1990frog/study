@@ -40,7 +40,7 @@ public class RightWayStopThreadWithoutSleep implements Runnable {
         Thread thread = new Thread(new RightWayStopThreadWithoutSleep());
         thread.start();
         Thread.sleep(1000);
-        thread.interrupt();
+        thread.interrupt();//中断线程，更改被中断线程状态（isInterrupted:true）
     }
 
     /**

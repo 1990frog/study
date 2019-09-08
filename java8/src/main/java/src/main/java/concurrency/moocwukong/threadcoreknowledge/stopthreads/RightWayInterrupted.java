@@ -25,7 +25,7 @@ public class RightWayInterrupted {
         System.out.println("isInterrupted: " + threadOne.isInterrupted());
         //获取中断标志并重置
         System.out.println("isInterrupted: " + threadOne.interrupted());
-        //获取中断标志并重直
+        //获取中断标志并重置
         System.out.println("isInterrupted: " + Thread.interrupted());
         //获取中断标志
         System.out.println("isInterrupted: " + threadOne.isInterrupted());
