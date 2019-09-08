@@ -2,7 +2,7 @@ package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads.vol
 
 /**
  * 描述：
- * 演示用volatile的局限：part1 看似可行
+ * 演示用volatile的局限：part1 看似可行,实则不行
  */
 public class WrongWayVolatile implements Runnable {
 
