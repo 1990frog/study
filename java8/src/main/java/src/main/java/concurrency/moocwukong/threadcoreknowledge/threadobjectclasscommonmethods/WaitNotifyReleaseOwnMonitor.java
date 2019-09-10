@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.threadobjectclasscommonmethods;
 
 /**
- * 描述：     证明wait只释放当前的那把锁
+ * 描述：
+ * 证明wait只释放当前的那把锁
  */
 public class WaitNotifyReleaseOwnMonitor {
 
