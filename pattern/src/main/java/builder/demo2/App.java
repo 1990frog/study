@@ -1,15 +1,13 @@
 package builder.demo2;
 
 public class App {
+
     public static void main(String[] args) {
-        showBike(new OfoBuilder());
-        showBike(new MobikeBuilder());
-    }
-    private void showBike(Builder builder) {
-        Director director = new Director(builder);
-        Bike bike = director.construct();
-        bike.getFrame().frame();
-        bike.getSeat().seat();
-        bike.getTire().tire();
+        //具体创建者
+        MyRobustBuilder myRobustBuilder = new MyRobustBuilder();
+        //指导者
+        RobustDirector robustDirector = new RobustDirector(myRobustBuilder);
+        Robust robust = robustDirector.buildRobust("玩具头", "玩具体");
+        System.out.println(robust);
     }
 }
