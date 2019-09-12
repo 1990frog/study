@@ -7,7 +7,7 @@ package builder.demo3;
  * 定义Builder构造，传入Car ，构造里面执行Car属性赋值给Builder对应属性的操作，目的是为了重建一个builder。
  *
  * 定义一系列方法进行属性初始化，这些方法跟JavaBeans模式构建中的方法类似，不同的是，返回值为Builder类型，为了方便链式调用。
- * 最后定义方法返回实体Car对象，car的构造器持有Builder,最终将builder制造的组件赋值给car完成构建。
+ * 最后定义方法返回实体Car对象，Car的构造器持有Builder,最终将builder制造的组件赋值给car完成构建。
  *
  * 至此，我们的Builder模式体验就结束了，这里讲的只是Builder模式的一个变种，即在android中应用较为广泛的模式，下面总结一下优缺点：
  *
