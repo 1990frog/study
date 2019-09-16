@@ -1,7 +1,10 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.threadobjectclasscommonmethods;
 
 /**
- * 描述：     两个线程交替打印0~100的奇偶数，用synchronized关键字实现
+ * 描述：
+ * 两个线程交替打印0~100的奇偶数，用synchronized关键字实现
+ *
+ * 效率低，有很多废操作
  */
 public class WaitNotifyPrintOddEvenSyn {
 

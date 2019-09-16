@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 描述：     每个1秒钟输出当前时间，被中断，观察。
+ * 描述：
+ * 每个1秒钟输出当前时间，被中断，观察。
  * Thread.sleep()
  * TimeUnit.SECONDS.sleep()
  */
@@ -23,7 +24,7 @@ public class SleepInterrupted implements Runnable{
             try {
                 TimeUnit.HOURS.sleep(3);
                 TimeUnit.MINUTES.sleep(25);
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(1);//中断阻塞，但未中断程序
             } catch (InterruptedException e) {
                 System.out.println("我被中断了！");
                 e.printStackTrace();

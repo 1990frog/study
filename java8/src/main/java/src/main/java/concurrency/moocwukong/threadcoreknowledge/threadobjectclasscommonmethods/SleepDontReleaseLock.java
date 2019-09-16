@@ -4,7 +4,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 描述：     演示sleep不释放lock（lock需要手动释放）
+ * 描述：
+ * 演示sleep不释放lock（lock需要手动释放）
  */
 public class SleepDontReleaseLock implements Runnable {
 

@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.LinkedList;
 
 /**
- * 描述：     用wait/notify来实现生产者消费者模式
+ * 描述：
+ * 用wait/notify来实现生产者消费者模式
  */
 public class ProducerConsumerModel {
     public static void main(String[] args) {
@@ -16,12 +17,14 @@ public class ProducerConsumerModel {
     }
 }
 
+/**
+ * 生产者
+ */
 class Producer implements Runnable {
 
     private EventStorage storage;
 
-    public Producer(
-            EventStorage storage) {
+    public Producer(EventStorage storage) {
         this.storage = storage;
     }
 
@@ -33,12 +36,14 @@ class Producer implements Runnable {
     }
 }
 
+/**
+ * 消费者
+ */
 class Consumer implements Runnable {
 
     private EventStorage storage;
 
-    public Consumer(
-            EventStorage storage) {
+    public Consumer(EventStorage storage) {
         this.storage = storage;
     }
 
@@ -50,6 +55,9 @@ class Consumer implements Runnable {
     }
 }
 
+/**
+ * 仓库类
+ */
 class EventStorage {
 
     private int maxSize;

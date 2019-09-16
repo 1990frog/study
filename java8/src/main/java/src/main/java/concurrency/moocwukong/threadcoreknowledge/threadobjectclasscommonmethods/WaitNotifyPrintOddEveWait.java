@@ -2,7 +2,8 @@ package src.main.java.concurrency.moocwukong.threadcoreknowledge.threadobjectcla
 
 
 /**
- * 描述：     两个线程交替打印0~100的奇偶数，用wait和notify
+ * 描述：
+ * 两个线程交替打印0~100的奇偶数，用wait和notify
  */
 public class WaitNotifyPrintOddEveWait {
 
