@@ -1,7 +1,9 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.uncaughtexception;
 
 /**
- * 描述：     单线程，抛出，处理，有异常堆栈 多线程，子线程发生异常，会有什么不同？
+ * 描述：
+ * 单线程，抛出，处理，有异常堆栈
+ * 多线程，子线程发生异常，会有什么不同？
  */
 public class ExceptionInChildThread implements Runnable {
 

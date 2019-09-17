@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.threadobjectclasscommonmethods;
 
 /**
- * 描述：     通过讲解join原理，分析出join的代替写法
+ * 描述：
+ * 通过讲解join原理，分析出join的代替写法
  */
 public class JoinPrinciple {
 
@@ -21,6 +22,12 @@ public class JoinPrinciple {
         thread.start();
         System.out.println("开始等待子线程运行完毕");
         thread.join();
+
+        /**
+         * 等价代码
+         * 直到thread执行完毕，才会sout
+         * jvm层thread执行完毕会调用notify
+         */
 //        synchronized (thread) {
 //            thread.wait();
 //        }

@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.threadobjectclasscommonmethods;
 
 /**
- * 描述：     演示打印main, Thread-0, Thread-1
+ * 描述：
+ * 演示打印main, Thread-0, Thread-1
  */
 public class CurrentThread implements Runnable {
 

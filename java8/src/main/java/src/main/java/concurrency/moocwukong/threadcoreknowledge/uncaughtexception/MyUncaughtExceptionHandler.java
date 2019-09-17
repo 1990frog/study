@@ -4,7 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 描述：     自己的MyUncaughtExceptionHanlder
+ * 描述：
+ * 自己的MyUncaughtExceptionHanlder
  */
 public class MyUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
 
