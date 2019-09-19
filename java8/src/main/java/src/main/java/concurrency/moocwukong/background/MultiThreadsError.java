@@ -58,7 +58,12 @@ public class MultiThreadsError implements Runnable {
             } catch (BrokenBarrierException e) {
                 e.printStackTrace();
             }
+
+            /**
+             * 此demo统计的错误皆发生在++过程中
+             */
             index++;
+
             try {
                 cyclicBarrier1.reset();
                 /**
