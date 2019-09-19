@@ -8,6 +8,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 描述：
  * 第一种：运行结果出错。
  * 演示计数不准确（减少），找出具体出错的位置。
+ *
+ * 找出错误的具体位置为目标
+ *
  */
 public class MultiThreadsError implements Runnable {
 
@@ -68,6 +71,18 @@ public class MultiThreadsError implements Runnable {
                 e.printStackTrace();
             }
             realIndex.incrementAndGet();
+
+//            synchronized (instance) {
+//                if (marked[index]) {
+//                    System.out.println("发生错误" + index);
+//                    wrongCount.incrementAndGet();
+//                }
+//                marked[index] = true;
+//            }
+
+            /**
+             * synchronized保障可见性
+             */
             synchronized (instance) {
                 if (marked[index] && marked[index - 1]) {
                     System.out.println("发生错误" + index);
