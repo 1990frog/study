@@ -15,6 +15,10 @@ public class MultiThreadsError implements Runnable {
     int index = 0;
     static AtomicInteger realIndex = new AtomicInteger();
     static AtomicInteger wrongCount = new AtomicInteger();
+    /**
+     * CyclicBarrier可以让我们的线程,可以根据我们的需要在某一个地方等待
+     * 传参代表等待的线程数,此处等待两个线程
+     */
     static volatile CyclicBarrier cyclicBarrier1 = new CyclicBarrier(2);
     static volatile CyclicBarrier cyclicBarrier2 = new CyclicBarrier(2);
 
@@ -38,7 +42,13 @@ public class MultiThreadsError implements Runnable {
     	marked[0] = true;
         for (int i = 0; i < 10000; i++) {
             try {
+                /**
+                 * 重置
+                 */
                 cyclicBarrier2.reset();
+                /**
+                 * 如果两个线程都执行await就会放行
+                 */
                 cyclicBarrier1.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -48,6 +58,9 @@ public class MultiThreadsError implements Runnable {
             index++;
             try {
                 cyclicBarrier1.reset();
+                /**
+                 * 保障两个线程并驾齐驱,index相加发生在一个阶段
+                 */
                 cyclicBarrier2.await();
             } catch (InterruptedException e) {
                 e.printStackTrace();
