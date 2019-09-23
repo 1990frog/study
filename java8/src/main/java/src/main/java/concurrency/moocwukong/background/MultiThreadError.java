@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.background;
 
 /**
- * 描述：     第二章线程安全问题，演示死锁。
+ * 描述：
+ * 第二章线程安全问题，演示死锁。
  */
 public class MultiThreadError implements Runnable {
 

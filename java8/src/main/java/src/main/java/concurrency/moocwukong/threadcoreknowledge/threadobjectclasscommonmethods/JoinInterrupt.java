@@ -11,17 +11,14 @@ public class JoinInterrupt {
         //获取主线程
         Thread mainThread = Thread.currentThread();
 
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    //中断主线程
-                    mainThread.interrupt();
-                    Thread.sleep(5000);
-                    System.out.println("Thread1 finished.");
-                } catch (InterruptedException e) {
-                    System.out.println("子线程中断");
-                }
+        Thread thread1 = new Thread(() -> {
+            try {
+                //中断主线程
+                mainThread.interrupt();
+                Thread.sleep(5000);
+                System.out.println("Thread1 finished.");
+            } catch (InterruptedException e) {
+                System.out.println("子线程中断");
             }
         });
 

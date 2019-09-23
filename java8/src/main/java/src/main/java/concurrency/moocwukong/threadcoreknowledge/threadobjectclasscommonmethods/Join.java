@@ -8,7 +8,7 @@ public class Join {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Thread thread = new Thread(new Runnable() {
+        Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -32,10 +32,10 @@ public class Join {
             }
         });
 
-        thread.start();
+        thread1.start();
         thread2.start();
         System.out.println("开始等待子线程运行完毕");
-        thread.join();
+        thread1.join();
         thread2.join();
         /**
          * thread与thread2都执行完毕，才会执行下面的sout

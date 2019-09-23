@@ -7,7 +7,9 @@ package src.main.java.concurrency.moocwukong.threadcoreknowledge.threadobjectcla
 public class CurrentThread implements Runnable {
 
     public static void main(String[] args) {
+        //主线程方法调用
         new CurrentThread().run();
+        //线1线2
         new Thread(new CurrentThread()).start();
         new Thread(new CurrentThread()).start();
     }
