@@ -25,6 +25,7 @@ public class ThreadStyle extends Thread{
     public static void main(String[] args) {
         new ThreadStyle().start();
     }
+
 }
 
 

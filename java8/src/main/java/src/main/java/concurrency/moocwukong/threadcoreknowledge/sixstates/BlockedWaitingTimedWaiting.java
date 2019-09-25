@@ -1,10 +1,13 @@
 package src.main.java.concurrency.moocwukong.threadcoreknowledge.sixstates;
 
 /**
- * 描述：     展示Blocked, Waiting, TimedWaiting
+ * 描述：
+ * 展示Blocked, Waiting, TimedWaiting
  */
 public class BlockedWaitingTimedWaiting implements Runnable{
+
     public static void main(String[] args) {
+
         BlockedWaitingTimedWaiting runnable = new BlockedWaitingTimedWaiting();
         Thread thread1 = new Thread(runnable);
         thread1.start();
