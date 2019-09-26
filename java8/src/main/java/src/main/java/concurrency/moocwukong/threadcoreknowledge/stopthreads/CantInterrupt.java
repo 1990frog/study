@@ -6,6 +6,24 @@ package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads;
  * 如果while里面放try/catch，会导致中断失效
  *
  * java设计sleep函数理念：如果sleep一旦响应中断，便会把interupted这个标记位清除
+ *s
+ * interrupted 是作用于当前线程（currentThread）,恢复标记位（中断状态恢复为未中断状态）
+ * public static boolean interrupted() {
+ *      return currentThread().isInterrupted(true);//ture 更新标记位
+ * }
+ *
+ * isInterrupted 是作用于调用该方法的线程对象所对应的线程。
+ * （线程对象对应的线程不一定是当前运行的线程。例如我们可以在A线程中去调用B线程对象的isInterrupted方法。）
+ * public boolean isInterrupted() {
+ *     return isInterrupted(false);//false 不更新标记位
+ * }
+ *
+ * private native boolean isInterrupted(boolean ClearInterrupted);
+ *
+ * 原来这是一个本地方法，看不到源码。不过没关系，通过参数名ClearInterrupted我们就能知道，这个参数代表是否要清除状态位。
+ * 如果这个参数为true，说明返回线程的状态位后，要清掉原来的状态位（恢复成原来情况）。
+ * 这个参数为false，就是直接返回线程的状态位。
+ * 这两个方法很好区分，只有当前线程才能清除自己的中断位（对应interrupted（）方法）
  *
  */
 public class CantInterrupt {

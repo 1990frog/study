@@ -40,3 +40,11 @@ RightWayStopThreadWithSleep 中断阻塞线程
 RightWayStopThreadWithSleepEveryLoop 在循环中中断阻塞线程
 
 CantInterrupt 如果while里面放try/catch，会导致中断失效（while内try/catch问题）
+
+---
+
+最佳方案：
+
+使用线程中断的业务情景：
+当我们点击某个杀毒软件的取消按钮来停止查杀病毒时，当我们在控制台敲入 quit 命令以结束某个后台服务时……都需要通过一个线程去取消另一个线程正在执行的任务。Java 没有提供一种安全直接的方法来停止某个线程，但是 Java 提供了中断机制。
+如果对 Java 中断没有一个全面的了解，可能会误以为被中断的线程将立马退出运行，但事实并非如此。中断机制是如何工作的？捕获或检测到中断后，是抛出 InterruptedException 还是重设中断状态以及在方法中吞掉中断状态会有什么后果？Thread.stop 与中断相比又有哪些异同？什么情况下需要使用中断？本文将从以上几个方面进行描述。
