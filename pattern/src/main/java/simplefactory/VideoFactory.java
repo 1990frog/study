@@ -4,8 +4,11 @@ package simplefactory;
  * Created by geely
  */
 public class VideoFactory {
+
     public Video getVideo(Class c){
+
         Video video = null;
+
         try {
             video = (Video) Class.forName(c.getName()).newInstance();
         } catch (InstantiationException e) {
@@ -15,7 +18,9 @@ public class VideoFactory {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
         return video;
+
     }
 
 

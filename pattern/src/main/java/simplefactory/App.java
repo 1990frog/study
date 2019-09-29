@@ -3,7 +3,7 @@ package simplefactory;
 /**
  * Created by geely
  */
-public class Test {
+public class App {
     public static void main(String[] args) {
 //        VideoFactory videoFactory = new VideoFactory();
 //        Video video = videoFactory.getVideo("java");

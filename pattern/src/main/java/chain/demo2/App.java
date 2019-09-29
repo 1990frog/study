@@ -1,6 +1,6 @@
 package chain.demo2;
 
-public class Test {
+public class App {
     public static void main(String[] args) {
         Approver articleApprover = new ArticleApprover();
         Approver videoApprover = new VideoApprover();

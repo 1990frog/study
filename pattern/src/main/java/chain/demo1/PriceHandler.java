@@ -1,4 +1,4 @@
-package chain.demo1.Handler;
+package chain.demo1;
 
 /**
  * 价格处理人，负责处理客户折扣申请

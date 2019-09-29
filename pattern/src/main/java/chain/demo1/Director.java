@@ -1,4 +1,4 @@
-package chain.demo1.Handler;
+package chain.demo1;
 
 /**
  * 销售总监， 可以批准40%以内的折扣

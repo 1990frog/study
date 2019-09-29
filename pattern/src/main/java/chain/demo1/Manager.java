@@ -1,13 +1,13 @@
-package chain.demo1.Handler;
+package chain.demo1;
 
 /**
- * 销售小组长， 可以批准15%以内的折扣
+ * 销售经理， 可以批准30%以内的折扣
  */
-public class Lead extends PriceHandler {
+public class Manager extends PriceHandler {
 
 	@Override
 	public void processDiscount(float discount) {
-		if(discount<=0.15){
+		if(discount<=0.3){
 			System.out.format("%s批准了折扣:%.2f%n",this.getClass().getName(),discount);
 		}else{
 			successor.processDiscount(discount);

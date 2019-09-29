@@ -1,4 +1,4 @@
-package chain.demo1.Handler;
+package chain.demo1;
 
 /**
  * CEO， 可以批准55%以内的折扣

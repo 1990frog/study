@@ -1,4 +1,4 @@
-package chain.demo1.Handler;
+package chain.demo1;
 
 public class PriceHandlerFactory {
 

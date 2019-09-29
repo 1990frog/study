@@ -1,6 +1,6 @@
 package flyweight.demo1;
 
-public class Client {
+public class App {
 
     public static void main(String[] args) {
         int extrinsic = 22;
