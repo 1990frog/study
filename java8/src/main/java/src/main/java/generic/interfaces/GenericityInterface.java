@@ -1,7 +1,8 @@
-package src.main.java.generic;
+package src.main.java.generic.interfaces;
 
 import org.junit.Test;
 import org.mortbay.log.Log;
+import src.main.java.generic.interfaces.Generator;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package src.main.java.generic;
+package src.main.java.generic.interfaces;
 
 import java.util.Iterator;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package src.main.java.generic;
+package src.main.java.generic.clazz;
 
 import org.junit.Test;
 import org.mortbay.log.Log;

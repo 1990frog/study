@@ -1,5 +1,7 @@
 package src.main.java.generic;
 
+import src.main.java.generic.interfaces.Generator;
+
 /**
  * 这里注意到，虽然在Fibonacci里面使用的都是int类型，但是其参数类型确是Integer。
  * 这是因为Java泛型的局限性：基本类型无法作为类型参数。
