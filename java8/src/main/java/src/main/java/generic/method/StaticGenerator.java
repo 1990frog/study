@@ -1,4 +1,4 @@
-package src.main.java.generic;
+package src.main.java.generic.method;
 
 public class StaticGenerator<T> {
     /**
