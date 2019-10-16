@@ -6,7 +6,7 @@
 
 方法一和方法二，也就是“实现Runnable接口并传入Thread类”和“继承Thread类然后重写run()”在实现多线程的本质上，并没有区别，都是最终调用了start()方法来新建线程。这两个方法的最主要区别在于run()方法的内容来源：
 
-```
+```java
 @Override
 public void run(){
     if(target!=null){

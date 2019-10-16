@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
  * @NotNull Future<?> submit(Runnable task);
  *
  */
-public class ThreadPool5 {
+public class ThreadPool {
 
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newCachedThreadPool();

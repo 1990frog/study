@@ -1,6 +1,7 @@
 package adapter.objectadapter.demo1;
 
 public class VoltageAdapter implements Voltage5 {
+
     private Voltage220 mVoltage220;
 
     public VoltageAdapter(Voltage220 voltage220) {
