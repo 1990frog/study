@@ -7,12 +7,28 @@ package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads;
  */
 public class RightWayInterrupted {
 
+    /**
+     * output:
+     * isInterrupted: true
+     * isInterrupted: false
+     * isInterrupted: false
+     * isInterrupted: true
+     *
+     * Thread.interrupted()方法调用，只作用于当前线程：
+     * public static boolean interrupted() {
+     *      return currentThread().isInterrupted(true);
+     * }
+     */
     public static void main(String[] args) throws InterruptedException {
 
         Thread threadOne = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (; ; ) {
+//                    if(Thread.currentThread().isInterrupted()){
+//                        break;
+//                        Thread.interrupted();
+//                    }
                 }
             }
         });
@@ -20,15 +36,15 @@ public class RightWayInterrupted {
         // 启动线程
         threadOne.start();
         //设置中断标志
-        threadOne.interrupt();
+        threadOne.interrupt();//threadOne is true
         //获取中断标志,threadOne被中断：ture
-        System.out.println("isInterrupted: " + threadOne.isInterrupted());
+        System.out.println("isInterrupted: " + threadOne.isInterrupted());//threadOne is true
         //获取中断标志并重置，main的中断状态被重置：false
-        System.out.println("isInterrupted: " + threadOne.interrupted());
+        System.out.println("isInterrupted: " + threadOne.interrupted());//main is false
         //获取中断标志并重置，main的中断状态被重置：false
-        System.out.println("isInterrupted: " + Thread.interrupted());
+        System.out.println("isInterrupted: " + Thread.interrupted());//main is false
         //获取中断标志,threadOne的中断状态：ture
-        System.out.println("isInterrupted: " + threadOne.isInterrupted());
+        System.out.println("isInterrupted: " + threadOne.isInterrupted());//threadOne is true
         threadOne.join();
         System.out.println("Main thread is over.");
     }
