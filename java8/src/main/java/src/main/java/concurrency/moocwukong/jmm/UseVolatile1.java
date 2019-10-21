@@ -3,7 +3,8 @@ package src.main.java.concurrency.moocwukong.jmm;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 描述：     volatile适用的情况1
+ * 描述：
+ * volatile适用的情况1
  */
 public class UseVolatile1 implements Runnable {
 

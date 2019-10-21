@@ -3,7 +3,11 @@ package src.main.java.concurrency.moocwukong.jmm;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 描述：     volatile不适用的情况2
+ * 描述：
+ * volatile不适用的情况2
+ *
+ * 与a++类似，都依赖于之前的值
+ *
  */
 public class NoVolatile2 implements Runnable {
 

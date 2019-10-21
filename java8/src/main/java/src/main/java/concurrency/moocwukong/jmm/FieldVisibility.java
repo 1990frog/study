@@ -1,7 +1,8 @@
 package src.main.java.concurrency.moocwukong.jmm;
 
 /**
- * 描述：     演示可见性带来的问题
+ * 描述：
+ * 演示可见性带来的问题
  */
 public class FieldVisibility {
 

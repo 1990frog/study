@@ -3,7 +3,8 @@ package src.main.java.concurrency.moocwukong.jmm;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 描述：     演示重排序的现象 “直到达到某个条件才停止”，测试小概率事件
+ * 描述：
+ * 演示重排序的现象 “直到达到某个条件才停止”，测试小概率事件
  */
 public class OutOfOrderExecution {
 
