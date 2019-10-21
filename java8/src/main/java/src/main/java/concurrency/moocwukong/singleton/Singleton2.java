@@ -1,7 +1,10 @@
 package src.main.java.concurrency.moocwukong.singleton;
 
 /**
- * 描述：     饿汉式（静态代码块）（可用）
+ * 描述：
+ * 饿汉式（静态代码块）（可用）
+ *
+ * 与第一类相似
  */
 public class Singleton2 {
 

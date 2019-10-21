@@ -1,7 +1,9 @@
 package src.main.java.concurrency.moocwukong.singleton;
 
 /**
- * 描述：     懒汉式（线程不安全）
+ * 描述：
+ * 懒汉式（线程不安全）
+ *
  */
 public class Singleton3 {
 
