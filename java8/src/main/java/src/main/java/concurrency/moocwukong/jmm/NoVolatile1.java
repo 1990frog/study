@@ -22,6 +22,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  * lock addl $0x0,(%rsp) ; StoreLoad Barrier
  * 注意最后一步是内存屏障。
  *
+ * 要使 volatile 变量提供理想的线程安全，必须同时满足下面两个条件:
+ * 1）对变量的写操作不依赖于当前值
+ * 2）该变量没有包含在具有其他变量的不变式中
+ *
+ * 虽然增量操作（x++）看上去类似一个单独操作，实际上它是一个由（读取——修改——写入）操作序列组成的组合操作，必须以原子方式执行，
+ * 而 volatile 不能提供必须的原子特性。实现正确的操作需要使 x 的值在操作期间保持不变，而 volatile 变量无法实现这点。
+ * （然而，如果将值调整为只从单个线程写入，那么可以忽略第一个条件。）
  */
 public class NoVolatile1 implements Runnable {
 
