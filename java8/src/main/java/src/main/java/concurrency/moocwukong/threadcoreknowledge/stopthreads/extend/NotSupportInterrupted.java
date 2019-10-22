@@ -1,4 +1,4 @@
-package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads.other;
+package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads.extend;
 
 import static java.lang.Thread.sleep;
 

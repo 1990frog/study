@@ -1,4 +1,4 @@
-package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads;
+package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads.basicways;
 
 /**
  * class Thread(){

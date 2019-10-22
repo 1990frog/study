@@ -1,4 +1,4 @@
-package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads.wrongways;
+package src.main.java.concurrency.moocwukong.threadcoreknowledge.createthreads.otherways;
 
 /**
  * 描述：
