@@ -2,10 +2,11 @@ package src.main.java.concurrency.briangoetz;
 
 import com.amazonaws.annotation.NotThreadSafe;
 
-import java.util.Random;
-
 /**
  * The variable does not participate in invariants with other variables.
+ *
+ * 两个变化的变量存在不等式关系
+ *
  */
 @NotThreadSafe
 public class NumberRange implements Runnable{
@@ -35,22 +36,15 @@ public class NumberRange implements Runnable{
     @Override
     public void run() {
         while (true){
-
             setLower(upper);
             setUpper(++upper);
-            System.out.println("lower:"+getLower()+",upper:"+getUpper());
-
-//            synchronized (this){
-//                setLower(upper);
-//                setUpper(++upper);
-//                System.out.println("lower:"+getLower()+",upper:"+getUpper());
-//            }
-
         }
     }
 
     public static void main(String[] args) {
         Runnable run = new NumberRange();
+        new Thread(run).start();
+        new Thread(run).start();
         new Thread(run).start();
         new Thread(run).start();
     }
