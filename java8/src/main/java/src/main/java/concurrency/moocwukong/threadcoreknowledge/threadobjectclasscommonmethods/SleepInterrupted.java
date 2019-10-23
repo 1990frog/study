@@ -17,6 +17,7 @@ public class SleepInterrupted implements Runnable{
         Thread.sleep(6500);
         thread.interrupt();
     }
+
     @Override
     public void run() {
         for (int i = 0; i < 10; i++) {

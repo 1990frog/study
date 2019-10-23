@@ -1,4 +1,4 @@
-package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads;
+package src.main.java.concurrency.moocwukong.threadcoreknowledge.stopthreads.interruptsleep;
 
 /**
  * 描述
