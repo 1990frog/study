@@ -12,6 +12,10 @@ public class WrongWayVolatile implements Runnable {
     public void run() {
         int num = 0;
         try {
+            /**
+             * 如果使用Thread.currentThread().isInterrupted()也不会即刻中断啊？
+             * 如果业务需求是执行完当前业务，那volatile貌似也可以的啊？
+             */
             while (num <= 100000 && !canceled) {
                 if (num % 100 == 0) {
                     System.out.println(num + "是100的倍数。");
