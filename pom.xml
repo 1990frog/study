@@ -20,10 +20,9 @@
         <module>pattern</module>
         <module>hadoop</module>
         <module>regexp</module>
-        <module>java8</module>
+        <module>java</module>
         <module>netty</module>
         <module>commons</module>
-        <module>java8</module>
     </modules>
 
     <repositories>
