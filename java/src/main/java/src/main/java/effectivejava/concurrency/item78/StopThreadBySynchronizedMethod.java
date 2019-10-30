@@ -1,4 +1,4 @@
-package src.main.java.effectivejava.concurrency.class78;
+package src.main.java.effectivejava.concurrency.item78;
 
 import java.util.concurrent.TimeUnit;
 
