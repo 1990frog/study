@@ -23,6 +23,7 @@
         <module>java</module>
         <module>netty</module>
         <module>commons</module>
+        <module>dataStructure</module>
     </modules>
 
     <repositories>
