@@ -16,6 +16,20 @@ public class Array {
         this(10);
     }
 
+    // 获取index索引位置的元素
+    int get(int index){
+        if(index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
+        return data[index];
+    }
+
+    // 修改index索引位置的元素为e
+    void set(int index,int e){
+        if(index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
+        data[index] = e;
+    }
+
     // 获取数组的容量
     public int getCapacity(){
         return data.length;
@@ -64,4 +78,73 @@ public class Array {
         size ++;
     }
 
+    // 查找数组中释放有元素e
+    public boolean contains(int e){
+        for(int i=0;i<size;i++){
+            if(data[i]==e){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 查找数组中元素e所在的索引，如果不存在元素e，则返回-1
+    public int find(int e){
+        for(int i=0;i<size;i++){
+            if(data[i]==e){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int[] findAll(int e){
+        return null;
+    }
+
+    // 从数组中删除index位置的元素，返回删除的元素
+    public int remove(int index){
+        if(index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
+        int ret = data[index];
+        for(int i=index;i<size;i++){
+            data[i]=data[i+1];
+        }
+        size--;
+        return ret;
+    }
+
+    public int removeFirst(){
+        return remove(0);
+    }
+
+    public int removeLast(){
+        return remove(size);
+    }
+
+    // 从数组中删除元素e
+    public void removeElement(int e){
+        int index = find(e);
+        if(index!=-1)
+            remove(index);
+    }
+
+    public void removeAllElement(){
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer res = new StringBuffer();
+        res.append(String.format("Array: size = %d , capacity = %d\n"),size,data.length);
+        res.append('[');
+        for(int i=0;i<size;i++){
+            res.append(data[i]);
+            if(i!=size-1){
+                res.append(", ");
+            }
+        }
+        res.append(']');
+        return res.toString();
+    }
 }

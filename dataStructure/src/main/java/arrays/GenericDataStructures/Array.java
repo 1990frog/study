@@ -1,5 +1,12 @@
 package arrays.GenericDataStructures;
 
+/**
+ * 不可用是基本数据类型，只能是类对象
+ * boolean,byte,char,short,int,long,float,double
+ * 包装类（自动拆箱装箱）
+ * Boolean,Byte,Char,Short,Integer,Long,Float,Double
+ * @param <E>
+ */
 public class Array<E> {
 
     private E[] data;
@@ -7,6 +14,10 @@ public class Array<E> {
 
     // 构造函数，传入数组的容量capacity构造Array
     public Array(int capacity){
+        /**
+         * java不支持new E[size]
+         * (E[])new Object[size]
+         */
         data = (E[])new Object[capacity];
         size = 0;
     }
@@ -75,6 +86,10 @@ public class Array<E> {
     // 查找数组中是否有元素e
     public boolean contains(E e){
         for(int i = 0 ; i < size ; i ++){
+            /**
+             * 非基本数据类型了
+             * 浮点型？？？
+             */
             if(data[i].equals(e))
                 return true;
         }
@@ -99,7 +114,7 @@ public class Array<E> {
         for(int i = index + 1 ; i < size ; i ++)
             data[i - 1] = data[i];
         size --;
-        data[size] = null; // loitering objects != memory leak
+        data[size] = null; // loitering objects != memory leak，更容易被垃圾回收
         return ret;
     }
 

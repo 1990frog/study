@@ -37,6 +37,9 @@ public class Array<E> {
         if(index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
 
+        /**
+         * 扩容一倍，ArrayList使用的是1.5
+         */
         if(size == data.length)
             resize(2 * data.length);
 
@@ -101,6 +104,9 @@ public class Array<E> {
         size --;
         data[size] = null; // loitering objects != memory leak
 
+        /**
+         * 节省空间
+         */
         if(size == data.length / 2)
             resize(data.length / 2);
         return ret;
