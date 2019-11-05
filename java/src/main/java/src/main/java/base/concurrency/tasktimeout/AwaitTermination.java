@@ -25,7 +25,7 @@ public class AwaitTermination implements Runnable {
             }
             System.out.println(Thread.currentThread().getName()  + " " + (i + 1) + " round");
         }
-        System.out.println(Thread.currentThread().getName()  + " finished successfully");
+        System.out.println(Thread.currentThread().getName() + " finished successfully");
     }
 
     public static void main(String[] args) {
