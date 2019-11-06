@@ -18,8 +18,8 @@ public class MustDeadLock implements Runnable {
 
     int flag = 1;
 
-    static Object o1 = new Object();
-    static Object o2 = new Object();
+    static Object o1 = new Object();//死锁条件1：互斥
+    static Object o2 = new Object();//死锁条件1：互斥
 
     public static void main(String[] args) {
         MustDeadLock r1 = new MustDeadLock();
@@ -33,10 +33,10 @@ public class MustDeadLock implements Runnable {
     }
 
     @Override
-    public void run() {
+    public void run() {//死锁条件3：不剥夺条件，不会出现一个线程剥夺锁
         System.out.println("flag = " + flag);
-        if (flag == 1) {
-            synchronized (o1) {
+        if (flag == 1) {//死锁条件4:1等2,2等1
+            synchronized (o1) {//死锁条件2：请求与保持
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {

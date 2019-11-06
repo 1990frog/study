@@ -1,7 +1,8 @@
 package src.main.java.base.concurrency.moocwukong.deadlock;
 
 /**
- * 描述：     转账时候遇到死锁，一旦打开注释，便会发生死锁
+ * 描述：
+ * 转账时候遇到死锁，一旦打开注释，便会发生死锁
  */
 public class TransferMoney implements Runnable {
 
@@ -28,10 +29,30 @@ public class TransferMoney implements Runnable {
     @Override
     public void run() {
         if (flag == 1) {
-            transferMoney(a, b, 200);
+//            transferMoney(a, b, 200);
+            transferMoneyDeadLock(a, b, 200);
         }
         if (flag == 0) {
-            transferMoney(b, a, 200);
+//            transferMoney(b, a, 200);
+            transferMoneyDeadLock(b, a, 200);
+        }
+    }
+
+    public static void transferMoneyDeadLock(Account from, Account to, int amount){
+        synchronized (from){
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            synchronized (to){
+                if (from.balance - amount < 0) {
+                    System.out.println("余额不足，转账失败。");
+                }
+                from.balance -= amount;
+                to.balance = to.balance + amount;
+                System.out.println("成功转账" + amount + "元");
+            }
         }
     }
 

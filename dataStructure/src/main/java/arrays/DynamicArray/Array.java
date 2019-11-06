@@ -31,7 +31,7 @@ public class Array<E> {
         return size == 0;
     }
 
-    // 在index索引的位置插入一个新元素e
+    // 在index索引的位置插入一个新元素e O(n/2)=O(n) 严格计算需要一些概率论知识
     public void add(int index, E e){
 
         if(index < 0 || index > size)
@@ -51,17 +51,20 @@ public class Array<E> {
         size ++;
     }
 
-    // 向所有元素后添加一个新元素
+    // 向所有元素后添加一个新元素 O(1)
     public void addLast(E e){
         add(size, e);
     }
 
-    // 在所有元素前添加一个新元素
+    // 在所有元素前添加一个新元素 O(n)
     public void addFirst(E e){
         add(0, e);
     }
 
-    // 获取index索引位置的元素
+    /**
+     * 获取index索引位置的元素 O(1)
+     * 数组最大的优势：支持随即访问
+     */
     public E get(int index){
         if(index < 0 || index >= size)
             throw new IllegalArgumentException("Get failed. Index is illegal.");
@@ -93,7 +96,7 @@ public class Array<E> {
         return -1;
     }
 
-    // 从数组中删除index位置的元素, 返回删除的元素
+    // 从数组中删除index位置的元素, 返回删除的元素 O(n)
     public E remove(int index){
         if(index < 0 || index >= size)
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
@@ -106,18 +109,23 @@ public class Array<E> {
 
         /**
          * 节省空间
+         *
+         * Lazy
          */
-        if(size == data.length / 2)
+//        if(size == data.length / 2)
+//            resize(data.length / 2);
+
+        if(size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
         return ret;
     }
 
-    // 从数组中删除第一个元素, 返回删除的元素
+    // 从数组中删除第一个元素, 返回删除的元素 O(n)
     public E removeFirst(){
         return remove(0);
     }
 
-    // 从数组中删除最后一个元素, 返回删除的元素
+    // 从数组中删除最后一个元素,  O(1)
     public E removeLast(){
         return remove(size - 1);
     }
@@ -144,7 +152,7 @@ public class Array<E> {
         return res.toString();
     }
 
-    // 将数组空间的容量变成newCapacity大小
+    // 将数组空间的容量变成newCapacity大小 O(n)
     private void resize(int newCapacity){
 
         E[] newData = (E[])new Object[newCapacity];
