@@ -2,20 +2,20 @@ package src.main.java.base.concurrency.moocwukong.deadlock;
 
 
 /**
- * 描述：     演示哲学家就餐问题导致的死锁
+ * 描述：
+ * 演示哲学家就餐问题导致的死锁
  */
 public class DiningPhilosophers {
 
     public static class Philosopher implements Runnable {
 
         private Object leftChopstick;
+        private Object rightChopstick;
 
         public Philosopher(Object leftChopstick, Object rightChopstick) {
             this.leftChopstick = leftChopstick;
             this.rightChopstick = rightChopstick;
         }
-
-        private Object rightChopstick;
 
         @Override
         public void run() {
@@ -51,11 +51,12 @@ public class DiningPhilosophers {
         for (int i = 0; i < philosophers.length; i++) {
             Object leftChopstick = chopsticks[i];
             Object rightChopstick = chopsticks[(i + 1) % chopsticks.length];
-            if (i == philosophers.length - 1) {
-                philosophers[i] = new Philosopher(rightChopstick, leftChopstick);
-            } else {
-                philosophers[i] = new Philosopher(leftChopstick, rightChopstick);
-            }
+//            if (i == philosophers.length - 1) {
+//                philosophers[i] = new Philosopher(rightChopstick, leftChopstick);
+//            } else {
+//                philosophers[i] = new Philosopher(leftChopstick, rightChopstick);
+//            }
+            philosophers[i] = new Philosopher(leftChopstick, rightChopstick);
             new Thread(philosophers[i], "哲学家" + (i + 1) + "号").start();
         }
     }
