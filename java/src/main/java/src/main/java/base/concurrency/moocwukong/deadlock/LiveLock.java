@@ -1,12 +1,18 @@
 package src.main.java.base.concurrency.moocwukong.deadlock;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Random;
 
 /**
- * 描述：     演示活锁问题
+ * 描述：
+ * 演示活锁问题
  */
 public class LiveLock {
 
+    @Getter
+    @Setter
     static class Spoon {
 
         private Diner owner;
@@ -15,18 +21,8 @@ public class LiveLock {
             this.owner = owner;
         }
 
-        public Diner getOwner() {
-            return owner;
-        }
-
-        public void setOwner(Diner owner) {
-            this.owner = owner;
-        }
-
         public synchronized void use() {
             System.out.printf("%s吃完了!", owner.name);
-
-
         }
     }
 
@@ -42,7 +38,7 @@ public class LiveLock {
 
         public void eatWith(Spoon spoon, Diner spouse) {
             while (isHungry) {
-                if (spoon.owner != this) {
+                if (spoon.owner != this) {//对方吃
                     try {
                         Thread.sleep(1);
                     } catch (InterruptedException e) {
@@ -50,8 +46,15 @@ public class LiveLock {
                     }
                     continue;
                 }
-                Random random = new Random();
-                if (spouse.isHungry && random.nextInt(10) < 9) {
+
+//                Random random = new Random();
+//                if (spouse.isHungry && random.nextInt(10) < 9) {//引入随机变量打破活锁
+//                    System.out.println(name + ": 亲爱的" + spouse.name + "你先吃吧");
+//                    spoon.setOwner(spouse);
+//                    continue;
+//                }
+
+                if (spouse.isHungry) {//活锁
                     System.out.println(name + ": 亲爱的" + spouse.name + "你先吃吧");
                     spoon.setOwner(spouse);
                     continue;
