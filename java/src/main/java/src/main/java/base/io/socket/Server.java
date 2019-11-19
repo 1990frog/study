@@ -6,10 +6,11 @@ import java.net.Socket;
 
 public class Server {
 
-    public static void main(String[] args) {
-        final int DEFAULT_PORT = 8888;
-        String QUIT = "quit";
-        ServerSocket serverSocket = null;
+    static final int DEFAULT_PORT = 8888;
+    static final String QUIT = "quit";
+    private static ServerSocket serverSocket = null;
+
+    public static void create(){
         try {
             serverSocket = new ServerSocket(DEFAULT_PORT);
             while (true) {
@@ -42,5 +43,18 @@ public class Server {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException, IOException {
+        Thread thread = new Thread(()->create());
+        thread.start();
+        Thread.sleep(2000);
+        System.out.println("执行请求中断");
+        thread.interrupt();
+        if(thread.isInterrupted()){
+            serverSocket.close();
+            System.out.println("关闭socket");
+        }
+
     }
 }
