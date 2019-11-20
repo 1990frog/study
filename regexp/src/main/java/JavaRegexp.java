@@ -1,5 +1,3 @@
-package regexp;
-
 import org.junit.Test;
 
 import java.util.regex.Matcher;
