@@ -1,6 +1,5 @@
 package src.main.java.base.concurrency.briangoetz;
 
-import com.amazonaws.annotation.NotThreadSafe;
 
 /**
  * The variable does not participate in invariants with other variables.
@@ -8,7 +7,6 @@ import com.amazonaws.annotation.NotThreadSafe;
  * 两个变化的变量存在不等式关系
  *
  */
-@NotThreadSafe
 public class NumberRange implements Runnable{
 
     private int lower, upper;

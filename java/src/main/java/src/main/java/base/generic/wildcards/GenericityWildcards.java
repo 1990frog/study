@@ -1,7 +1,6 @@
 package src.main.java.base.generic.wildcards;
 
 import org.junit.Test;
-import org.mortbay.log.Log;
 
 public class GenericityWildcards {
 
@@ -18,15 +17,15 @@ public class GenericityWildcards {
     }
 
     public void showKeyValue(Generic<Number> obj){
-        Log.info("泛型测试：key value is " + obj.getKey());
+        System.out.println("泛型测试：key value is " + obj.getKey());
     }
 
     public void showKeyValue1(Generic<?> obj){
-        Log.info("泛型测试：key value is " + obj.getKey());
+        System.out.println("泛型测试：key value is " + obj.getKey());
     }
 
     public void showKeyValue2(Generic<? extends Number> obj){
-        Log.info("泛型测试：key value is " + obj.getKey());
+        System.out.println("泛型测试：key value is " + obj.getKey());
     }
 
     /**

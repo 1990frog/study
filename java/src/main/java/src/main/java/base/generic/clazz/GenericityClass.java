@@ -1,7 +1,6 @@
 package src.main.java.base.generic.clazz;
 
 import org.junit.Test;
-import org.mortbay.log.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,7 +44,7 @@ public class GenericityClass {
         Class classIntegerArrayList = integerArrayList.getClass();
 
         if(classStringArrayList.equals(classIntegerArrayList)){
-            Log.info("泛型测试：类型相同");
+            System.out.println("泛型测试：类型相同");
         }
     }
 
@@ -85,8 +84,8 @@ public class GenericityClass {
 
         //传入的实参类型需与泛型的类型参数类型相同，即为String.
         Generic<String> genericString = new Generic<>("key_vlaue");
-        Log.info("泛型测试：key is " + genericInteger.getKey());
-        Log.info("泛型测试：key is " + genericString.getKey());
+        System.out.println("泛型测试：key is " + genericInteger.getKey());
+        System.out.println("泛型测试：key is " + genericString.getKey());
 
     }
 
@@ -124,13 +123,13 @@ public class GenericityClass {
         Generic generic2 = new Generic(55.55);
         Generic generic3 = new Generic(false);
 
-        Log.info("泛型测试：key is " + generic.getKey());
-        Log.info("泛型测试：key is " + generic1.getKey());
-        Log.info("泛型测试：key is " + generic2.getKey());
-        Log.info("泛型测试：key is " + generic3.getKey());
+        System.out.println("泛型测试：key is " + generic.getKey());
+        System.out.println("泛型测试：key is " + generic1.getKey());
+        System.out.println("泛型测试：key is " + generic2.getKey());
+        System.out.println("泛型测试：key is " + generic3.getKey());
 
         if(generic instanceof  Generic){
-            Log.info("instance yes");
+            System.out.println("instance yes");
         }
 
         /*if(base.copy.generic instanceof Generic<Integer>){

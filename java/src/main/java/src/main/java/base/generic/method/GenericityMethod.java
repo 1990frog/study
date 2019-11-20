@@ -1,7 +1,6 @@
 package src.main.java.base.generic.method;
 
 import org.junit.Test;
-import org.mortbay.log.Log;
 
 /**
  * 在实例化泛型类时，必须指定T的具体类型
@@ -64,13 +63,13 @@ public class GenericityMethod<T> {
 
     //这也不是一个泛型方法，这就是一个普通的方法，只是使用了Generic<Number>这个泛型类做形参而已。
     public void showKeyValue1(Generic<Number> obj){
-        Log.info("泛型测试 key value is " + obj.getKey());
+        System.out.println("泛型测试 key value is " + obj.getKey());
     }
 
     //这也不是一个泛型方法，这也是一个普通的方法，只不过使用了泛型通配符?
     //同时这也印证了泛型通配符章节所描述的，?是一种类型实参，可以看做为Number等所有类的父类
     public void showKeyValue2(Generic<?> obj){
-        Log.info("泛型测试 key value is " + obj.getKey());
+        System.out.println("泛型测试 key value is " + obj.getKey());
     }
 
     /**
@@ -137,14 +136,14 @@ public class GenericityMethod<T> {
          * 泛型方法
          */
         Object obj1 = genericMethodOne(Object.class);
-        Log.info(obj1.getClass().toString());
+        System.out.println(obj1.getClass().toString());
 
         /**
          * 泛型类
          */
         GenericityMethod genericityMethod = new GenericityMethod();
         Object obj2 = genericityMethod.genericMethodTwo(Object.class);
-        Log.info(obj2.getClass().toString());
+        System.out.println(obj2.getClass().toString());
 
         /**
          * 静态泛型方法（非静态类方法）
@@ -152,12 +151,12 @@ public class GenericityMethod<T> {
          * 方法中使用T代表使用类<T>声明的泛型，此时需要类实例化，才清楚类的泛型
          */
         Object obj3 = GenericityMethod.genericMethodThree(Object.class);
-        Log.info(obj3.getClass().toString());
+        System.out.println(obj3.getClass().toString());
     }
 
     public <T> void printMsg( T... args){
         for(T t : args){
-            Log.info("泛型测试 t is " + t);
+            System.out.println("泛型测试 t is " + t);
         }
     }
 

@@ -1,6 +1,5 @@
-package client;
+package src.main.java.base.io.bio.threadpoolchatroom.client;
 
-import client.ChatClient;
 import java.io.*;
 
 public class UserInputHandler implements Runnable {

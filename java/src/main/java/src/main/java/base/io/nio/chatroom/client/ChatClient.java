@@ -1,4 +1,4 @@
-package client;
+package src.main.java.base.io.nio.chatroom.client;
 
 import java.io.Closeable;
 import java.io.IOException;

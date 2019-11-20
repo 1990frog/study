@@ -1,4 +1,4 @@
-package src.main.java.base.io.socket.socket
+package src.main.java.base.io.socket.tutorial;
 
 import java.io.*;
 import java.net.ServerSocket;

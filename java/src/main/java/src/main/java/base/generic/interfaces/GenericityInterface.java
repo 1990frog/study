@@ -1,7 +1,6 @@
 package src.main.java.base.generic.interfaces;
 
 import org.junit.Test;
-import org.mortbay.log.Log;
 
 import java.util.Random;
 
@@ -21,7 +20,7 @@ public class GenericityInterface {
             }
         }
         FruitGenerator fruitGenerator = new FruitGenerator();
-        Log.info((String) fruitGenerator.next());
+        System.out.println((String) fruitGenerator.next());
     }
 
     @Test
@@ -42,7 +41,7 @@ public class GenericityInterface {
             }
         }
         FruitGenerator fruitGenerator = new FruitGenerator();
-        Log.info(fruitGenerator.next());
+        System.out.println(fruitGenerator.next());
     }
 
 }

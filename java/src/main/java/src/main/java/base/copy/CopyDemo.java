@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.Test;
-import org.mortbay.log.Log;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,9 +14,9 @@ public class CopyDemo {
     public void test1(){
         int a = 1;
         int b = a;
-        Log.info(b+"");
+        System.out.println(b+"");
         a = 2;
-        Log.info(b+"");
+        System.out.println(b+"");
     }
 
     /**
@@ -39,9 +38,9 @@ public class CopyDemo {
         Integer a = 1;
         //个语句使b重新指向了一个新的地址,b = new Integer(a);
         Integer b = a;
-        Log.info(b+"");
+        System.out.println(b+"");
         a = 2;
-        Log.info(b+"");
+        System.out.println(b+"");
     }
 
     /**
@@ -57,9 +56,9 @@ public class CopyDemo {
         map1.put("a","a");
         HashMap map2 = map1;
         map2.put("a","b");
-        Log.info(map1.toString());
+        System.out.println(map1.toString());
         map2 = new HashMap();
-        Log.info(map1.toString());
+        System.out.println(map1.toString());
     }
 
     /**
@@ -87,14 +86,14 @@ public class CopyDemo {
         en1.setValue("1");
 
         Entity en2 = new Entity("2",en1);
-        Log.info("en2.next.value："+en2.next.getValue());
+        System.out.println("en2.next.value："+en2.next.getValue());
 
         Entity en3 = en2.clone();
-        Log.info("en3.next.value："+en3.next.getValue());
+        System.out.println("en3.next.value："+en3.next.getValue());
 
         en1.setValue("2");
-        Log.info("en1 value change to 2");
-        Log.info("en3.next.value："+en3.next.getValue());
+        System.out.println("en1 value change to 2");
+        System.out.println("en3.next.value："+en3.next.getValue());
     }
 
     @SuppressWarnings("unchecked")
@@ -147,16 +146,16 @@ public class CopyDemo {
         en1.setValue("1");
 
         CopyEntity en2 = en1;
-        Log.info(en2.getValue());
+        System.out.println(en2.getValue());
 
         en1.setValue("2");
-        Log.info(en2.getValue());
+        System.out.println(en2.getValue());
 
         CopyEntity en3 = CopyDemo.clone(en1);
-        Log.info(en3.getValue());
+        System.out.println(en3.getValue());
 
         en1.setValue("3");
-        Log.info(en3.getValue());
+        System.out.println(en3.getValue());
     }
 
     /**

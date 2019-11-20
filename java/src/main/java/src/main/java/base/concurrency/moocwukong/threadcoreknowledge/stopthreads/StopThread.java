@@ -36,7 +36,7 @@ public class StopThread implements Runnable {
         /**
          * stop会释放掉所有的monitors（监视器）
          */
-        thread.stop();
+//        thread.stop();
 
         /**
          * suspend不会释放锁，是带着锁去休息，会造成死锁
