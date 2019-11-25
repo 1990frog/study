@@ -7,7 +7,7 @@
 + 装饰器抽象构件 => Component，为一个接口或抽象类
 + 具体的构建实现类 => ConcreteComponent
 + 装饰器类 => Decorator
-+ 具体的装饰器类 => ConcreteDecoratorA，ConcreteDecoratorB，装饰器类的具体实现，里面必有一个属性指向Componet装饰器抽象构建
++ 具体的装饰器类 => ConcreteDecoratorA，ConcreteDecoratorB，装饰器类的具体实现，里面必有一个属性指向Componet装饰器抽象构造函数
 
 # 优点
 可以动态扩展一个实现类的功能而不改变原有实现类
