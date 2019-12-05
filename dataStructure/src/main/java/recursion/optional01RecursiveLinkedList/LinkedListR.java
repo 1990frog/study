@@ -1,7 +1,5 @@
 package recursion.optional01RecursiveLinkedList;
 
-import javafx.util.Pair;
-
 /// 递归实现的LinkedList
 /// 类名称中LinkedListR里的R，是Recursion的意思，表示递归实现：）
 public class LinkedListR<E> {

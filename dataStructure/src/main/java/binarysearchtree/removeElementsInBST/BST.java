@@ -1,4 +1,4 @@
-package binarysearchtree;
+package binarysearchtree.removeElementsInBST;
 
 import java.util.LinkedList;
 import java.util.Queue;

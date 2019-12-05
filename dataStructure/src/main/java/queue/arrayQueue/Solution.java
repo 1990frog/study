@@ -2,7 +2,6 @@ package queue.arrayQueue;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.util.Pair;
 
 /// Leetcode 102. Binary Tree Level Order Traversal
 /// https://leetcode.com/problems/binary-tree-level-order-traversal/description/

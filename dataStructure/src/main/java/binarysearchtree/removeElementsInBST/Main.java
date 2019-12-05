@@ -1,6 +1,4 @@
-package binarysearchtree;
-
-import binarysearchtree.binarySearchTreeBasics.BST;
+package binarysearchtree.removeElementsInBST;
 
 import java.util.Random;
 
@@ -19,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        binarysearchtree.binarySearchTreeBasics.BST<Integer> bst = new BST<>();
+        BST<Integer> bst = new BST<>();
         Random random = new Random();
 
         int n = 10000;
