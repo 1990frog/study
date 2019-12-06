@@ -3,7 +3,6 @@ package priorityqueue.priorityQueueInJava;
 /// https://leetcode.com/problems/top-k-frequent-elements/description/
 
 import java.util.*;
-import java.util.PriorityQueue;
 
 public class Solution5 {
 
@@ -17,7 +16,7 @@ public class Solution5 {
                 map.put(num, 1);
         }
 
-        java.util.PriorityQueue<Integer> pq = new PriorityQueue<>(
+        PriorityQueue<Integer> pq = new PriorityQueue<>(
                 (a, b) -> map.get(a) - map.get(b)
             );
         for(int key: map.keySet()){

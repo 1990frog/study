@@ -3,7 +3,6 @@ package priorityqueue.priorityQueueInJava;
 /// https://leetcode.com/problems/top-k-frequent-elements/description/
 
 import java.util.*;
-import java.util.PriorityQueue;
 
 public class Solution2 {
 
@@ -17,7 +16,7 @@ public class Solution2 {
         }
     }
 
-    private class FreqComparator implements Comparator<Freq>{
+    private class FreqComparator implements Comparator<Freq> {
 
         @Override
         public int compare(Freq a, Freq b){
@@ -35,7 +34,7 @@ public class Solution2 {
                 map.put(num, 1);
         }
 
-        java.util.PriorityQueue<Freq> pq = new PriorityQueue<>(new FreqComparator());
+        PriorityQueue<Freq> pq = new PriorityQueue<>(new FreqComparator());
         for(int key: map.keySet()){
             if(pq.size() < k)
                 pq.add(new Freq(key, map.get(key)));
