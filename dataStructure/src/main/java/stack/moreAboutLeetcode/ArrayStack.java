@@ -1,14 +1,14 @@
-package stack.mystack;
+package stack.moreAboutLeetcode;
 
 public class ArrayStack<E> implements Stack<E> {
 
     private Array<E> array;
 
-    public ArrayStack(int capacity){
+    public ArrayStack(int capacity){//知道最大的情况下存在的容积
         array = new Array<>(capacity);
     }
 
-    public ArrayStack(){
+    public ArrayStack(){//不确定容积
         array = new Array<>();
     }
 
@@ -33,7 +33,7 @@ public class ArrayStack<E> implements Stack<E> {
 
     @Override
     public E pop(){
-        return array.removeLast();
+        return array.removeLast();//有返回值
     }
 
     @Override

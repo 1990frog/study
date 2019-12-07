@@ -1,4 +1,4 @@
-package stack.moreaboutleetcode;
+package stack.moreAboutLeetcode;
 
 public class Array<E> {
 
