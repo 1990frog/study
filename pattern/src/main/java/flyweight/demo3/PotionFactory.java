@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  *
  * PotionFactory is the Flyweight in this example. It minimizes memory use by sharing object
- * instances. It holds a map of potion instances and new potions are created only when none of the
+ * instances. It holds a bobo.playdatastructure.map of potion instances and new potions are created only when none of the
  * type already exists.
  *
  */

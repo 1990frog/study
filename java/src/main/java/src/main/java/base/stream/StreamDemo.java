@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  * 05.skip {@link #skip()}
  * 06.sorted {@link #sorted()}
  * 07.sortedConditon {@link #sortedConditon()}
- * 08.map {@link #map()}
+ * 08.bobo.playdatastructure.map {@link #map()}
  * 09.mapToInt {@link #mapToInt()}
  * 10.mapToLong {@link #mapToLong()}
  * 11.mapToDouble {@link #mapToDouble()}
@@ -136,7 +136,7 @@ public class StreamDemo {
 
     /**
      * {@link Stream#map}
-     * <R> Stream<R> map(Function<? super T, ? extends R> mapper);
+     * <R> Stream<R> bobo.playdatastructure.map(Function<? super T, ? extends R> mapper);
      *
      * Returns a stream consisting of the results of applying the given
      * function to the elements of this stream.

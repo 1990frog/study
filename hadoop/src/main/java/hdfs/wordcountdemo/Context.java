@@ -11,9 +11,9 @@ public class Context {
 	private Map<Object,Object> cacheMap = new HashMap<>();
 
     /**
-     * Get cache map map.
+     * Get cache bobo.playdatastructure.map bobo.playdatastructure.map.
      *
-     * @return the map
+     * @return the bobo.playdatastructure.map
      */
     public Map<Object,Object> getCacheMap(){
 		return cacheMap;

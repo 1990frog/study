@@ -23,7 +23,7 @@
         <module>java</module>
         <module>netty</module>
         <module>commons</module>
-        <module>dataStructure</module>
+        <module>datastructure</module>
         <module>redis</module>
     </modules>
 

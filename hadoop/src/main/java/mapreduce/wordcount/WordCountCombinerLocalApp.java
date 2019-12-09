@@ -30,7 +30,7 @@ public class WordCountCombinerLocalApp {
 //		System.setProperty("HADOOP_USER_NAME","cai");
 //
 		Configuration configuration = new Configuration();
-//		configuration.set("fs.defaultFS","hdfs://localhost:8020");
+//		configuration.bobo.playdatastructure.set("fs.defaultFS","hdfs://localhost:8020");
 
 		//  创建一个Job
 		Job job = Job.getInstance(configuration);
