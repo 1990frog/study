@@ -17,7 +17,7 @@ public class PipelineTest {
     public static void pipeline(){
         long startTime=System.currentTimeMillis();
         Pipeline pipeline = db.pipelined();
-        for(int i=20000;i<30000;i++){
+        for(int i=0;i<30000000;i++){
             pipeline.set(i+"",System.currentTimeMillis()+"");
         }
         pipeline.sync();
