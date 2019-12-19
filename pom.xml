@@ -25,6 +25,7 @@
         <module>commons</module>
         <module>datastructure</module>
         <module>redis</module>
+        <module>docker</module>
     </modules>
 
     <dependencies>
