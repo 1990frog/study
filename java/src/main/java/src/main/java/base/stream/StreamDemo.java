@@ -12,13 +12,13 @@ import java.util.stream.Stream;
 
 /**
  * @See Stream
- * 01.filter {@link #filter()}
- * 02.distinct {@link #distinct()}
- * 03.distinctBean {@link #distinctBean()}
- * 04.limit {@link #limit()}
- * 05.skip {@link #skip()}
- * 06.sorted {@link #sorted()}
- * 07.sortedConditon {@link #sortedConditon()}
+ * 01.filter {@link #filter()}  #筛选
+ * 02.distinct {@link #distinct()}  #去重
+ * 03.distinctBean {@link #distinctBean()}  #bean内元素去重
+ * 04.limit {@link #limit()}    #限定返回元素
+ * 05.skip {@link #skip()}  #跳过指定个数元素
+ * 06.sorted {@link #sorted()}  #排序
+ * 07.sortedConditon {@link #sortedConditon()}  #按条件排序
  * 08.map {@link #map()}
  * 09.mapToInt {@link #mapToInt()}
  * 10.mapToLong {@link #mapToLong()}
