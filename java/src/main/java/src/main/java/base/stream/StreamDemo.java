@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  * 05.skip {@link #skip()}
  * 06.sorted {@link #sorted()}
  * 07.sortedConditon {@link #sortedConditon()}
- * 08.bobo.playdatastructure.map {@link #map()}
+ * 08.map {@link #map()}
  * 09.mapToInt {@link #mapToInt()}
  * 10.mapToLong {@link #mapToLong()}
  * 11.mapToDouble {@link #mapToDouble()}
@@ -467,10 +467,6 @@ public class StreamDemo {
                 .forEach(System.out::println);
 
         /**
-         * <R> R collect(Supplier<R> supplier,
-         *                 BiConsumer<R, ? super T> accumulator,
-         *                 BiConsumer<R, R> combiner);
-         *
          * HashMap paramMap = paramList.parallelStream().collect(//list转map
          *                 HashMap::new, (m, v) -> m.put(v.get("CODE"), v.get("VALUE")), HashMap::putAll);
          */
