@@ -1,20 +1,23 @@
-# Applicability
-Use the Command pattern when you want to
+# 什么是命令模式
+上面说了，命令模式可以将请求发送者和接收者完全解耦，发送者与接收者之间没有直接引用关系，发送请求的对象只需要知道如何发送请求，而不必知道如何完成请求。那么到底什么是命令模式？
 
-* parameterize objects by an action to perform. You can express such parameterization in a procedural language with a callback function, that is, a function that's registered somewhere to be called at a later point. Commands are an object-oriented replacement for callbacks.
-* specify, queue, and execute requests at different times. A Command object can have a lifetime independent of the original request. If the receiver of a request can be represented in an address space-independent way, then you can transfer a command object for the request to a different process and fulfill the request there
-* support undo. The Command's execute operation can store state for reversing its effects in the command itself. The Command interface must have an added Unexecute operation that reverses the effects of a previous call to execute. Executed commands are stored in a history list. Unlimited-level undo and redo is achieved by traversing this list backwards and forwards calling unexecute and execute, respectively
-* support logging changes so that they can be reapplied in case of a system crash. By augmenting the Command interface with load and store operations, you can keep a persistent log of changes. Recovering from a crash involves reloading logged commands from disk and re-executing them with the execute operation
-* structure a system around high-level operations build on primitive operations. Such a structure is common in information systems that support transactions. A transaction encapsulates a set of changes to data. The Command pattern offers a way to model transactions. Commands have a common interface, letting you invoke all transactions the same way. The pattern also makes it easy to extend the system with new transactions
+# 官方解释
+命令模式(Command Pattern)：将一个请求封装为一个对象，从而让我们可用不同的请求对客户进行参数化；对请求排队或者记录请求日志，以及支持可撤销的操作。命令模式是一种对象行为型模式，其别名为动作(Action)模式或事务(Transaction)模式。
 
-# Typical Use Case
+# 举个例子
+假设你新买的200多平米的房子已经到手，正准备装修，你买了一些开关，用于控制新买的电器，比如电灯和排气扇。开关刚买回来的时候，是不知道具体控制哪个电器的，只有当你用电线将开关和电器连接起来后，一个开关才控制了一个具体的电器。和电灯相连就控制了电灯的开关，和排气扇相连则控制了排气扇的开关。
+开关的这种设计思路其实就是一个很好的命令模式。开关可以理解为请求的发送者，电灯和排气扇则为请求的接受者，不同的请求就可以理解为是连接开关和电器的不同的电线。通过这种模式，开关（发送者）就和电器（接收者）松耦合了，只需要更换一下连接的电线（不同的请求），就能够轻松实现同一个开关（发送者）控制不同的电器（接收者），也就是用不同的请求对客户进行参数化。
+至于“对请求排队或者记录请求日志，以及支持可撤销的操作”又当作何理解呢？请求排队其实就是将很多不同请求放入一个工作队列中，然后接收者将请求从队列中一个一个取出去处理；记录请求日志，就是将请求记录在日志当中，当系统死机后，可以从日志中取出这些请求，再一个个去处理恢复之前的状态。
 
-* to keep a history of requests
-* implement callback functionality
-* implement the undo functionality
+# 为什么要用该模式
+使用命令模式最重要的原因就是为了解耦，通过引入一个第三方--抽象命令，让请求者和接收者松耦合，让对象之间的调用关系更加灵活，这对系统的扩展和维护是有极大好处的。
+比如你的豪华大房子又新买了一个电器，恩，就是那种老式吊扇，你想用连接排气扇的开关去控制这个吊扇，怎么办呢？换根电线将开关和吊扇连起来就好了。
 
-# Real world examples
+# 角色
++ Command（抽象命令类）：抽象命令类一般是一个抽象类或接口，在其中声明了用于执行请求的execute()等方法，通过这些方法可以调用请求接收者的相关操作。
++ ConcreteCommand（具体命令类）：具体命令类是抽象命令类的子类，实现了在抽象命令类中声明的方法，它对应具体的接收者对象，将接收者对象的动作绑定其中。在实现execute()方法时，将调用接收者对象的相关操作(Action)。
++ Invoker（调用者）：调用者即请求发送者，它通过命令对象来执行请求。一个调用者并不需要在设计时确定其接收者，因此它只与抽象命令类之间存在关联关系。在程序运行时可以将一个具体命令对象注入其中，再调用具体命令对象的execute()方法，从而实现间接调用请求接收者的相关操作。
++ Receiver（接收者）：接收者执行与请求相关的操作，它具体实现对请求的业务处理。
 
-* [java.lang.Runnable](http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
-* [Netflix Hystrix](https://github.com/Netflix/Hystrix/wiki)
-* [javax.swing.Action](http://docs.oracle.com/javase/8/docs/api/javax/swing/Action.html)
+命令模式的本质是对请求进行封装，一个请求对应于一个命令，将发出命令的责任和执行命令的责任分割开。每一个命令都是一个操作：请求的一方发出请求要求执行一个操作；接收的一方收到请求，并执行相应的操作。命令模式允许请求的一方和接收的一方独立开来，使得请求的一方不必知道接收请求的一方的接口，更不必知道请求如何被接收、操作是否被执行、何时被执行，以及是怎么被执行的。
+命令模式的关键在于引入了抽象命令类，请求发送者针对抽象命令类编程，只有实现了抽象命令类的具体命令才与请求接收者相关联。在最简单的抽象命令类中只包含了一个抽象的execute()方法，每个具体命令类将一个Receiver类型的对象作为一个实例变量进行存储，从而具体指定一个请求的接收者，不同的具体命令类提供了execute()方法的不同实现，并调用不同接收者的请求处理方法。
