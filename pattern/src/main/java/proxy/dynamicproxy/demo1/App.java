@@ -2,7 +2,7 @@ package proxy.dynamicproxy.demo1;
 
 import java.lang.reflect.Proxy;
 
-public class DynamicProxyDemo{
+public class App {
 
     public static void consume(DoSomething doSomething){
         doSomething.doSomething();

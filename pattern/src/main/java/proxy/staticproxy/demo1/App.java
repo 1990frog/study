@@ -1,7 +1,6 @@
 package proxy.staticproxy.demo1;
 
 /**
- *
  * A proxy, in its most general form, is a class functioning as an interface to something else. The
  * proxy could interface to anything: a network connection, a large object in memory, a file, or
  * some other resource that is expensive or impossible to duplicate. In short, a proxy is a wrapper
