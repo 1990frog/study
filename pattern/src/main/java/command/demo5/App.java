@@ -1,7 +1,6 @@
 package command.demo5;
 
 /**
- *
  * The Command pattern is a behavioral design pattern in which an object is used to encapsulate all
  * information needed to perform an action or trigger an event at a later time. This information
  * includes the method name, the object that owns the method and values for the method parameters.
@@ -18,38 +17,36 @@ package command.demo5;
  * In other words, in this example the wizard casts spells on the goblin. The wizard keeps track of
  * the previous spells cast, so it is easy to undo them. In addition, the wizard keeps track of the
  * spells undone, so they can be redone.
- *
- *
  */
 public class App {
 
-  /**
-   * Program entry point
-   * 
-   * @param args command line args
-   */
-  public static void main(String[] args) {
-    Wizard wizard = new Wizard();
-    Goblin goblin = new Goblin();
+    /**
+     * Program entry point
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) {
+        Wizard wizard = new Wizard();
+        Goblin goblin = new Goblin();
 
-    goblin.printStatus();
+        goblin.printStatus();
 
-    wizard.castSpell(new ShrinkSpell(), goblin);
-    goblin.printStatus();
+        wizard.castSpell(new ShrinkSpell(), goblin);
+        goblin.printStatus();
 
-    wizard.castSpell(new InvisibilitySpell(), goblin);
-    goblin.printStatus();
+        wizard.castSpell(new InvisibilitySpell(), goblin);
+        goblin.printStatus();
 
-    wizard.undoLastSpell();
-    goblin.printStatus();
+        wizard.undoLastSpell();
+        goblin.printStatus();
 
-    wizard.undoLastSpell();
-    goblin.printStatus();
+        wizard.undoLastSpell();
+        goblin.printStatus();
 
-    wizard.redoLastSpell();
-    goblin.printStatus();
+        wizard.redoLastSpell();
+        goblin.printStatus();
 
-    wizard.redoLastSpell();
-    goblin.printStatus();
-  }
+        wizard.redoLastSpell();
+        goblin.printStatus();
+    }
 }
