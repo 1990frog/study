@@ -21,6 +21,11 @@ public class ChatServer {
         connectedClients = new HashMap<>();
     }
 
+    /**
+     * 添加连接
+     * @param socket
+     * @throws IOException
+     */
     public synchronized void addClient(Socket socket) throws IOException {
         if (socket != null) {
             int port = socket.getPort();
@@ -32,6 +37,11 @@ public class ChatServer {
         }
     }
 
+    /**
+     * 移除连接
+     * @param socket
+     * @throws IOException
+     */
     public synchronized void removeClient(Socket socket) throws IOException {
         if (socket != null) {
             int port = socket.getPort();
@@ -43,6 +53,12 @@ public class ChatServer {
         }
     }
 
+    /**
+     * 转发消息
+     * @param socket
+     * @param fwdMsg
+     * @throws IOException
+     */
     public synchronized void forwardMessage(Socket socket, String fwdMsg) throws IOException {
         for (Integer id : connectedClients.keySet()) {
             if (!id.equals(socket.getPort())) {
@@ -53,10 +69,18 @@ public class ChatServer {
         }
     }
 
+    /**
+     * 判断退出
+     * @param msg
+     * @return
+     */
     public boolean readyToQuit(String msg) {
         return QUIT.equals(msg);
     }
 
+    /**
+     * 关闭
+     */
     public synchronized void close() {
         if (serverSocket != null) {
             try {
@@ -76,7 +100,7 @@ public class ChatServer {
             System.out.println("启动服务器，监听端口：" + DEFAULT_PORT + "...");
 
             while (true) {
-                // 等待客户端连接
+                // 等待客户端连接，此步骤阻塞
                 Socket socket = serverSocket.accept();
                 // 创建ChatHandler线程
                 new Thread(new ChatHandler(this, socket)).start();

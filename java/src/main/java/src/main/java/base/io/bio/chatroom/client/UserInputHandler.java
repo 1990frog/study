@@ -4,6 +4,9 @@ import java.io.*;
 
 public class UserInputHandler implements Runnable {
 
+    /**
+     * 多个用户绑定同一个socketClient
+     */
     private ChatClient chatClient;
 
     public UserInputHandler(ChatClient chatClient) {

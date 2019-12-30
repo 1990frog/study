@@ -5,11 +5,17 @@ import java.net.Socket;
 
 public class ChatClient {
 
+    /**
+     * socket信息
+     */
     private final String DEFAULT_SERVER_HOST = "127.0.0.1";
     private final int DEFAULT_SERVER_PORT = 8888;
     private final String QUIT = "quit";
 
     private Socket socket;
+    /**
+     * 服务端读写对象
+     */
     private BufferedReader reader;
     private BufferedWriter writer;
 
@@ -49,7 +55,7 @@ public class ChatClient {
     public void start() {
 
         try {
-            // 创建socket
+            // 创建socket，连接服务端serverSocket
             socket = new Socket(DEFAULT_SERVER_HOST, DEFAULT_SERVER_PORT);
 
             // 创建IO流
