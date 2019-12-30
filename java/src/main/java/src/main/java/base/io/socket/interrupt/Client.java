@@ -1,4 +1,4 @@
-package src.main.java.base.io.socket;
+package src.main.java.base.io.socket.interrupt;
 
 import java.io.*;
 import java.net.Socket;
