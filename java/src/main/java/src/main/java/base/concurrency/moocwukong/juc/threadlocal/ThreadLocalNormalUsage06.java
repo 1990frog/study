@@ -1,7 +1,8 @@
 package src.main.java.base.concurrency.moocwukong.juc.threadlocal;
 
 /**
- * 描述：     演示ThreadLocal用法2：避免传递参数的麻烦
+ * 描述：
+ * 演示ThreadLocal用法2：避免传递参数的麻烦
  */
 public class ThreadLocalNormalUsage06 {
 

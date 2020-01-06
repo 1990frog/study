@@ -6,7 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 描述：     加锁来解决线程安全问题
+ * 描述：
+ * 加锁来解决线程安全问题
  */
 public class ThreadLocalNormalUsage04 {
 
@@ -16,12 +17,9 @@ public class ThreadLocalNormalUsage04 {
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 1000; i++) {
             int finalI = i;
-            threadPool.submit(new Runnable() {
-                @Override
-                public void run() {
-                    String date = new ThreadLocalNormalUsage04().date(finalI);
-                    System.out.println(date);
-                }
+            threadPool.submit(() -> {
+                String date = new ThreadLocalNormalUsage04().date(finalI);
+                System.out.println(date);
             });
         }
         threadPool.shutdown();
