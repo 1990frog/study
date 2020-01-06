@@ -2,12 +2,15 @@ package bobo.playdatastructure.stack.arraystack;
 
 public class ArrayStack<E> implements Stack<E> {
 
+    //基于数组来实现
     private Array<E> array;
 
+    //基于容积创建栈
     public ArrayStack(int capacity){
         array = new Array<>(capacity);
     }
 
+    //动态容量栈
     public ArrayStack(){
         array = new Array<>();
     }
