@@ -1,43 +1,259 @@
 package mydatastructure.arrays;
 
 public class Array<E> {
+
+    //容器
+    private E[] data;
+    //下一位坐标
+    private int size;
+
+    /**
+     * 初始构造器，默认容量10
+     */
+    public Array() {
+        this(10);
+    }
+
+    /**
+     * 指定初始化容量
+     *
+     * @param capacity 容量
+     */
+    public Array(int capacity) {
+        data = (E[]) new Object[capacity];
+    }
+
+    /**
+     * 返回当前数组容积
+     *
+     * @return
+     */
     public int getCapacity() {
-        return 0;
+        return data.length;
     }
 
+    /**
+     * 获取数组中的元素个数(下一个坐标)
+     *
+     * @return
+     */
     public int getSize() {
-        return 0;
+        return size;
     }
 
+    /**
+     * 返回数组是否为空
+     *
+     * @return
+     */
     public boolean isEmpty() {
-        return false;
+//        return data==null;初始化之后在删除就不为null了
+        return size == 0;
     }
 
-    public void add(int index, E o) {
+    /**
+     * 在index索引的位置插入一个新元素
+     *
+     * @param index 位置
+     * @param e     元素
+     */
+    public void add(int index, E e) {
 
+        //忘了验证范围，写算法要先确定边界（取值范围）
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
+
+//        /**
+//         * 思维维度不清晰，应该分层判断，解耦，解耦，解耦
+//         */
+//        if(size==getCapacity()){//容量与位置没有关系应该分开
+//            resize(2*size);
+//            data[size++]=e;
+//        }else{
+//            if(index<size){//位置小于元素个数
+//                for(int i=size+1;i>index;i--){
+//                    data[i]=data[i-1];
+//                }
+//                data[index]=e;
+//            }else{
+//                data[size]=e;
+//                size++;
+//            }
+//        }
+        if (size == getCapacity())
+            resize(2 * size);
+
+        for (int i = size + 1; i > index; i--) {//for本身就是if判断
+            data[i] = data[i - 1];
+        }
+        data[index] = e;
+        size++;
     }
 
+    /**
+     * 数组尾部添加一个元素
+     *
+     * @param e
+     */
+    public void addLast(E e) {
+        add(size, e);
+    }
+
+    // 在所有元素前添加一个新元素
+    public void addFirst(E e){
+        add(0, e);
+    }
+
+    /**
+     * 获取index索引位置的元素 O(1)
+     *
+     * @param index
+     * @return
+     */
     public E get(int index) {
-        return null;
+//        if (index < getCapacity() - 1 && index > -1) {
+//            return data[index];
+//        } else {
+//            throw new IllegalArgumentException();
+//        }
+        if (0 < index || index >= index)
+            throw new IllegalArgumentException("Get failed. Index is illegal.");
+        return data[index];
     }
 
-    public void set(int index, Object o) {
+    /**
+     * 修改index索引位置的元素为e
+     *
+     * @param index
+     * @param e
+     */
+    public void set(int index, E e) {
+//        if (index < getCapacity() - 1 && index > -1) {
+//            data[index] = e;
+//        } else {
+//            throw new IllegalArgumentException();
+//        }
 
+        if (0 < index || index >= index)
+            throw new IllegalArgumentException("Set failed. Index is illegal.");
+        data[index] = e;
     }
 
-    public boolean contains(Object o) {
+    /**
+     * 查找数组中是否有元素e
+     *
+     * @param e
+     * @return
+     */
+    public boolean contains(E e) {
+        for (E _e : data) {
+            if (_e.equals(e)) {
+                return true;
+            }
+        }
         return false;
     }
 
-    public int find(Object o) {
-        return 0;
+    /**
+     * 查找数组中元素e所在的索引，如果不存在元素e，则返回-1
+     *
+     * @param e
+     * @return
+     */
+    public int find(E e) {
+        for (int i = 0; i < size; i++) {
+            if (e.equals(data[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
+    /**
+     * 从数组中删除index位置的元素, 返回删除的元素 O(n)
+     *
+     * @param index
+     * @return
+     */
     public E remove(int index) {
-        return null;
+//        if (index < getCapacity() - 1 && index > -1) {
+//            //index位置value
+//            E value = data[index];
+//            for (int i = index; i <= size; i++) {
+//                if (i == size) {
+//                    data[i] = null;
+//                } else {
+//                    data[i] = data[i + 1];
+//                }
+//            }
+//            size--;
+//            return value;
+//        }
+//        return null;
+
+        if(index < 0 || index >= size)
+            throw new IllegalArgumentException("Remove failed. Index is illegal.");
+
+        E ret = data[index];
+        for(int i = index + 1 ; i < size ; i ++)
+            data[i -1] = data[i];
+        size --;
+        data[size] = null; // loitering objects != memory leak
+
+        if(size == data.length / 4 && data.length / 2 != 0)
+            resize(data.length / 2);
+        return ret;
     }
 
-    public void resize(int newCapacity) {
+    // 从数组中删除第一个元素, 返回删除的元素
+    public E removeFirst(){
+        return remove(0);
+    }
 
+    // 从数组中删除最后一个元素, 返回删除的元素
+    public E removeLast(){
+        return remove(size - 1);
+    }
+
+    // 从数组中删除元素e
+    public void removeElement(E e){
+        int index = find(e);
+        if(index != -1)
+            remove(index);
+    }
+
+    /**
+     * 将数组空间的容量变成newCapacity大小 O(n)
+     *
+     * @param newCapacity
+     */
+    private void resize(int newCapacity) {
+        E[] newdata = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newdata[i] = data[i];
+        }
+        data = newdata;
+    }
+
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("[");
+        for (int i = 0; i < size; i++) {
+            buffer.append(data[i]);
+            if(i != size - 1)
+                buffer.append(", ");
+        }
+        buffer.append("]");
+        return buffer.toString();
+    }
+
+    public static void main(String[] args) {
+        Array<Integer> array = new Array<>();
+        for (int i = 0; i < 100; i++)
+            array.addLast(i);
+//        array.remove(98);
+        array.set(99, 100);
+        System.out.println(array.toString());
+        System.out.println(array.getCapacity());
     }
 }
