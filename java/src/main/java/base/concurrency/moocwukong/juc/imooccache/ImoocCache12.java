@@ -1,6 +1,6 @@
 package base.concurrency.moocwukong.juc.imooccache;
 
-import base.concurrency.moocwukong.juc.computable.ExpensiveFunction;
+import base.concurrency.moocwukong.juc.imooccache.computable.ExpensiveFunction;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

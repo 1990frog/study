@@ -1,7 +1,7 @@
 package base.concurrency.moocwukong.juc.imooccache;
 
-import base.concurrency.moocwukong.juc.computable.Computable;
-import base.concurrency.moocwukong.juc.computable.MayFail;
+import base.concurrency.moocwukong.juc.imooccache.computable.Computable;
+import base.concurrency.moocwukong.juc.imooccache.computable.MayFail;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
