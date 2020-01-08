@@ -1,8 +1,8 @@
-package mydatastructure.queue;
+package mydatastructure.stack;
 
 import mydatastructure.arrays.Array;
 
-public class Queue<E> extends Array<E> implements QueueInterface<E> {
+public class Stack<E> extends Array<E> implements StackInterface<E> {
 
     @Override
     public void push(E e) {
@@ -33,7 +33,7 @@ public class Queue<E> extends Array<E> implements QueueInterface<E> {
     }
 
     public static void main(String[] args) {
-        Queue<Integer> queue =new Queue<>();
+        Stack<Integer> queue =new Stack<>();
         for (int i=0;i<10;i++){
             queue.push(i);
         }

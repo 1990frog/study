@@ -1,6 +1,6 @@
-package mydatastructure.queue;
+package mydatastructure.stack;
 
-public interface QueueInterface<E> {
+public interface StackInterface<E> {
     void push(E e);
     E pop();
     E peek();
