@@ -87,9 +87,9 @@ public class Array<E> implements ArrayInterface<E>{
         if (size == getCapacity())
             resize(2 * size);
 
-        for (int i = size + 1; i > index; i--) {//for本身就是if判断
-            data[i] = data[i - 1];
-        }
+        for(int i = size - 1; i > index ; i --)//for本身就是if判断
+            data[i + 1] = data[i];
+
         data[index] = e;
         size++;
     }
@@ -121,7 +121,7 @@ public class Array<E> implements ArrayInterface<E>{
 //        } else {
 //            throw new IllegalArgumentException();
 //        }
-        if (0 < index || index >= index)
+        if (index < 0 || index > size)
             throw new IllegalArgumentException("Get failed. Index is illegal.");
         return data[index];
     }
@@ -140,7 +140,7 @@ public class Array<E> implements ArrayInterface<E>{
 //            throw new IllegalArgumentException();
 //        }
 
-        if (0 < index || index >= index)
+        if (index < 0 || index > size)
             throw new IllegalArgumentException("Set failed. Index is illegal.");
         data[index] = e;
     }
@@ -200,7 +200,7 @@ public class Array<E> implements ArrayInterface<E>{
 //        }
 //        return null;
 
-        if(index < 0 || index >= size)
+        if(index < 0 || index > size)
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
 
         E ret = data[index];
@@ -262,6 +262,7 @@ public class Array<E> implements ArrayInterface<E>{
         for (int i = 0; i < 100; i++)
             array.addLast(i);
 //        array.remove(98);
+        System.out.println(array.size);
         array.set(99, 100);
         System.out.println(array.toString());
         System.out.println(array.getCapacity());
