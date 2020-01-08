@@ -15,12 +15,11 @@ public class RedisSentinelFalloverTest {
     private static Logger logger = LoggerFactory.getLogger(RedisSentinelFalloverTest.class);
 
     public static void main(String[] args) {
-        String masterName = "master";
+        String masterName = "mymaster";
         Set<String> sentinels = new HashSet<String>(){
             {
                 add("127.0.0.1:26379");
                 add("127.0.0.1:26380");
-                add("127.0.0.1:26381");
             }
         };
         JedisSentinelPool jedisSentinelPool = new JedisSentinelPool(masterName,sentinels);
@@ -38,7 +37,7 @@ public class RedisSentinelFalloverTest {
                 if(counter%100==0){
                     logger.info("{} value is {}",key,jedis.get(key));
                 }
-                TimeUnit.MILLISECONDS.sleep(10);
+                TimeUnit.MILLISECONDS.sleep(1000);
             }catch (Exception e){
                 logger.error(e.getMessage(),e);
             }
