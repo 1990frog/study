@@ -1,6 +1,6 @@
 package mydatastructure.arrays;
 
-public class Array<E> {
+public class Array<E> implements ArrayInterface<E>{
 
     //容器
     private E[] data;
@@ -28,6 +28,7 @@ public class Array<E> {
      *
      * @return
      */
+    @Override
     public int getCapacity() {
         return data.length;
     }
@@ -37,6 +38,7 @@ public class Array<E> {
      *
      * @return
      */
+    @Override
     public int getSize() {
         return size;
     }
@@ -46,6 +48,7 @@ public class Array<E> {
      *
      * @return
      */
+    @Override
     public boolean isEmpty() {
 //        return data==null;初始化之后在删除就不为null了
         return size == 0;
@@ -57,6 +60,7 @@ public class Array<E> {
      * @param index 位置
      * @param e     元素
      */
+    @Override
     public void add(int index, E e) {
 
         //忘了验证范围，写算法要先确定边界（取值范围）
@@ -110,6 +114,7 @@ public class Array<E> {
      * @param index
      * @return
      */
+    @Override
     public E get(int index) {
 //        if (index < getCapacity() - 1 && index > -1) {
 //            return data[index];
@@ -127,6 +132,7 @@ public class Array<E> {
      * @param index
      * @param e
      */
+    @Override
     public void set(int index, E e) {
 //        if (index < getCapacity() - 1 && index > -1) {
 //            data[index] = e;
@@ -145,6 +151,7 @@ public class Array<E> {
      * @param e
      * @return
      */
+    @Override
     public boolean contains(E e) {
         for (E _e : data) {
             if (_e.equals(e)) {
@@ -160,6 +167,7 @@ public class Array<E> {
      * @param e
      * @return
      */
+    @Override
     public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (e.equals(data[i])) {
@@ -175,6 +183,7 @@ public class Array<E> {
      * @param index
      * @return
      */
+    @Override
     public E remove(int index) {
 //        if (index < getCapacity() - 1 && index > -1) {
 //            //index位置value
@@ -227,7 +236,8 @@ public class Array<E> {
      *
      * @param newCapacity
      */
-    private void resize(int newCapacity) {
+    @Override
+    public void resize(int newCapacity) {//对外开放了这个不好啊
         E[] newdata = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newdata[i] = data[i];
