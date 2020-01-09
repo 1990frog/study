@@ -1,17 +1,16 @@
 package mydatastructure.queue;
 
-import mydatastructure.arrays.Array;
-
-import java.util.Arrays;
-import java.util.stream.Stream;
-
 public class LoopQueue<E> implements QueueInterface<E> {
 
-    private int front, tail;
     private E[] data;
+    /**
+     * front:队列第一个元素位置
+     * tail:队列下一个元素位置
+     */
+    private int front, tail;
 
     public LoopQueue(){
-        data = (E[])new Object[10];
+        this(10);
     }
 
     public LoopQueue(int capacity){
@@ -21,37 +20,54 @@ public class LoopQueue<E> implements QueueInterface<E> {
     @Override
     public void enqueue(E e) {
         if((tail+1)%data.length==front)
-            resize(data.length);
+            resize(data.length*2);
         data[(tail++)%data.length]=e;
     }
 
     public void resize(int capacity){
-        E[] newdata = (E[])new Object[capacity*2];
-        for(int i=0;i<capacity-1;i++)
-            newdata[i]=data[(front+i)%capacity];
-        data = newdata;
+        E[] newdata = (E[])new Object[capacity];
+        for(int i=0;i<data.length-1;i++)
+            newdata[i]=data[(front+i)%data.length];
         front=0;
-        tail=capacity-1;
+        tail=data.length;
+        data = newdata;
     }
 
     @Override
     public E dequeue() {
-        if(front+1==data.length){//数组最后一个元素
-            front = 0;
-            return data[front];
-        }else{
-            return data[front++]=null;
-        }
+//        if(isEmpty())//这里忘了...
+//            throw new IllegalArgumentException("Queue is empty.");
+//        if(front+1==data.length){//数组最后一个元素
+//            front = 0;
+//            return data[front];
+//        }else{
+//            return data[front++]=null;
+//        }
+
+        if(isEmpty())
+            throw new IllegalArgumentException("Cannot dequeue from an empty bobo.playdatastructure.queue.");
+        E ret = data[front];
+        data[front] = null;
+        front = (front + 1) % data.length;//1点和13点的差异
+        if(getSize() == getCapacity() / 4 && getCapacity() / 2 != 0)
+            resize(getCapacity() / 2);
+        return ret;
     }
 
     @Override
     public E getFront() {
+        if(isEmpty())//这里忘了...
+            throw new IllegalArgumentException("Queue is empty.");
         return data[front];
     }
 
     @Override
     public int getSize() {
-        return tail-front-1;
+        return tail-front-1;//data.size()-1这错了
+    }
+
+    public int getCapacity(){
+        return data.length - 1;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package bobo.playdatastructure.queue.implementAtionOfLoopQueue;
+package bobo.playdatastructure.queue.loopQueue;
 
 import java.util.ArrayList;
 import java.util.List;
