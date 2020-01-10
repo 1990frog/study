@@ -1,6 +1,6 @@
 package mydatastructure.queue;
 
-public class LoopQueue<E> implements QueueInterface<E> {
+public class LoopQueue<E> implements Queue<E> {
 
     private E[] data;
     /**
