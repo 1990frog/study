@@ -1,14 +1,22 @@
+package base.io.nio.niofilecopy;
+
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
+
 interface FileCopyRunner {
-
     void copyFile(File source, File target);
-
 }
 
+/**
+ * noBufferStreamCopy：bio不使用buffer
+ * bufferedStreamCopy：bio使用buffer
+ * nioBufferCopy：nio使用buffer
+ * nioTransferCopy：nio使用channel互相传输
+ */
 public class FileCopyDemo {
+
     private static final int ROUNDS = 5;
 
     private static void benchmark(FileCopyRunner test, File source, File target) {
@@ -73,10 +81,10 @@ public class FileCopyDemo {
                     fin = new BufferedInputStream(new FileInputStream(source));
                     fout = new BufferedOutputStream(new FileOutputStream(target));
 
-                    byte[] buffer = new byte[1024];
+                    byte[] buffer = new byte[1024];//不设置可以无限大？？？
 
-                    int result;
-                    while ((result = fin.read(buffer)) != -1) {
+                    int result;//不是每次都是1024个字节，可能不满
+                    while ((result = fin.read(buffer)) != -1) {//reurn the total number of bytes read into the buffer
                         fout.write(buffer, 0, result);
                     }
                 } catch (FileNotFoundException e) {
@@ -98,11 +106,11 @@ public class FileCopyDemo {
         FileCopyRunner nioBufferCopy = new FileCopyRunner() {
             @Override
             public void copyFile(File source, File target) {
-                FileChannel fin = null;
-                FileChannel fout = null;
+                FileChannel fin = null;//输入通道
+                FileChannel fout = null;//输出通道
 
                 try {
-                    fin = new FileInputStream(source).getChannel();
+                    fin = new FileInputStream(source).getChannel();//通过流获取通道？
                     fout = new FileOutputStream(target).getChannel();
 
                     ByteBuffer buffer = ByteBuffer.allocate(1024);
