@@ -163,10 +163,6 @@ public class LinkedList<E> implements Linked<E> {
         return false;
     }
 
-    @Override
-    public int find(E e) {
-        return 0;
-    }
 
     class Node {
         E e;

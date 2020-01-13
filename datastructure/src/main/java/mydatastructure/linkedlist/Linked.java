@@ -22,7 +22,7 @@ public interface Linked<E> {
      */
     E get(int index);//o(n)
     boolean contains(E e);//o(n)
-    int find(E e);//o(n)
+//    int find(E e);//o(n)
 
 
     int getSize();
