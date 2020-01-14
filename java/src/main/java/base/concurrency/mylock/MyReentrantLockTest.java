@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class ReentrantLockTest {
+public class MyReentrantLockTest {
 
     private Object lock1 = new Object();
     private Object lock2 = new Object();
@@ -51,7 +51,7 @@ public class ReentrantLockTest {
      */
     @Test
     public void test1(){
-        new ReentrantLockTest().try1();
+        new MyReentrantLockTest().try1();
     }
 
     /**
@@ -59,7 +59,7 @@ public class ReentrantLockTest {
      */
     @Test
     public void test2(){
-        new ReentrantLockTest().try3();
+        new MyReentrantLockTest().try3();
     }
 
     /**
@@ -67,7 +67,7 @@ public class ReentrantLockTest {
      */
     @Test
     public void test3() throws InterruptedException {
-        ReentrantLockTest reentrantLockTest = new ReentrantLockTest();
+        MyReentrantLockTest reentrantLockTest = new MyReentrantLockTest();
         Thread thread1 = new Thread(()->reentrantLockTest.try3());
         Thread thread2 = new Thread(()->reentrantLockTest.try4());
         thread1.start();
