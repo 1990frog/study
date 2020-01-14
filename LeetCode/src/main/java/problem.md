@@ -1,2 +1,2 @@
 # TwoSum:Solution1
-# 3Sum:Solution15
+# ThreeSum:Solution15
