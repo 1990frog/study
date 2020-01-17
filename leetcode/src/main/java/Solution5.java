@@ -17,19 +17,17 @@ import java.util.LinkedList;
 public class Solution5 {
 
 
-    public String longestPalindrome(String s) {
-        LinkedList linkedList = new LinkedList();
-        int head = 0,tail = 0;
-        String ret = "";
-        while (tail < s.length()) {
+//    public String longestPalindrome(String s) {
+//        for(int i=0;i<s.length();i++){
+//
+//        }
+//    }
+//
+//    @Test
+//    public void test(){
+//        System.out.println(longestPalindrome("babada"));
+//        System.out.println(longestPalindrome("adabab"));
+//    }
 
-        }
-        return ret;
-    }
 
-    @Test
-    public void test(){
-        System.out.println(longestPalindrome("babada"));
-        System.out.println(longestPalindrome("adabab"));
-    }
 }
