@@ -10,8 +10,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>Leetcode</groupId>
-    <artifactId>Leetcode</artifactId>
+    <groupId>leetcode</groupId>
+    <artifactId>leetcode</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 </project>
