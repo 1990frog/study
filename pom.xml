@@ -21,7 +21,7 @@
         <module>hadoop</module>
         <module>regexp</module>
         <module>java</module>
-        <module>LeetCode</module>
+        <module>Leetcode</module>
         <module>netty</module>
         <module>commons</module>
         <module>datastructure</module>
