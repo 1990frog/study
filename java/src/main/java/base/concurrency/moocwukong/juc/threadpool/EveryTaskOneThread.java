@@ -1,7 +1,7 @@
 package base.concurrency.moocwukong.juc.threadpool;
 
 /**
- * 描述：     TODO
+ * 描述：不使用线程池，每个任务都单独启动一个线程
  */
 public class EveryTaskOneThread {
 
