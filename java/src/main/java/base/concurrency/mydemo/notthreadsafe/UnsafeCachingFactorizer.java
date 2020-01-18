@@ -1,4 +1,4 @@
-package base.concurrency.notthreadsafe;
+package base.concurrency.mydemo.notthreadsafe;
 
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicReference;

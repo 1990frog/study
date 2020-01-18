@@ -1,4 +1,4 @@
-package base.concurrency.mylock;
+package base.concurrency.mydemo.mylock;
 
 public class MyReentrantLock {
 

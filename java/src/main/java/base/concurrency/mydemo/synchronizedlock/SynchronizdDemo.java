@@ -1,4 +1,4 @@
-package base.concurrency.synchronizedlock;
+package base.concurrency.mydemo.synchronizedlock;
 
 public class SynchronizdDemo {
 

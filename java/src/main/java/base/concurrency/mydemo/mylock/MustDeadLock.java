@@ -1,4 +1,4 @@
-package base.concurrency.mylock;
+package base.concurrency.mydemo.mylock;
 
 import java.util.concurrent.TimeUnit;
 

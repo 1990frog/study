@@ -8,6 +8,8 @@ import java.util.concurrent.Executors;
 /**
  * 描述：
  * 加锁来解决线程安全问题
+ *
+ * 加锁造成性能低
  */
 public class ThreadLocalNormalUsage04 {
 

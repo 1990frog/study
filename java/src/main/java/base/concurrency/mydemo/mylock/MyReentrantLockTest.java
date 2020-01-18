@@ -1,4 +1,4 @@
-package base.concurrency.mylock;
+package base.concurrency.mydemo.mylock;
 
 import org.junit.Test;
 

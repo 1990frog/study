@@ -8,6 +8,8 @@ import java.util.concurrent.Executors;
 /**
  * 描述：
  * 1000个打印日期的任务，用线程池来执行
+ *
+ * SimpleDateFormat并不是线程安全的类
  */
 public class ThreadLocalNormalUsage03 {
 

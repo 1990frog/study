@@ -1,11 +1,12 @@
 package base.concurrency.moocwukong.juc.threadlocal;
 
 /**
- * 描述：     TODO
+ * 描述：
+ * ThreadLocal的空指针异常
  */
 public class ThreadLocalNPE {
 
-    ThreadLocal<Long> longThreadLocal = new ThreadLocal<Long>();
+    ThreadLocal<Long> longThreadLocal = new ThreadLocal<>();
 
     public void set() {
         longThreadLocal.set(Thread.currentThread().getId());

@@ -1,4 +1,4 @@
-package base.concurrency.volatiles;
+package base.concurrency.mydemo.volatiles;
 
 /**
  *  一次性安全发布（one-time safe publication）

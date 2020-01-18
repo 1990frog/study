@@ -1,4 +1,4 @@
-package base.concurrency.volatiles;
+package base.concurrency.mydemo.volatiles;
 
 public class VolatileBean {
 
