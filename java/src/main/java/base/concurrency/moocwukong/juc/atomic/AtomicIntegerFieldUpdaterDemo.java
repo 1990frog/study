@@ -3,7 +3,8 @@ package base.concurrency.moocwukong.juc.atomic;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 /**
- * 描述：     演示AtomicIntegerFieldUpdater的用法
+ * 描述：
+ * 演示AtomicIntegerFieldUpdater的用法
  */
 public class AtomicIntegerFieldUpdaterDemo implements Runnable{
 
@@ -22,7 +23,6 @@ public class AtomicIntegerFieldUpdaterDemo implements Runnable{
     }
 
     public static class Candidate {
-
         volatile int score;
     }
 
@@ -37,6 +37,6 @@ public class AtomicIntegerFieldUpdaterDemo implements Runnable{
         t1.join();
         t2.join();
         System.out.println("普通变量："+peter.score);
-        System.out.println("升级后的结果"+ tom.score);
+        System.out.println("升级后的结果："+ tom.score);
     }
 }

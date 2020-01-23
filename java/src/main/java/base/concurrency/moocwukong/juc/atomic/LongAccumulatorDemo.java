@@ -6,7 +6,8 @@ import java.util.concurrent.atomic.LongAccumulator;
 import java.util.stream.IntStream;
 
 /**
- * 描述：     演示LongAccumulator的用法
+ * 描述：
+ * 演示LongAccumulator的用法
  */
 public class LongAccumulatorDemo {
 
