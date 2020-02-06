@@ -1,8 +1,8 @@
 package mydatastructure.linkedlist.singly;
 
-import mydatastructure.linkedlist.Linked;
+import mydatastructure.linkedlist.LinkedInterface;
 
-public class SuperLinkedList<E> implements Linked<E> {
+public class SuperLinkedInterfaceList<E> implements LinkedInterface<E> {
 
     private Node head;
     private Node tail;
@@ -23,7 +23,7 @@ public class SuperLinkedList<E> implements Linked<E> {
 
     }
 
-    public SuperLinkedList(){
+    public SuperLinkedInterfaceList(){
         Node node = new Node(null,null);
         head = node;
         tail = node;

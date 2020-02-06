@@ -1,6 +1,6 @@
 package mydatastructure.linkedlist;
 
-public interface Linked<E> {
+public interface LinkedInterface<E> {
     /**
      * 添加操作
      */

@@ -1,6 +1,6 @@
 package mydatastructure.bst;
 
-public class Main {
+public class App {
 
     public static void main(String[] args) {
         BST<Integer> bst = new BST<>();

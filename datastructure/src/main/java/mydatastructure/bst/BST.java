@@ -125,14 +125,14 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         }
     }
 
+    /**
+     * 前序遍历
+     */
     @Override
     public void preOrder(){
         this.preOrder(root);
     }
 
-    /**
-     * 前序遍历
-     */
     private void preOrder(Node node){
 //        System.out.println(node.e);
 //        if(node.left!=null)
@@ -147,6 +147,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         preOrder(node.right);
     }
 
+    /**
+     * 中序遍历
+     */
     @Override
     public void inOrder(){
         this.inOrder(root);
@@ -160,6 +163,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         inOrder(node.right);
     }
 
+    /**
+     * 后序遍历
+     */
     @Override
     public void postOrder(){
         this.postOrder(root);
@@ -173,7 +179,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         postOrder(node.left);
     }
 
-    // 二分搜索树的层序遍历
+    /**
+     * 层序遍历
+     */
     @Override
     public void levelOrder(){
         Queue<Node> queue = new LinkedList<>();
@@ -188,7 +196,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         }
     }
 
-    // 寻找二分搜索树的最小元素
+    /**
+     * 寻找二分搜索树的最小元素
+     */
     @Override
     public E minimum(){
         if(size == 0)
@@ -196,7 +206,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return minimum(root).e;
     }
 
-    // 返回以node为根的二分搜索树的最小值所在的节点
+    /**
+     * 返回以node为根的二分搜索树的最小值所在的节点
+     */
     private Node minimum(Node node){
         if(node.left==null){
             return node;
@@ -204,7 +216,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return minimum(node.left);
     }
 
-    // 寻找二分搜索树的最大元素
+    /**
+     * 寻找二分搜索树的最大元素
+     */
     @Override
     public E maximum(){
         if(size == 0)
@@ -213,7 +227,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return maximum(root).e;
     }
 
-    // 返回以node为根的二分搜索树的最大值所在的节点
+    /**
+     * 返回以node为根的二分搜索树的最大值所在的节点
+     */
     private Node maximum(Node node){
         if(node.right==null){
             return node;
@@ -221,7 +237,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return maximum(node.right);
     }
 
-    // 从二分搜索树中删除最小值所在节点, 返回最小值
+    /**
+     * 从二分搜索树中删除最小值所在节点, 返回最小值
+     */
     @Override
     public E removeMin(){
         E ret = minimum();
@@ -229,8 +247,10 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return ret;
     }
 
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
+    /**
+     * 删除掉以node为根的二分搜索树中的最小节点
+     * 返回删除节点后新的二分搜索树的根
+     */
     private Node removeMin(Node node){
 
         if(node.left == null){
@@ -244,7 +264,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return node;
     }
 
-    // 从二分搜索树中删除最大值所在节点
+    /**
+     * 从二分搜索树中删除最大值所在节点
+     */
     @Override
     public E removeMax(){
         E ret = maximum();
@@ -263,7 +285,9 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return node;
     }
 
-    // 从二分搜索树中删除元素为e的节点
+    /**
+     * 从二分搜索树中删除元素为e的节点
+     */
     @Override
     public void remove(E e){
         root = remove(root, e);

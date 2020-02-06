@@ -1,14 +1,14 @@
 package mydatastructure.linkedlist.doubly;
 
-import mydatastructure.linkedlist.Linked;
+import mydatastructure.linkedlist.LinkedInterface;
 
-public class LinkedList<E> implements Linked<E> {
+public class LinkedInterfaceList<E> implements LinkedInterface<E> {
 
     private Node dummyHead;
     private Node tail;
     private int size;
 
-    public LinkedList() {
+    public LinkedInterfaceList() {
         Node node = new Node(null, null, null);
         dummyHead = node;
         tail = node;
@@ -25,6 +25,16 @@ public class LinkedList<E> implements Linked<E> {
             this.next = next;
             this.prev = prev;
         }
+    }
+
+    @Override
+    public int getSize() {
+        return size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     @Override
@@ -61,9 +71,9 @@ public class LinkedList<E> implements Linked<E> {
 
     @Override
     public E removeFirst() {
-        E ret = dummyHead.next.e;
-        dummyHead.next = dummyHead.next.next;
-        return ret;
+        Node ret = dummyHead.next;
+        dummyHead.next = ret.next;
+        return ret.e;
     }
 
     @Override
@@ -123,13 +133,4 @@ public class LinkedList<E> implements Linked<E> {
         return false;
     }
 
-    @Override
-    public int getSize() {
-        return size;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
-    }
 }

@@ -4,10 +4,10 @@ import mydatastructure.stack.StackInterface;
 
 public class Stack<E> implements StackInterface<E> {
 
-    private LinkedList<E> linkedList;
+    private LinkedInterfaceList<E> linkedList;
 
     public Stack(){
-        linkedList = new LinkedList<>();
+        linkedList = new LinkedInterfaceList<>();
     }
 
     @Override

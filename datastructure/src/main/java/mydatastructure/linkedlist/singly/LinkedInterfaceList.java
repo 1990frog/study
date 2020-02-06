@@ -1,15 +1,15 @@
 package mydatastructure.linkedlist.singly;
 
-import mydatastructure.linkedlist.Linked;
+import mydatastructure.linkedlist.LinkedInterface;
 
-public class LinkedList<E> implements Linked<E> {
+public class LinkedInterfaceList<E> implements LinkedInterface<E> {
 
     //头结点
     private Node head;
     //容量
     private int size;
 
-    public LinkedList() {
+    public LinkedInterfaceList() {
         head = null;
         size = 0;
     }
@@ -33,7 +33,7 @@ public class LinkedList<E> implements Linked<E> {
 //        node.next = head;
 //        head = node;
 
-        head = new LinkedList.Node(e, head);//简化
+        head = new LinkedInterfaceList.Node(e, head);//简化
         size++;
     }
 
@@ -197,7 +197,7 @@ public class LinkedList<E> implements Linked<E> {
     }
 
     public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
+        LinkedInterfaceList<Integer> linkedList = new LinkedInterfaceList<>();
         for (int i = 0; i < 10; i++) {
             linkedList.addLast(i);
         }

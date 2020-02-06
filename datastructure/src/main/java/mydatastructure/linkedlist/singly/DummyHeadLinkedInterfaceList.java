@@ -1,8 +1,8 @@
 package mydatastructure.linkedlist.singly;
 
-import mydatastructure.linkedlist.Linked;
+import mydatastructure.linkedlist.LinkedInterface;
 
-public class DummyHeadLinkedList<E> implements Linked<E> {
+public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
 
     private Node dummyHead;
     private int size;
@@ -22,7 +22,7 @@ public class DummyHeadLinkedList<E> implements Linked<E> {
 
     }
 
-    public DummyHeadLinkedList() {
+    public DummyHeadLinkedInterfaceList() {
         dummyHead = new Node(null, null);
         size = 0;
     }
@@ -126,7 +126,7 @@ public class DummyHeadLinkedList<E> implements Linked<E> {
     }
 
     public static void main(String[] args) {
-        DummyHeadLinkedList<Integer> linkedList = new DummyHeadLinkedList<>();
+        DummyHeadLinkedInterfaceList<Integer> linkedList = new DummyHeadLinkedInterfaceList<>();
         for (int i = 0; i < 10; i++)
             linkedList.addLast(i);
         System.out.println(linkedList);
