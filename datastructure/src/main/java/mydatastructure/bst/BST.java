@@ -1,14 +1,13 @@
 package mydatastructure.bst;
 
-import bobo.playdatastructure.linkedlist.implementQueue.LinkedListQueue;
-import bobo.playdatastructure.linkedlist.implementStack.LinkedListStack;
-import bobo.playdatastructure.linkedlist.implementStack.Stack;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BST<E extends Comparable<E>> {
+public class BST<E extends Comparable<E>> implements BSTInterface<E> {
 
+    /**
+     * 二分搜索树节点
+     */
     private final class Node {
         Node left;
         Node right;
@@ -16,16 +15,26 @@ public class BST<E extends Comparable<E>> {
         public Node(E e){this.e = e;}
     }
 
+    //根节点
     private Node root;
+    //元素个数
     private int size;
 
     public BST(){
     }
 
+    /**
+     * 元素个数
+     */
+    @Override
     public int size(){
         return size;
     }
 
+    /**
+     * 二分搜索树是否为null
+     */
+    @Override
     public boolean isEmpty(){
         return size == 0;
     }
@@ -56,26 +65,41 @@ public class BST<E extends Comparable<E>> {
 //        else if(e.compareTo(node.e)<0)
 //            add(node.left,e);
 //    }
+
+    /**
+     * 添加元素
+     */
+    @Override
     public void add(E e){
         root = add(root,e);
     }
 
+    /**
+     * 递归从根节点添加元素
+     */
     public Node add(Node node,E e){
-        if(node == null){
+
+        if(node == null){//递归终结条件，并返回添加节点关联上级节点
             size++;
             return new Node(e);
         }
-        if(e.compareTo(node.e) < 0)
-            node.left = add(node.left, e);//子树赋值
-        else if(e.compareTo(node.e) > 0)
+
+        if(e.compareTo(node.e) < 0)//左子树赋值
+            node.left = add(node.left, e);
+        else if(e.compareTo(node.e) > 0)//右子树赋值
             node.right = add(node.right, e);
-        return node;//这是root，根赋值
+
+        return node;//最终返回root根节点
     }
 
+    @Override
     public boolean contain(E e){
         return contain(root,e);
     }
 
+    /**
+     * 递归判断
+     */
     private boolean contain(Node node,E e){
 //        if(node!=null){
 //            if(node.e.compareTo(e)==0){
@@ -89,18 +113,19 @@ public class BST<E extends Comparable<E>> {
 //        }
 //        return false;
 
-        if(node==null)
+        if(node==null)//终结条件
             return false;
 
-        if(e.compareTo(node.e)==0){
+        if(e.compareTo(node.e)==0){//终结条件
             return true;
-        }else if(e.compareTo(node.e)<0){
+        }else if(e.compareTo(node.e)<0){//递归调用
             return contain(node.left,e);
-        }else{
+        }else{//递归调用
             return contain(node.right,e);
         }
     }
 
+    @Override
     public void preOrder(){
         this.preOrder(root);
     }
@@ -122,6 +147,7 @@ public class BST<E extends Comparable<E>> {
         preOrder(node.right);
     }
 
+    @Override
     public void inOrder(){
         this.inOrder(root);
     }
@@ -134,6 +160,7 @@ public class BST<E extends Comparable<E>> {
         inOrder(node.right);
     }
 
+    @Override
     public void postOrder(){
         this.postOrder(root);
     }
@@ -147,6 +174,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 二分搜索树的层序遍历
+    @Override
     public void levelOrder(){
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
@@ -161,6 +189,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 寻找二分搜索树的最小元素
+    @Override
     public E minimum(){
         if(size == 0)
             throw new IllegalArgumentException("BST is empty!");
@@ -176,6 +205,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 寻找二分搜索树的最大元素
+    @Override
     public E maximum(){
         if(size == 0)
             throw new IllegalArgumentException("BST is empty");
@@ -192,6 +222,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 从二分搜索树中删除最小值所在节点, 返回最小值
+    @Override
     public E removeMin(){
         E ret = minimum();
         root = removeMin(root);
@@ -214,6 +245,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 从二分搜索树中删除最大值所在节点
+    @Override
     public E removeMax(){
         E ret = maximum();
         root = removeMax(root);
@@ -232,6 +264,7 @@ public class BST<E extends Comparable<E>> {
     }
 
     // 从二分搜索树中删除元素为e的节点
+    @Override
     public void remove(E e){
         root = remove(root, e);
     }
@@ -297,24 +330,4 @@ public class BST<E extends Comparable<E>> {
 
     }
 
-
-    public static void main(String[] args) {
-        BST<Integer> bst = new BST<>();
-        bst.add(2);
-        bst.add(1);
-        bst.add(3);
-        bst.add(4);
-//        System.out.println(bst.contain(3));
-//        bst.preTraverse();
-//        bst.midTraverse();
-//        bst.levelOrder();
-//        System.out.println(bst.minimum());
-//        System.out.println(bst.maximum());
-//        bst.removeMax();
-//        bst.inOrder();
-        bst.levelOrder();
-        System.out.println("---");
-        bst.remove(3);
-        bst.levelOrder();
-    }
 }
