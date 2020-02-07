@@ -1,6 +1,6 @@
 package mydatastructure.queue;
 
-public class LoopQueue<E> implements Queue<E> {
+public class LoopArrayQueue<E> implements Queue<E> {
 
     private E[] data;
     /**
@@ -9,11 +9,11 @@ public class LoopQueue<E> implements Queue<E> {
      */
     private int front, tail;
 
-    public LoopQueue() {
+    public LoopArrayQueue() {
         this(10);
     }
 
-    public LoopQueue(int capacity) {
+    public LoopArrayQueue(int capacity) {
         data = (E[]) new Object[capacity + 1];
     }
 
@@ -122,21 +122,21 @@ public class LoopQueue<E> implements Queue<E> {
     }
 
     public static void main(String[] args) {
-        LoopQueue<Integer> loopQueue = new LoopQueue<>();
+        LoopArrayQueue<Integer> loopArrayQueue = new LoopArrayQueue<>();
         for (int i = 0; i < 9; i++) {
-            loopQueue.enqueue(i);
+            loopArrayQueue.enqueue(i);
         }
 //        System.out.println(loopQueue);
-        loopQueue.dequeue();
+        loopArrayQueue.dequeue();
 //        System.out.println("dequeue");
 //        System.out.println(loopQueue);
-        loopQueue.dequeue();
+        loopArrayQueue.dequeue();
 //        System.out.println("dequeue");
 //        System.out.println(loopQueue);
-        loopQueue.enqueue(10);
+        loopArrayQueue.enqueue(10);
 //        System.out.println("enqueue 10");
 //        System.out.println(loopQueue);
-        loopQueue.enqueue(11);
+        loopArrayQueue.enqueue(11);
 //        System.out.println("enqueue 11");
 //        System.out.println(loopQueue);
     }

@@ -1,14 +1,14 @@
 package mydatastructure.linkedlist.doubly;
 
-import mydatastructure.linkedlist.LinkedInterface;
+import mydatastructure.linkedlist.Linked;
 
-public class LinkedInterfaceList<E> implements LinkedInterface<E> {
+public class LinkedList<E> implements Linked<E> {
 
     private Node dummyHead;
     private Node tail;
     private int size;
 
-    public LinkedInterfaceList() {
+    public LinkedList() {
         Node node = new Node(null, null, null);
         dummyHead = node;
         tail = node;

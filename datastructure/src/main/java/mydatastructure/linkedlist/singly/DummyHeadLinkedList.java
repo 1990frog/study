@@ -1,8 +1,8 @@
 package mydatastructure.linkedlist.singly;
 
-import mydatastructure.linkedlist.LinkedInterface;
+import mydatastructure.linkedlist.Linked;
 
-public class DummyHeadLinkedList<E> implements LinkedInterface<E> {
+public class DummyHeadLinkedList<E> implements Linked<E> {
 
     private Node dummyHead;
     private int size;

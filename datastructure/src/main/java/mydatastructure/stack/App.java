@@ -3,7 +3,7 @@ package mydatastructure.stack;
 public class App {
 
     public static void main(String[] args) {
-        Stack<Integer> queue =new Stack<>();
+        ArrayStack<Integer> queue =new ArrayStack<>();
         for (int i=0;i<10;i++){
             queue.push(i);
         }

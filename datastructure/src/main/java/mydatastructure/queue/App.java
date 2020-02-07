@@ -22,8 +22,8 @@ public class App {
             System.out.println("ArrayQueue :"+testQueue(queue,opCount));
         });
         Thread thread2 = new Thread(()->{//LoopQueue.dequeue复杂度o(1)
-            LoopQueue<Integer> loopQueue = new LoopQueue<>();
-            System.out.println("LoopQueue :"+testQueue(loopQueue,opCount));
+            LoopArrayQueue<Integer> loopArrayQueue = new LoopArrayQueue<>();
+            System.out.println("LoopQueue :"+testQueue(loopArrayQueue,opCount));
         });
         thread1.start();
         thread2.start();

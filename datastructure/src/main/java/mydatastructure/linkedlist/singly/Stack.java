@@ -1,8 +1,6 @@
 package mydatastructure.linkedlist.singly;
 
-import mydatastructure.stack.StackInterface;
-
-public class Stack<E> implements StackInterface<E> {
+public class Stack<E> implements mydatastructure.stack.Stack<E> {
 
     private LinkedList<E> linkedList;
 

@@ -1,8 +1,8 @@
 package mydatastructure.linkedlist.singly;
 
-import mydatastructure.linkedlist.LinkedInterface;
+import mydatastructure.linkedlist.Linked;
 
-public class LinkedList<E> implements LinkedInterface<E> {
+public class LinkedList<E> implements Linked<E> {
 
     //头结点
     private Node head;

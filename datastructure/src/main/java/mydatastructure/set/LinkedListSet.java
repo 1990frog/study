@@ -2,7 +2,7 @@ package mydatastructure.set;
 
 import mydatastructure.linkedlist.singly.DummyHeadLinkedList;
 
-public class LinkedListSet<E> implements SetInterface<E> {
+public class LinkedListSet<E> implements Set<E> {
 
     private DummyHeadLinkedList<E> list;
 
