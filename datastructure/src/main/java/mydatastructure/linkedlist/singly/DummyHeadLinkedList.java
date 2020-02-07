@@ -2,7 +2,7 @@ package mydatastructure.linkedlist.singly;
 
 import mydatastructure.linkedlist.LinkedInterface;
 
-public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
+public class DummyHeadLinkedList<E> implements LinkedInterface<E> {
 
     private Node dummyHead;
     private int size;
@@ -22,7 +22,7 @@ public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
 
     }
 
-    public DummyHeadLinkedInterfaceList() {
+    public DummyHeadLinkedList() {
         dummyHead = new Node(null, null);
         size = 0;
     }
@@ -34,18 +34,22 @@ public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
 
     @Override
     public void addFirst(E e) {
-        Node node = new Node(e);
-        dummyHead.next = node;
+//        Node node = new Node(e);
+//        dummyHead.next = node;
+        add(0,e);
     }
 
     @Override
     public void add(int index, E e) {
+
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Illegal index.");
-        Node node = dummyHead;
+
+        Node prev = dummyHead;
         for (int i = 0; i < index; i++)
-            node = node.next;
-        node.next = new Node(e, node.next);
+            prev = prev.next;
+
+        prev.next = new Node(e, prev.next);
         size++;
     }
 
@@ -56,10 +60,10 @@ public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
 
     @Override
     public E removeFirst() {
-        E var = dummyHead.next.e;
-        dummyHead.next = dummyHead.next.next;
+        Node ret = dummyHead.next;
+        dummyHead.next = ret.next;
         size--;
-        return var;
+        return ret.e;
     }
 
     @Override
@@ -96,9 +100,17 @@ public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
 
     @Override
     public boolean contains(E e) {
-        for (Node node = dummyHead; node.next != null; node = node.next)
-            if (node.e.equals(e))
+//        for (Node node = dummyHead.next; node.next != null; node = node.next)
+//            if (node.e.equals(e))
+//                return true;
+//        return false;
+
+        Node cur = dummyHead.next;
+        while(cur != null){
+            if(cur.e.equals(e))
                 return true;
+            cur = cur.next;
+        }
         return false;
     }
 
@@ -125,14 +137,4 @@ public class DummyHeadLinkedInterfaceList<E> implements LinkedInterface<E> {
         return buffer.toString();
     }
 
-    public static void main(String[] args) {
-        DummyHeadLinkedInterfaceList<Integer> linkedList = new DummyHeadLinkedInterfaceList<>();
-        for (int i = 0; i < 10; i++)
-            linkedList.addLast(i);
-        System.out.println(linkedList);
-        linkedList.remove(3);
-        System.out.println(linkedList);
-        linkedList.add(3,3);
-        System.out.println(linkedList);
-    }
 }
