@@ -1,4 +1,4 @@
-package bobo.playdatastructure.set.linkedListSet;
+package bobo.playdatastructure.set;
 
 public class LinkedList<E> {
 

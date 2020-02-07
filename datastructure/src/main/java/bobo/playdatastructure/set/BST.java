@@ -1,4 +1,4 @@
-package bobo.playdatastructure.set.timeComplexityOfSet;
+package bobo.playdatastructure.set;
 
 import java.util.LinkedList;
 import java.util.Queue;

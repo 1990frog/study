@@ -1,4 +1,4 @@
-package bobo.playdatastructure.set.timeComplexityOfSet;
+package bobo.playdatastructure.set;
 
 public interface Set<E> {
 

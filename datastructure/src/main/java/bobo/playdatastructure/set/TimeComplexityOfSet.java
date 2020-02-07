@@ -1,13 +1,10 @@
-package bobo.playdatastructure.set.timeComplexityOfSet;
-
-import bobo.playdatastructure.set.linkedListSet.LinkedListSet;
-import bobo.playdatastructure.set.setBasicsAndBSTSet.BSTSet;
-import bobo.playdatastructure.set.setBasicsAndBSTSet.FileOperation;
-import bobo.playdatastructure.set.setBasicsAndBSTSet.Set;
+package bobo.playdatastructure.set;
 
 import java.util.ArrayList;
 
-public class Main {
+public class TimeComplexityOfSet {
+
+    private static final String PRIDE_AND_PREJUDICE = "/home/cai/Code/Java/study/datastructure/src/main/java/bobo/playdatastructure/set/pride-and-prejudice.txt";
 
     private static double testSet(Set<String> set, String filename){
 
@@ -29,7 +26,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String filename = "pride-and-prejudice.txt";
+        String filename = PRIDE_AND_PREJUDICE;
 
         BSTSet<String> bstSet = new BSTSet<>();
         double time1 = testSet(bstSet, filename);

@@ -1,7 +1,5 @@
 package mydatastructure.set;
 
-import java.util.ArrayList;
-
 public class LinkedVsBst {
 
     public long cast(Set set){
