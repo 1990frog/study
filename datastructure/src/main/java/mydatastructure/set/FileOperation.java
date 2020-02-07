@@ -1,4 +1,4 @@
-package bobo.playdatastructure.set.linkedListSet;
+package mydatastructure.set;
 
 import java.io.BufferedInputStream;
 import java.io.File;
