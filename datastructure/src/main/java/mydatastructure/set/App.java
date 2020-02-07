@@ -6,19 +6,25 @@ public class App {
 
     @Test
     public void linkedListSetTest(){
-        LinkedListSet<Integer> set = new LinkedListSet<>();
-        set.add(1);
-        set.add(3);
-        set.add(2);
+        LinkedListSet<Integer> set = new LinkedListSet<Integer>(){
+            {
+                add(1);
+                add(2);
+                add(3);
+            }
+        };
         System.out.println(set.toString());
     }
 
     @Test
     public void bstSetTest(){
-        BSTSet set = new BSTSet();
-        set.add(1);
-        set.add(3);
-        set.add(2);
+        BSTSet<Integer> set = new BSTSet<Integer>(){
+            {
+                add(1);
+                add(2);
+                add(3);
+            }
+        };
         System.out.println(set.toString());
     }
 
