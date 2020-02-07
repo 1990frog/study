@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TimeComplexityOfSet {
 
-    private static final String PRIDE_AND_PREJUDICE = "/home/cai/Code/Java/study/datastructure/src/main/java/bobo/playdatastructure/set/pride-and-prejudice.txt";
+    private static final String PRIDE_AND_PREJUDICE = "/home/cai/Code/Java/study/datastructure/src/main/java/bobo/playdatastructure/set/resource/pride-and-prejudice.txt";
 
     private static double testSet(Set<String> set, String filename){
 
