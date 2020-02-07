@@ -1,29 +1,43 @@
 package mydatastructure.set;
 
-public class BSTSet<E extends Comparable> implements Set<E> {
+import mydatastructure.bst.BST;
+
+public class BSTSet<E extends Comparable<E>> implements Set<E> {
+
+    private BST<E> bst;
+
+    public BSTSet(){
+        bst = new BST<>();
+    }
 
     @Override
     public void add(E e) {
-
+        if(!contains(e))
+            bst.add(e);
     }
 
     @Override
     public void remove(E e) {
-
+        bst.remove(e);
     }
 
     @Override
     public boolean contains(E e) {
-        return false;
+        return bst.contain(e);
     }
 
     @Override
     public int getSize() {
-        return 0;
+        return bst.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return bst.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        return bst.toString();
     }
 }
