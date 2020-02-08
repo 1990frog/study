@@ -8,16 +8,15 @@ public class LinkedListMap<K extends Comparable<K>,V> implements Map<K,V> {
         list = new LinkedList<K,V>();
     }
 
-    @Override
-    public void add(K k, V v) {
+    private void add(K k, V v) {
         list.add(k,v);
     }
 
-    @Override
-    public void set(K k, V v) {
+    private void set(K k, V v) {
         list.set(k,v);
     }
 
+    @Override
     public void put(K k,V v){
         if(contains(k)){
             set(k,v);
