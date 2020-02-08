@@ -26,12 +26,12 @@ public class LinkedList<K,V> {
         dummyHead = new Node(null,null);
     }
 
-    private void add(K k,V v){
+    public void add(K k,V v){
         dummyHead.next = new Node(k,v,dummyHead.next);
         size++;
     }
 
-    public boolean contain(K k){
+    public boolean contains(K k){
         Node prev = dummyHead.next;
         while (prev!=null){
             if(prev.k.equals(k))
@@ -66,9 +66,21 @@ public class LinkedList<K,V> {
     }
 
     public void set(K k,V v){
-        if(!contain(k)){
-            add(k,v);
+        Node prev = dummyHead.next;
+        while (prev!=null){
+            if(k.equals(prev.k)){
+                prev.v = v;
+            }
+            prev = prev.next;
         }
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     @Override
@@ -84,14 +96,6 @@ public class LinkedList<K,V> {
         }
         ret.append("}");
         return ret.toString();
-    }
-
-    public static void main(String[] args) {
-        LinkedList<String,Integer> linked = new LinkedList<>();
-        linked.set("hello",1);
-        linked.set("hello",1);
-        linked.set("world",1);
-        System.out.println(linked.toString());
     }
 
 }
