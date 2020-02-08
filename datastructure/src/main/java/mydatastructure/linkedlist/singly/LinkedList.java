@@ -196,25 +196,4 @@ public class LinkedList<E> implements Linked<E> {
         return buffer.toString();
     }
 
-    public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
-            linkedList.addLast(i);
-        }
-        for (int i = 0; i < 10; i++) {
-            linkedList.addFirst(i);
-        }
-        linkedList.add(2, 100);
-        System.out.println(linkedList);
-        linkedList.removeFirst();
-        System.out.println(linkedList);
-        linkedList.removeLast();
-        System.out.println(linkedList);
-        linkedList.remove(0);
-        linkedList.remove(1);
-        linkedList.remove(2);
-        System.out.println(linkedList);
-
-    }
-
 }
