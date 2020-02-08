@@ -39,13 +39,13 @@ public class BST<K extends Comparable<K>, V> {
             return new Node(k, v);
 
         if (k.compareTo(node.k) < 0) {
-            return add(node.left, k, v);
+            node.left = add(node.left, k, v);
         } else if (k.compareTo(node.k) > 0) {
-            return add(node.right, k, v);
+            node.right = add(node.right, k, v);
         } else {
             node.v = v;
-            return node;
         }
+        return node;
     }
 
     public boolean contains(K k){
@@ -105,4 +105,5 @@ public class BST<K extends Comparable<K>, V> {
             return maxRight(node.right);
         }
     }
+
 }

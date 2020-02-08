@@ -20,4 +20,13 @@ public class App {
         map.put("hello","world");
         System.out.println(map.toString());
     }
+
+    @Test
+    public void bstMap(){
+        BSTMap<String,String> map = new BSTMap<>();
+        map.put("hello","world");
+        map.put("hello","world");
+        map.put("hello1","world1");
+        System.out.println(map.toString());
+    }
 }
