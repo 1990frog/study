@@ -1,4 +1,4 @@
-package mydatastructure.bst;
+package mydatastructure.binarysearchtree;
 
 public class App {
 

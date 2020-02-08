@@ -1,4 +1,4 @@
-package mydatastructure.bst;
+package mydatastructure.binarysearchtree;
 
 import java.util.LinkedList;
 import java.util.Queue;
