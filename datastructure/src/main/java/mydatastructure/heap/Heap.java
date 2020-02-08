@@ -13,6 +13,8 @@ public class Heap<E extends Comparable<E>> {
     }
 
     public int parent(int index){
+        if(index == 0)
+            throw new IllegalArgumentException("index-0 doesn't have parent.");
         return index/2;
     }
 
