@@ -114,6 +114,14 @@ public class ArrayList<E> implements Array<E> {
         list = newList;
     }
 
+    public void swap(int i,int j){
+        if(i<0 || i>size || j<0 || j>size)
+            throw new IllegalArgumentException("");
+        E arg = list[i];
+        list[i] = list[j];
+        list[j] = arg;
+    }
+
     @Override
     public String toString() {
         return "ArrayList{" +
