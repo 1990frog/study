@@ -4,20 +4,20 @@ import java.util.Arrays;
 
 public class ArrayList<E> implements Array<E> {
 
-    private E[] list;
+    private E[] data;
     private int size;
 
-    public ArrayList(){
-        list = (E[])(new Object[10]);
+    public ArrayList() {
+        data = (E[]) (new Object[10]);
     }
 
-    public ArrayList(int capacity){
-        list = (E[])(new Object[capacity]);
+    public ArrayList(int capacity) {
+        data = (E[]) (new Object[capacity]);
     }
 
     @Override
     public int getCapacity() {
-        return list.length;
+        return data.length;
     }
 
     @Override
@@ -33,47 +33,46 @@ public class ArrayList<E> implements Array<E> {
     @Override
     public void add(int index, E e) {
 
-        if(index<0 || index>size)
-            throw new IllegalArgumentException("error");
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
 
-        for (int i = size; i >= index ; i--) {
-            if(size==getCapacity())
-                resize(getCapacity()*2);
+        if (size == getCapacity())
+            resize(2 * getCapacity());
 
-            if(i>index)
-                list[i] = list[i-1];
-            else if(i==index)
-                list[i] = e;
-            else
-                break;
-        }
+        for (int i = size; i > index; i--)
+            data[i] = data[i - 1];
+        data[index] = e;
 
         size++;
 
     }
 
-    public void addLast(E e){
-        add(size,e);
+    public void addLast(E e) {
+        add(size, e);
+    }
+
+    public void addFirst(E e) {
+        add(0, e);
     }
 
     @Override
     public E get(int index) {
-        if(index<0 || index>getCapacity())
-            throw new IllegalArgumentException("error");
-        return list[index];
+        if (index < 0 || index > getCapacity())
+            throw new IllegalArgumentException("Get failed. Index is illegal.");
+        return data[index];
     }
 
     @Override
     public void set(int index, E e) {
-        if(index<0 || index>size)
-            throw new IllegalArgumentException("error");
-        list[index] = e;
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("Set failed. Index is illegal.");
+        data[index] = e;
     }
 
     @Override
     public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if(e.equals(list[i]))
+            if (e.equals(data[i]))
                 return true;
         }
         return false;
@@ -82,7 +81,7 @@ public class ArrayList<E> implements Array<E> {
     @Override
     public int find(E e) {
         for (int i = 0; i < size; i++) {
-            if(e.equals(list[i]))
+            if (e.equals(data[i]))
                 return i;
         }
         return -1;
@@ -91,41 +90,56 @@ public class ArrayList<E> implements Array<E> {
     @Override
     public E remove(int index) {
 
-        if(index<0 || index>size)
-            throw new IllegalArgumentException("error");
+        if (index < 0 || index > size)
+            throw new IllegalArgumentException("Remove failed. Index is illegal.");
 
-        E ret = list[index];
+        E ret = data[index];
 
         for (int i = index; i < size; i++)
-            list[i] = list[i+1];
-
-        if(size==getCapacity()/2)
-            resize(size/4);
-
+            data[i - 1] = data[i];
         size--;
+        data[size] = null;
+
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0)
+            resize(size / 2);
 
         return ret;
     }
 
-    private void resize(int newCapacity) {
-        E[] newList = (E[])(new Object[newCapacity]);
-        for (int i = 0; i < size; i++)
-            newList[i] = list[i];
-        list = newList;
+    // 从数组中删除第一个元素, 返回删除的元素
+    public E removeFirst(){
+        return remove(0);
     }
 
-    public void swap(int i,int j){
-        if(i<0 || i>size || j<0 || j>size)
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
+    public void removeElement(E e){
+        int index = find(e);
+        if(index != -1)
+            remove(index);
+    }
+
+    public void swap(int i, int j) {
+        if (i < 0 || i >= size || j < 0 || j >= size)
             throw new IllegalArgumentException("");
-        E arg = list[i];
-        list[i] = list[j];
-        list[j] = arg;
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) (new Object[newCapacity]);
+        for (int i = 0; i < size; i++)
+            newData[i] = data[i];
+        data = newData;
     }
 
     @Override
     public String toString() {
         return "ArrayList{" +
-                "list=" + Arrays.toString(list) +
+                "list=" + Arrays.toString(data) +
                 ", size=" + size +
                 ", capacity =" + getCapacity() +
                 '}';

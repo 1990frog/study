@@ -56,7 +56,7 @@ public class MaxHeap<E extends Comparable<E>> {
     // 看堆中的最大元素
     public E findMax(){
         if(data.getSize() == 0)
-            throw new IllegalArgumentException("Can not findMax when bobo.playdatastructure.heap is empty.");
+            throw new IllegalArgumentException("Can not findMax when heap is empty.");
         return data.get(0);
     }
 
