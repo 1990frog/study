@@ -1,8 +1,9 @@
 package com.controller;
 
-import com.service.TestService;
+import com.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -11,27 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class DemoController {
 
     @Autowired
-    private TestService testService;
+    private DemoService demoService;
 
-//    @Autowired
-//    private WeatherService weatherService;
-
-//    @RequestMapping("/hello/{id}")
-//    @ResponseBody
-//    public String hello(@PathVariable(value = "id") Long id) {
-//        return Optional.ofNullable(demoService.getDemoById(id)).map(Demo::toString).orElse("empty String");
-//    }
-
-    @RequestMapping("test")
+    /**
+     * 验证三种初始化器
+     * @param key Initializer key
+     * @return Initializer value
+     */
+    @RequestMapping("initializer/{key}")
     @ResponseBody
-    public String test() {
-        return testService.test();
+    public String initializerTest(@PathVariable(value = "key") String key) {
+        return demoService.initializerTest(key);
     }
 
-//    @RequestMapping("weather")
-//    @ResponseBody
-//    public String weather() {
-//        return weatherService.getType() + "," + weatherService.getRate();
-//    }
 
 }

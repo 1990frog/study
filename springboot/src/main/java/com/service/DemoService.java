@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TestService implements ApplicationContextAware {
+public class DemoService implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
@@ -15,8 +15,8 @@ public class TestService implements ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
-    public String test() {
-        return applicationContext.getEnvironment().getProperty("key2");
+    public String initializerTest(String key) {
+        return applicationContext.getEnvironment().getProperty(key);
     }
 
 }
