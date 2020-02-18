@@ -1,5 +1,6 @@
 package com;
 
+import com.initializer.SecondInitializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringbootApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootApplication.class, args);
+//        SpringApplication.run(SpringbootApplication.class, args);
+
+        SpringApplication springApplication = new SpringApplication(SpringbootApplication.class);
+        springApplication.addInitializers(new SecondInitializer());
+        springApplication.run(args);
     }
 
 }
