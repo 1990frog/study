@@ -1,4 +1,4 @@
-package com.listener.demo.event;
+package com.listener.simulation.event;
 
 public class RainEvent extends WeatherEvent {
     @Override

@@ -1,4 +1,4 @@
-package com.listener.demo.event;
+package com.listener.simulation.event;
 
 public class SnowEvent extends WeatherEvent {
     @Override

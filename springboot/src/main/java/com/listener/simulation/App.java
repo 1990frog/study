@@ -1,10 +1,10 @@
-package com.listener.demo;
+package com.listener.simulation;
 
-import com.listener.demo.event.RainEvent;
-import com.listener.demo.listener.RainListener;
-import com.listener.demo.event.SnowEvent;
-import com.listener.demo.listener.SnowListener;
-import com.listener.demo.multicaster.WeatherEventMulticaster;
+import com.listener.simulation.event.RainEvent;
+import com.listener.simulation.listener.RainListener;
+import com.listener.simulation.event.SnowEvent;
+import com.listener.simulation.listener.SnowListener;
+import com.listener.simulation.multicaster.WeatherEventMulticaster;
 
 public class App {
 

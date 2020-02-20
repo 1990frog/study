@@ -1,4 +1,4 @@
-package com.listener.demo.multicaster;
+package com.listener.simulation.multicaster;
 
 import org.springframework.stereotype.Component;
 

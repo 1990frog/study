@@ -1,7 +1,7 @@
-package com.listener.demo.listener;
+package com.listener.simulation.listener;
 
-import com.listener.demo.event.SnowEvent;
-import com.listener.demo.event.WeatherEvent;
+import com.listener.simulation.event.SnowEvent;
+import com.listener.simulation.event.WeatherEvent;
 import org.springframework.stereotype.Component;
 
 @Component
