@@ -1,6 +1,7 @@
 package com;
 
 import com.initializer.SecondInitializer;
+import com.listener.SecondListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,6 +13,7 @@ public class SpringbootApplication {
 
         SpringApplication springApplication = new SpringApplication(SpringbootApplication.class);
         springApplication.addInitializers(new SecondInitializer());
+        springApplication.addListeners(new SecondListener());
         springApplication.run(args);
     }
 
