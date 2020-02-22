@@ -14,7 +14,10 @@ public class FirstInitializer implements ApplicationContextInitializer<Configura
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
         ConfigurableEnvironment environment = applicationContext.getEnvironment();
-//        environment.setRequiredProperties("mooc");
+        /**
+         * 向环境中设置必备的属性，属性需要在application.properties中配置
+         */
+        environment.setRequiredProperties("status");
         Map<String, Object> map = new HashMap<>();
         map.put("key1", "value1");
         MapPropertySource mapPropertySource = new MapPropertySource("firstInitializer", map);

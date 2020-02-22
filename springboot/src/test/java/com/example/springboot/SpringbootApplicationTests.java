@@ -1,6 +1,6 @@
 package com.example.springboot;
 
-import com.ioc.xml.HelloService;
+import com.ioc.xml.App;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,11 +11,11 @@ import org.springframework.test.context.ContextConfiguration;
 class SpringbootApplicationTests {
 
     @Autowired
-    private HelloService helloService;
+    private App app;
 
     @Test
     void contextLoads() {
-        System.out.println(helloService.hello());
+        System.out.println(app.hello());
     }
 
 }

@@ -15,7 +15,7 @@
         </property>
     </bean>
 
-    <bean id="helloService" class="com.ioc.xml.HelloService">
+    <bean id="xmlTest" class="com.ioc.xml.App">
         <property name="student" ref="student"/>
         <property name="animal" ref="dog"/>
 <!--        <property name="animal" ref="cat"/>-->
