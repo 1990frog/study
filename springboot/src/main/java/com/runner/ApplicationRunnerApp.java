@@ -1,4 +1,4 @@
-package com.startup;
+package com.runner;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

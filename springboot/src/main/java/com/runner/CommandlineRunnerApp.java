@@ -1,4 +1,4 @@
-package com.startup;
+package com.runner;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
