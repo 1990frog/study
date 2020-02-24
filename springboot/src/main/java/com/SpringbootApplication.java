@@ -1,9 +1,12 @@
 package com;
 
 import com.initializer.SecondInitializer;
+import com.listener.DiySpringBootEvent;
+import com.listener.DiySpringBootListener;
 import com.listener.SecondListener;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.PropertySource;
 
 import java.util.Properties;
@@ -16,8 +19,14 @@ public class SpringbootApplication {
 //        SpringApplication.run(SpringbootApplication.class, args);
 
         SpringApplication springApplication = new SpringApplication(SpringbootApplication.class);
+
+        // 设置初始化器
         springApplication.addInitializers(new SecondInitializer());
+
+        // 设置监听器
         springApplication.addListeners(new SecondListener());
+        // 自定义监听器
+        springApplication.addListeners(new DiySpringBootListener());
 
         // 设置属性
         Properties properties = new Properties();
@@ -25,7 +34,10 @@ public class SpringbootApplication {
         springApplication.setDefaultProperties(properties);
 
         // 运行
-        springApplication.run(args);
+//        springApplication.run(args);
+
+        ConfigurableApplicationContext context = springApplication.run(args);
+        context.publishEvent(new DiySpringBootEvent(new Object()));
 
     }
 
