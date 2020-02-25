@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.concurrent.TimeUnit;
+
 @Controller
 @RequestMapping("/demo")
 public class DemoController {
@@ -21,7 +23,8 @@ public class DemoController {
      */
     @RequestMapping("initializer/{key}")
     @ResponseBody
-    public String initializerTest(@PathVariable(value = "key") String key) {
+    public String initializerTest(@PathVariable(value = "key") String key) throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(200);
         return demoService.initializerTest(key);
     }
 
