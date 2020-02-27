@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <groupId>redis</groupId>
     <artifactId>redis</artifactId>
-
-    <parent>
-        <artifactId>study</artifactId>
-        <groupId>study</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
