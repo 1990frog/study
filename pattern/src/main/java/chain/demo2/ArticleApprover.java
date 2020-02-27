@@ -1,11 +1,9 @@
 package chain.demo2;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class ArticleApprover extends Approver {
     @Override
     public void deploy(Course course) {
-        if(!StringUtils.isEmpty(course.getArticle())){
+        if(course.getArticle()!=null && !"".equals(course.getArticle())){
              System.out.println(course.getArticle()+"含有手记，批准");
              if(approver != null){
                  approver.deploy(course);

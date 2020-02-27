@@ -1,12 +1,11 @@
 package chain.demo2;
 
-import org.apache.commons.lang3.StringUtils;
 
 public class VideoApprover extends Approver {
 
     @Override
     public void deploy(Course course) {
-        if(!StringUtils.isEmpty(course.getArticle())){
+        if(course.getArticle()!=null && !"".equals(course.getArticle())){
              System.out.println(course.getVideo()+"含有视频，批准");
              if(approver != null){
                  approver.deploy(course);
