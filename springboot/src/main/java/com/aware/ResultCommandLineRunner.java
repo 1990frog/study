@@ -14,8 +14,8 @@ public class ResultCommandLineRunner implements CommandLineRunner, EnvironmentAw
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(env.getProperty("mooc.defalut.name"));
-        System.out.println(env.getProperty("mooc.active.name"));
+        System.out.println(env.getProperty("username"));
+        System.out.println(env.getProperty("userpwd"));
     }
 
     @Override
