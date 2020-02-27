@@ -69,6 +69,7 @@
                     <imageName>springboot</imageName>
                     <baseImage>java</baseImage>
                     <workdir>/app</workdir>
+                    <exposes>8080</exposes>
                     <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
