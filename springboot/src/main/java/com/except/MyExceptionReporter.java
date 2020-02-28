@@ -8,6 +8,17 @@ public class MyExceptionReporter implements SpringBootExceptionReporter {
 
     private ConfigurableApplicationContext context;
 
+    /**
+     * 异常报告器在容器refresh之前创建，所以需要注入Context容器
+     *
+     * exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
+     * 					new Class[] { ConfigurableApplicationContext.class }, context);
+     *
+     * prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+     * refreshContext(context);
+     *
+     * @param context
+     */
     public MyExceptionReporter(ConfigurableApplicationContext context) {
         this.context = context;
     }
