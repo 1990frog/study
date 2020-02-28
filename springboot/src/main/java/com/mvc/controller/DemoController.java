@@ -3,6 +3,7 @@ package com.mvc.controller;
 import com.mvc.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.concurrent.TimeUnit;
 
 @Controller
-@RequestMapping("/demo")
 public class DemoController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class DemoController {
      * @param key Initializer key
      * @return Initializer value
      */
-    @RequestMapping("initializer/{key}")
+    @GetMapping("/demo/initializer/{key}")
     @ResponseBody
     public String initializerTest(@PathVariable(value = "key") String key) throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(200);
