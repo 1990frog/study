@@ -1,5 +1,6 @@
 package com.mvc.controller;
 
+import com.example.mystarter.MystarterServrice;
 import com.mvc.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,9 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
+    @Autowired
+    private MystarterServrice mystarterServrice;
+
     /**
      * 验证三种初始化器
      * @param key Initializer key
@@ -26,6 +30,12 @@ public class DemoController {
     public String initializerTest(@PathVariable(value = "key") String key) throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(200);
         return demoService.initializerTest(key);
+    }
+
+    @GetMapping("/demo")
+    @ResponseBody
+    public String demo(){
+        return mystarterServrice.getAuthor();
     }
 
 
