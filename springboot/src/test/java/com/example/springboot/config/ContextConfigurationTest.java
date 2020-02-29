@@ -1,4 +1,4 @@
-package com.example.springboot;
+package com.example.springboot.config;
 
 import com.SpringbootApplication;
 import org.junit.Test;
