@@ -1,7 +1,7 @@
 package com.example.springboot.starter;
 
 import com.SpringbootApplication;
-import com.condi.A;
+import com.source.condi.A;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

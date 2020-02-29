@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 import tk.mybatis.spring.annotation.MapperScan;
 
-@MapperScan("com.mvc")
+@MapperScan("com.source.mvc")
 @SpringBootApplication
 //@PropertySource({"demo.properties"})
 public class SpringbootApplication {

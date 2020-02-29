@@ -1,7 +1,6 @@
 package com.example.springboot.ann;
 
 import com.SpringbootApplication;
-import com.entry.DemoEntry;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

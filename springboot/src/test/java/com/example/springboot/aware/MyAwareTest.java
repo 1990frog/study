@@ -1,8 +1,8 @@
 package com.example.springboot.aware;
 
 import com.SpringbootApplication;
-import com.aware.Flag;
-import com.aware.MyAware;
+import com.source.aware.Flag;
+import com.source.aware.MyAware;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
