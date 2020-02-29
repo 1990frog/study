@@ -38,14 +38,14 @@ public class SpringbootApplication {
         ConfigurableApplicationContext context = springApplication.run(args);
         context.publishEvent(new DiySpringBootEvent(new Object()));
 
-        try{
-            throw new CException(new BException(new AException(new Exception("test"))));
-        }catch (Throwable t){
-            while (t!=null){
-                System.out.println(t.getClass());
-                t = t.getCause();
-            }
-        }
+//        try{
+//            throw new CException(new BException(new AException(new Exception("test"))));
+//        }catch (Throwable t){
+//            while (t!=null){
+//                System.out.println(t.getClass());
+//                t = t.getCause();
+//            }
+//        }
     }
 
 }

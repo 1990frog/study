@@ -1,18 +1,31 @@
 package com.example.springboot;
 
+import com.SpringbootApplication;
 import com.aware.Flag;
 import com.aware.MyAware;
+import com.condi.A;
 import com.ioc.xml.App;
+import com.mvc.controller.DemoController;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest("test:dudu")
+//@SpringBootTest("condition:dudu")
+//@SpringBootTest("test:dudu")
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = {SpringBootApplication.class})
 @ContextConfiguration(locations = "classpath:ioc/demo.xml")
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {SpringbootApplication.class})
 class SpringbootApplicationTests implements EnvironmentAware, BeanNameAware, MyAware {
 
     @Autowired
@@ -21,6 +34,9 @@ class SpringbootApplicationTests implements EnvironmentAware, BeanNameAware, MyA
     private Environment env;
 
     private Flag flag;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Test
     void contextLoads() {
@@ -50,5 +66,10 @@ class SpringbootApplicationTests implements EnvironmentAware, BeanNameAware, MyA
     @Test
     void testMyAware(){
         System.out.println(flag.isCanOperate());
+    }
+
+    @Test
+    public void testA(){
+        System.out.println(applicationContext.getBean(A.class));
     }
 }
