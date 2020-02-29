@@ -23,7 +23,7 @@
         <javaModelGenerator targetPackage="com.mvc.domain.entity.${module}"
                             targetProject="src/main/java"/>
         <!-- 生成mapper.xml -->
-        <sqlMapGenerator targetPackage="com.mvc.dao.${module}"
+        <sqlMapGenerator targetPackage="mapper.${module}"
                          targetProject="src/main/resources"/>
         <!-- 生成mapper接口 -->
         <javaClientGenerator targetPackage="com.mvc.dao.${module}"

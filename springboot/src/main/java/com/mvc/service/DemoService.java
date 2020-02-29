@@ -10,6 +10,8 @@ public class DemoService implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
+//    private UserMapper userMapper;
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
@@ -17,6 +19,13 @@ public class DemoService implements ApplicationContextAware {
 
     public String initializerTest(String key) {
         return applicationContext.getEnvironment().getProperty(key);
+    }
+
+    public boolean insertUser(){
+//        User user = new User();
+//        user.setName("cai");
+//        userMapper.insertSelective(user);
+        return true;
     }
 
 }
