@@ -1,22 +1,19 @@
-package com.example.springboot.ann;
+package com.example.springboot.source.ann;
 
 import com.SpringbootApplication;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.testng.annotations.Test;
 
 import java.util.HashMap;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = {SpringbootApplication.class})
 public class AnnConfigurationTest {
 
-    @Autowired
-    @Qualifier("demo")
-    private DemoEntry demoEntry;
+//    @Autowired
+//    @Qualifier("demo")
+//    private DemoEntry demoEntry;
 
     @Autowired
     @Qualifier("userMap")
@@ -24,7 +21,7 @@ public class AnnConfigurationTest {
 
     @Test
     public void contextLoad(){
-        demoEntry.print();
+//        demoEntry.print();
 
         userMap.entrySet().stream().forEach(n-> System.out.println(n));
     }

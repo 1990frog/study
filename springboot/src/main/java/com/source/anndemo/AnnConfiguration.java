@@ -8,10 +8,10 @@ import java.util.HashMap;
 @Configuration
 public class AnnConfiguration {
 
-    @Bean
-    public DemoEntry demoEntry() {
-        return new DemoEntry();
-    }
+//    @Bean
+//    public DemoEntry demoEntry() {
+//        return new DemoEntry();
+//    }
 
     @Bean("userMap")
     public HashMap diMap(){

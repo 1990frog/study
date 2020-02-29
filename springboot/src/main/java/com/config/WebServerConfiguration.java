@@ -1,4 +1,4 @@
-package com.source.config;
+package com.config;
 
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.http11.Http11NioProtocol;

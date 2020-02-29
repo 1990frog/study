@@ -1,15 +1,13 @@
-package com.example.springboot.aware;
+package com.example.springboot.source.aware;
 
 import com.SpringbootApplication;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest(classes = {SpringbootApplication.class})
 public class ContextAwareTest implements EnvironmentAware, BeanNameAware {
 

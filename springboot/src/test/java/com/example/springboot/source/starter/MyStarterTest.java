@@ -1,15 +1,12 @@
-package com.example.springboot.starter;
+package com.example.springboot.source.starter;
 
 import com.SpringbootApplication;
 import com.source.condi.A;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = {SpringbootApplication.class})
 public class MyStarterTest {
 
