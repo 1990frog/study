@@ -64,14 +64,11 @@ server:
     min-spare-threads: 100
     max-threads: 300
 
-mystarter:
-  author:caijingquan
-  enable:enable
+#mystarter:
+#  author:caijingquan
+#  enable:enable
 
+logging:
+  file:
+    path:/home/cai/Code/Java/logs
 
-
-#
-#  context.initializer.classes=com.source.initializer.ThirdInitializer
-#  context.listener.classes=com.source.listener.ThirdListener
-#  status=haha
-#  com.condition=haha

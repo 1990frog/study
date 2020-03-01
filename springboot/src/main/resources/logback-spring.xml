@@ -5,14 +5,15 @@
 <!-- debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 引入spring环境变量 -->
-    <property resource="application.properties"/>
+    <property resource="application.yml"/>
     <!-- 定义日志的根目录 -->
-    <property name="LOG_HOME" value="${logging.file.path}" />
+<!--    <property name="logPath" value="${logging.file.path}" />-->
+    <property name="logPath" value="/home/cai/Code/Java/logs" />
     <!-- 定义日志文件名称 -->
     <property name="appName" value="${spring.application.name}"></property>
 
     <!-- 彩色日志 -->
-    <!-- 彩色日志依赖的渲染类 -->
+    <!-- 彩色日志依赖的渲染类 -->s
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
     <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
     <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
@@ -21,17 +22,10 @@
 
     <!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 -->
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-        <!--
-        日志输出格式：
-            %d表示日期时间，
-            %thread表示线程名，
-            %-5level：级别从左显示5个字符宽度
-            %logger{50} 表示logger名字最长50个字符，否则按照句点分割。
-            %msg：日志消息，
-            %n是换行符
-        -->
+
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <!-- 日志输出格式：%d表示日期时间，%thread表示线程名，%-5level级别从左显示5个字符宽度，%logger{50}表示logger名字最长50个字符，否则按照句点分割。%msg：日志消息，%n是换行符 -->
 <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
         </layout>
     </appender>
@@ -47,7 +41,7 @@
             滚动时产生的文件的存放位置及文件名称 %d{yyyy-MM-dd}：按天进行日志滚动
             %i：当文件大小超过maxFileSize时，按照i进行文件滚动
             -->
-            <fileNamePattern>${LOG_HOME}/info/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/info/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <!--
             可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每天滚动，
             且maxHistory是365，则只保存最近365天的文件，删除之前的旧文件。注意，删除旧文件是，
@@ -79,7 +73,7 @@
 
     <appender name="WARN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/warn/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/warn/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <MaxHistory>7</MaxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
@@ -97,7 +91,7 @@
 
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/error/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/error/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <MaxHistory>7</MaxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
@@ -115,7 +109,7 @@
 
     <appender name="FATAL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/fatal/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${logPath}/fatal/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <MaxHistory>7</MaxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
@@ -145,6 +139,22 @@
     <!--
     root与logger是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应，
     要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。
+    -->
+
+
+    <!--
+    使用mybatis的时候，sql语句是debug下才会打印，而这里我们只配置了info，所以想要查看sql语句的话，有以下两种操作：
+    第一种把<root level="info">改成<root level="DEBUG">这样就会打印sql，不过这样日志那边会出现很多其他消息
+    第二种就是单独给dao下目录配置debug模式，代码如下，这样配置sql语句会打印，其他还是正常info级别：
+     -->
+    <logger name="com.action.mapper" level="debug">
+        <appender-ref ref="stdout" />
+    </logger>
+    <!--
+    root节点是必选节点，用来指定最基础的日志输出级别，只有一个level属性
+    level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，
+    不能设置为INHERITED或者同义词NULL。默认是DEBUG
+    可以包含零个或多个元素，标识这个appender将会添加到这个logger。
     -->
     <root level="info">
         <appender-ref ref="stdout" />
