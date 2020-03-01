@@ -89,12 +89,12 @@
 <!--            <version>2.1.5</version>-->
 <!--        </dependency>-->
 
-        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>druid-spring-boot-starter</artifactId>-->
-<!--            <version>1.1.21</version>-->
-<!--        </dependency>-->
+        <!-- 地表最强阿里数据连接池 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.21</version>
+        </dependency>
 
     </dependencies>
 

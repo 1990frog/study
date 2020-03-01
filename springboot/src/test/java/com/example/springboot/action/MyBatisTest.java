@@ -19,7 +19,7 @@ public class MyBatisTest {
     @Test
     public void insert(){
         Product product = new Product();
-        product.setId(2);
+        product.setId(3);
         product.setName("hanmeimei");
         product.setPrice(100);
         productMapper.insert(product);
