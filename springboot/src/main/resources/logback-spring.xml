@@ -7,7 +7,7 @@
     <!-- 引入spring环境变量 -->
     <property resource="application.yml"/>
     <!-- 定义日志的根目录 -->
-<!--    <property name="logPath" value="${logging.file.path}" />-->
+    <!-- <property name="logPath" value="${logging.file.path}" />-->
     <property name="logPath" value="/home/cai/Code/Java/logs" />
     <!-- 定义日志文件名称 -->
     <property name="appName" value="${spring.application.name}"></property>
@@ -26,7 +26,7 @@
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>${CONSOLE_LOG_PATTERN}</pattern>
             <!-- 日志输出格式：%d表示日期时间，%thread表示线程名，%-5level级别从左显示5个字符宽度，%logger{50}表示logger名字最长50个字符，否则按照句点分割。%msg：日志消息，%n是换行符 -->
-<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+            <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
         </layout>
     </appender>
 
@@ -126,23 +126,16 @@
     </appender>
 
     <!--
-        logger主要用于存放日志对象，也可以定义日志类型、级别
-        name：表示匹配的logger类型前缀，也就是包的前半部分
-        level：要记录的日志级别，包括 TRACE < DEBUG < INFO < WARN < ERROR
-        additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，
-        false：表示只用当前logger的appender-ref，true：
-        表示当前logger的appender-ref和rootLogger的appender-ref都有效
-    -->
-<!--    <logger name="com.action" level="debug" />-->
-<!--    <logger name="org.springframework" level="debug" additivity="false"></logger>-->
-
-    <!--
     root与logger是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应，
     要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。
-    -->
 
+    logger主要用于存放日志对象，也可以定义日志类型、级别
+    name：表示匹配的logger类型前缀，也就是包的前半部分
+    level：要记录的日志级别，包括 TRACE < DEBUG < INFO < WARN < ERROR
+    additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，
+    false：表示只用当前logger的appender-ref，true：
+    表示当前logger的appender-ref和rootLogger的appender-ref都有效
 
-    <!--
     使用mybatis的时候，sql语句是debug下才会打印，而这里我们只配置了info，所以想要查看sql语句的话，有以下两种操作：
     第一种把<root level="info">改成<root level="DEBUG">这样就会打印sql，不过这样日志那边会出现很多其他消息
     第二种就是单独给dao下目录配置debug模式，代码如下，这样配置sql语句会打印，其他还是正常info级别：
@@ -150,6 +143,7 @@
     <logger name="com.action.mapper" level="debug">
         <appender-ref ref="stdout" />
     </logger>
+    <!--    <logger name="org.springframework" level="debug" additivity="false"></logger>-->
     <!--
     root节点是必选节点，用来指定最基础的日志输出级别，只有一个level属性
     level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，
