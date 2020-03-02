@@ -2,7 +2,6 @@ package com.mvc.controller;
 
 
 import com.except.BusinessException;
-import com.mvc.domain.entity.Product;
 import com.mvc.service.HelloSpringbootService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

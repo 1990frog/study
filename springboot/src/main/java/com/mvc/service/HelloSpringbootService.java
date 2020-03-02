@@ -1,7 +1,5 @@
 package com.mvc.service;
 
-import com.mvc.domain.entity.Product;
-import com.mvc.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

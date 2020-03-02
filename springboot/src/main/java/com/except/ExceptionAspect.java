@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ExceptionAspect {
 
-    @AfterThrowing(pointcut = "within(com.action.controller.*)",throwing = "ex")
+    @AfterThrowing(pointcut = "within(com.mvc.controller.*)",throwing = "ex")
     public void handleException(JoinPoint joinPoint,Exception ex) throws Exception{
         Class declaringType = joinPoint.getSignature().getDeclaringType();
         String clazz = declaringType.getCanonicalName();

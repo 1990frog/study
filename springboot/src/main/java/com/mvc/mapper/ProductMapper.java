@@ -1,11 +1,9 @@
 package com.mvc.mapper;
 
-
 import com.mvc.domain.entity.Product;
 import com.mvc.domain.entity.ProductExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface ProductMapper {
     long countByExample(ProductExample example);
