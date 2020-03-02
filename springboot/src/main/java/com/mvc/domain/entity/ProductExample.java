@@ -1,4 +1,4 @@
-package com.domain.entity;
+package com.mvc.domain.entity;
 
 import java.util.ArrayList;
 import java.util.List;

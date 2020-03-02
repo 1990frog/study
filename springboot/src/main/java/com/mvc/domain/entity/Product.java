@@ -1,4 +1,4 @@
-package com.domain.entity;
+package com.mvc.domain.entity;
 
 public class Product {
     private Integer id;
