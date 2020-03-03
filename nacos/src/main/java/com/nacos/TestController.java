@@ -1,28 +1,38 @@
 package com.nacos;
 
-import org.apache.commons.lang3.StringUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Date;
+import javax.websocket.server.PathParam;
 import java.util.List;
 
-//@Slf4j
+@Slf4j
 @RestController
 public class TestController {
 //    @Autowired(required = false)
 //    private ShareMapper shareMapper;
     @Autowired
     private DiscoveryClient discoveryClient;
+
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("/ribbon/test")
+    @ResponseBody
+    public String ribbonTest(){
+        return restTemplate.getForObject("http://user-center/users/{id}",String.class,1);
+    }
+
+    @GetMapping("/users/{id}")
+    @ResponseBody
+    public String getUser(@PathParam("id") String id){
+        return id;
+    }
 
 //    @GetMapping("/test")
 //    public List<Share> testInsert() {
@@ -57,7 +67,7 @@ public class TestController {
     public List<ServiceInstance> getInstances() {
         // 查询指定服务的所有实例的信息
         // consul/eureka/zookeeper...
-        return this.discoveryClient.getInstances("content-center");
+        return this.discoveryClient.getInstances("user-center");
     }
 
 //    @Autowired
