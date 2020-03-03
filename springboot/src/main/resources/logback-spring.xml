@@ -5,12 +5,13 @@
 <!-- debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。 -->
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 引入spring环境变量 -->
-    <property resource="application.yml"/>
+<!--    <property resource="application.yml"/>-->
     <!-- 定义日志的根目录 -->
-    <!-- <property name="logPath" value="${logging.file.path}" />-->
+    <property name="logPath" value="${logging.file.path}" />
     <property name="logPath" value="/home/cai/Code/Java/logs" />
     <!-- 定义日志文件名称 -->
-    <property name="appName" value="${spring.application.name}"></property>
+<!--    <property name="appName" value="${spring.application.name}"></property>-->
+    <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="localhost"/>
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->s

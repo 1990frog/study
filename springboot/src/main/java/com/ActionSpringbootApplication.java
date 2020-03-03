@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@MapperScan("com.action.mapper")
+@MapperScan("com.mvc.mapper")
 @SpringBootApplication
 @EnableAspectJAutoProxy
 public class ActionSpringbootApplication {

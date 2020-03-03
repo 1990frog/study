@@ -1,4 +1,4 @@
-package com.action.controller;
+package com.mvc.controller;
 
 import com.alibaba.druid.stat.DruidStatManagerFacade;
 import org.springframework.web.bind.annotation.GetMapping;
