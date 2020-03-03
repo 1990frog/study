@@ -1,4 +1,4 @@
-package com.nacos;
+package com.nacos.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,8 @@ public class TestController {
 
     @GetMapping("/users/{id}")
     @ResponseBody
-    public String getUser(@PathParam("id") String id){
+    public String getUser(@PathVariable("id") String id){
+        log.info("我被访问了！");
         return id;
     }
 

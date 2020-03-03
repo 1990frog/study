@@ -43,14 +43,13 @@ spring:
 #    allow-bean-definition-overriding: true
 server:
   port: 8848
-
-#user-center:
-#  ribbon:
-#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients: user-center
+user-center:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+ribbon:
+  eager-load:
+    enabled: true
+    clients: user-center
 #logging:
 #  level:
 #    com.itmuch.contentcenter.feignclient.UserCenterFeignClient: debug
