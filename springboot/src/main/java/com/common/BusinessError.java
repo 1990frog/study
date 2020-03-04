@@ -1,8 +1,10 @@
 package com.common;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class BusinessError {
     private int errCode;
     private String errMsg;

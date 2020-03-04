@@ -1,6 +1,8 @@
 package com.common;
 
+import com.util.ErrorUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,9 +27,11 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public Result doError(HttpServletRequest servletRequest, HttpServletResponse httpServletResponse, Exception ex) {
         if (ex instanceof BusinessException) {
-            return Result.builder(ex, "error");
+            return Result.builder(((BusinessException) ex).getBusinessError(), "error");
         } else if (ex instanceof NoHandlerFoundException) {
             return Result.builder(new BusinessError(BusinessErrorEnum.NO_HANDLER_FOUND_ERROR), "error");
+        } else if (ex instanceof MethodArgumentNotValidException) {
+            return Result.builder(new BusinessError(BusinessErrorEnum.PARAM_ERROR.getErrCode(),ErrorUtil.processErrorString(((MethodArgumentNotValidException) ex).getBindingResult())), "error");
         } else {
             return Result.builder(new BusinessError(BusinessErrorEnum.UNKNOW_ERROR), "error");
         }
