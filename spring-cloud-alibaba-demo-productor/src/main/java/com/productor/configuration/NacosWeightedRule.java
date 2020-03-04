@@ -1,4 +1,4 @@
-package com.nacos.configuration;
+package com.productor.configuration;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.ribbon.NacosServer;

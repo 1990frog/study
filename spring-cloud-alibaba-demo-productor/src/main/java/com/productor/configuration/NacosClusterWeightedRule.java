@@ -1,4 +1,4 @@
-package com.nacos.configuration;
+package com.productor.configuration;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.AbstractLoadBalancerRule;

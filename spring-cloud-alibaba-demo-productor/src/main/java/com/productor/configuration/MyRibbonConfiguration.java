@@ -1,4 +1,4 @@
-package com.nacos.configuration;
+package com.productor.configuration;
 
 import com.ribbonconfiguration.RibbonConfiguration;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
