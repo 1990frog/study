@@ -1,4 +1,4 @@
-package com.example.springboot.source.aware;
+package com.springboot.source.aware;
 
 import com.SpringbootApplication;
 import com.aware.Flag;

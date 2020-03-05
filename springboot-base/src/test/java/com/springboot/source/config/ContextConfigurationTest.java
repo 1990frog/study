@@ -1,4 +1,4 @@
-package com.example.springboot.source.config;
+package com.springboot.source.config;
 
 import com.SpringbootApplication;
 import org.junit.jupiter.api.Test;

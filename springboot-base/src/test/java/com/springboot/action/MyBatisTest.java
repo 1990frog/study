@@ -1,4 +1,4 @@
-package com.example.springboot.action;
+package com.springboot.action;
 
 import com.ActionSpringbootApplication;
 import com.mvc.domain.entity.Product;

@@ -1,4 +1,4 @@
-package com.example.springboot.transaction;
+package com.springboot.transaction;
 
 import com.ActionSpringbootApplication;
 import com.transaction.DeclarativeTransaction;

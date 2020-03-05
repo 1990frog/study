@@ -1,4 +1,4 @@
-package com.example.springboot.source.starter;
+package com.springboot.source.starter;
 
 import com.SpringbootApplication;
 import com.condi.A;

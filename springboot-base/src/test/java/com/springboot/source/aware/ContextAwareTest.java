@@ -1,4 +1,4 @@
-package com.example.springboot.source.aware;
+package com.springboot.source.aware;
 
 import com.SpringbootApplication;
 import org.junit.jupiter.api.Test;

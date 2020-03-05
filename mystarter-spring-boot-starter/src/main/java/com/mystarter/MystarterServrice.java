@@ -1,4 +1,4 @@
-package com.example.mystarter;
+package com.mystarter;
 
 public class MystarterServrice {
 

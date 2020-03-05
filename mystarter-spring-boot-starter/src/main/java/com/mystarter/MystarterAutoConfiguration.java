@@ -1,4 +1,4 @@
-package com.example.mystarter;
+package com.mystarter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

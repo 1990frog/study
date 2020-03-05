@@ -1,4 +1,4 @@
-package com.example.springboot.source.ann;
+package com.springboot.source.ann;
 
 import com.SpringbootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
