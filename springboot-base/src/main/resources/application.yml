@@ -84,3 +84,11 @@ logging:
   file:
     path:/home/cai/Code/Java/logs
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
