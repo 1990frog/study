@@ -3,14 +3,11 @@ package com.mvc.controller;
 import com.mvc.domain.entity.Product;
 import com.mvc.service.DataService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @Controller
@@ -27,7 +24,7 @@ public class DataController {
 
     @GetMapping("/cache/query/{type}")
     @ResponseBody
-    public Product mybatisCacheQuery(@PathParam("type")String type){
+    public Product mybatisCacheQuery(@PathVariable("type")String type){
         if("1".equals(type)){
             return dataService.mybatisCache1();
         }else if("2".equals(type)){
@@ -42,6 +39,18 @@ public class DataController {
     @ResponseBody
     public List<Product> queryAll(){
         return dataService.queryAll();
+    }
+
+    @GetMapping("/rowbounds/{pageid}")
+    @ResponseBody
+    public List<Product> queryAllWithRowBounds(@PathVariable("pageid")Integer pageid){
+        return dataService.queryAllWithRowBounds(new RowBounds(pageid,20));
+    }
+
+    @GetMapping("/params/{pageid}")
+    @ResponseBody
+    public List<Product> queryAllWithParam(@PathVariable("pageid") Integer pageid){
+        return dataService.queryAllWithParam(pageid,20);
     }
 
     @PostMapping("/insert")

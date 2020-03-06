@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public Result doError(HttpServletRequest servletRequest, HttpServletResponse httpServletResponse, Exception ex) {
+    public Result doError(HttpServletRequest servletRequest, HttpServletResponse httpServletResponse, Exception ex) throws Exception {
         if (ex instanceof BusinessException) {
             return Result.builder(((BusinessException) ex).getBusinessError(), "error");
         } else if (ex instanceof NoHandlerFoundException) {
@@ -33,7 +33,8 @@ public class GlobalExceptionHandler {
         } else if (ex instanceof MethodArgumentNotValidException) {
             return Result.builder(new BusinessError(BusinessErrorEnum.PARAM_ERROR.getErrCode(),ErrorUtil.processErrorString(((MethodArgumentNotValidException) ex).getBindingResult())), "error");
         } else {
-            return Result.builder(new BusinessError(BusinessErrorEnum.UNKNOW_ERROR), "error");
+            throw ex;
+//            return Result.builder(new BusinessError(BusinessErrorEnum.UNKNOW_ERROR), "error");
         }
     }
 }

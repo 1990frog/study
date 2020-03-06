@@ -69,6 +69,15 @@ mybatis:
     map-underscore-to-camel-case: true
     local-cache-scope: session
 
+pagehelper:
+  # 使用rowbound.offset作为页码
+  offset-as-page-num: true
+  reasonable: true
+  # 页码传0查找全部的记录
+  page-size-zero: true
+  # 开启方法参数支持
+  support-methods-arguments: true
+
 server:
   port: 8080
   tomcat:

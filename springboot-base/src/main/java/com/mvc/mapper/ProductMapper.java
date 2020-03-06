@@ -4,6 +4,8 @@ import com.mvc.domain.entity.Product;
 import com.mvc.domain.entity.ProductExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.session.RowBounds;
 
 public interface ProductMapper {
     long countByExample(ProductExample example);
@@ -27,4 +29,11 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    @Select("select * from product order by id")
+    List<Product> queryAllWithRowBounds(RowBounds rowBounds);
+
+    @Select("select * from product order by id")
+    List<Product> queryAllWithParam(@Param("pageNum") int pageNum,
+                                  @Param("pageSize") int pageSize);
 }

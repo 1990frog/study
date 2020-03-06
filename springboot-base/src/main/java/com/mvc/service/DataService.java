@@ -2,6 +2,8 @@ package com.mvc.service;
 
 import com.mvc.domain.entity.Product;
 import com.mvc.mapper.ProductMapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +62,14 @@ public class DataService {
 
     public List<Product> queryAll(){
         return productMapper.selectByExample(null);
+    }
+
+    public List<Product> queryAllWithRowBounds(RowBounds rowBound){
+        return productMapper.queryAllWithRowBounds(rowBound);
+    }
+
+    public List<Product> queryAllWithParam(int pageNum,int pageSize){
+        return productMapper.queryAllWithParam(1,20);
     }
 
     public void insert(Product product){
