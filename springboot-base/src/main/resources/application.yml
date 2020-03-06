@@ -67,6 +67,7 @@ mybatis:
   type-aliases-package: com.mvc.domain.entity
   configuration:
     map-underscore-to-camel-case: true
+    local-cache-scope: session
 
 server:
   port: 8080

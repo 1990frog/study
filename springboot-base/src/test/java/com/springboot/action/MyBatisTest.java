@@ -1,6 +1,6 @@
 package com.springboot.action;
 
-import com.ActionSpringbootApplication;
+import com.SpringbootApplication;
 import com.mvc.domain.entity.Product;
 import com.mvc.domain.entity.ProductExample;
 import com.mvc.mapper.ProductMapper;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.beans.Transient;
 
-@SpringBootTest(classes = ActionSpringbootApplication.class)
+@SpringBootTest(classes = SpringbootApplication.class)
 public class MyBatisTest {
 
     @Autowired

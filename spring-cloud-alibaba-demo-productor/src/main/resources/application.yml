@@ -2,6 +2,15 @@ spring:
   application:
     # 服务名称尽量用-，不要用_，不要用特殊字符
     name: productor
+
+  cloud:
+    nacos:
+      metadata:
+        # 自己这个实例的版本
+        version: v1
+        # 允许调用的提供者版本
+        target-version: v1
+
 #  cloud:
 #    nacos:
 #      discovery:

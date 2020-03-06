@@ -1,6 +1,6 @@
 package com.springboot.transaction;
 
-import com.ActionSpringbootApplication;
+import com.SpringbootApplication;
 import com.transaction.DeclarativeTransaction;
 import com.transaction.ProgrammaticTransaction;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @Slf4j
-@SpringBootTest(classes = {ActionSpringbootApplication.class})
+@SpringBootTest(classes = {SpringbootApplication.class})
 public class TransactionTest {
 
     @Autowired
