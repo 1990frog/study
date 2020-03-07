@@ -18,4 +18,13 @@ ribbon:
   eager-load:
     enabled: true
     clients: customer
+logging:
+  level:
+    com.customer.configuration.ProductorFeignConfiguration:debug
 
+feign:
+  client:
+    config:
+      # 想要调用的微服务的名称
+      productor:
+        loggerLevel:full

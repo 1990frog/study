@@ -15,7 +15,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LogbackAspect {
 
-    @AfterThrowing(pointcut = "within(com.mvc.controller.*)", throwing = "ex")
+//    @AfterThrowing(pointcut = "within(com.mvc.controller.*)", throwing = "ex")
+    @AfterThrowing(pointcut = "within(com.*)", throwing = "ex")
     public void handleException(JoinPoint joinPoint, Exception ex) throws Exception {
         Class declaringType = joinPoint.getSignature().getDeclaringType();
         String clazz = declaringType.getCanonicalName();

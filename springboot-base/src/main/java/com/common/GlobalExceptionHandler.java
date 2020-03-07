@@ -33,8 +33,9 @@ public class GlobalExceptionHandler {
         } else if (ex instanceof MethodArgumentNotValidException) {
             return Result.builder(new BusinessError(BusinessErrorEnum.PARAM_ERROR.getErrCode(),ErrorUtil.processErrorString(((MethodArgumentNotValidException) ex).getBindingResult())), "error");
         } else {
-            throw ex;
+//            log.error(String.valueOf(ex));
 //            return Result.builder(new BusinessError(BusinessErrorEnum.UNKNOW_ERROR), "error");
+            throw ex;
         }
     }
 }
