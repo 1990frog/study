@@ -1,4 +1,4 @@
-package base.bitoperation;
+package base.datatypes.bitoperation;
 
 public class Test {
 
