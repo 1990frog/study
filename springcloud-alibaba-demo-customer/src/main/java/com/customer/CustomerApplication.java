@@ -7,7 +7,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(defaultConfiguration = ProductorFeignConfiguration.class)
+//@EnableFeignClients(defaultConfiguration = ProductorFeignConfiguration.class)
+@EnableFeignClients
 public class CustomerApplication {
 
     public static void main(String[] args) {

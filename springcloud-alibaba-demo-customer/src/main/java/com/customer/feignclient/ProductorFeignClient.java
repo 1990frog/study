@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.HashMap;
 
-@FeignClient(name = "productor",configuration = GlobalFeignConfiguration.class)
+//@FeignClient(name = "productor",configuration = GlobalFeignConfiguration.class)
+@FeignClient(name = "productor")
 public interface ProductorFeignClient {
 
-    @GetMapping("/productor/{id}")
-    HashMap queryProduct(@PathVariable("id")String id);
+    @GetMapping("/productor")
+    String queryProduct();
 }

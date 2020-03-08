@@ -1,30 +1,37 @@
+server:
+  port: 8011
+
 spring:
   application:
     # 服务名称尽量用-，不要用_，不要用特殊字符
     name: customer
-cloud:
-  nacos:
-    discovery:
-      # 指定nacos server的地址
-      server-addr: localhost:8848
-
-server:
-  port: 8011
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos server的地址
+        server-addr: localhost:8848
 customer:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 ribbon:
+  ReadTimeout: 1
+  ConnectTimeout: 1
   # ribbon饥饿加载
   eager-load:
     enabled: true
     clients: customer
-
 feign:
   client:
     config:
-      # 想要调用的微服务的名称
-      productor:
-        loggerLevel:full
-logging:
-  level:
-    com.customer.configuration.ProductorFeignConfiguration:debug
+      # 全局配置
+      default:
+        loggerLevel: full
+        connectTimeout: 1000
+        readTimeout: 1000
+
+  httpclient:
+    connection-timeout: 2000
+
+#logging:
+#  level:
+#    com.customer.configuration.GlobalFeignConfiguration:debug
