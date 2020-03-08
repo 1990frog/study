@@ -3,6 +3,8 @@ package com.springboot.transaction;
 import com.SpringbootApplication;
 import com.transaction.DeclarativeTransaction;
 import com.transaction.ProgrammaticTransaction;
+import com.transaction.PropagationTr;
+import com.transaction.RollbackException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class TransactionTest {
     private ProgrammaticTransaction program;
     @Autowired
     private DeclarativeTransaction declare;
+    @Autowired
+    private PropagationTr propagationTr;
 
     @Test
     public void test1(){
@@ -58,5 +62,6 @@ public class TransactionTest {
                             .queryForObject("SELECT COUNT(*) FROM transaction WHERE name='BBB'", Long.class));
         }
     }
+
 
 }

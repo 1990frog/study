@@ -18,17 +18,22 @@ import java.util.List;
 @Controller
 public class ProgrammaticTransaction {
 
+    /**
+     * 事务模板
+     */
     @Autowired
     private TransactionTemplate transactionTemplate;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /**
+     * sql无返回结果
+     */
     @GetMapping("/transaction/execute/program")
     @ResponseBody
     public Result execute(){
         log.info("dbsize is {}",getCount());
-        // 无返回
         transactionTemplate.execute(new TransactionCallbackWithoutResult() {
             @Override
             protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
@@ -42,6 +47,9 @@ public class ProgrammaticTransaction {
         return Result.builder(null);
     }
 
+    /**
+     * sql有返回结果
+     */
     @GetMapping("/transaction/query/program")
     @ResponseBody
     public Result query(){
