@@ -1,4 +1,4 @@
-package base.reflection;
+package base.reflection.entity;
 
 public class Parent {
 

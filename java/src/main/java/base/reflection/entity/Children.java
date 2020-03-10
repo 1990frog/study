@@ -1,4 +1,4 @@
-package base.reflection;
+package base.reflection.entity;
 
 public class Children extends Parent  {
 
@@ -7,8 +7,8 @@ public class Children extends Parent  {
         return "children";
     }
 
-    private String privateMethod(){
-        return "private";
+    private void privateMethod(){
+        System.out.println("private method");
     }
 
     public static void staticMehtod1(){}

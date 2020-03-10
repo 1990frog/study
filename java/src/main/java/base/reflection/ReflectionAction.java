@@ -1,7 +1,7 @@
 package base.reflection;
 
-import org.junit.runner.manipulation.Sortable;
-
+import base.reflection.entity.Children;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,11 +105,31 @@ public class ReflectionAction {
     }
 
 
+    /**
+     * 通过反射访问私有方法
+     */
+    public void accpetPrivateMethod(Object obj,String methodName) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Class clazz = obj.getClass();
+        Method method = clazz.getDeclaredMethod(methodName);
+        /**
+         * 私有方法需要setAccessible(true)
+         */
+        method.setAccessible(true);
+        /**
+         * invoke(Object obj, Object... args)
+         * 动态参数
+         */
+        method.invoke(obj);
+    }
+
+
     public static void main(String[] args) {
         ReflectionAction reflectionAction = new ReflectionAction();
-//        List list = reflectionAction.getDeclaredMehtodPlus(new Children());
-//        System.out.println(list);
-        System.out.println(reflectionAction.getClassType(Sortable.class));
+        try {
+            reflectionAction.accpetPrivateMethod(new Children(),"privateMethod");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
