@@ -9,10 +9,19 @@ spring:
       discovery:
         # 指定nacos server的地址
         server-addr: localhost:8848
+    # 向sentinel控制台注册服务
     sentinel:
       transport:
-        # 指定sentinel控制台的地址
-        dashboard: loclhost:8080
+        # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
+        port: 8719
+        dashboard: localhost:8080
+      # 取消懒加载
+        eager: true
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
 
 productor:
   ribbon:
