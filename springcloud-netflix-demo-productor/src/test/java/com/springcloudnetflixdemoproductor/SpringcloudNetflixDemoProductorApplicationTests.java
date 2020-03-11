@@ -1,10 +1,10 @@
-package com.springcloudnetflixdemoeureka;
+package com.springcloudnetflixdemoproductor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringcloudNetflixDemoEurekaApplicationTests {
+class SpringcloudNetflixDemoProductorApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,13 +1,13 @@
-package com.springcloudnetflixdemoeureka;
+package com.springcloudnetflixdemoproductor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringcloudNetflixDemoEurekaApplication {
+public class SpringcloudNetflixDemoProductorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringcloudNetflixDemoEurekaApplication.class, args);
+        SpringApplication.run(SpringcloudNetflixDemoProductorApplication.class, args);
     }
 
 }
