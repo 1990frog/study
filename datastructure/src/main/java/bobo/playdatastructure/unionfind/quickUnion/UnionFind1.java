@@ -1,3 +1,5 @@
+package bobo.playdatastructure.unionfind.quickUnion;
+
 // 我们的第一版Union-Find
 public class UnionFind1 implements UF {
 
