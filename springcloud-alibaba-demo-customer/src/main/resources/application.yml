@@ -12,10 +12,18 @@ spring:
         server-addr: localhost:8848
     # 向sentinel控制台注册服务
     sentinel:
+      filter:
+        enabled: false
       transport:
-        # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
+        # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。
+        # 比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
+        # 如果不设置，会自动从8719开始扫描，依次+1，直到找到未被占用的端口
         port: 8719
+        # 指定控制台地址
         dashboard: localhost:8080
+        # 心跳发送周期，默认值null
+        # 但在simpleHttpHeartbeatSender会默认值10秒
+        heartbeat-interval-ms: 10000
       # 取消懒加载
       eager: true
 management:
@@ -23,7 +31,6 @@ management:
     web:
       exposure:
         include: '*'
-
 
 customer:
   ribbon:
@@ -36,6 +43,9 @@ ribbon:
     enabled: true
     clients: customer
 feign:
+  sentinel:
+    # 为feign整合sentinel
+    enabled: true
   client:
     config:
       # 全局配置
@@ -43,7 +53,6 @@ feign:
         loggerLevel: full
         connectTimeout: 1000
         readTimeout: 1000
-
   httpclient:
     connection-timeout: 2000
 
@@ -52,3 +61,6 @@ feign:
 #logging:
 #  level:
 #    com.customer.configuration.GlobalFeignConfiguration:debug
+resttemplate:
+  sentinel:
+    enabled: true
