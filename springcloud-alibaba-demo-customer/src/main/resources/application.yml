@@ -18,7 +18,7 @@ spring:
         # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。
         # 比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
         # 如果不设置，会自动从8719开始扫描，依次+1，直到找到未被占用的端口
-        port: 8719
+        port: 8720
         # 指定控制台地址
         dashboard: localhost:8080
         # 心跳发送周期，默认值null
@@ -43,15 +43,19 @@ ribbon:
     enabled: true
     clients: customer
 feign:
-  sentinel:
-    # 为feign整合sentinel
-    enabled: true
+#  sentinel:
+#    # 为feign整合sentinel
+#    enabled: true
   client:
     config:
       # 全局配置
       default:
+        # 日志等级
         loggerLevel: full
+        # 这两个时间配置如果与ribbon同时配置，以feign为准
+        # 连接超时时间
         connectTimeout: 1000
+        # 读取超时时间
         readTimeout: 1000
   httpclient:
     connection-timeout: 2000
