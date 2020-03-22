@@ -68,3 +68,10 @@ feign:
 resttemplate:
   sentinel:
     enabled: true
+
+
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    # 必须指定group
+    group: customer
