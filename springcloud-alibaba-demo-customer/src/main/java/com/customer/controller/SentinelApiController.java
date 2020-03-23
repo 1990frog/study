@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class SentinelApiController {
 
+    /**
+     * 通过Sentinel api降级流控
+     * @return
+     */
     @GetMapping("sentinel/testapi")
     @ResponseBody
     public String testSentinelAPI() {

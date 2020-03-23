@@ -1,10 +1,15 @@
 package com.customer.controller;
 
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.UUID;
 
 @Controller
 public class RocketMqController {
@@ -19,5 +24,18 @@ public class RocketMqController {
         return "";
     }
 
+    @PutMapping("rocketmq/customer/transaction")
+    public String transactionMessage(){
+        rocketMQTemplate.sendMessageInTransaction(
+                "test",
+                "topic",
+                MessageBuilder.withPayload("transaction")
+                        .setHeader(RocketMQHeaders.TRANSACTION_ID, UUID.randomUUID())
+                        .build(),
+                "test"
+        );
+        System.out.println("haha");
+        return "success";
+    }
 
 }
