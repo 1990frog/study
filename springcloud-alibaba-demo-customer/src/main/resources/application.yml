@@ -24,8 +24,26 @@ spring:
         # 心跳发送周期，默认值null
         # 但在simpleHttpHeartbeatSender会默认值10秒
         heartbeat-interval-ms: 10000
-      # 取消懒加载
-      eager: true
+
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+      bindings:
+        output:
+          # 用来指定topic
+          destination: stream-test-topic
+        my-output:
+          destination: stream-my-topic
+        input:
+          destination: stream-test-topic
+          # 这里group一定要设置
+          group: bind-group
+        my-input:
+          destination: stream-my-topic
+          # 这里group一定要设置
+          group: my-group
+
 management:
   endpoints:
     web:
@@ -35,6 +53,7 @@ management:
 customer:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
 ribbon:
   ReadTimeout: 1
   ConnectTimeout: 1
@@ -42,6 +61,7 @@ ribbon:
   eager-load:
     enabled: true
     clients: customer
+
 feign:
 #  sentinel:
 #    # 为feign整合sentinel
@@ -61,7 +81,6 @@ feign:
     connection-timeout: 2000
 
 
-
 #logging:
 #  level:
 #    com.customer.configuration.GlobalFeignConfiguration:debug
@@ -75,3 +94,8 @@ rocketmq:
   producer:
     # 必须指定group
     group: customer
+
+logging:
+  level:
+    com.alibaba.nacos: error
+
