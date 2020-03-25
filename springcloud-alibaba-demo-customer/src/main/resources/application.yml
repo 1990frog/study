@@ -30,11 +30,15 @@ spring:
         binder:
           name-server: localhost:9876
         bindings:
-          output:
-            producter:
-              producer:
-                transactional: true
-                group: tx-group
+          # 指定channel，这里可以设置多个channel
+          output1:
+            producer:
+              transactional: true
+              group: tx-group
+#            producter:
+#              producer:
+#                transactional: true
+#                group: tx-group
       bindings:
         output:
           # 用来指定topic

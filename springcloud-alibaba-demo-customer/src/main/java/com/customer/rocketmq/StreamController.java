@@ -1,5 +1,7 @@
-package com.customer.controller;
+package com.customer.rocketmq;
 
+import com.customer.controller.MySink;
+import com.customer.controller.MySource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
@@ -22,13 +24,18 @@ import java.util.UUID;
 
 @Slf4j
 @Controller
-public class SpringcloudStreamController {
+public class StreamController {
 
     @Autowired
     private Source source;
     @Autowired
     private MySource mySource;
 
+    /**
+     * 发送消息
+     *
+     * @return
+     */
     @GetMapping("/stream/default")
     public String defaultOuput() {
         this.source.output().send(MessageBuilder.withPayload("hello").build());
@@ -53,18 +60,23 @@ public class SpringcloudStreamController {
         return "";
     }
 
+    /**
+     * 接受消息
+     *
+     * @param messageBody
+     */
     @StreamListener(Sink.INPUT)
-    public void defaultInput(String messageBody){
+    public void defaultInput(String messageBody) {
         log.info("通过stream收到了消息： messageBody= {} ", messageBody);
     }
 
     @StreamListener(MySink.INPUT1)
-    public void input1(String messageBody){
+    public void input1(String messageBody) {
         log.info("input1收到了消息： messageBody= {} ", messageBody);
     }
 
     @StreamListener(MySink.INPUT2)
-    public void input2(String messageBody){
+    public void input2(String messageBody) {
         log.info("input2收到了消息： messageBody= {} ", messageBody);
 //        throw new RuntimeException("error");
     }
@@ -77,6 +89,7 @@ public class SpringcloudStreamController {
 
     /**
      * 主题3专用的异常监控
+     *
      * @param message
      */
     @ServiceActivator(inputChannel = "topic3.group3.errors")
@@ -102,12 +115,24 @@ public class SpringcloudStreamController {
 
     /**
      * 全局的消息异常监控
+     *
      * @param message
      */
     @StreamListener("errorChannel")
     public void error(Message<?> message) {
         ErrorMessage errorMessage = (ErrorMessage) message;
-        log.error("消息全局异常触发 = {}",errorMessage);
+        log.error("消息全局异常触发 = {}", errorMessage);
+    }
+
+    /**
+     * productor事务
+     */
+    @PutMapping("/stream/tx")
+    public void tx() {
+        mySource.output1().send(MessageBuilder
+                .withPayload("this is my transational message!")
+                .setHeader("SerialNumber", "001")
+                .build());
     }
 
 }

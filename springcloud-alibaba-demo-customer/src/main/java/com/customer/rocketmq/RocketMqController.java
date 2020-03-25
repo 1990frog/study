@@ -1,12 +1,9 @@
-package com.customer.controller;
+package com.customer.rocketmq;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.stream.annotation.StreamListener;
-import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,10 +19,10 @@ public class RocketMqController {
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
-    @GetMapping("rocketmq/customer")
+    @GetMapping("rocketmq/send")
     @ResponseBody
-    public String test() {
-        rocketMQTemplate.convertAndSend("topic","haha");
+    public String send() {
+        rocketMQTemplate.convertAndSend("topic","this is a rocketmq message!");
         return "";
     }
 

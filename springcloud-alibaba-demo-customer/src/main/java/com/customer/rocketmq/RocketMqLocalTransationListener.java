@@ -1,4 +1,4 @@
-package com.customer.controller;
+package com.customer.rocketmq;
 
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
@@ -6,7 +6,7 @@ import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;
 import org.springframework.messaging.Message;
 
 @RocketMQTransactionListener(txProducerGroup = "test")
-public class MQTransactionListener implements RocketMQLocalTransactionListener {
+public class RocketMqLocalTransationListener implements RocketMQLocalTransactionListener {
 
     /**
      * 执行本地事务的接口
