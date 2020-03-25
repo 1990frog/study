@@ -29,6 +29,11 @@
             <!-- 日志输出格式：%d表示日期时间，%thread表示线程名，%-5level级别从左显示5个字符宽度，%logger{50}表示logger名字最长50个字符，否则按照句点分割。%msg：日志消息，%n是换行符 -->
             <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
         </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
     </appender>
 
     <!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 -->
