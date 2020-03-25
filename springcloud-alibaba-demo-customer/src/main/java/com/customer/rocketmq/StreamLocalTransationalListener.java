@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @RocketMQTransactionListener(txProducerGroup = "tx-group")
-public class StreamRocketMqLocalTransationalListener implements RocketMQLocalTransactionListener {
+public class StreamLocalTransationalListener implements RocketMQLocalTransactionListener {
 
     /**
      * 执行本地事务，如果执行成功发送COMMIT给MQ完成二次确认，让消息投递，反之，ROLLBACK

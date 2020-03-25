@@ -35,6 +35,10 @@ spring:
             producer:
               transactional: true
               group: tx-group
+          output2:
+            producer:
+              transactional: true
+              group: tx-group2
 #            producter:
 #              producer:
 #                transactional: true
