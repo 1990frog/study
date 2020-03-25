@@ -29,20 +29,36 @@ spring:
       rocketmq:
         binder:
           name-server: localhost:9876
+        bindings:
+          output:
+            producter:
+              producer:
+                transactional: true
+                group: tx-group
       bindings:
         output:
           # 用来指定topic
           destination: stream-test-topic
-        my-output:
-          destination: stream-my-topic
+        # 自定义输出接口，这个接口我定义了3个接口，分别发布消息到不同的topic
+        output1:
+          destination: topic1
+        output2:
+          destination: topic2
+        output3:
+          destination: topic3
         input:
           destination: stream-test-topic
           # 这里group一定要设置
           group: bind-group
-        my-input:
-          destination: stream-my-topic
-          # 这里group一定要设置
-          group: my-group
+        input1:
+          destination: topic1
+          group: group1
+        input2:
+          destination: topic2
+          group: group2
+        input3:
+          destination: topic3
+          group: group3
 
 management:
   endpoints:
@@ -88,12 +104,12 @@ resttemplate:
   sentinel:
     enabled: true
 
-
-rocketmq:
-  name-server: localhost:9876
-  producer:
-    # 必须指定group
-    group: customer
+# 使用Stream配置
+#rocketmq:
+#  name-server: localhost:9876
+#  producer:
+#    # 必须指定group
+#    group: customer
 
 logging:
   level:

@@ -21,10 +21,6 @@ public class RocketMqController {
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
-    @Autowired
-    private Source source;
-    @Autowired
-    private MySource mySource;
 
     @GetMapping("rocketmq/customer")
     @ResponseBody
@@ -45,28 +41,6 @@ public class RocketMqController {
         );
         System.out.println("haha");
         return "success";
-    }
-
-    @GetMapping("/test-stream")
-    public String testStream(){
-        this.source.output().send(MessageBuilder.withPayload("hello").build());
-        return "";
-    }
-
-    @GetMapping("/test-stream2")
-    public String testStream2(){
-        this.mySource.output().send(MessageBuilder.withPayload("hello").build());
-        return "";
-    }
-
-    @StreamListener(Sink.INPUT)
-    public void receive(String messageBody){
-        log.info("通过stream收到了消息： messageBody= {} "+ messageBody);
-    }
-
-    @StreamListener(MySink.MY_INPUT)
-    public void receive2(String messageBody){
-        log.info("通过stream收到了消息： messageBody= {} "+ messageBody);
     }
 
 }
