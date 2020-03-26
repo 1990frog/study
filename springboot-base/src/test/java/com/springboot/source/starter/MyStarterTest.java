@@ -1,7 +1,7 @@
 package com.springboot.source.starter;
 
 import com.SpringbootApplication;
-import com.condi.A;
+import com.sourcecode.condition.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

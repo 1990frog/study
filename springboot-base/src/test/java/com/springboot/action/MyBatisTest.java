@@ -1,9 +1,9 @@
 package com.springboot.action;
 
 import com.SpringbootApplication;
-import com.mvc.domain.entity.Product;
-import com.mvc.domain.entity.ProductExample;
-import com.mvc.mapper.ProductMapper;
+import com.action.mvc.domain.entity.Product;
+import com.action.mvc.domain.entity.ProductExample;
+import com.action.mvc.mapper.ProductMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

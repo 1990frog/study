@@ -1,8 +1,8 @@
 package com.springboot.source.aware;
 
 import com.SpringbootApplication;
-import com.aware.Flag;
-import com.aware.MyAware;
+import com.sourcecode.aware.Flag;
+import com.sourcecode.aware.MyAware;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
