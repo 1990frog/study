@@ -44,9 +44,16 @@ public class PropagationTr {
     public void required() {
         jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (1, 1, 'REQUIRED')");
     }
+    @GetMapping("/tx/req")
     @Transactional(propagation = Propagation.REQUIRED)
     public void requiredException() {
-        jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (1, 1, 'REQUIRED')");
+        this.required();
+        throw new RuntimeException();
+    }
+
+    @GetMapping("/tx/req2")
+    public void requiredException2() {
+        this.requiredException();
         throw new RuntimeException();
     }
 
@@ -81,6 +88,11 @@ public class PropagationTr {
         throw new RuntimeException();
     }
 
+    @GetMapping("tx/getobj")
+    public void getObj(){
+        System.out.println(this);
+    }
+
 
     /**
      * 测试情景：
@@ -95,10 +107,9 @@ public class PropagationTr {
     public void req2not(){
         System.out.println(this);
         jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (1, 1, 'REQUIRED')");
-
 //        ((PropagationTr) AopContext.currentProxy()).notSupportedException();
-        applicationContext.getBean(PropagationTr.class).notSupportedException();
-//        this.notSupportedException();
+//        applicationContext.getBean(PropagationTr.class).notSupportedException();
+        this.notSupportedException();
     }
 
     @GetMapping("/tx/not2req")

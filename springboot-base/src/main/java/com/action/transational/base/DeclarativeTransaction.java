@@ -1,6 +1,7 @@
-package com.action.transational;
+package com.action.transational.base;
 
 import com.action.common.Result;
+import com.action.transational.RollbackException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

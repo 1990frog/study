@@ -1,5 +1,6 @@
-package com.action.transational;
+package com.action.transational.base;
 
+import com.action.transational.RollbackException;
 import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

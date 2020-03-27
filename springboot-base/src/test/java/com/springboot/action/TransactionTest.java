@@ -1,8 +1,8 @@
 package com.springboot.action;
 
 import com.SpringbootApplication;
-import com.action.transational.DeclarativeTransaction;
-import com.action.transational.ProgrammaticTransaction;
+import com.action.transational.base.DeclarativeTransaction;
+import com.action.transational.base.ProgrammaticTransaction;
 import com.action.transational.PropagationTr;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

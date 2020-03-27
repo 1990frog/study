@@ -1,4 +1,4 @@
-package com.action.transational;
+package com.action.transational.base;
 
 import com.action.common.Result;
 import lombok.extern.slf4j.Slf4j;

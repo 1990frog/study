@@ -1,4 +1,4 @@
-package base.keyword.aboutfinal;
+package base.keyword.$final;
 
 public class FinalVariableDemo {
 

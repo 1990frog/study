@@ -1,4 +1,4 @@
-package base.keyword.aboutmain;
+package base.keyword.$main;
 
 public class Main {
 

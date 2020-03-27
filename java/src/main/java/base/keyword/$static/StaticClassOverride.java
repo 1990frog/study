@@ -1,4 +1,4 @@
-package base.keyword.aboutstatic;
+package base.keyword.$static;
 
 class SuperClass{
     static void play(){
