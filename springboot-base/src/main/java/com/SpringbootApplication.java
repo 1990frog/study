@@ -14,16 +14,18 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Properties;
 
 @MapperScan("com.action.mvc.mapper")
 @SpringBootApplication
-@EnableAspectJAutoProxy
 @EnableTransactionManagement
 @EnableCaching
 @EnableAsync
+@EnableScheduling
+@EnableAspectJAutoProxy(exposeProxy = true)
 public class SpringbootApplication {
 
     public static void main(String[] args) {
