@@ -1,24 +1,14 @@
 package com;
 
-import com.sourcecode.except.AException;
-import com.sourcecode.except.BException;
-import com.sourcecode.except.CException;
-import com.sourcecode.initializer.SecondInitializer;
-import com.sourcecode.listener.DiySpringBootEvent;
-import com.sourcecode.listener.DiySpringBootListener;
-import com.sourcecode.listener.SecondListener;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
-
-import java.util.Properties;
 
 @MapperScan("com.action.mvc.mapper")
 @SpringBootApplication

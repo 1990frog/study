@@ -23,7 +23,7 @@
 + TreadPoolExecutor（基于线程池的，后面再写个令牌的）
 ## transational（事务）
 ## aop（切片，基于动态代理，坑特别多，但是我又不想看代码）
-# sourcecode（源码学习）
+# component（组件）
 ## aware（上下文）
 ## bean（xml注入）
 ## condition（starter，autoconfiguration配置条件）
