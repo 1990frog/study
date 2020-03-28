@@ -12,8 +12,14 @@ spring:
         locator:
           # 允许gateway通过服务发现组件找到其他的微服务
           enabled: true
+      routes:
+        - id: between_time
+          uri: lb://customer
+          predicates:
+            - TimeBetween= 1:00 PM,11:00 PM
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
