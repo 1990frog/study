@@ -16,7 +16,9 @@ spring:
         - id: between_time
           uri: lb://customer
           predicates:
-            - TimeBetween= 1:00 PM,11:00 PM
+            - TimeBetween = 1:00 PM,11:00 PM
+          filters:
+            - PreLog = a,b
 management:
   endpoints:
     web:

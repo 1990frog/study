@@ -12,4 +12,8 @@ public interface MyInterface<T> {
     default <K> K say(K k){
         return k;
     }
+
+    static void play(){
+        System.out.println("this is a interface static method!");
+    }
 }
