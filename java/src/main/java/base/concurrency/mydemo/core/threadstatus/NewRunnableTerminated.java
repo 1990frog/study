@@ -1,4 +1,4 @@
-package base.concurrency.mydemo.core.sixstates;
+package base.concurrency.mydemo.core.threadstatus;
 
 /**
  * 描述：
