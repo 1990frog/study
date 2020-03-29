@@ -1,4 +1,4 @@
-package base.concurrency.mydemo.juc.uncaughtexception;
+package base.concurrency.mydemo.core.uncaughtexception;
 
 /**
  *

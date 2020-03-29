@@ -1,4 +1,4 @@
-package base.concurrency.mydemo.core.error;
+package base.concurrency.mydemo.core.deadlock;
 
 /**
  * 描述：

@@ -6,11 +6,11 @@ import java.util.Map;
 /**
  * 描述：     发布逸出
  */
-public class MultiThreadsError3 {
+public class yichu {
 
     private Map<String, String> states;
 
-    public MultiThreadsError3() {
+    public yichu() {
         states = new HashMap<>();
         states.put("1", "周一");
         states.put("2", "周二");
@@ -27,7 +27,7 @@ public class MultiThreadsError3 {
     }
 
     public static void main(String[] args) {
-        MultiThreadsError3 multiThreadsError3 = new MultiThreadsError3();
+        yichu multiThreadsError3 = new yichu();
         Map<String, String> states = multiThreadsError3.getStates();
 //        System.out.println(states.get("1"));
 //        states.remove("1");
