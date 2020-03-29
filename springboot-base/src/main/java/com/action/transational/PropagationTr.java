@@ -19,12 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * PROPAGATION_NEVER -- 以非事务方式执行，如果当前存在事务，则抛出异常。 
  * PROPAGATION_NESTED -- 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与
  *
- * 事务嵌套调用：
- * 1.required调用not_supported，在方法里触发异常：都未插入数据，说明required的事务传递给了not_supported
- * 2.not_supported调用required，在方法里触发异常：有一条数据not_supported，required未插入到数据库
- *
- * 结论：
- * 事务可以从上游传递给下游？
  */
 @Controller
 public class PropagationTr {
@@ -34,6 +28,8 @@ public class PropagationTr {
     @Autowired
     private ApplicationContext applicationContext;
 
+    private static final String sql = "INSERT INTO transaction (value) VALUES ('%s')";
+
 
     /**
      * 事务传播等级：
@@ -42,18 +38,11 @@ public class PropagationTr {
      */
     @Transactional(propagation = Propagation.REQUIRED)
     public void required() {
-        jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (1, 1, 'REQUIRED')");
+        jdbcTemplate.execute(String.format(sql,"required"));
     }
-    @GetMapping("/tx/req")
     @Transactional(propagation = Propagation.REQUIRED)
     public void requiredException() {
-        this.required();
-        throw new RuntimeException();
-    }
-
-    @GetMapping("/tx/req2")
-    public void requiredException2() {
-        this.requiredException();
+        jdbcTemplate.execute(String.format(sql,"required_exception"));
         throw new RuntimeException();
     }
 
@@ -64,13 +53,11 @@ public class PropagationTr {
      */
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void notSupported(){
-        jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (2, 2, 'NOT_SUPPORTED')");
+        jdbcTemplate.execute(String.format(sql,"not_supported"));
     }
-    @GetMapping("/tx/not")
-    @ResponseBody
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public void notSupportedException(){
-        this.notSupported();
+        jdbcTemplate.execute(String.format(sql,"not_supported_exception"));
         throw new RuntimeException();
     }
 
@@ -80,69 +67,56 @@ public class PropagationTr {
      */
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void requiresNew(){
-        jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (3, 3, 'REQUIRES_NEW')");
+        jdbcTemplate.execute(String.format(sql,"requires_new"));
     }
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void requiresNewException(){
-        jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (3, 3, 'REQUIRES_NEW')");
+        jdbcTemplate.execute(String.format(sql,"requires_new_exception"));
         throw new RuntimeException();
     }
 
-    @GetMapping("tx/getobj")
-    public void getObj(){
-        System.out.println(this);
-    }
-
-
     /**
-     * 测试情景：
-     * REQUIRED事务调用NOT_SUPPORTED事务,NOT_SUPPORTED中抛出异常
+     * 场景1：
+     * this调用
      *
-     * 运行结果：
+     * 期望结果：
+     *  1.插入required（失败）
+     *  2.插入not_supported_exception（成功）
      *
+     * 实际结果：
+     *  1.插入required（失败）
+     *  1.插入not_supported_exception（失败）
+     *
+     * 原因：
+     * 因为未使用增强代理对象调用，所以notSupportedException方法的注解失效，整个调用链使用的都是入口方法的注解REQUIRED级别的事务
      */
-    @GetMapping("/tx/req2not")
+    @GetMapping("/tx/1")
     @ResponseBody
     @Transactional(propagation = Propagation.REQUIRED)
-    public void req2not(){
-        System.out.println(this);
-        jdbcTemplate.execute("INSERT INTO transaction (id, code, name) VALUES (1, 1, 'REQUIRED')");
-//        ((PropagationTr) AopContext.currentProxy()).notSupportedException();
-//        applicationContext.getBean(PropagationTr.class).notSupportedException();
+    public void test1(){
+        jdbcTemplate.execute(String.format(sql,"required"));
         this.notSupportedException();
     }
 
-    @GetMapping("/tx/not2req")
+    /**
+     * 场景2：
+     * AopContext，ApplicationContext
+     *
+     * 期望结果：
+     *  1.插入required（失败）
+     *  2.插入not_supported_exception（成功）
+     *
+     * 实际结果：
+     *
+     * 原因：
+     * 使用的增强代理对象调用，所以第二个注解触发，会将第一个注解挂起，先执行第二个注解
+     */
+    @GetMapping("/tx/2")
     @ResponseBody
     @Transactional(propagation = Propagation.REQUIRED)
-    public void not2req(){
-
-    }
-
-    @GetMapping("/tx/req2new")
-    @ResponseBody
-    @Transactional(propagation = Propagation.REQUIRED)
-    public void req2new(){
-
-    }
-
-    @GetMapping("/tx/new2req")
-    @ResponseBody
-    @Transactional(propagation = Propagation.REQUIRED)
-    public void new2req(){
-
-    }
-
-    @GetMapping("/tx/new2new")
-    @ResponseBody
-    @Transactional(propagation = Propagation.REQUIRED)
-    public void new2new(){
-
-    }
-
-    //解决事务失效
-    private PropagationTr getService(){
-        return applicationContext.getBean(this.getClass());   //SpringUtil工具类见下面代码
+    public void test2(){
+        jdbcTemplate.execute(String.format(sql,"required"));
+        ((PropagationTr)AopContext.currentProxy()).notSupportedException();
     }
 
 
