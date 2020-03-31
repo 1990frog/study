@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
  * 如果被扫描到那就是全局的
  */
 //@Configuration
-public class GlobalFeignConfiguration {
+public class FeignConfiguration {
 
     @Bean
     public Logger.Level level(){

@@ -9,6 +9,10 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+/**
+ * 系统提供的几种函数式接口
+ * @see #supplier Supplier(null->T)
+ */
 public class SystemFunctionInterface {
 
     /**
