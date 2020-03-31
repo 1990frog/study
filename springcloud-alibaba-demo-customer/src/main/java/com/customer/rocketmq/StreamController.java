@@ -1,20 +1,13 @@
 package com.customer.rocketmq;
 
-import com.customer.controller.MySink;
-import com.customer.controller.MySource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.context.annotation.Bean;
-import org.springframework.integration.annotation.InboundChannelAdapter;
-import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.annotation.ServiceActivator;
-import org.springframework.integration.core.MessageSource;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.ErrorMessage;
-import org.springframework.messaging.support.GenericMessage;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

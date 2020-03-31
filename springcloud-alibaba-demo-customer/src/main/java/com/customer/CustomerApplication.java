@@ -1,12 +1,10 @@
 package com.customer;
 
 import com.alibaba.cloud.sentinel.annotation.SentinelRestTemplate;
-import com.customer.configuration.ProductorFeignConfiguration;
-import com.customer.controller.MySink;
-import com.customer.controller.MySource;
+import com.customer.rocketmq.MySink;
+import com.customer.rocketmq.MySource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.stream.annotation.EnableBinding;

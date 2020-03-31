@@ -20,11 +20,11 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       # 初始化大小
-      initialSize: 10
+      initialSize: 300
       # 最小值
-      minIdle: 10
+      minIdle: 300
       # 最大值
-      maxActive: 10
+      maxActive: 300
       # 最大等待时间，配置获取连接等待超时，时间单位都是毫秒ms
       maxWait: 60000
       # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接

@@ -1,4 +1,4 @@
-package com.action.cache;
+package com.action.guava.cache;
 
 import lombok.Data;
 

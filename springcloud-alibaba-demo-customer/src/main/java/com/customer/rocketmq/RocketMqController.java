@@ -3,10 +3,12 @@ package com.customer.rocketmq;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.LocalTransactionState;
+import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.TransactionListener;
 import org.apache.rocketmq.client.producer.TransactionMQProducer;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.apache.rocketmq.common.message.MessageQueue;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -70,6 +73,29 @@ public class RocketMqController {
     @PutMapping("rocketmq/tx2")
     public void tx() throws MQClientException {
         transactionMQProducer.sendMessageInTransaction(new Message("topic2","transation2".getBytes()),"001");
+    }
+
+    /**
+     * 预设值的延迟时间间隔为：1s、 5s、 10s、 30s、 1m、 2m、 3m、 4m、 5m、 6m、 7m、 8m、 9m、 10m、 20m、 30m、 1h、 2h；
+     */
+    @PutMapping("rocketmq/delay")
+    public void delay(){
+        Message message = new Message("topic2","transation2".getBytes());
+        message.setDelayTimeLevel(3);
+        rocketMQTemplate.convertAndSend(message);
+
+    }
+
+    public void order(){
+        rocketMQTemplate.convertAndSend("topic2",new MessageQueueSelector() {
+            @Override
+            public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
+                //此刻arg == orderId,可以保证是每个订单进入同一个队列
+                Integer id = (Integer) arg;
+                int index = id % mqs.size();
+                return mqs.get(index);
+            }
+        });
     }
 
 }

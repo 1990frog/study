@@ -1,4 +1,4 @@
-package com.customer.controller;
+package com.customer.rocketmq;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
