@@ -136,7 +136,7 @@ public class StreamDemo {
 
     /**
      * {@link Stream#map}
-     * <R> Stream<R> bobo.playdatastructure.map(Function<? super T, ? extends R> mapper);
+     * <R> Stream<R> datastructure.playdatastructure.map(Function<? super T, ? extends R> mapper);
      *
      * Returns a stream consisting of the results of applying the given
      * function to the elements of this stream.

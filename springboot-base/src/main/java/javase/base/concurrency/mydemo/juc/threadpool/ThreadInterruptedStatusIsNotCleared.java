@@ -58,7 +58,7 @@ public class ThreadInterruptedStatusIsNotCleared {
      *         synchronized (blockerLock) {
      *             Interruptible b = blocker;
      *             if (b != null) {
-     *                 interrupt0();           // Just to bobo.playdatastructure.set the interrupt flag
+     *                 interrupt0();           // Just to datastructure.playdatastructure.set the interrupt flag
      *                 b.interrupt(this);
      *                 return;
      *             }

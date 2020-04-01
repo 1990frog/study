@@ -85,7 +85,7 @@ ribbon:
 #    clients: customer
 
 feign:
-#  sentinel:
+#  javase.redis.sentinel:
 #    # 为feign整合sentinel
 #    enabled: true
   client:

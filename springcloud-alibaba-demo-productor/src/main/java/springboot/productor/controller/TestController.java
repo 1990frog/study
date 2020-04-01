@@ -127,14 +127,14 @@ public class TestController {
 //        FlowRuleManager.loadRules(rules);
 //    }
 //
-//    @GetMapping("/test-sentinel-api")
+//    @GetMapping("/test-javase.redis.sentinel-api")
 //    public String testSentinelAPI(
 //            @RequestParam(required = false) String a) {
 //
-//        String resourceName = "test-sentinel-api";
+//        String resourceName = "test-javase.redis.sentinel-api";
 //        ContextUtil.enter(resourceName, "test-wfw");
 //
-//        // 定义一个sentinel保护的资源，名称是test-sentinel-api
+//        // 定义一个sentinel保护的资源，名称是test-javase.redis.sentinel-api
 //        Entry entry = null;
 //        try {
 //
@@ -162,9 +162,9 @@ public class TestController {
 //        }
 //    }
 //
-//    @GetMapping("/test-sentinel-resource")
+//    @GetMapping("/test-javase.redis.sentinel-resource")
 //    @SentinelResource(
-//            value = "test-sentinel-api",
+//            value = "test-javase.redis.sentinel-api",
 //            blockHandler = "block",
 //            blockHandlerClass = TestControllerBlockHandlerClass.class,
 //            fallback = "fallback"
@@ -178,7 +178,7 @@ public class TestController {
 //
 //    /**
 //     * 1.5 处理降级
-//     * - sentinel 1.6 可以处理Throwable
+//     * - javase.redis.sentinel 1.6 可以处理Throwable
 //     *
 //     * @param a
 //     * @return
@@ -191,7 +191,7 @@ public class TestController {
 //    @Autowired
 //    private RestTemplate restTemplate;
 //
-//    @GetMapping("/test-rest-template-sentinel/{userId}")
+//    @GetMapping("/test-rest-template-javase.redis.sentinel/{userId}")
 //    public UserDTO test(@PathVariable Integer userId) {
 //        return this.restTemplate
 //                .getForObject(

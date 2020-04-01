@@ -74,7 +74,7 @@ public class FlowQpsDemo {
      */
     private static void tick() {
         Thread timer = new Thread(new TimerTask());
-        timer.setName("sentinel-timer-task");
+        timer.setName("javase.redis.sentinel-timer-task");
         timer.start();
     }
 

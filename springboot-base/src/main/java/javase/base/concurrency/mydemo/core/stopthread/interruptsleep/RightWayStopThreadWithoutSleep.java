@@ -61,14 +61,14 @@ public class RightWayStopThreadWithoutSleep implements Runnable {
      * sleep（long）或sleep（long，int），这个类的方法，然后它的中断状态将被清除，它将收到InterruptedException。
      *
      * If this thread is blocked in an I/O operation upon an InterruptibleChannel then the channel will be closed,
-     * the thread's interrupt status will be bobo.playdatastructure.set, and the thread will receive a ClosedByInterruptException.
+     * the thread's interrupt status will be datastructure.playdatastructure.set, and the thread will receive a ClosedByInterruptException.
      * 如果在InterruptibleChannel上的I / O操作中阻塞了该线程，则该通道将被关闭，线程的中断状态将被设置，并且线程将收到ClosedByInterruptException。
      *
-     * If this thread is blocked in a Selector then the thread's interrupt status will be bobo.playdatastructure.set and it will return immediately from the selection operation,
+     * If this thread is blocked in a Selector then the thread's interrupt status will be datastructure.playdatastructure.set and it will return immediately from the selection operation,
      * possibly with a non-zero value, just as if the selector's wakeup method were invoked.
      * 如果此线程在Selector中被阻塞，则线程的中断状态将被设置，并且它将立即从选择操作返回，可能具有非零值，就像调用选择器的唤醒方法一样。
      *
-     * If none of the previous conditions hold then this thread's interrupt status will be bobo.playdatastructure.set.
+     * If none of the previous conditions hold then this thread's interrupt status will be datastructure.playdatastructure.set.
      * 如果以前的条件都不成立，则将设置该线程的中断状态。
      *
      * Interrupting a thread that is not alive need not have any effect.

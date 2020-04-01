@@ -46,7 +46,7 @@ ribbon:
 #        server-addr: localhost:8848
 #        cluster-name: BJ
         # namespace: 56116141-d837-4d15-8842-94e153bb6cfb
-#    sentinel:
+#    javase.redis.sentinel:
 #      filter:
 #        # 打开/关闭掉对Spring MVC端点的保护
 #        enabled: true
@@ -76,7 +76,7 @@ ribbon:
 #    com.itmuch.contentcenter.feignclient.UserCenterFeignClient: debug
 #    com.alibaba.nacos: error
 #feign:
-#  sentinel:
+#  javase.redis.sentinel:
 #
 #    # 为feign整合sentinel
 #    enabled: true
@@ -104,7 +104,7 @@ management:
     health:
       show-details: always
 #resttemplate:
-#  sentinel:
+#  javase.redis.sentinel:
 #    # 设置成false，表示关闭@SentinelRestTemplate注解
 #    enabled: true
 

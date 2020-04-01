@@ -71,13 +71,13 @@ public class WarmUpFlowDemo {
         }
 
         Thread timer = new Thread(new TimerTask());
-        timer.setName("sentinel-timer-task");
+        timer.setName("javase.redis.sentinel-timer-task");
         timer.start();
 
         //first make the system run on a very low condition
         for (int i = 0; i < 3; i++) {
             Thread t = new Thread(new WarmUpTask());
-            t.setName("sentinel-warmup-task");
+            t.setName("javase.redis.sentinel-warmup-task");
             t.start();
         }
         Thread.sleep(20000);
@@ -89,7 +89,7 @@ public class WarmUpFlowDemo {
          */
         for (int i = 0; i < threadCount; i++) {
             Thread t = new Thread(new RunTask());
-            t.setName("sentinel-run-task");
+            t.setName("javase.redis.sentinel-run-task");
             t.start();
         }
     }

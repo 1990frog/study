@@ -22,7 +22,7 @@ public class SentinelApiController {
     public String testSentinelAPI() {
         Entry entry = null;
         try {
-            SphU.entry("test-sentinel-api");
+            SphU.entry("test-javase.redis.sentinel-api");
             return "success";
         }catch (BlockException e){
             log.warn("限流或者降级了",e);
