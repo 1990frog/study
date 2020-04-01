@@ -39,10 +39,7 @@ spring:
             producer:
               transactional: true
               group: tx-group2
-#            producter:
-#              producer:
-#                transactional: true
-#                group: tx-group
+
       bindings:
         output:
           # 用来指定topic
@@ -74,17 +71,18 @@ management:
       exposure:
         include: '*'
 
-customer:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+# 两种方式：1java代码，2配置
+#customer:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 ribbon:
   ReadTimeout: 1
   ConnectTimeout: 1
   # ribbon饥饿加载
-  eager-load:
-    enabled: true
-    clients: customer
+#  eager-load:
+#    enabled: true
+#    clients: customer
 
 feign:
 #  sentinel:

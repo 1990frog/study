@@ -1,17 +1,27 @@
 package base.reflection;
 
 import base.reflection.entity.Children;
+import org.junit.Test;
+
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 /**
- *
- *
- *
+ * @see #getClassInfo 获取类的基本信息
+ * @see #getClassType 获取对象的元类型
+ * @see #getSupperClass 我想获取当前类的继承栈
+ * @see #getInterfaces 获取类实现的所有接口
+ * @see #getClassMethod 获取类全部方法，包含父类方法（非私有方法）
+ * @see #getDeclaredMethod 获取当前类全部方法（包含私有方法），不包含基类方法
+ * @see #getALlMethod 获取包含基类私有方法的全部方法
+ * @see #accpetPrivateMethod 通过反射访问私有方法
+ * @see #getFields 获取私有属性
  */
 public class ReflectionAction {
 
@@ -120,6 +130,29 @@ public class ReflectionAction {
          * 动态参数
          */
         method.invoke(obj);
+    }
+
+    /**
+     * 获取私有方法
+     * @throws IllegalAccessException
+     * @throws NoSuchFieldException
+     */
+    @Test
+    public void getFields() throws IllegalAccessException, NoSuchFieldException {
+        Children children = new Children();
+        children.setMoney(new BigDecimal(100));
+        Class clazz = children.getClass();
+        Field[] fields = clazz.getDeclaredFields();
+        for(Field field:fields){
+            /**
+             * 这步是核心之一千万别忘了
+             */
+            field.setAccessible(true);//设置发射时取消Java的访问检查，暴力访问
+            if(field.get(children) instanceof BigDecimal){
+                field.set(children,new BigDecimal(250));
+                System.out.println(field.get(children));
+            }
+        }
     }
 
 
