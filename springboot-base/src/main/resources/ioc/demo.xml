@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="student" class="com.component.ioc.xml.Student">
+    <bean id="student" class="springboot.component.ioc.xml.Student">
         <constructor-arg index="0" value="zhangsan"/>
         <constructor-arg index="1" value="13"/>
         <property name="classList">
@@ -15,7 +15,7 @@
         </property>
     </bean>
 
-    <bean id="xmlTest" class="com.component.ioc.xml.App">
+    <bean id="xmlTest" class="springboot.component.ioc.xml.App">
         <property name="student" ref="student"/>
         <property name="animal" ref="dog"/>
 <!--        <property name="animal" ref="cat"/>-->
@@ -25,8 +25,8 @@
 <!--        <constructor-arg value="dog"/>-->
 <!--    </bean>-->
 
-    <bean name="animalFactory" class="com.component.ioc.xml.AnimalFactory"/>
-    <bean id="dog" class="com.component.ioc.xml.AnimalFactory" factory-method="getAnimal">
+    <bean name="animalFactory" class="springboot.component.ioc.xml.AnimalFactory"/>
+    <bean id="dog" class="springboot.component.ioc.xml.AnimalFactory" factory-method="getAnimal">
         <constructor-arg value="dog"/>
     </bean>
 

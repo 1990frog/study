@@ -1,6 +1,6 @@
 # initializer
 org.springframework.context.ApplicationContextInitializer=\
-  com.component.initializer.FirstInitializer
+  springboot.component.initializer.FirstInitializer
 # listener
 org.springframework.context.ApplicationListener=\
-  com.component.listener.FirstListener
+  springboot.component.listener.FirstListener

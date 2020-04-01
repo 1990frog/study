@@ -3,9 +3,9 @@
 <suite name="groups">
     <test name="runAll">
         <classes>
-            <class name="com.action.testng.group.clazz.GroupsOnClass1"></class>
-            <class name="com.action.testng.group.clazz.GroupsOnClass2"></class>
-            <class name="com.action.testng.group.clazz.GroupsOnClass3"></class>
+            <class name="springboot.action.testng.group.clazz.GroupsOnClass1"></class>
+            <class name="springboot.action.testng.group.clazz.GroupsOnClass2"></class>
+            <class name="springboot.action.testng.group.clazz.GroupsOnClass3"></class>
         </classes>
     </test>
     <test name="runGroup">
@@ -15,9 +15,9 @@
             </run>
         </groups>
         <classes>
-            <class name="com.action.testng.group.clazz.GroupsOnClass1"></class>
-            <class name="com.action.testng.group.clazz.GroupsOnClass2"></class>
-            <class name="com.action.testng.group.clazz.GroupsOnClass3"></class>
+            <class name="springboot.action.testng.group.clazz.GroupsOnClass1"></class>
+            <class name="springboot.action.testng.group.clazz.GroupsOnClass2"></class>
+            <class name="springboot.action.testng.group.clazz.GroupsOnClass3"></class>
         </classes>
     </test>
 </suite>

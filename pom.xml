@@ -13,7 +13,6 @@
         <module>commons</module>
         <module>datastructure</module>
         <module>hadoop</module>
-        <module>java</module>
         <module>leetcode</module>
         <module>netty</module>
         <module>pattern</module>

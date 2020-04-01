@@ -3,8 +3,8 @@
 <suite name="suite">
     <test name="login">
         <classes>
-            <class name="com.action.testng.SuiteConfig"/>
-            <class name="com.action.testng.LoginController"/>
+            <class name="springboot.action.testng.SuiteConfig"/>
+            <class name="springboot.action.testng.LoginController"/>
         </classes>
     </test>
 </suite>
