@@ -1,18 +1,27 @@
 package javase.base.io.bio.componet;
 
+import lombok.Builder;
+import lombok.Data;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.Scanner;
 
 /**
- * @see BufferedInputStream 缓冲输入流
- * @see ByteArrayInputStream 字节数组
- * @see DataInputStream
- * @see FilterInputStream
- * @see PushbackInputStream
  *
- * @see FileInputStream 从文件中读取信息
+ * inputStream
+ * 1.节点流：节点流偏向实现细节，直接与细节打交道
+ * 2.处理流：处理流偏功能，以目标功能为抽象
+ *
+ * @see ByteArrayInputStream（字节数组输入流）节点流
+ * @see PipedInputStream（管道输入流）节点流
+ * @see SequenceInputStream（合并输入流）节点流
+ * @see FileInputStream（文件输入流） 节点流
+ * @see ObjectInputStream（对象输入流）节点流
+ *
+ * @see FilterInputStream（过滤输入流）
+ * @see DataInputStream（数据输入流）处理流
+ * @see BufferedInputStream（缓冲输入流）处理流
+ * @see PushbackInputStream（回退输入流）处理流
  */
 public class InputStreamDemo {
 
@@ -24,7 +33,7 @@ public class InputStreamDemo {
      * @throws IOException
      */
     @Test
-    public void test1() throws IOException {
+    public void fileInputStream() throws IOException {
         try{
             // 创建输入流
             inputStream = new FileInputStream(file);
@@ -40,11 +49,29 @@ public class InputStreamDemo {
         }
     }
 
-    public void test2(){
-//            inputStream = ;
-//            Scanner scanner = new BufferedInputStream(new FileInputStream(file));
-
+    @Test
+    public void bufferedInputStream() throws IOException {
+        BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+        byte[] bytes = new byte[inputStream.available()];
+        inputStream.read(bytes);
+        String str = new String(bytes, "utf-8");
+        System.out.println(str);
     }
 
+    /**
+     * 专门用来读各种各样的数据的，比如（int，char，long等）
+     * 一定要注意 DataOutputStream 与DataInputStream配合使用，而且二者读写的顺序要一样
+     */
+    @Test
+    public void dataInputStream() throws IOException{
+        @Data
+        @Builder
+        class Enitiy{
+            private int id;
+            private String name;
+        }
+//        DataInputStream dataInputStream = new DataInputStream(new DataOutputStream(new ObjectOutputStream()));
+//        System.out.println(dataInputStream.readChar());
+    }
 
 }

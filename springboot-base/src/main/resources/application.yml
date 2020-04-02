@@ -104,3 +104,9 @@ management:
   endpoint:
     health:
       show-details: always
+
+
+jwt:
+  secret: 8f86ad5a5fd7
+  # 有效期，单位s，默认2周
+  expire-time-in-second: 1209600

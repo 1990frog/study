@@ -1,4 +1,4 @@
-package javase.base.io.socket.interrupt;
+package javase.base.io.bio.socket.interrupt;
 
 import java.io.*;
 import java.net.ServerSocket;

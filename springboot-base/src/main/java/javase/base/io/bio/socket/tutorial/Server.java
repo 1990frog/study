@@ -1,4 +1,4 @@
-package javase.base.io.socket.tutorial;
+package javase.base.io.bio.socket.tutorial;
 
 import java.io.*;
 import java.net.ServerSocket;

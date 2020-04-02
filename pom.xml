@@ -4,27 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>cai</groupId>
     <artifactId>study</artifactId>
     <packaging>pom</packaging>
     <version>1</version>
 
     <modules>
-        <module>commons</module>
-        <module>datastructure</module>
         <module>hadoop</module>
-        <module>leetcode</module>
-        <module>netty</module>
-        <module>pattern</module>
-        <module>redis</module>
-        <module>regexp</module>
         <module>springboot-base</module>
         <module>springboot-multi-datasource</module>
         <module>springboot-starter</module>
-        <module>springcloud-alibaba-demo-customer</module>
-        <module>springcloud-alibaba-demo-productor</module>
-        <module>springcloud-netflix-demo-eureka</module>
-        <module>springcloud-netflix-demo-zuul</module>
+        <module>springcloud-alibaba-customer</module>
+        <module>springcloud-alibaba-productor</module>
+        <module>springcloud-netflix-eureka</module>
+        <module>springcloud-netflix-zuul</module>
     </modules>
 
     <build>
