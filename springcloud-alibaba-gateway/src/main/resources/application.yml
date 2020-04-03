@@ -19,6 +19,15 @@ spring:
             - TimeBetween = 1:00 PM,11:00 PM
           filters:
             - PreLog = a,b
+    zipkin:
+      base-url: http://localhost:9411
+      # zipkin不支持注册发现，nacos无法识别zipkin疯狂报错
+      discovery-client-enabled: false
+    sleuth:
+      sampler:
+        # 抽样率，默认是0.1(10%)
+        probability: 1.0
+
 management:
   endpoints:
     web:
