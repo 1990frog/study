@@ -64,12 +64,12 @@ public class InputStreamDemo {
      */
     @Test
     public void dataInputStream() throws IOException{
-        @Data
-        @Builder
-        class Enitiy{
-            private int id;
-            private String name;
-        }
+//        @Data
+//        @Builder
+//        class Enitiy{
+//            private int id;
+//            private String name;
+//        }
 //        DataInputStream dataInputStream = new DataInputStream(new DataOutputStream(new ObjectOutputStream()));
 //        System.out.println(dataInputStream.readChar());
     }
