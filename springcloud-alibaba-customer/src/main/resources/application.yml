@@ -12,8 +12,9 @@ spring:
         server-addr: localhost:8848
     # 向sentinel控制台注册服务
     sentinel:
-      filter:
-        enabled: false
+      # 关闭springmvc端点的监控,设置为false之后只有通过SphU配置的才会被sentinel监控，如果想完全自定义监控可关闭
+#      filter:
+#        enabled: false
       transport:
         # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。
         # 比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
@@ -24,6 +25,7 @@ spring:
         # 心跳发送周期，默认值null
         # 但在simpleHttpHeartbeatSender会默认值10秒
         heartbeat-interval-ms: 10000
+      eager: true
 
     stream:
       rocketmq:
@@ -72,12 +74,6 @@ spring:
     sampler:
       # 抽样率，默认是0.1(10%)
       probability: 1.0
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
 
 # 两种方式：1java代码，2配置
 #customer:
@@ -133,3 +129,16 @@ jwt:
   secret: 8f86ad5a5fd7
   # 有效期，单位s，默认2周
   expire-time-in-second: 1209600
+
+## actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #暴露所有接口
+  endpoint:
+    shutdown.enabled: true  #允许shutdown
+    health.show-details: always #展示详细的health信息
+    jolokia:
+      enabled: false #允许 jolokia
+      config.debug: true

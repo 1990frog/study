@@ -96,13 +96,14 @@ ribbon:
 #    max-connections-per-route: 50
 
 management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
   endpoint:
     health:
       show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
 #resttemplate:
 #  javase.redis.sentinel:
 #    # 设置成false，表示关闭@SentinelRestTemplate注解
