@@ -18,6 +18,8 @@
         <module>springcloud-alibaba-productor</module>
         <module>springcloud-netflix-eureka</module>
         <module>springcloud-netflix-zuul</module>
+        <module>springcloud-netflix-demo-customer</module>
+        <module>springcloud-netflix-demo-productor</module>
     </modules>
 
     <build>
