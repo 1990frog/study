@@ -13,6 +13,7 @@
         <module>java</module>
         <module>hadoop</module>
         <module>springboot-multi-datasource</module>
+        <module>springboot-admin</module>
         <module>springboot-starter</module>
         <module>springcloud-alibaba-customer</module>
         <module>springcloud-alibaba-productor</module>
