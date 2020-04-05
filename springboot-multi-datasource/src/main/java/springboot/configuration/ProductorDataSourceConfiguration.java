@@ -45,5 +45,10 @@ public class ProductorDataSourceConfiguration {
         return new JdbcTemplate(dataSource);
     }
 
+    @Bean(name = "productorTransactionManager")
+    public PlatformTransactionManager testTransactionManager(@Qualifier("productorDataSource") DataSource dataSource) {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource);
+        return dataSourceTransactionManager;
+    }
 
 }
