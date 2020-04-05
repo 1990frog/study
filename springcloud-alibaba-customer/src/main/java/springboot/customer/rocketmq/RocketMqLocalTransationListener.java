@@ -4,19 +4,28 @@ import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;
 import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageHeaders;
 
-@RocketMQTransactionListener(txProducerGroup = "test")
+/**
+ * 这个注解里面是个线程池哦
+ * 如果全部都是默认的化，那性能就呵呵了
+ */
+@RocketMQTransactionListener(txProducerGroup = "test",corePoolSize = 20, maximumPoolSize = 100)
 public class RocketMqLocalTransationListener implements RocketMQLocalTransactionListener {
 
     /**
      * 执行本地事务的接口
-     * @param message
-     * @param o
+     * @param message 注：Stream只能用header
+     * @param o 我的业务流水
      * @return
      */
     @Override
     public RocketMQLocalTransactionState executeLocalTransaction(Message message, Object o) {
         Integer flag = (Integer)o;
+        /**
+         * 这里加@Transactional太白痴
+         * 直接通过注入调一个事务方法就好了
+         */
         if(flag==1){
             return RocketMQLocalTransactionState.COMMIT;
         }else{
@@ -25,20 +34,15 @@ public class RocketMqLocalTransationListener implements RocketMQLocalTransaction
     }
 
     /**
-     * 本地事务的检查接口，检查本地事务是否执行成功
+     * 检查本地事务是否执行成功
      * @param message
      * @return
      */
     @Override
     public RocketMQLocalTransactionState checkLocalTransaction(Message message) {
-        System.out.println(1);
-        System.out.println(1);
-        System.out.println(1);
-        System.out.println(1);
-        System.out.println(1);
-        System.out.println(1);
-        System.out.println(1);
-        System.out.println(1);
-        return RocketMQLocalTransactionState.COMMIT;
+        MessageHeaders messageHeaders = message.getHeaders();
+        String transactionalId = (String) messageHeaders.get("transactionalId");
+        // 执行回滚
+        return RocketMQLocalTransactionState.ROLLBACK;
     }
 }

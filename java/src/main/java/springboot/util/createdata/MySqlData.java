@@ -25,9 +25,9 @@ public class MySqlData {
     private AtomicInteger count;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         guavaCache = new GuavaCache();
-        threadLocal = ThreadLocal.withInitial(()->new Random());
+        threadLocal = ThreadLocal.withInitial(() -> new Random());
         count = new AtomicInteger();
     }
 
@@ -41,17 +41,17 @@ public class MySqlData {
     }
 
     String sql = "INSERT INTO bigtable.ganta (name, gender, age, teacher, level, gang, student, gest, wife) " +
-        "VALUES ('%s', %d, %d, %d, %d, %d, %d, %d, %d)";
+            "VALUES ('%s', %d, %d, %d, %d, %d, %d, %d, %d)";
 
-    public int getGangs(){
+    public int getGangs() {
         return threadLocal.get().nextInt(3);
     }
 
-    public int getGest(){
+    public int getGest() {
         return threadLocal.get().nextInt(65);
     }
 
-    public int getLevel(){
+    public int getLevel() {
         return threadLocal.get().nextInt(9);
     }
 
@@ -72,34 +72,31 @@ public class MySqlData {
                 "计别她手角期根论运农";
         int f = threadLocal.get().nextInt(firstname.length());
         int s = threadLocal.get().nextInt(firstname.length());
-        return firstname.substring(f,f+1)
-                + lastname.substring(s,s+1);
+        return firstname.substring(f, f + 1)
+                + lastname.substring(s, s + 1);
     }
 
-    public int getAge(){
+    public int getAge() {
         return threadLocal.get().nextInt(1000);
     }
 
-    public int getGender(){
+    public int getGender() {
         return threadLocal.get().nextInt(1);
     }
 
     @PostMapping("/mysqldata/insert")
-    public void insert(){
+    public void insert() {
         count.incrementAndGet();
-        for (int i = 0; i < 10000; i++) {
-            String executesql = String.format(this.sql,getName(),
-                    getGender(),
-                    getAge(),
-                    threadLocal.get().nextInt(count.get()),
-                    getLevel(),
-                    getGangs(),
-                    threadLocal.get().nextInt(count.get()),
-                    getGest(),
-                    threadLocal.get().nextInt(count.get()));
-//            log.info(executesql);
-            log.info(count.get()+"");
-//            jdbcTemplate.execute(executesql);
-        }
+        String executesql = String.format(this.sql, getName(),
+                getGender(),
+                getAge(),
+                threadLocal.get().nextInt(count.get()),
+                getLevel(),
+                getGangs(),
+                threadLocal.get().nextInt(count.get()),
+                getGest(),
+                threadLocal.get().nextInt(count.get()));
+        log.info(executesql);
+        jdbcTemplate.execute(executesql);
     }
 }

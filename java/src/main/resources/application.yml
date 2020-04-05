@@ -84,7 +84,7 @@ pagehelper:
 server:
   port: 8080
   tomcat:
-    accept-count: 10000
+    accept-count: 1000
     min-spare-threads: 100
     max-threads: 300
 
