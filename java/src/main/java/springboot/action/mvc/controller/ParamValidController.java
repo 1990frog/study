@@ -2,7 +2,7 @@ package springboot.action.mvc.controller;
 
 import springboot.action.common.BusinessErrorEnum;
 import springboot.action.common.BusinessException;
-import springboot.action.mvc.domain.param.RequestParams;
+import springboot.action.mvc.domain.param.RequestParam;
 import springboot.util.ErrorUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class ParamValidController {
 
     @GetMapping("params/1")
     @ResponseBody
-    public void inject1(@Valid @RequestBody RequestParams params, BindingResult bindingResult){
+    public void inject1(@Valid @RequestBody RequestParam params, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             throw new BusinessException(BusinessErrorEnum.PARAM_ERROR,ErrorUtil.processErrorString(bindingResult));
         }
@@ -27,7 +27,7 @@ public class ParamValidController {
 
     @GetMapping("params/2")
     @ResponseBody
-    public void inject2(@Valid @RequestBody RequestParams params){
+    public void inject2(@Valid @RequestBody RequestParam params){
 
     }
 }

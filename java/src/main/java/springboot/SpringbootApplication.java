@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @MapperScan("springboot.action.mvc.mapper")
 @SpringBootApplication
@@ -18,6 +19,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 @EnableScheduling
 @EnableAspectJAutoProxy(exposeProxy = true)
 @EnableWebSocket
+@EnableSwagger2
 public class SpringbootApplication {
 
     public static void main(String[] args) {
