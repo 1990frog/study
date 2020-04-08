@@ -1,23 +1,29 @@
-package datastructure.mydatastructure.map;
+package datastructure.mydatastructure.avltree;
 
-public class BST<K extends Comparable<K>, V> {
+import java.util.ArrayList;
+
+public class AVLTree<K extends Comparable<K>, V> {
 
     private final class Node {
         K k;
         V v;
         Node left;
         Node right;
+        int height;
 
         public Node(K k, V v) {
             this.k = k;
             this.v = v;
+            this.left = null;
+            this.right = null;
+            this.height = 1;
         }
     }
 
     private Node root;
     private int size;
 
-    public BST() {
+    public AVLTree() {
         size = 0;
     }
 
@@ -27,6 +33,52 @@ public class BST<K extends Comparable<K>, V> {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    private int getHeight(Node node) {
+        if (node == null)
+            return 0;
+        return node.height;
+    }
+
+    // 获取节点node的平衡因子
+    private int getBalanceFactor(Node node) {
+        if (node == null)
+            return 0;
+        return getHeight(node.left) - getHeight(node.right);
+    }
+
+    // 判断该二叉树是否是一棵二分搜索树
+    public boolean isBST() {
+        ArrayList<K> keys = new ArrayList<>();
+        inOrder(root, keys);
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.get(i - 1).compareTo(keys.get(i)) > 0)
+                return false;
+        }
+        return true;
+    }
+
+    private void inOrder(Node node, ArrayList<K> keys) {
+        if (node == null)
+            return;
+        inOrder(node.left, keys);
+        keys.add(node.k);
+        inOrder(node.right, keys);
+    }
+
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    public boolean isBalanced(Node node) {
+        if (node == null)
+            return true;
+
+        int balanceFactor = getBalanceFactor(node);
+        if (Math.abs(balanceFactor) > 1)
+            return false;
+        return isBalanced(node.left) && isBalanced(node.right);
     }
 
     public void add(K k, V v) {
@@ -47,6 +99,13 @@ public class BST<K extends Comparable<K>, V> {
         } else {
             node.v = v;
         }
+
+        // 更新height
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+
+        int balanceFactor = getBalanceFactor(node);
+        if (Math.abs(balanceFactor) > 1)
+            System.out.println("unbalanced" + balanceFactor);
         return node;
     }
 
