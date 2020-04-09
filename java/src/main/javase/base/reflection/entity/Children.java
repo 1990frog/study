@@ -11,6 +11,7 @@ public class Children extends Parent  {
     private BigDecimal money;
     private BigInteger count;
     private String name;
+    private String className = "Children";
 
     @Override
     public String toString() {

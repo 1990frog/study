@@ -9,7 +9,7 @@
     <name>eureka</name>
 
     <parent>
-        <groupId>cai</groupId>
+        <groupId>com</groupId>
         <artifactId>springcloud-netflix</artifactId>
         <version>1.0</version>
     </parent>
