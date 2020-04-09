@@ -1,13 +1,13 @@
 package com.starter;
 
-import com.SpringbootSourceApplication;
+import com.SpringbootApplication;
 import com.condition.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootTest(classes = {SpringbootSourceApplication.class})
+@SpringBootTest(classes = {SpringbootApplication.class})
 public class MyStarterTest {
 
     @Autowired

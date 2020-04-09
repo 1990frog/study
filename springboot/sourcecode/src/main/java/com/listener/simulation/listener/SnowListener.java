@@ -1,7 +1,7 @@
 package com.listener.simulation.listener;
 
-import springboot.component.listener.simulation.event.SnowEvent;
-import springboot.component.listener.simulation.event.WeatherEvent;
+import com.listener.simulation.event.SnowEvent;
+import com.listener.simulation.event.WeatherEvent;
 import org.springframework.stereotype.Component;
 
 @Component

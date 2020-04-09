@@ -1,12 +1,12 @@
 package com.aware;
 
 
-import com.SpringbootSourceApplication;
+import com.SpringbootApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.PropertySource;
 
-@SpringBootTest(classes = {SpringbootSourceApplication.class})
+@SpringBootTest(classes = {SpringbootApplication.class})
 @PropertySource({"demo.properties"})
 public class MyAwareTest implements MyAware {
 

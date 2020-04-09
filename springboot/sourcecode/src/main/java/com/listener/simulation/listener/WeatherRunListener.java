@@ -1,8 +1,8 @@
 package com.listener.simulation.listener;
 
-import springboot.component.listener.simulation.event.RainEvent;
-import springboot.component.listener.simulation.event.SnowEvent;
-import springboot.component.listener.simulation.multicaster.WeatherEventMulticaster;
+import com.listener.simulation.event.RainEvent;
+import com.listener.simulation.event.SnowEvent;
+import com.listener.simulation.multicaster.WeatherEventMulticaster;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

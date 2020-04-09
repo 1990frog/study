@@ -1,6 +1,6 @@
 package com.listener.demo.listener;
 
-import springboot.component.listener.demo.event.Event;
+import com.listener.demo.event.Event;
 
 public interface Listener {
 

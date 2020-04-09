@@ -1,7 +1,7 @@
 package com.ioc.ann;
 
-import springboot.component.ioc.xml.Animal;
-import springboot.component.ioc.xml.Cat;
+import com.ioc.xml.Animal;
+import com.ioc.xml.Cat;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;
 

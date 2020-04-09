@@ -1,10 +1,11 @@
 package com.listener.simulation;
 
-import springboot.component.listener.simulation.event.RainEvent;
-import springboot.component.listener.simulation.listener.RainListener;
-import springboot.component.listener.simulation.event.SnowEvent;
-import springboot.component.listener.simulation.listener.SnowListener;
-import springboot.component.listener.simulation.multicaster.WeatherEventMulticaster;
+
+import com.listener.simulation.event.RainEvent;
+import com.listener.simulation.event.SnowEvent;
+import com.listener.simulation.listener.RainListener;
+import com.listener.simulation.listener.SnowListener;
+import com.listener.simulation.multicaster.WeatherEventMulticaster;
 
 public class App {
 

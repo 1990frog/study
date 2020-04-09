@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@MapperScan("action.mvc.mapper")
+@MapperScan("com.action.mvc.mapper")
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableCaching

@@ -1,7 +1,7 @@
 package com.listener.demo.listener;
 
-import springboot.component.listener.demo.event.Event;
-import springboot.component.listener.demo.event.WorkEvent;
+import com.listener.demo.event.Event;
+import com.listener.demo.event.WorkEvent;
 
 public class WorkListener implements Listener {
     @Override

@@ -1,6 +1,7 @@
 package com.listener.simulation.listener;
 
-import springboot.component.listener.simulation.event.WeatherEvent;
+
+import com.listener.simulation.event.WeatherEvent;
 
 public interface WeatherListener {
 

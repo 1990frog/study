@@ -1,7 +1,8 @@
 package com.listener.demo.multicaster;
 
-import springboot.component.listener.demo.event.Event;
-import springboot.component.listener.demo.listener.Listener;
+
+import com.listener.demo.event.Event;
+import com.listener.demo.listener.Listener;
 
 import java.util.ArrayList;
 import java.util.List;

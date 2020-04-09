@@ -1,10 +1,10 @@
 package com.listener.demo;
 
 
-import springboot.component.listener.demo.event.PlayEvent;
-import springboot.component.listener.demo.listener.PlayListener;
-import springboot.component.listener.demo.listener.WorkListener;
-import springboot.component.listener.demo.multicaster.Multicaster;
+import com.listener.demo.event.PlayEvent;
+import com.listener.demo.listener.PlayListener;
+import com.listener.demo.listener.WorkListener;
+import com.listener.demo.multicaster.Multicaster;
 
 public class App {
 

@@ -1,6 +1,6 @@
 package com.ioc.ann;
 
-import springboot.component.ioc.xml.Monkey;
+import com.ioc.xml.Monkey;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
