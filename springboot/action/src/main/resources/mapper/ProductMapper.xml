@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="action.mvc.mapper.ProductMapper">
-  <resultMap id="BaseResultMap" type="action.mvc.domain.entity.Product">
+<mapper namespace="com.action.mvc.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.action.mvc.domain.entity.Product">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="price" jdbcType="INTEGER" property="price" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     id, name, price
   </sql>
-  <select id="selectByExample" parameterType="action.mvc.domain.entity.ProductExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.action.mvc.domain.entity.ProductExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,20 +92,20 @@
     delete from product
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="action.mvc.domain.entity.ProductExample">
+  <delete id="deleteByExample" parameterType="com.action.mvc.domain.entity.ProductExample">
     delete from product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="action.mvc.domain.entity.Product">
+  <insert id="insert" parameterType="com.action.mvc.domain.entity.Product">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into product (name, price)
     values (#{name,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="action.mvc.domain.entity.Product">
+  <insert id="insertSelective" parameterType="com.action.mvc.domain.entity.Product">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="action.mvc.domain.entity.ProductExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.action.mvc.domain.entity.ProductExample" resultType="java.lang.Long">
     select count(*) from product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -159,7 +159,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="action.mvc.domain.entity.Product">
+  <update id="updateByPrimaryKeySelective" parameterType="com.action.mvc.domain.entity.Product">
     update product
     <set>
       <if test="name != null">
@@ -171,7 +171,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="action.mvc.domain.entity.Product">
+  <update id="updateByPrimaryKey" parameterType="com.action.mvc.domain.entity.Product">
     update product
     set name = #{name,jdbcType=VARCHAR},
       price = #{price,jdbcType=INTEGER}

@@ -1,9 +1,9 @@
 package springboot.springboot.action;
 
-import SpringbootApplication;
-import action.transational.base.DeclarativeTransaction;
-import action.transational.base.ProgrammaticTransaction;
-import action.transational.PropagationTr;
+import com.SpringbootApplication;
+import com.action.transational.base.DeclarativeTransaction;
+import com.action.transational.base.ProgrammaticTransaction;
+import com.action.transational.PropagationTr;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -67,7 +67,7 @@ spring:
 mybatis:
   # mapper文件加载地址
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: springboot.action.mvc.domain.entity
+  type-aliases-package: com.action.mvc.domain.entity
   configuration:
     map-underscore-to-camel-case: true
     local-cache-scope: session

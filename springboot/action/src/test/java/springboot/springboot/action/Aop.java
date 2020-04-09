@@ -1,7 +1,7 @@
 package springboot.springboot.action;
 
-import SpringbootApplication;
-import action.aop.error.ThisErrorController;
+import com.SpringbootApplication;
+import com.action.aop.error.ThisErrorController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

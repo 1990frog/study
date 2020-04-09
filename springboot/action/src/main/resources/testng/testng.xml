@@ -3,8 +3,8 @@
 <suite name="suite">
     <test name="login">
         <classes>
-            <class name="action.testng.SuiteConfig"/>
-            <class name="action.testng.LoginController"/>
+            <class name="com.action.testng.SuiteConfig"/>
+            <class name="com.action.testng.LoginController"/>
         </classes>
     </test>
 </suite>

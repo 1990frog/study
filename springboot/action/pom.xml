@@ -48,6 +48,12 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- mysql connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
         <!-- reids -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

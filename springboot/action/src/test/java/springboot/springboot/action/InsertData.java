@@ -1,7 +1,7 @@
 package springboot.springboot.action;
 
-import SpringbootApplication;
-import util.createdata.MySqlData;
+import com.SpringbootApplication;
+import com.util.createdata.MySqlData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
