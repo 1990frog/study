@@ -39,33 +39,6 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return size == 0;
     }
 
-//    public void add(E e){
-//        if(root==null){
-//            root = new Node(e);
-//            size++;
-//        }else
-//            add(root,e);
-//    }
-//    private void add(Node node,E e){
-//
-//        if(e.compareTo(node.e)==0){
-//            return;
-//        }else if(node.e.compareTo(e)>0 && node.left == null){
-//            node.left = new Node(e);
-//            size++;
-//            return;
-//        }else if(node.e.compareTo(e)<0 && node.right == null){
-//            node.right = new Node(e);
-//            size++;
-//            return;
-//        }
-//
-//        if(e.compareTo(node.e)>0)
-//            add(node.right,e);
-//        else if(e.compareTo(node.e)<0)
-//            add(node.left,e);
-//    }
-
     /**
      * 添加元素
      */
@@ -79,7 +52,8 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
      */
     public Node add(Node node,E e){
 
-        if(node == null){//递归终结条件，并返回添加节点关联上级节点
+        // 递归终结条件，并返回添加节点关联上级节点
+        if(node == null){
             size++;
             return new Node(e);
         }
@@ -92,35 +66,29 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
         return node;//最终返回root根节点
     }
 
+
+    /**
+     * 验证是否包含元素
+     */
     @Override
     public boolean contain(E e){
         return contain(root,e);
     }
 
+
     /**
      * 递归判断
      */
     private boolean contain(Node node,E e){
-//        if(node!=null){
-//            if(node.e.compareTo(e)==0){
-//                return true;
-//            }
-//
-//            if(node.e.compareTo(e)>0){
-//                return contain(node.left,e);
-//            }else
-//                return contain(node.right,e);
-//        }
-//        return false;
 
-        if(node==null)//终结条件
+        if(node==null)
             return false;
 
-        if(e.compareTo(node.e)==0){//终结条件
+        if(e.compareTo(node.e)==0){
             return true;
-        }else if(e.compareTo(node.e)<0){//递归调用
+        }else if(e.compareTo(node.e)<0){
             return contain(node.left,e);
-        }else{//递归调用
+        }else{
             return contain(node.right,e);
         }
     }
@@ -134,12 +102,6 @@ public class BST<E extends Comparable<E>> implements BSTInterface<E> {
     }
 
     private void preOrder(Node node){
-//        System.out.println(node.e);
-//        if(node.left!=null)
-//            preOrder(node.left);
-//        if(node.right!=null)
-//            preOrder(node.right);
-
         if(node == null)
             return;
         System.out.println(node.e);

@@ -1,9 +1,13 @@
 package datastructure.mydatastructure.avltree;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class AVLTree<K extends Comparable<K>, V> {
 
+    /**
+     * 存储节点（key,value,左孩子,右孩子,高度）
+     */
     private final class Node {
         K k;
         V v;
@@ -20,9 +24,12 @@ public class AVLTree<K extends Comparable<K>, V> {
         }
     }
 
+    // 根节点
     private Node root;
+    // 节点数
     private int size;
 
+    // 初始化节点
     public AVLTree() {
         size = 0;
     }
@@ -35,6 +42,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         return size == 0;
     }
 
+    // 获取节点高度
     private int getHeight(Node node) {
         if (node == null)
             return 0;

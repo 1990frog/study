@@ -46,36 +46,20 @@ public class Array<E> implements ArrayInterface<E>{
     }
 
     /**
-     * 在index索引的位置插入一个新元素
+     * 在index索引的位置插入一个新元素（不是替换掉元素，而是向后挤）
      */
     @Override
     public void add(int index, E e) {
 
-        //忘了验证范围，写算法要先确定边界（取值范围）
+        // 校正边界
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
 
-//        /**
-//         * 思维维度不清晰，应该分层判断，解耦，解耦，解耦
-//         */
-//        if(size==getCapacity()){//容量与位置没有关系应该分开
-//            resize(2*size);
-//            data[size++]=e;
-//        }else{
-//            if(index<size){//位置小于元素个数
-//                for(int i=size+1;i>index;i--){
-//                    data[i]=data[i-1];
-//                }
-//                data[index]=e;
-//            }else{
-//                data[size]=e;
-//                size++;
-//            }
-//        }
+        // 容器满了就扩容
         if (size == getCapacity())
             resize(2 * size);
 
-        for(int i = size - 1; i > index ; i --)//for本身就是if判断
+        for(int i = size - 1; i > index ; i --)
             data[i + 1] = data[i];
 
         data[index] = e;
@@ -91,6 +75,7 @@ public class Array<E> implements ArrayInterface<E>{
 
     /**
      * 在所有元素前添加一个新元素
+     * 只有在最后加元素是O(1)，其余的都是O(n)
      */
     public void addFirst(E e){
         add(0, e);
@@ -101,11 +86,6 @@ public class Array<E> implements ArrayInterface<E>{
      */
     @Override
     public E get(int index) {
-//        if (index < getCapacity() - 1 && index > -1) {
-//            return data[index];
-//        } else {
-//            throw new IllegalArgumentException();
-//        }
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Get failed. Index is illegal.");
         return data[index];
@@ -116,12 +96,6 @@ public class Array<E> implements ArrayInterface<E>{
      */
     @Override
     public void set(int index, E e) {
-//        if (index < getCapacity() - 1 && index > -1) {
-//            data[index] = e;
-//        } else {
-//            throw new IllegalArgumentException();
-//        }
-
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Set failed. Index is illegal.");
         data[index] = e;
@@ -158,21 +132,6 @@ public class Array<E> implements ArrayInterface<E>{
      */
     @Override
     public E remove(int index) {
-//        if (index < getCapacity() - 1 && index > -1) {
-//            //index位置value
-//            E value = data[index];
-//            for (int i = index; i <= size; i++) {
-//                if (i == size) {
-//                    data[i] = null;
-//                } else {
-//                    data[i] = data[i + 1];
-//                }
-//            }
-//            size--;
-//            return value;
-//        }
-//        return null;
-
         if(index < 0 || index > size)
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
 
@@ -180,9 +139,11 @@ public class Array<E> implements ArrayInterface<E>{
         for(int i = index + 1 ; i < size ; i ++)
             data[i -1] = data[i];//前移
 
+        // 维护数组长度
         size --;
-        data[size] = null; // loitering objects != memory leak
-
+        // 跑到前面去了，不置null就有两个了
+        data[size] = null;
+        // 减容，注意避免复杂度震荡
         if(size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
 
@@ -216,7 +177,7 @@ public class Array<E> implements ArrayInterface<E>{
      * 将数组空间的容量变成newCapacity大小 O(n)
      */
     @Override
-    public void resize(int newCapacity) {//对外开放了这个不好啊
+    public void resize(int newCapacity) {
         E[] newdata = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newdata[i] = data[i];

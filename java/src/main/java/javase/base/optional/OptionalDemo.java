@@ -1,82 +1,57 @@
-package javase.optional;
+package javase.base.optional;
 
-import lombok.Builder;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Predicate;
 
-@Data
-@Builder
-class Entity {
-    private String code;
-    private String name;
-}
 
+/**
+ * @see #staticFactory() 构造Optional对象的三种静态方法
+ *      1. ofNullable 创建包装对象值允许为空的Optional对象
+ *      2. of 创建包装对象值非空的Optional对象
+ *      3. empty 创建包装对象值为空的Optional对象
+ *
+ * @see #get() 获取代理的对象<T>
+ *
+ * @see #isPresent() 方法用于判断包装对象的值是否非空
+ *
+ * @see #ifPresent() 接受一个Consumer对象（消费函数，null->return T），如果包装对象的值非空，运行Consumer对象的accept()方法
+ *
+ * @see #filter() 接受参数为Predicate（谓词，T->return boolean）对象，用于对Optional对象进行过滤，如果符合Predicate的条件，返回Optional对象本身，否则返回一个空的Optional对象
+ *
+ * @see #map() Optional中的包装对象用Function<T,N>（t->n）函数进行运算，并包装成新的Optional对象（包装对象的类型可能改变）
+ *
+ * @see #
+ *
+ * @see #
+ */
 @Slf4j
 public class OptionalDemo {
 
-    public String checkNone1(Entity entity) {
-        if (entity != null)
-            if (!StringUtils.isEmpty(entity.getName()))
-                return entity.getCode();
-        return null;
+
+    public String ofNullable(Entity entity) {
+        return Optional
+                .ofNullable(entity)
+                .map(Entity::getCode)
+                .orElse("Unkown");
     }
 
-    public String checkNone2(Entity entity) {
-        return Optional.ofNullable(entity).map(Entity::getCode).orElse("Unkown");
-        /**
-         *  等价于：
-         *  {@code
-         *      Optional<Student> stuOpt =  Optional.ofNullable(student);
-         *      if(stuOpt.isPresent())
-         *      {
-         *          return stuOpt.get().getGender();
-         *      }
-         *      return "Unkown";
-         *  }
-         */
-    }
-
-    /**
-     * 空值验证
-     */
     @Test
-    public void check() {
-        OptionalDemo optionalDemo = new OptionalDemo();
-        Entity entity = Entity.builder().name("foo").build();
-        log.info(optionalDemo.checkNone2(entity));
-        log.info(optionalDemo.checkNone2(null));
-    }
-
-    /**
-     * Optional类的两个构造方法都是private型的
-     * 因此类外部不能显示的使用new Optional()的方式来创建Optional对象
-     * <p>
-     * 但是Optional类提供了三个静态方法：
-     * 1.empty()
-     * 2.of(T value)
-     * 3.ofNullable(T value)
-     * 来创建Optinal对象
-     */
-    @Test
-    public void test() {
+    public void staticFactory() {
         // 创建一个包装对象值为空的Optional对象
         Optional<String> optStr1 = Optional.empty();
         // 创建包装对象值非空的Optional对象
         Optional<String> optStr2 = Optional.of("optional");
         // 创建包装对象值允许为空的Optional对象
         Optional<String> optStr3 = Optional.ofNullable(null);
+
+        OptionalDemo optionalDemo = new OptionalDemo();
+        Entity entity = Entity.builder().name("foo").build();
+        log.info(optionalDemo.ofNullable(entity));
+        log.info(optionalDemo.ofNullable(null));
     }
 
-    /**
-     *
-     */
     @Test
     public void get() {
         Optional<Entity> optional1 = Optional.of(Entity
@@ -94,10 +69,6 @@ public class OptionalDemo {
     }
 
 
-    /**
-     * isPresent()方法用于判断包装对象的值是否非空
-     * 返回boolean
-     */
     @Test
     public void isPresent() {
         Optional<Entity> optional = Optional.of(Entity
@@ -108,9 +79,6 @@ public class OptionalDemo {
         log.info(String.valueOf(optional.isPresent()));
     }
 
-    /**
-     * ifPresent()方法接受一个Consumer对象（消费函数），如果包装对象的值非空，运行Consumer对象的accept()方法
-     */
     @Test
     public void ifPresent() {
         Optional.of(Entity
@@ -120,9 +88,6 @@ public class OptionalDemo {
                 .build()).ifPresent((Entity n) -> n.setCode("2"));
     }
 
-    /**
-     * filter()方法接受参数为Predicate对象，用于对Optional对象进行过滤，如果符合Predicate的条件，返回Optional对象本身，否则返回一个空的Optional对象
-     */
     @Test
     public void filter() {
         Optional.ofNullable(Entity
@@ -134,10 +99,6 @@ public class OptionalDemo {
                 .ifPresent(n -> System.out.println(n.getCode()));
     }
 
-    /**
-     * map()方法的参数为Function<n,t>(n->t)
-     * map()方法将Optional中的包装对象用Function函数进行运算，并包装成新的Optional对象（包装对象的类型可能改变）
-     */
     @Test
     public void map() {
         Optional.ofNullable(Entity
@@ -154,7 +115,7 @@ public class OptionalDemo {
     /**
      * 入参：Function<T, R>(T->R)
      * 返回值：Optional<U>
-     * <p>
+     *
      * flatMap()能将一个二维的Optional对象映射成一个一维的对象
      *
      * 对比map与flatMap
