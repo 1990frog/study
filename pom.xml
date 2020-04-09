@@ -16,7 +16,8 @@
         <module>springcloud-alibaba</module>
         <module>springcloud-netflix</module>
         <module>springboot</module>
-<!--        <module>java</module>-->
+        <module>java</module>
+        <module>springboot</module>
     </modules>
 
     <build>
