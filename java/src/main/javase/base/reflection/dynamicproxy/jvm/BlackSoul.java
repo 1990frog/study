@@ -1,9 +1,9 @@
-package com.dynamicproxy.jvm;
+package javase.base.reflection.dynamicproxy.jvm;
 
 /**
  * 被代理类
  */
-public class BlackSoul implements Game {
+public class BlackSoul implements Game,Sales {
     @Override
     public void pay() {
         System.out.println("$60");

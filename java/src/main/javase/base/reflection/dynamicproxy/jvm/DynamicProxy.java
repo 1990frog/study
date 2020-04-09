@@ -1,12 +1,12 @@
-package com.dynamicproxy.jvm;
-
+package javase.base.reflection.dynamicproxy.jvm;
 import lombok.AllArgsConstructor;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * 代理类
+ * 不在关注具体被代理的类
+ * 只需要设定一种对代理类的增强
  */
 @AllArgsConstructor
 public class DynamicProxy implements InvocationHandler{
@@ -23,8 +23,10 @@ public class DynamicProxy implements InvocationHandler{
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("与被代理类无关，想做啥都行");
-        return method.invoke(game,args);
+        System.out.println("before");
+        Object object = method.invoke(game,args);
+        System.out.println("after");
+        return object;
     }
 
 }

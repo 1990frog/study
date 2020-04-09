@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class WebConfiguration implements WebMvcConfigurer {
+public class WebMvcConfiguration implements WebMvcConfigurer {
 
     /**
      * 解决 swagger静态资源无法访问的问题

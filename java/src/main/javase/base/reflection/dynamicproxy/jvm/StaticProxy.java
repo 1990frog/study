@@ -1,11 +1,10 @@
-package com.dynamicproxy.jvm;
-
+package javase.base.reflection.dynamicproxy.jvm;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class StaticProxy {
 
-    private Game game;
+    private BlackSoul game;
 
     /**
      * 静态代理的缺陷：
