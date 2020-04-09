@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>springboot-multi-datasource</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-multi-datasource</name>
+    <artifactId>multi-datasource</artifactId>
+    <version>1.0</version>
+    <name>multi-datasource</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
