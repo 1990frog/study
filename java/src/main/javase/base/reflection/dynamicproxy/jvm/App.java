@@ -6,9 +6,9 @@ import java.lang.reflect.Proxy;
 
 public class App {
 
-    private BlackSoul blackSoul = new BlackSoul();
+    private static BlackSoul blackSoul = new BlackSoul();
 
-    public Object getDynamicProxy(Object obj){
+    public static Object getDynamicProxy(Object obj){
         return Proxy.newProxyInstance(
                 /**
                  * 一个ClassLoader对象，定义了由哪个ClassLoader对象来对生成的代理对象进行加载
@@ -24,11 +24,15 @@ public class App {
                 new DynamicProxy(obj));
     }
 
-    /**
-     * 动态代理
-     */
-    @Test
-    public void dynamicProxy(){
+    public static void main(String[] args) {
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
+//        System.getProperties().put("jdk.proxy.ProxyGenerator.saveGeneratedFiles", "true");
+
+        /**
+         * 静态代理
+         */
+        StaticProxy staticProxy = new StaticProxy(blackSoul);
+        staticProxy.pay();
         /**
          * JDK代理只能只针对接口来产生代理,代理类与被代理类类似兄弟关系  不能相互转换 只能用共同的接口
          */
@@ -36,15 +40,6 @@ public class App {
         game.play();
         Sales sales = (Sales)getDynamicProxy(blackSoul);
         sales.pay();
-    }
-
-    /**
-     * 静态代理
-     */
-    @Test
-    public void staticProxy(){
-        StaticProxy staticProxy = new StaticProxy(blackSoul);
-        staticProxy.pay();
     }
 
 }
