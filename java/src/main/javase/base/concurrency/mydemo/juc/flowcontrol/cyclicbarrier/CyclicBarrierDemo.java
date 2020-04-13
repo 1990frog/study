@@ -1,4 +1,4 @@
-package javase.base.concurrency.moocwukong.juc.flowcontrol.cyclicbarrier;
+package javase.base.concurrency.mydemo.juc.flowcontrol.cyclicbarrier;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

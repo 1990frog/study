@@ -6,7 +6,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 描述：     用tryLock来避免死锁
+ * 描述：
+ * 用tryLock来避免死锁（请求一次，不会一直阻塞线程）
+ * 可以接着升级用CAS自旋
  */
 public class TryLockDeadlock implements Runnable {
 

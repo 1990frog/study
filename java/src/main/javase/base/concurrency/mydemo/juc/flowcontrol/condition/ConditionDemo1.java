@@ -1,4 +1,4 @@
-package javase.base.concurrency.moocwukong.juc.flowcontrol.condition;
+package javase.base.concurrency.mydemo.juc.flowcontrol.condition;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

@@ -13,4 +13,9 @@ public class BlackSoul implements Game,Sales {
     public void play() {
         System.out.println("dead dead dead");
     }
+
+    public static void staticMehtod(){
+        System.out.println("不能代理静态方法");
+    }
+
 }

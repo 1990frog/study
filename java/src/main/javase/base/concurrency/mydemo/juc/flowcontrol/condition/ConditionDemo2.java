@@ -1,4 +1,4 @@
-package javase.base.concurrency.moocwukong.juc.flowcontrol.condition;
+package javase.base.concurrency.mydemo.juc.flowcontrol.condition;
 
 import java.util.PriorityQueue;
 import java.util.concurrent.locks.Condition;
@@ -17,7 +17,7 @@ public class ConditionDemo2 {
     private Condition notEmpty = lock.newCondition();
 
     public static void main(String[] args) {
-        ConditionDemo2 conditionDemo2 = new ConditionDemo2();
+        javase.base.concurrency.moocwukong.juc.flowcontrol.condition.ConditionDemo2 conditionDemo2 = new javase.base.concurrency.moocwukong.juc.flowcontrol.condition.ConditionDemo2();
         Producer producer = conditionDemo2.new Producer();
         Consumer consumer = conditionDemo2.new Consumer();
         producer.start();

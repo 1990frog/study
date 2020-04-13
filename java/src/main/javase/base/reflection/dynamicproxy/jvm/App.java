@@ -1,7 +1,5 @@
 package javase.base.reflection.dynamicproxy.jvm;
 
-import org.junit.Test;
-
 import java.lang.reflect.Proxy;
 
 public class App {
@@ -38,6 +36,8 @@ public class App {
          */
         Game game = (Game)getDynamicProxy(blackSoul);
         game.play();
+        game.display();
+//        game.difficulty();
         Sales sales = (Sales)getDynamicProxy(blackSoul);
         sales.pay();
     }

@@ -1,4 +1,4 @@
-package javase.base.concurrency.mydemo.juc.locktype.reentrant;
+package javase.base.concurrency.mydemo.juc.lock.reentrantlock;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

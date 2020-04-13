@@ -1,4 +1,4 @@
-package javase.base.concurrency.moocwukong.juc.flowcontrol.countdownlatch;
+package javase.base.concurrency.mydemo.juc.flowcontrol.countdownlanch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

@@ -1,13 +1,14 @@
-package javase.base.concurrency.moocwukong.juc.flowcontrol.semaphore;
+package javase.base.concurrency.mydemo.juc.flowcontrol.semaphore;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 /**
- * 描述：     演示Semaphore用法
+ * 描述：
+ * 演示Semaphore用法
  */
-public class SemaphoreDemo {
+public class SemaphoreDemo1 {
 
     static Semaphore semaphore = new Semaphore(5, true);
 

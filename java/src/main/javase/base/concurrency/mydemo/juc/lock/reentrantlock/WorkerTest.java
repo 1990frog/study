@@ -1,13 +1,8 @@
-package javase.base.concurrency.mydemo.juc.locktype.reentrant;
+package javase.base.concurrency.mydemo.juc.lock.reentrantlock;
 
-import java.util.concurrent.locks.ReentrantLock;
+public class WorkerTest implements Runnable {
 
-public class NonReentrantDeadLockEffect implements Runnable {
-
-    /**
-     * 公平锁，没有可重入性
-     */
-    static ReentrantLock lock = new ReentrantLock(false);
+    static Worker lock = new Worker();
 
     public void foo(){
         try{
@@ -22,7 +17,6 @@ public class NonReentrantDeadLockEffect implements Runnable {
     public void bar(){
         try{
             lock.lock();
-            System.out.println(lock.getHoldCount());
             System.out.println("bar");
         }finally {
             lock.unlock();
@@ -36,8 +30,9 @@ public class NonReentrantDeadLockEffect implements Runnable {
 
     public static void main(String[] args) {
         Thread thread1 = new Thread(new NonReentrantDeadLockEffect());
-        Thread thread2 = new Thread(new NonReentrantDeadLockEffect());
+//        Thread thread2 = new Thread(new NonReentrantDeadLockEffect());
         thread1.start();
 //        thread2.start();
     }
+
 }
