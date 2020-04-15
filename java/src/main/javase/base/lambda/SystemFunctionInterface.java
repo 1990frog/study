@@ -1,4 +1,4 @@
-package javase.base.lambda.syntax;
+package javase.base.lambda;
 
 import org.junit.Test;
 
@@ -11,12 +11,12 @@ import java.util.function.Supplier;
 
 /**
  * 系统提供的几种函数式接口
- * @see #supplier Supplier(null->T)
+ * @see #supplier
  */
 public class SystemFunctionInterface {
 
     /**
-     * Supplier
+     * Supplier(null->T)
      * 供应商，提供返回值
      */
     public Supplier supplier(){
@@ -29,7 +29,7 @@ public class SystemFunctionInterface {
     }
 
     /**
-     * Consumer
+     * Consumer(T->null)
      * 消费者接口，接收一个参数<T>
      */
     public Consumer consumer(){
@@ -39,7 +39,7 @@ public class SystemFunctionInterface {
     }
 
     /**
-     * Runner
+     * Runner(null->null)
      * 异步，无参无返回值
      */
     public Runnable runnable(){
@@ -56,7 +56,7 @@ public class SystemFunctionInterface {
     }
 
     /**
-     * Function<T,V>
+     * Function(<T, R>->T)
      * 函数，有参有返回值，提供了两个泛型
      */
     public Function function(){
@@ -68,7 +68,7 @@ public class SystemFunctionInterface {
     }
 
     /**
-     * Predicate<T>
+     * Predicate(<T>->boolean)
      * 断言，返回boolean
      * 可以使用or，and将多个Predicate连接在一起形成一个复杂的Predicate
      */

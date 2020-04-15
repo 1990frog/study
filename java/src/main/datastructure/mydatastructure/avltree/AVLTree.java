@@ -1,7 +1,6 @@
 package datastructure.mydatastructure.avltree;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class AVLTree<K extends Comparable<K>, V> {
 
@@ -20,6 +19,7 @@ public class AVLTree<K extends Comparable<K>, V> {
             this.v = v;
             this.left = null;
             this.right = null;
+            // 平衡因子
             this.height = 1;
         }
     }
@@ -49,18 +49,18 @@ public class AVLTree<K extends Comparable<K>, V> {
         return node.height;
     }
 
-    // 获取节点node的平衡因子
+    // 获取节点node的平衡因子：left-right
     private int getBalanceFactor(Node node) {
         if (node == null)
             return 0;
         return getHeight(node.left) - getHeight(node.right);
     }
 
-    // 判断该二叉树是否是一棵二分搜索树
+    // 判断该二叉树是否是一棵二分搜索树，中序遍历从低到高
     public boolean isBST() {
         ArrayList<K> keys = new ArrayList<>();
         inOrder(root, keys);
-        for (int i = 0; i < keys.size(); i++) {
+        for(int i = 1 ; i < keys.size() ; i ++) {
             if (keys.get(i - 1).compareTo(keys.get(i)) > 0)
                 return false;
         }
@@ -75,6 +75,10 @@ public class AVLTree<K extends Comparable<K>, V> {
         inOrder(node.right, keys);
     }
 
+    /**
+     * 判断是否平衡
+     * left与right最大差为1
+     */
     public boolean isBalanced() {
         return isBalanced(root);
     }
@@ -110,11 +114,63 @@ public class AVLTree<K extends Comparable<K>, V> {
 
         // 更新height
         node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-
+        // 计算平衡因子
         int balanceFactor = getBalanceFactor(node);
-        if (Math.abs(balanceFactor) > 1)
-            System.out.println("unbalanced" + balanceFactor);
+
+        // LL
+        if(balanceFactor > 0 && getBalanceFactor(node.left) >= 0 ){
+            return rightRotate(node);
+        }
+        // RR
+        if(balanceFactor < 0 && getBalanceFactor(node.right) <= 0){
+            return leftRotate(node);
+        }
         return node;
+    }
+
+    // 对节点y进行向右旋转操作，返回旋转后新的根节点x
+    //        y                              x
+    //       / \                           /   \
+    //      x   T4     向右旋转 (y)        z     y
+    //     / \       - - - - - - - ->    / \   / \
+    //    z   T3                       T1  T2 T3 T4
+    //   / \
+    // T1   T2
+    private Node rightRotate(Node y) {
+        Node x = y.left;
+        Node T3 = x.right;
+
+        // 向右旋转过程
+        x.right = y;
+        y.left = T3;
+
+        // 更新height
+        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
+        x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
+
+        return x;
+    }
+    // 对节点y进行向左旋转操作，返回旋转后新的根节点x
+    //    y                             x
+    //  /  \                          /   \
+    // T1   x      向左旋转 (y)       y     z
+    //     / \   - - - - - - - ->   / \   / \
+    //   T2  z                     T1 T2 T3 T4
+    //      / \
+    //     T3 T4
+    private Node leftRotate(Node y) {
+        Node x = y.right;
+        Node T2 = x.left;
+
+        // 向右旋转过程
+        x.left = y;
+        y.right = T2;
+
+        // 更新height
+        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
+        x.height = Math.max(getHeight(x.left), getHeight(x.right)) + 1;
+
+        return x;
     }
 
     public boolean contains(K k) {

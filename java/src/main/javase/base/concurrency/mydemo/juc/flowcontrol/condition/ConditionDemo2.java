@@ -17,11 +17,11 @@ public class ConditionDemo2 {
     private Condition notEmpty = lock.newCondition();
 
     public static void main(String[] args) {
-        javase.base.concurrency.moocwukong.juc.flowcontrol.condition.ConditionDemo2 conditionDemo2 = new javase.base.concurrency.moocwukong.juc.flowcontrol.condition.ConditionDemo2();
-        Producer producer = conditionDemo2.new Producer();
-        Consumer consumer = conditionDemo2.new Consumer();
-        producer.start();
-        consumer.start();
+        ConditionDemo2 conditionDemo2 = new ConditionDemo2();
+//        Producer producer = new Producer();
+//        Consumer consumer = new Consumer();
+//        producer.start();
+//        consumer.start();
     }
 
     class Consumer extends Thread {
