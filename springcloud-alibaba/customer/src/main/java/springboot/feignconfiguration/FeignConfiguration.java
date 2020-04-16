@@ -1,4 +1,4 @@
-package springboot.customer.configuration;
+package springboot.feignconfiguration;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
