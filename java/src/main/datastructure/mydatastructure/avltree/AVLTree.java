@@ -206,6 +206,10 @@ public class AVLTree<K extends Comparable<K>, V> {
     }
 
     private Node remove(Node node, K k) {
+
+        if(node==null)
+            return null;
+
         if (k.compareTo(node.k) < 0) {
             return remove(node.left, k);
         } else if (k.compareTo(node.k) > 0) {

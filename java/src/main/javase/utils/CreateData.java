@@ -1,48 +1,23 @@
 package javase.utils;
 
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
+import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Slf4j
-public class CreateData implements Runnable {
+public class CreateData implements Runnable  {
+
+    static String BASE_SQL = "insert into bigtable(name, gender, type, phone, email, province, city, area, address, `desc`) values ('%s',%d,%d,'%s','%s','%s','%s','%s','%s','%s')";
 
     // 每个线程线程分配一个mysql连接
-    ThreadLocal<MysqlPool> conn = ThreadLocal.withInitial(MysqlPool::new);
-    // 循环次数
-    private int count;
-    // key
-    private String key;
+    ThreadLocal<MySqlPool> conn = ThreadLocal.withInitial(MySqlPool::new);
 
-    @Getter
-    final class MysqlPool {
-        private String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-        private String DB_URL = "jdbc:mysql://localhost:3306/bigtable";
-        private String USER = "root";
-        private String PASS = "123456";
+    static AtomicInteger count = new AtomicInteger();
 
-        private Statement jdbcTemplate;
-        private Connection connection;
-
-        {
-            try {
-                Class.forName(JDBC_DRIVER);
-                this.connection = DriverManager.getConnection(DB_URL, USER, PASS);
-                this.jdbcTemplate = this.connection.createStatement();
-            } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    public CreateData(String key, int count) {
-        this.count = count;
-        this.key = key;
-    }
 
     @Override
     public void run() {
@@ -50,14 +25,20 @@ public class CreateData implements Runnable {
     }
 
     public void insert() {
-        Database.getSynchronized(key).forEach(n -> {
+
+        for (int i = 0; i < 100000; i++) {
+            HashMap address = Database.getCity();
+            String sql = String.format(BASE_SQL,Database.getName(),Database.getGender(),
+                    Database.getType(),Database.getPhone(),Database.getEmail(),Database.getCity().get("province"),
+                    address.get("provinceCode"),address.get("cityCode"),address.get("areaCode"),
+                    new StringBuffer().append(address.get("provinceName")).append(address.get("cityName")).append(address.get("areaName")).append(Database.getRoad()),Database.getRoad());
+            System.out.println(count.incrementAndGet()+":"+sql);
             try {
-                String sql = String.format(Database.getSql(key), n);
                 conn.get().getJdbcTemplate().execute(sql);
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
-        });
+        }
 
         try {
             conn.get().getJdbcTemplate().close();
@@ -68,10 +49,10 @@ public class CreateData implements Runnable {
     }
 
     public static void main(String[] args) {
-        CreateData create = new CreateData("level", 1000);
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 1; i++) {
-            executorService.submit(create);
+        CreateData createData = new CreateData();
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        for (int i = 0; i < 100; i++) {
+            executorService.submit(createData);
         }
         executorService.shutdownNow();
         while (executorService.isTerminated()){
