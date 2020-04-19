@@ -30,11 +30,9 @@ OutputFormat
 Combiner
 Partitioner
 
-![Image text](../../../resources/image/mapreduce_01.jpg)
 1 map先从HDFS上读取不同的文件，然后对其进行map操作，生成一个个带有标签（也就是key）的数据块。
 2 带有相同标签（key）的数据块，会被分配到同一个Reduce上进行操作，从而得到最终结果，并将最终结果写回HDFS。
 
-![Image text](../../../resources/image/mapreduce_02.jpg)
 1 可以看到因为不是自带分区的文件，而是文本文件，所以多了一个拆分的步骤。
 2 接下来对分割的文本进行Map阶段的操作，其分发的标签（key）是单词本身，分发的内容是每一段文本里出现该单词的数量。
 3 接下来会进行一个分发操作，即相同标签（key）的数据会被收集到一起。
