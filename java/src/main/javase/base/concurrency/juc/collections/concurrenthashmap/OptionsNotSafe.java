@@ -3,7 +3,8 @@ package javase.base.concurrency.juc.collections.concurrenthashmap;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 描述：     组合操作并不保证线程安全
+ * 描述：
+ * 组合操作并不保证线程安全
  */
 public class OptionsNotSafe implements Runnable {
 
@@ -24,6 +25,12 @@ public class OptionsNotSafe implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 1000; i++) {
+            // 线程不安全
+//            Integer score = scores.get("小明");
+//            Integer newScore = score +1;
+//            scores.put("小明",newScore);
+
+            // 线程安全，CAS聚合操作
             while (true) {
                 Integer score = scores.get("小明");
                 Integer newScore = score + 1;
