@@ -17,7 +17,7 @@ spring:
   datasource:
     # 使用mysql数据库，8+要记得加cj，虽然不加也没什么
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC&characterEncoding=utf8
     username: root
     password: 123456
     # 使用druid做datasource
@@ -67,6 +67,10 @@ spring:
         reset-enable: true
         # 启用
         enabled: true
+#  elasticsearch:
+#    rest:
+#      uris: http://localhost:9200
+
 
 mybatis:
   # mapper文件加载地址
