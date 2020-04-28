@@ -1,4 +1,4 @@
-package gc;
+package jvm.gc;
 
 public class ReferenceCountingGC {
 
