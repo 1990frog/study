@@ -14,7 +14,7 @@
     <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="localhost"/>
 
     <!-- 彩色日志 -->
-    <!-- 彩色日志依赖的渲染类 -->s
+    <!-- 彩色日志依赖的渲染类 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
     <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
     <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
@@ -163,4 +163,24 @@
         <appender-ref ref="ERROR_FILE" />
         <appender-ref ref="FATAL_FILE" />
     </root>
+
+    <!--    <logger name="jdbc.connection" additivity="false" level="FATAL">-->
+    <!--        <appender-ref ref="CONSOLE" />-->
+    <!--    </logger>-->
+    <!--    <logger name="jdbc.resultset" additivity="false" level="INFO">-->
+    <!--        <appender-ref ref="CONSOLE" />-->
+    <!--    </logger>-->
+    <!--    <logger name="jdbc.audit" additivity="false" level="INFO">-->
+    <!--        <appender-ref ref="CONSOLE" />-->
+    <!--    </logger>-->
+    <!--    <logger name="jdbc.sqlonly" additivity="false" level="DEBUG">-->
+    <!--        <appender-ref ref="CONSOLE" />-->
+    <!--    </logger>-->
+    <logger name="jdbc.sqltiming" additivity="false" level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <!--    <logger name="org.apache.ibatis" level="DEBUG" additivity="false">-->
+    <!--        <appender-ref ref="CONSOLE" />-->
+    <!--    </logger>-->
 </configuration>
