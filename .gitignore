@@ -20,3 +20,4 @@ springcloud-alibaba/oauth2/target/
 springcloud-alibaba/productor/target/
 springcloud-netflix/eureka/target/
 springcloud-netflix/zuul/target/
+/.idea/
