@@ -1,13 +1,13 @@
 package com.action.mvc.controller;
 
+import com.action.mvc.domain.param.SwaggerParam;
+import com.action.mvc.domain.response.SwaggerResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.action.mvc.domain.param.SwaggerParam;
-import com.action.mvc.domain.response.SwaggerResponse;
 
 @Api("Swagger模型")
 @RestController

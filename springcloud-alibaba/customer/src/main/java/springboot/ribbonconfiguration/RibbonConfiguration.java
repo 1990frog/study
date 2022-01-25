@@ -1,9 +1,11 @@
 package springboot.ribbonconfiguration;
 
-import com.netflix.loadbalancer.*;
-import springboot.ribbonconfiguration.ribbonrule.SelectPortRule;
+import com.netflix.loadbalancer.DummyPing;
+import com.netflix.loadbalancer.IPing;
+import com.netflix.loadbalancer.IRule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springboot.ribbonconfiguration.ribbonrule.SelectPortRule;
 
 @Configuration
 public class RibbonConfiguration {

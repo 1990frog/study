@@ -6,7 +6,6 @@ import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionState;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
-import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @RocketMQTransactionListener(txProducerGroup = "tx-group")

@@ -1,11 +1,11 @@
 package springboot.ribbonconfiguration;
 
-import springboot.productor.configuration.NacosWeightedRule;
 import com.netflix.loadbalancer.IPing;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.PingUrl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springboot.productor.configuration.NacosWeightedRule;
 
 @Configuration
 public class RibbonConfiguration {

@@ -1,8 +1,8 @@
 package springboot.productor.configuration;
 
-import springboot.ribbonconfiguration.RibbonConfiguration;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Configuration;
+import springboot.ribbonconfiguration.RibbonConfiguration;
 
 @Configuration
 @RibbonClient(name="user-center",configuration = RibbonConfiguration.class)

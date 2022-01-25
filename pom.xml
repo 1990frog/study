@@ -14,7 +14,12 @@
         <module>springcloud-alibaba</module>
         <module>springcloud-netflix</module>
         <module>springboot</module>
-        <module>java</module>
+        <module>algorithm</module>
+        <module>netty</module>
+        <module>redis</module>
+        <module>effectivejava</module>
+        <module>j2se</module>
+        <module>concurrency</module>
     </modules>
 
     <build>

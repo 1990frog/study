@@ -1,13 +1,12 @@
 package com.action.mvc.mapper;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 import com.action.mvc.domain.entity.Canal;
 import com.action.mvc.domain.entity.CanalExample;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
 
 @Component
 public interface CanalMapper {
