@@ -16,20 +16,20 @@ spring:
     nacos: # nacos
       discovery:
         server-addr: localhost:8848 # 指定nacos server的地址
-    sentinel: # 向sentinel控制台注册服务
-      # 关闭springmvc端点的监控,设置为false之后只有通过SphU配置的才会被sentinel监控，如果想完全自定义监控可关闭
-      # filter:
-        # enabled: false
-      transport:
-        # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。
-        # 比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
-        # 如果不设置，会自动从8719开始扫描，依次+1，直到找到未被占用的端口
-        port: 8720
-        dashboard: localhost:8080 # 指定控制台地址
-        # 心跳发送周期，默认值null
-        # 但在simpleHttpHeartbeatSender会默认值10秒
-        heartbeat-interval-ms: 10000
-      eager: true # 饥饿加载
+#    sentinel: # 向sentinel控制台注册服务
+#      # 关闭springmvc端点的监控,设置为false之后只有通过SphU配置的才会被sentinel监控，如果想完全自定义监控可关闭
+#      # filter:
+#        # enabled: false
+#      transport:
+#        # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。
+#        # 比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
+#        # 如果不设置，会自动从8719开始扫描，依次+1，直到找到未被占用的端口
+#        port: 8720
+#        dashboard: localhost:8080 # 指定控制台地址
+#        # 心跳发送周期，默认值null
+#        # 但在simpleHttpHeartbeatSender会默认值10秒
+#        heartbeat-interval-ms: 10000
+#      eager: true # 饥饿加载
 
     stream:
       rocketmq:
@@ -70,19 +70,19 @@ spring:
           destination: topic3
           group: group3
 
-  zipkin: # Twitter的链路追踪
-    base-url: http://localhost:9411
-    discovery-client-enabled: false # zipkin不支持注册发现，nacos无法识别zipkin疯狂报错
-  sleuth:
-    sampler:
-      probability: 1.0 # 抽样率，默认是0.1(10%)
+#  zipkin: # Twitter的链路追踪
+#    base-url: http://localhost:9411
+#    discovery-client-enabled: false # zipkin不支持注册发现，nacos无法识别zipkin疯狂报错
+#  sleuth:
+#    sampler:
+#      probability: 1.0 # 抽样率，默认是0.1(10%)
   redis:
     # 配置单节点redis
-    #    port: 6379
-    #    host: localhost
-    sentinel:
-      master: main
-      nodes: localhost:26379,localhost:26380,localhost:26381
+    port: 6379
+    host: localhost
+#    sentinel:
+#      master: main
+#      nodes: localhost:26379,localhost:26380,localhost:26381
 
 
 

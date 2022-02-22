@@ -19,7 +19,13 @@
         <module>redis</module>
         <module>effectivejava</module>
         <module>j2se</module>
+        <module>spark</module>
         <module>concurrency</module>
+        <module>guava</module>
+        <module>datastructure</module>
+        <module>designpattern</module>
+        <module>leetcode</module>
+        <module>jvm</module>
     </modules>
 
     <build>

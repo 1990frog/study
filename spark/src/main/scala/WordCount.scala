@@ -6,9 +6,10 @@ object WordCount {
       .setAppName("wordcount")
       .setMaster("local")
     val sc = new SparkContext(conf)
-    val textFile = sc.textFile("file:///C:/Code/study/spark/src/main/scala/input.txt")
+//    val textFile = sc.textFile("file:///C:/Code/study/spark/src/main/scala/input.txt")
+    val textFile = sc.textFile("file:///home/cai/Code/mine/study/spark/src/main/scala/input.txt")
     val wordsRDD = textFile.flatMap(_.split(","))
-    val wordCountRDD = wordsRDD.map((_, 1)).saveAsTextFile("file:///C:/Code/study/spark/src/main/scala/output")
+    val wordCountRDD = wordsRDD.map((_, 1)).saveAsTextFile("file:///home/cai/Code/mine/study/spark/src/main/scala/output")
     sc.stop()
   }
 }
