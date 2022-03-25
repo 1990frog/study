@@ -1,7 +1,7 @@
 package juc.imooccache;
 
-import javase.base.concurrency.juc.imooccache.computable.Computable;
-import javase.base.concurrency.juc.imooccache.computable.ExpensiveFunction;
+import juc.imooccache.computable.Computable;
+import juc.imooccache.computable.ExpensiveFunction;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +19,15 @@ public class ImoocCache4<A, V> implements Computable<A, V> {
         this.c = c;
     }
 
+    public static void main(String[] args) throws Exception {
+        ImoocCache4<String, Integer> expensiveComputer = new ImoocCache4<>(
+                new ExpensiveFunction());
+        Integer result = expensiveComputer.compute("666");
+        System.out.println("第一次计算结果：" + result);
+        result = expensiveComputer.compute("666");
+        System.out.println("第二次计算结果：" + result);
+    }
+
     @Override
     public V compute(A arg) throws Exception {
         System.out.println("进入缓存机制");
@@ -30,14 +39,5 @@ public class ImoocCache4<A, V> implements Computable<A, V> {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) throws Exception {
-        ImoocCache4<String, Integer> expensiveComputer = new ImoocCache4<>(
-                new ExpensiveFunction());
-        Integer result = expensiveComputer.compute("666");
-        System.out.println("第一次计算结果：" + result);
-        result = expensiveComputer.compute("666");
-        System.out.println("第二次计算结果：" + result);
     }
 }

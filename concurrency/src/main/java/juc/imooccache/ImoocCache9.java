@@ -1,7 +1,7 @@
 package juc.imooccache;
 
-import javase.base.concurrency.juc.imooccache.computable.Computable;
-import javase.base.concurrency.juc.imooccache.computable.MayFail;
+import juc.imooccache.computable.Computable;
+import juc.imooccache.computable.MayFail;
 
 import java.util.Map;
 import java.util.concurrent.*;
@@ -17,41 +17,6 @@ public class ImoocCache9<A, V> implements Computable<A, V> {
 
     public ImoocCache9(Computable<A, V> c) {
         this.c = c;
-    }
-
-    @Override
-    public V compute(A arg) throws InterruptedException, ExecutionException {
-        while (true) {
-            Future<V> f = cache.get(arg);
-            if (f == null) {
-                Callable<V> callable = new Callable<V>() {
-                    @Override
-                    public V call() throws Exception {
-                        return c.compute(arg);
-                    }
-                };
-                FutureTask<V> ft = new FutureTask<>(callable);
-                f = cache.putIfAbsent(arg, ft);
-                if (f == null) {
-                    f = ft;
-                    System.out.println("从FutureTask调用了计算函数");
-                    ft.run();
-                }
-            }
-            try {
-                return f.get();
-            } catch (CancellationException e) {
-                System.out.println("被取消了");
-                cache.remove(arg);
-                throw e;
-            } catch (InterruptedException e) {
-                cache.remove(arg);
-                throw e;
-            } catch (ExecutionException e) {
-                System.out.println("计算错误，需要重试");
-                cache.remove(arg);
-            }
-        }
     }
 
     public static void main(String[] args) throws Exception {
@@ -90,5 +55,40 @@ public class ImoocCache9<A, V> implements Computable<A, V> {
                 }
             }
         }).start();
+    }
+
+    @Override
+    public V compute(A arg) throws InterruptedException, ExecutionException {
+        while (true) {
+            Future<V> f = cache.get(arg);
+            if (f == null) {
+                Callable<V> callable = new Callable<V>() {
+                    @Override
+                    public V call() throws Exception {
+                        return c.compute(arg);
+                    }
+                };
+                FutureTask<V> ft = new FutureTask<>(callable);
+                f = cache.putIfAbsent(arg, ft);
+                if (f == null) {
+                    f = ft;
+                    System.out.println("从FutureTask调用了计算函数");
+                    ft.run();
+                }
+            }
+            try {
+                return f.get();
+            } catch (CancellationException e) {
+                System.out.println("被取消了");
+                cache.remove(arg);
+                throw e;
+            } catch (InterruptedException e) {
+                cache.remove(arg);
+                throw e;
+            } catch (ExecutionException e) {
+                System.out.println("计算错误，需要重试");
+                cache.remove(arg);
+            }
+        }
     }
 }

@@ -1,26 +1,31 @@
 package proxy.staticproxy;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class FuckGFW {
+
+    @Test
+    public void test() {
+        new Shadowsocks(new ChinaInternet()).access();
+    }
 
     interface Internet {
         void access();
     }
 
-    class ChinaInternet implements Internet{
+    class ChinaInternet implements Internet {
         @Override
         public void access() {
             System.out.println("Youtube 404");
         }
     }
 
-    class Shadowsocks implements Internet{
+    class Shadowsocks implements Internet {
 
-        private Internet internet;
+        private final Internet internet;
 
-        public Shadowsocks(Internet internet){
-            this.internet=internet;
+        public Shadowsocks(Internet internet) {
+            this.internet = internet;
         }
 
         @Override
@@ -30,11 +35,6 @@ public class FuckGFW {
             System.out.println("fuck gfw");
             System.out.println("Youtube 200");
         }
-    }
-
-    @Test
-    public void test(){
-        new Shadowsocks(new ChinaInternet()).access();
     }
 
 }

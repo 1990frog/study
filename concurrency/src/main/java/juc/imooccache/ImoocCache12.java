@@ -1,6 +1,6 @@
 package juc.imooccache;
 
-import javase.base.concurrency.juc.imooccache.computable.ExpensiveFunction;
+import juc.imooccache.computable.ExpensiveFunction;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,9 +14,9 @@ import java.util.concurrent.Executors;
  */
 public class ImoocCache12 {
 
+    public static CountDownLatch countDownLatch = new CountDownLatch(1);
     static ImoocCache10<String, Integer> expensiveComputer = new ImoocCache10<>(
             new ExpensiveFunction());
-    public static CountDownLatch countDownLatch = new CountDownLatch(1);
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService service = Executors.newFixedThreadPool(100);
@@ -25,11 +25,11 @@ public class ImoocCache12 {
             service.submit(() -> {
                 Integer result = null;
                 try {
-                    System.out.println(Thread.currentThread().getName()+"开始等待");
+                    System.out.println(Thread.currentThread().getName() + "开始等待");
                     countDownLatch.await();
                     SimpleDateFormat dateFormat = ThreadSafeFormatter.dateFormatter.get();
                     String time = dateFormat.format(new Date());
-                    System.out.println(Thread.currentThread().getName()+"   "+time+"被放行");
+                    System.out.println(Thread.currentThread().getName() + "   " + time + "被放行");
                     result = expensiveComputer.compute("666");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -45,6 +45,7 @@ public class ImoocCache12 {
         service.shutdown();
     }
 }
+
 class ThreadSafeFormatter {
 
     public static ThreadLocal<SimpleDateFormat> dateFormatter = new ThreadLocal<SimpleDateFormat>() {

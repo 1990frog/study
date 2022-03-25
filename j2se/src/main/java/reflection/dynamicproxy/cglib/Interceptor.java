@@ -1,9 +1,9 @@
 package reflection.dynamicproxy.cglib;
 
-import javase.base.reflection.dynamicproxy.jvm.BlackSoul;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
+import reflection.dynamicproxy.jvm.BlackSoul;
 
 import java.lang.reflect.Method;
 

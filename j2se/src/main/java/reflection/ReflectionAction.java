@@ -1,8 +1,8 @@
 package reflection;
 
-import javase.base.reflection.entity.Child;
-import javase.base.reflection.entity.Children;
 import org.junit.Test;
+import reflection.entity.Child;
+import reflection.entity.Children;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

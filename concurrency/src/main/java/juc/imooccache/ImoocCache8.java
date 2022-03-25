@@ -1,7 +1,7 @@
 package juc.imooccache;
 
-import javase.base.concurrency.juc.imooccache.computable.Computable;
-import javase.base.concurrency.juc.imooccache.computable.ExpensiveFunction;
+import juc.imooccache.computable.Computable;
+import juc.imooccache.computable.ExpensiveFunction;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -20,27 +20,6 @@ public class ImoocCache8<A, V> implements Computable<A, V> {
 
     public ImoocCache8(Computable<A, V> c) {
         this.c = c;
-    }
-
-    @Override
-    public V compute(A arg) throws Exception {
-        Future<V> f = cache.get(arg);
-        if (f == null) {
-            Callable<V> callable = new Callable<V>() {
-                @Override
-                public V call() throws Exception {
-                    return c.compute(arg);
-                }
-            };
-            FutureTask<V> ft = new FutureTask<>(callable);
-            f = cache.putIfAbsent(arg, ft);
-            if (f == null) {
-                f = ft;
-                System.out.println("从FutureTask调用了计算函数");
-                ft.run();
-            }
-        }
-        return f.get();
     }
 
     public static void main(String[] args) throws Exception {
@@ -81,5 +60,26 @@ public class ImoocCache8<A, V> implements Computable<A, V> {
         }).start();
 
 
+    }
+
+    @Override
+    public V compute(A arg) throws Exception {
+        Future<V> f = cache.get(arg);
+        if (f == null) {
+            Callable<V> callable = new Callable<V>() {
+                @Override
+                public V call() throws Exception {
+                    return c.compute(arg);
+                }
+            };
+            FutureTask<V> ft = new FutureTask<>(callable);
+            f = cache.putIfAbsent(arg, ft);
+            if (f == null) {
+                f = ft;
+                System.out.println("从FutureTask调用了计算函数");
+                ft.run();
+            }
+        }
+        return f.get();
     }
 }

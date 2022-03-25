@@ -26,7 +26,7 @@ import java.util.Optional;
  *
  * @see #
  */
-@Slf4j
+//@Slf4j
 public class OptionalDemo {
 
 
@@ -48,8 +48,8 @@ public class OptionalDemo {
 
         OptionalDemo optionalDemo = new OptionalDemo();
         Entity entity = Entity.builder().name("foo").build();
-        log.info(optionalDemo.ofNullable(entity));
-        log.info(optionalDemo.ofNullable(null));
+//        log.info(optionalDemo.ofNullable(entity));
+//        log.info(optionalDemo.ofNullable(null));
     }
 
     @Test
@@ -64,8 +64,8 @@ public class OptionalDemo {
                 .code("1")
                 .name("lilei")
                 .build());
-        log.info("of Code = {},Name = {}", optional1.get().getCode(), optional1.get().getName());
-        log.info("ofNullable Code = {},Name = {}", optional2.get().getCode(), optional2.get().getName());
+//        log.info("of Code = {},Name = {}", optional1.get().getCode(), optional1.get().getName());
+//        log.info("ofNullable Code = {},Name = {}", optional2.get().getCode(), optional2.get().getName());
     }
 
 
@@ -76,7 +76,7 @@ public class OptionalDemo {
                 .code("1")
                 .name("lilei")
                 .build());
-        log.info(String.valueOf(optional.isPresent()));
+//        log.info(String.valueOf(optional.isPresent()));
     }
 
     @Test
@@ -130,7 +130,7 @@ public class OptionalDemo {
                 .name("lilei")
                 .build())
                 .flatMap(u -> Optional.ofNullable(u.getCode()));
-        log.info(optional.get()+"");
+//        log.info(optional.get()+"");
     }
 
     /**

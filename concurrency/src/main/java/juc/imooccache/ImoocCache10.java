@@ -1,7 +1,6 @@
 package juc.imooccache;
-
-import javase.base.concurrency.juc.imooccache.computable.Computable;
-import javase.base.concurrency.juc.imooccache.computable.MayFail;
+import juc.imooccache.computable.Computable;
+import juc.imooccache.computable.MayFail;
 
 import java.util.Map;
 import java.util.concurrent.*;

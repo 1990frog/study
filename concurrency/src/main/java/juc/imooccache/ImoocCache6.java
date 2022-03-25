@@ -1,7 +1,7 @@
 package juc.imooccache;
 
-import javase.base.concurrency.juc.imooccache.computable.Computable;
-import javase.base.concurrency.juc.imooccache.computable.ExpensiveFunction;
+import juc.imooccache.computable.Computable;
+import juc.imooccache.computable.ExpensiveFunction;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,17 +17,6 @@ public class ImoocCache6<A, V> implements Computable<A, V> {
 
     public ImoocCache6(Computable<A, V> c) {
         this.c = c;
-    }
-
-    @Override
-    public V compute(A arg) throws Exception {
-        System.out.println("进入缓存机制");
-        V result = cache.get(arg);
-        if (result == null) {
-            result = c.compute(arg);
-            cache.put(arg, result);
-        }
-        return result;
     }
 
     public static void main(String[] args) throws Exception {
@@ -66,5 +55,16 @@ public class ImoocCache6<A, V> implements Computable<A, V> {
                 }
             }
         }).start();
+    }
+
+    @Override
+    public V compute(A arg) throws Exception {
+        System.out.println("进入缓存机制");
+        V result = cache.get(arg);
+        if (result == null) {
+            result = c.compute(arg);
+            cache.put(arg, result);
+        }
+        return result;
     }
 }

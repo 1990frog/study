@@ -1,6 +1,6 @@
 package core.createthread;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class CreateThread implements Runnable {
 
@@ -13,15 +13,15 @@ public class CreateThread implements Runnable {
      * Thread+Runnable
      */
     @Test
-    public void threadDemo(){
+    public void threadDemo() {
         new Thread(new CreateThread()).start();
     }
 
     /**
      * 重写Thread的run方法
      */
-    public void ThreadRunDemo(){
-        new Thread(){
+    public void ThreadRunDemo() {
+        new Thread() {
             @Override
             public void run() {
                 System.out.println("thread run");
@@ -29,8 +29,8 @@ public class CreateThread implements Runnable {
         }.start();
     }
 
-    public void ThreadRunnable(){
-        new Thread(new CreateThread()){
+    public void ThreadRunnable() {
+        new Thread(new CreateThread()) {
             @Override
             public void run() {
                 System.out.println("thread run");
@@ -43,10 +43,9 @@ public class CreateThread implements Runnable {
      * Thread+Lambda
      */
     @Test
-    public void lambdaDemo(){
-        new Thread(()-> System.out.println("lambda")).start();
+    public void lambdaDemo() {
+        new Thread(() -> System.out.println("lambda")).start();
     }
-
 
 
     /**

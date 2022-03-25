@@ -29,7 +29,6 @@ public class GenericityWildcards {
     /**
      * 泛型不支持直接向上转型，但是支持通过参数通配符向上转型
      */
-    @Test
     public void test(){
         Generic<Number> gNumber = new Generic<>(456);
         showKeyValue(gNumber);
@@ -38,8 +37,5 @@ public class GenericityWildcards {
         showKeyValue1(gInteger);
         showKeyValue2(gInteger);
     }
-
-
-
 
 }

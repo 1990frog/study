@@ -23,13 +23,12 @@ class Child<T1, T2, T3> extends Father<T1, T2> {
     private T3 t3;
 }
 
-@Slf4j
 public class AllExtend {
 
     @Test
     public void test() {
         Father<Integer, String> father = new Father<>(1, "2");
-        log.info("father = {}", father);
+//        log.info("father = {}", father);
     }
 
 }
