@@ -3,12 +3,11 @@ package core.createthread;
 /**
  * 描述：
  * 演示不能两次调用start方法，否则会报错
- *
+ * <p>
  * if (threadStatus != 0)
- *  throw new IllegalThreadStateException();
- *
+ * throw new IllegalThreadStateException();
+ * <p>
  * 第一次启动threadStatus状态更改，第二次启动就直接抛出异常
- *
  */
 public class CantStartTwice {
     public static void main(String[] args) {

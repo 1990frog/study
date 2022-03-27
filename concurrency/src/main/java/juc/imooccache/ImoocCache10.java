@@ -10,12 +10,55 @@ import java.util.concurrent.*;
  */
 public class ImoocCache10<A, V> implements Computable<A, V> {
 
+    public final static ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
     private final Map<A, Future<V>> cache = new ConcurrentHashMap<>();
-
     private final Computable<A, V> c;
 
     public ImoocCache10(Computable<A, V> c) {
         this.c = c;
+    }
+
+    public static void main(String[] args) throws Exception {
+        ImoocCache10<String, Integer> expensiveComputer = new ImoocCache10<>(
+                new MayFail());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Integer result = expensiveComputer.compute("666", 5000L);
+                    System.out.println("第一次的计算结果：" + result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Integer result = expensiveComputer.compute("666");
+                    System.out.println("第三次的计算结果：" + result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Integer result = expensiveComputer.compute("667");
+                    System.out.println("第二次的计算结果：" + result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+
+        Thread.sleep(6000L);
+        Integer result = expensiveComputer.compute("666");
+        System.out.println("主线程的计算结果：" + result);
     }
 
     @Override
@@ -58,10 +101,8 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
         return compute(arg, randomExpire);
     }
 
-    public final static ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
-
     public V compute(A arg, long expire) throws ExecutionException, InterruptedException {
-        if (expire>0) {
+        if (expire > 0) {
             executor.schedule(new Runnable() {
                 @Override
                 public void run() {
@@ -82,47 +123,5 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
             System.out.println("过期时间到，缓存被清除");
             cache.remove(key);
         }
-    }
-    public static void main(String[] args) throws Exception {
-        ImoocCache10<String, Integer> expensiveComputer = new ImoocCache10<>(
-                new MayFail());
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Integer result = expensiveComputer.compute("666",5000L);
-                    System.out.println("第一次的计算结果：" + result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Integer result = expensiveComputer.compute("666");
-                    System.out.println("第三次的计算结果：" + result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Integer result = expensiveComputer.compute("667");
-                    System.out.println("第二次的计算结果：" + result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-
-
-        Thread.sleep(6000L);
-        Integer result = expensiveComputer.compute("666");
-        System.out.println("主线程的计算结果：" + result);
     }
 }
