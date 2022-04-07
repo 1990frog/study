@@ -1,6 +1,6 @@
 package mydatastructure.linkedlist.singly;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class App {
 

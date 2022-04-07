@@ -1,6 +1,6 @@
 package mydatastructure.linkedlist.singly;
 
-import datastructure.mydatastructure.linkedlist.Linked;
+import mydatastructure.linkedlist.Linked;
 
 public class LinkedList<E> implements Linked<E> {
 

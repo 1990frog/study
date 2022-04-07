@@ -1,6 +1,6 @@
 package mydatastructure.stack;
 
-import datastructure.mydatastructure.arrays.Array;
+import mydatastructure.arrays.Array;
 
 public class ArrayStack<E> implements Stack<E> {
 

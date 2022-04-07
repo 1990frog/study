@@ -1,10 +1,10 @@
 package mydatastructure.linkedlist.singly;
 
-public class Stack<E> implements datastructure.mydatastructure.stack.Stack<E> {
+public class StackVO<E> implements mydatastructure.stack.Stack<E> {
 
     private LinkedList<E> linkedList;
 
-    public Stack(){
+    public StackVO(){
         linkedList = new LinkedList<>();
     }
 

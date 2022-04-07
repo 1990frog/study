@@ -1,6 +1,6 @@
 package mydatastructure.queue;
 
-import datastructure.mydatastructure.arrays.Array;
+import mydatastructure.arrays.Array;
 
 public class ArrayQueue<E> extends Array<E> implements Queue<E> {
 

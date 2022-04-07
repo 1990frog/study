@@ -1,6 +1,6 @@
 package mydatastructure.set;
 
-import datastructure.mydatastructure.linkedlist.singly.DummyHeadLinkedList;
+import mydatastructure.linkedlist.singly.DummyHeadLinkedList;
 
 public class LinkedListSet<E> implements Set<E> {
 

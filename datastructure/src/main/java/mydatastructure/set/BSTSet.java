@@ -1,6 +1,6 @@
 package mydatastructure.set;
 
-import datastructure.mydatastructure.binarysearchtree.BST;
+import mydatastructure.binarysearchtree.BST;
 
 public class BSTSet<E extends Comparable<E>> implements Set<E> {
 

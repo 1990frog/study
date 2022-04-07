@@ -17,7 +17,7 @@ public class Student {
 
     public static void main(String[] args) {
 
-        datastructure.playdatastructure.arrays.genericDataStructures.Array<Student> arr = new Array<>();
+        Array<Student> arr = new Array<>();
         arr.addLast(new Student("Alice", 100));
         arr.addLast(new Student("Bob", 66));
         arr.addLast(new Student("Charlie", 88));

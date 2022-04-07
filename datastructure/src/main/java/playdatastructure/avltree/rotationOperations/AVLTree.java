@@ -241,7 +241,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         if(FileOperation.readFile("pride-and-prejudice.txt", words)) {
             System.out.println("Total words: " + words.size());
 
-            datastructure.playdatastructure.avltree.mapAndSetInAVLTree.AVLTree<String, Integer> map = new datastructure.playdatastructure.avltree.mapAndSetInAVLTree.AVLTree<>();
+            AVLTree<String, Integer> map = new AVLTree<>();
             for (String word : words) {
                 if (map.contains(word))
                     map.set(word, map.get(word) + 1);
