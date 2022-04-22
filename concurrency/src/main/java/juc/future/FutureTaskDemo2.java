@@ -2,9 +2,7 @@ package juc.future;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * <p>
@@ -16,23 +14,22 @@ import java.util.concurrent.FutureTask;
  */
 public class FutureTaskDemo2 {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
 
         FutureTask<Integer> task1 = new FutureTask<>(() -> {
-            Thread.sleep(1000);
+            Thread.sleep(3000);
             return 10;
         });
         FutureTask<Integer> task2 = new FutureTask<>(() -> {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             return 20;
         });
 
         new Thread(task1).start();
         new Thread(task2).start();
 
-        while (!task1.isDone() || !task2.isDone()){
-
-        }
+        task1.get(5, TimeUnit.SECONDS);
+        task2.get(1, TimeUnit.SECONDS);
 
     }
 }
