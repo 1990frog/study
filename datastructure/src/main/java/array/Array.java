@@ -17,10 +17,10 @@ public interface Array<E> {
     void add(int index, E e);
 
     //获取index索引位置的元素 O(1)
-    E get(int index) throws IllegalAccessException;
+    E get(int index);
 
     // 修改index索引位置的元素为e
-    void set(int index, E e) throws IllegalAccessException;
+    void set(int index, E e);
 
     // 查找数组中是否有元素e
     boolean contains(E e);
@@ -29,7 +29,7 @@ public interface Array<E> {
     int find(E e);
 
     // 从数组中删除index位置的元素, 返回删除的元素 O(n)
-    E remove(int index) throws IllegalAccessException;
+    E remove(int index);
 
     // 将数组空间的容量变成newCapacity大小 O(n)
     void resize(int newCapacity);

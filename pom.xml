@@ -26,6 +26,7 @@
         <module>designpattern</module>
         <module>leetcode</module>
         <module>jvm</module>
+        <module>groovy</module>
     </modules>
 
     <build>
