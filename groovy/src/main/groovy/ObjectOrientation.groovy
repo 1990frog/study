@@ -1,3 +1,6 @@
+import groovy.transform.PackageScope
+import groovy.transform.Synchronized
+
 /**
  * types
  *
@@ -371,4 +374,45 @@ class Data {
 /**
  * Properties
  *
+ * A property is an externally visible feature of a class
+ * 外部可见的特征
  */
+
+class Animal {
+    int lowerCount = 0
+    @Lazy String name = { lower().toUpperCase() }()
+    String lower() { lowerCount++; 'sloth' }
+}
+
+def a = new Animal()
+assert a.lowerCount == 0
+assert a.name == 'SLOTH'
+assert a.lowerCount == 1
+
+
+class HasPropertyWithPackagePrivateField {
+    String name1
+    @PackageScope String name2
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
