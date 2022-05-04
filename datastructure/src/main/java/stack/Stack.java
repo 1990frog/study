@@ -1,4 +1,4 @@
-package array;
+package stack;
 
 /**
  * Last In First Out (LIFO)

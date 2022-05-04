@@ -1,4 +1,7 @@
-package array;
+package queue;
+
+import array.ArrayList;
+import queue.Queue;
 
 /**
  * <p>
@@ -8,7 +11,7 @@ package array;
  * @author cai
  * @since 2022/4/26
  */
-public class ArrayListQueue<E> implements Queue<E>{
+public class ArrayListQueue<E> implements Queue<E> {
 
     private ArrayList<E> data;
 

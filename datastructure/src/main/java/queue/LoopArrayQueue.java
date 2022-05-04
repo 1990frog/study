@@ -1,4 +1,6 @@
-package array;
+package queue;
+
+import queue.Queue;
 
 /**
  * <p>
