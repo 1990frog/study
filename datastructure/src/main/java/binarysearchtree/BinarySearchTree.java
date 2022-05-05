@@ -171,20 +171,77 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return node;
     }
 
-    public E removeMax(){
+    public E removeMax() {
         E ret = maximum();
         root = removeMax(root);
         return ret;
     }
-    private Node removeMax(Node node){
-        if(node.right==null){
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
             Node leftNode = node.left;
             node.left = null;
-            size --;
+            size--;
             return leftNode;
         }
         node.right = removeMin(node.right);
         return node;
+    }
+
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    /**
+     * 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
+     * @param node
+     * @param e
+     * @return
+     */
+    private Node remove(Node node, E e) {
+        if (node == null)
+            return null;
+
+        if (node.left.e.compareTo(e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } else if (node.right.e.compareTo(e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } else { // node.e == e
+
+            /**
+             * 待删除节点左子树为空的情况
+             */
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+
+            /**
+             * 待删除节点右子树为空的情况
+             */
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+
+            /**
+             * 待删除节点左右子树均不为空的情况
+             * 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
+             * 用这个节点顶替待删除节点的位置
+             */
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+            node.left = node.right = null;
+            return successor;
+        }
+
     }
 
     public int size() {

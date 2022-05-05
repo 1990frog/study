@@ -32,5 +32,5 @@ public interface Array<E> {
     E remove(int index);
 
     // 将数组空间的容量变成newCapacity大小 O(n)
-    void resize(int newCapacity);
+//    void resize(int newCapacity);
 }

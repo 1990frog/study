@@ -146,7 +146,7 @@ public class ArrayList<E> implements Array<E> {
 
         data[--size] = null;
 
-        // 减容，注意避免复杂度震荡
+        // 减容，注意避免复杂度震荡 data.length = 1 时，缩容capacity=0，存在bug
         if(size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
 
@@ -179,8 +179,7 @@ public class ArrayList<E> implements Array<E> {
     /**
      * 将数组空间的容量变成newCapacity大小 O(n)
      */
-    @Override
-    public void resize(int newCapacity) {
+    private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity];
         for (int i = 0; i < size; i++) {
             newData[i] = data[i];
