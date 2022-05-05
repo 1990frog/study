@@ -1,6 +1,9 @@
 import groovy.transform.PackageScope
 import groovy.transform.Synchronized
 
+import java.lang.annotation.ElementType
+import java.lang.annotation.Target
+
 /**
  * types
  *
@@ -394,6 +397,83 @@ class HasPropertyWithPackagePrivateField {
     String name1
     @PackageScope String name2
 }
+
+/**
+ * Annotations
+ */
+
+/**
+ * Annotation definition
+ * 注解的声明方式
+ */
+@interface StringAnnotation {
+    String value()
+}
+@interface DefaultStringAnnotation {
+    String value() default 'something'
+}
+@interface IntAnnotation {
+    int step()
+}
+@interface ClassAnnotation {
+    Class appliesTo()
+}
+@interface AnnAnnotation {}
+@interface AnnAnnotations {
+    AnnAnnotation[] value()
+}
+enum DayOfWeek { mon, tue, wed, thu, fri, sat, sun }
+@interface ScheduledAnnotation {
+    DayOfWeek dayOfWeek()
+}
+
+/**
+ * Annotation placement
+ * 注解位置
+ * method
+ * class
+ * var
+ */
+@Target([ElementType.METHOD, ElementType.TYPE])
+@interface SomeAnnotation {}
+
+/**
+ * Annotation member values
+ *
+ */
+@interface Page {
+    int statusCode()
+}
+@Page(statusCode=404)
+void notFound() {}
+
+/**
+ * value: 默认值
+ * we can omit the statusCode because it has a default value, but value needs to be set
+ */
+@interface Value{
+    String value()
+}
+@Value("hello")
+void notFound1() {}
+
+/**
+ * Retention policy
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
