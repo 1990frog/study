@@ -109,12 +109,6 @@ public class ArrayList<E> implements Array<E> {
     @Override
     public boolean contains(E e) {
         return this.find(e) > -1;
-//        for (E cur : data) {
-//            if (cur.equals(e)) {
-//                return true;
-//            }
-//        }
-//        return false;
     }
 
     /**
@@ -122,11 +116,9 @@ public class ArrayList<E> implements Array<E> {
      */
     @Override
     public int find(E e) {
-        for (int i = 0; i < size; i++) {
-            if (e.equals(this.data[i])) {
-                return i;
-            }
-        }
+        for (int i = 0; i < size; i++)
+            if (e.equals(data[i]))
+                return 1;
         return -1;
     }
 
@@ -141,9 +133,8 @@ public class ArrayList<E> implements Array<E> {
         E ret = this.data[index];
         for(int i = index + 1 ; i < size ; i ++)
             data[i -1] = data[i];//前移
-//        for (int i = index; i < size; i++)
-//            data[i] = data[i + 1];
 
+        // 前移最后一个元素置空
         data[--size] = null;
 
         // 减容，注意避免复杂度震荡 data.length = 1 时，缩容capacity=0，存在bug
