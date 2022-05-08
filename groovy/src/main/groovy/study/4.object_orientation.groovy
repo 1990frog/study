@@ -1,5 +1,6 @@
+package study
+
 import groovy.transform.PackageScope
-import groovy.transform.Synchronized
 
 import java.lang.annotation.ElementType
 import java.lang.annotation.Target
