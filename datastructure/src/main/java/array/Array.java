@@ -31,6 +31,13 @@ public interface Array<E> {
     // 从数组中删除index位置的元素, 返回删除的元素 O(n)
     E remove(int index);
 
+    /**
+     * 更换元素位置
+     * @param i
+     * @param j
+     */
+    void swap(int i,int j);
+
     // 将数组空间的容量变成newCapacity大小 O(n)
 //    void resize(int newCapacity);
 }

@@ -131,39 +131,54 @@ public class ArrayList<E> implements Array<E> {
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
 
         E ret = this.data[index];
-        for(int i = index + 1 ; i < size ; i ++)
-            data[i -1] = data[i];//前移
+        for (int i = index + 1; i < size; i++)
+            data[i - 1] = data[i];//前移
 
         // 前移最后一个元素置空
         data[--size] = null;
 
         // 减容，注意避免复杂度震荡 data.length = 1 时，缩容capacity=0，存在bug
-        if(size == data.length / 4 && data.length / 2 != 0)
+        if (size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
 
         return ret;
     }
 
     /**
+     * 更换指定序列元素
+     *
+     * @param i
+     * @param j
+     */
+    @Override
+    public void swap(int i, int j) {
+        if (i < 0 || i > size || j < 0 || j > size)
+            throw new IllegalArgumentException("");
+        E e = data[i];
+        data[i] = data[j];
+        data[j] = e;
+    }
+
+    /**
      * 从数组中删除第一个元素, 返回删除的元素
      */
-    public E removeFirst(){
+    public E removeFirst() {
         return remove(0);
     }
 
     /**
      * 从数组中删除最后一个元素, 返回删除的元素
      */
-    public E removeLast(){
+    public E removeLast() {
         return remove(size - 1);
     }
 
     /**
      * 从数组中删除元素e
      */
-    public void removeElement(E e){
+    public void removeElement(E e) {
         int index = find(e);
-        if(index != -1)
+        if (index != -1)
             remove(index);
     }
 
