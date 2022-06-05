@@ -1,9 +1,5 @@
 package playdatastructure.unionfind.optimizedBySize;
 
-import mydatastructure.unionfind.UnionFind1st;
-import mydatastructure.unionfind.UnionFind2nd;
-import mydatastructure.unionfind.UnionFind3rd;
-
 import java.util.Random;
 
 public class Pk {
