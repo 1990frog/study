@@ -7,7 +7,7 @@ public class SegmentTree<E> implements Segment<E> {
     private Merger<E> merger;
 
     public SegmentTree(E[] arr, Merger<E> merger) {
-        data = (E[]) new Object[arr.length];
+        this.data = (E[]) new Object[arr.length];
         this.merger = merger;
         for (int i = 0; i < arr.length; i++)
             data[i] = arr[i];
