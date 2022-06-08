@@ -17,6 +17,8 @@ public class BST<E extends Comparable> implements Tree<E> {
     private int size;
 
     public BST() {
+        root = null;
+        size = 0;
     }
 
     @Override
@@ -57,34 +59,28 @@ public class BST<E extends Comparable> implements Tree<E> {
 
     @Override
     public E minimum() {
-        return minimum(root);
+        if (size == 0)
+            throw new IllegalArgumentException("BST is empty!");
+        return minimum(root).e;
     }
 
-    private E minimum(Node node) {
-
-        if (node == null)
-            return null;
-
+    private Node minimum(Node node) {
         if (node.left == null)
-            return node.e;
-        else
-            return minimum(node.left);
+            return node;
+        return minimum(node.left);
     }
 
     @Override
     public E maximum() {
-        return maximum(root);
+        if (size == 0)
+            throw new IllegalArgumentException("BST is empty");
+        return maximum(root).e;
     }
 
-    private E maximum(Node node) {
-
-        if (node == null)
-            return null;
-
+    private Node maximum(Node node) {
         if (node.right == null)
-            return node.e;
-        else
-            return maximum(node.right);
+            return node;
+        return maximum(node.right);
     }
 
     @Override
@@ -134,13 +130,7 @@ public class BST<E extends Comparable> implements Tree<E> {
     }
 
     private Node removeMin(Node node) {
-        if (node == null)
-            return null;
-        if (node.left == null) {
-            size--;
-            return node.right;
-        }
-        return node;
+
     }
 
     @Override
@@ -151,13 +141,7 @@ public class BST<E extends Comparable> implements Tree<E> {
     }
 
     private Node removeMax(Node node) {
-        if (node == null)
-            return null;
-        if (node.right == null) {
-            size--;
-            return node.left;
-        }
-        return node;
+
     }
 
     @Override
