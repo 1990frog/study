@@ -1,7 +1,5 @@
 package array;
 
-import org.testng.annotations.Test;
-
 import java.util.Arrays;
 
 public class ArrayList<E> implements Array<E> {
@@ -73,7 +71,7 @@ public class ArrayList<E> implements Array<E> {
     /**
      * 数组尾部添加一个元素
      */
-    public void add(E e) {
+    public void addLast(E e) {
         this.add(size, e);
     }
 
@@ -91,14 +89,14 @@ public class ArrayList<E> implements Array<E> {
      */
     @Override
     public E get(int index) {
-        if (index < 0 || index > size)
+        if (index < 0 || index >= size)
             throw new IllegalArgumentException("Get failed. Index is illegal.");
         return this.data[index];
     }
 
     @Override
     public void set(int index, E e) {
-        if (index < 0 || index > size)
+        if (index < 0 || index >= size)
             throw new IllegalArgumentException("Set failed. Index is illegal.");
         this.data[index] = e;
     }
@@ -127,7 +125,7 @@ public class ArrayList<E> implements Array<E> {
      */
     @Override
     public E remove(int index) {
-        if (index < 0 || index > size)
+        if (index < 0 || index >= size)
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
 
         E ret = this.data[index];
@@ -152,8 +150,8 @@ public class ArrayList<E> implements Array<E> {
      */
     @Override
     public void swap(int i, int j) {
-        if (i < 0 || i > size || j < 0 || j > size)
-            throw new IllegalArgumentException("");
+        if (i < 0 || i >= size || j < 0 || j >= size)
+            throw new IllegalArgumentException("Index is illegal.");
         E e = data[i];
         data[i] = data[j];
         data[j] = e;
@@ -198,15 +196,4 @@ public class ArrayList<E> implements Array<E> {
         return "ArrayList{" + "data=" + Arrays.toString(data) + ", size=" + size + ", capacity=" + data.length + '}';
     }
 
-    @Test
-    public void test() throws IllegalAccessException {
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < 22; i++) {
-            list.add(i + "");
-        }
-        System.out.println(list);
-        System.out.println(list.remove(2));
-        System.out.println(list);
-        System.out.println(list.contains(3 + ""));
-    }
 }
