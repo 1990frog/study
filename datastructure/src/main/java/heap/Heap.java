@@ -25,6 +25,8 @@ public interface Heap<E extends Comparable<E>> {
      */
     boolean isEmpty();
 
+    int getCapacity();
+
     void add(E e);
 
     /**

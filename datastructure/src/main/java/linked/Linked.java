@@ -13,6 +13,7 @@ public interface Linked<E> {
     E removeLast();//o(n)
     E removeFirst();//o(1)
     E remove(int index);//o(n/2)=o(n)
+    void removeElement(E e);
     /**
      * 修改操作
      */
@@ -21,6 +22,8 @@ public interface Linked<E> {
      * 查找操作
      */
     E get(int index);//o(n)
+    E getFirst();
+    E getLast();
     boolean contains(E e);//o(n)
 //    int find(E e);//o(n)
 

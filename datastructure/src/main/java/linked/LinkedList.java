@@ -130,6 +130,11 @@ public class LinkedList<E> implements Linked<E> {
     }
 
     @Override
+    public void removeElement(E e) {
+
+    }
+
+    @Override
     public void set(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("set failed. Illegal index.");
@@ -172,6 +177,16 @@ public class LinkedList<E> implements Linked<E> {
 //                prev = prev.next;
 //            return prev.next.e;
 //        }
+    }
+
+    @Override
+    public E getFirst() {
+        return null;
+    }
+
+    @Override
+    public E getLast() {
+        return null;
     }
 
     @Override

@@ -130,7 +130,14 @@ public class BST<E extends Comparable> implements Tree<E> {
     }
 
     private Node removeMin(Node node) {
-
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
     }
 
     @Override
@@ -141,7 +148,14 @@ public class BST<E extends Comparable> implements Tree<E> {
     }
 
     private Node removeMax(Node node) {
-
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
+            size--;
+            return leftNode;
+        }
+        node.right = removeMin(node.right);
+        return node;
     }
 
     @Override
@@ -158,7 +172,23 @@ public class BST<E extends Comparable> implements Tree<E> {
         else if (e.compareTo(node.e) > 0)
             node.right = remove(node.right, e);
         else {
-
+            if(node.left == null){
+                size--;
+                Node rightNode = node.right;
+                node.right = null;
+                return rightNode;
+            } else if (node.right == null){
+                size--;
+                Node leftNode = node.left;
+                node.left = null;
+                return leftNode;
+            } else {
+                Node successor = minimum(node.right);
+                successor.right = removeMin(node.right);
+                successor.left = node.left;
+                node.left = node.right = null;
+                return successor;
+            }
         }
         return node;
     }

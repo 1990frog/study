@@ -16,6 +16,13 @@ public class ArrayList<E> implements Array<E> {
         this(10);
     }
 
+    public ArrayList(E[] arr){
+        data = (E[])new Object[arr.length];
+        for(int i = 0 ; i < arr.length ; i ++)
+            data[i] = arr[i];
+        size = arr.length;
+    }
+
     @Override
     public int getCapacity() {
         return data.length;

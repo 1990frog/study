@@ -19,7 +19,7 @@ public class HashMapTrie implements Trie {
 
     }
 
-    private final Node root;
+    private Node root;
     private int size;
 
     public HashMapTrie() {

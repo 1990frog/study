@@ -85,6 +85,11 @@ public class DummyHeadLinkedList<E> implements Linked<E> {
     }
 
     @Override
+    public void removeElement(E e) {
+
+    }
+
+    @Override
     public void set(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Set failed. Illegal index.");
@@ -111,6 +116,16 @@ public class DummyHeadLinkedList<E> implements Linked<E> {
             cur = cur.next;
         }
         return cur.e;
+    }
+
+    @Override
+    public E getFirst() {
+        return null;
+    }
+
+    @Override
+    public E getLast() {
+        return null;
     }
 
     @Override
