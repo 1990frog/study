@@ -1,4 +1,4 @@
-package playdatastructure.linkedlist.dumMyHead;
+package linked;
 
 public class Main {
 
@@ -22,4 +22,5 @@ public class Main {
         linkedList.removeLast();
         System.out.println(linkedList);
     }
+
 }

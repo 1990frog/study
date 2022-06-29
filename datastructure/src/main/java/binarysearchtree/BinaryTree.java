@@ -1,6 +1,6 @@
 package binarysearchtree;
 
-public interface Tree<E> {
+public interface BinaryTree<E> {
     void add(E e);
     boolean contains(E e);
     E minimum();

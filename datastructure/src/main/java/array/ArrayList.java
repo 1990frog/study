@@ -10,17 +10,21 @@ public class ArrayList<E> implements Array<E> {
     private int size;
 
     /**
+     * 指定初始化容量
+     */
+    public ArrayList(int capacity) {
+        /**
+         * java不支持new E[size]
+         * (E[])new Object[size]
+         */
+        data = (E[]) new Object[capacity];
+    }
+
+    /**
      * 初始构造器，默认容量10
      */
     public ArrayList() {
         this(10);
-    }
-
-    /**
-     * 指定初始化容量
-     */
-    public ArrayList(int capacity) {
-        data = (E[]) new Object[capacity];
     }
 
     /**
@@ -32,7 +36,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 获取数组中的元素个数(下一个坐标)
+     * 获取数组中的元素个数
      */
     @Override
     public int getSize() {
@@ -185,15 +189,22 @@ public class ArrayList<E> implements Array<E> {
      */
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity];
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
             newData[i] = data[i];
-        }
         this.data = newData;
     }
 
     @Override
     public String toString() {
-        return "ArrayList{" + "data=" + Arrays.toString(data) + ", size=" + size + ", capacity=" + data.length + '}';
-    }
+        StringBuilder res = new StringBuilder();
+        res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
+        res.append('[');
+        for(int i = 0 ; i < size ; i ++){
+            res.append(data[i]);
+            if(i != size - 1)
+                res.append(", ");
+        }
+        res.append(']');
+        return res.toString();    }
 
 }

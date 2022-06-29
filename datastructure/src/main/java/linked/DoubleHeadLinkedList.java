@@ -74,7 +74,7 @@ public class DoubleHeadLinkedList<E> implements Linked<E> {
 
     @Override
     public E remove(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Illegal index.");
         }
         Node prev = dummyHead.next;
@@ -94,7 +94,7 @@ public class DoubleHeadLinkedList<E> implements Linked<E> {
 
     @Override
     public void set(int index, E e) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Illegal index.");
         }
         Node cur = dummyHead.next;
@@ -106,7 +106,7 @@ public class DoubleHeadLinkedList<E> implements Linked<E> {
 
     @Override
     public E get(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("Remove failed. Illegal index.");
         }
         Node cur = dummyHead.next;

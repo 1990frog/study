@@ -6,9 +6,6 @@ import java.util.Stack;
 
 public class BST<E extends Comparable<E>> {
 
-    private Node root;
-    private int size;
-
     private class Node {
         E e;
         Node left, right;
@@ -19,6 +16,9 @@ public class BST<E extends Comparable<E>> {
             right = null;
         }
     }
+
+    private Node root;
+    private int size;
 
     public BST() {
         root = null;
@@ -97,12 +97,16 @@ public class BST<E extends Comparable<E>> {
     }
 
     /**
-     * 前序遍历
+     * 二分搜索树的前序遍历
      */
     public void dlr() {
         dlr(root);
     }
 
+    /**
+     * 前序遍历以node为根的二分搜索树, 递归算法
+     * @param node
+     */
     private void dlr(Node node) {
         if (node == null)
             return;
@@ -111,7 +115,9 @@ public class BST<E extends Comparable<E>> {
         dlr(node.right);
     }
 
-    // 二分搜索树的非递归前序遍历
+    /**
+     * 二分搜索树的非递归前序遍历
+     */
     public void preOrderNR() {
 
         Stack<Node> stack = new Stack<>();
@@ -128,12 +134,16 @@ public class BST<E extends Comparable<E>> {
     }
 
     /**
-     * 中序遍历
+     * 二分搜索树的中序遍历
      */
     public void ldr() {
         ldr(root);
     }
 
+    /**
+     * 中序遍历以node为根的二分搜索树, 递归算法
+     * @param node
+     */
     private void ldr(Node node) {
         if (node == null)
             return;
@@ -143,12 +153,16 @@ public class BST<E extends Comparable<E>> {
     }
 
     /**
-     * 后序遍历
+     * 二分搜索树的后序遍历
      */
     public void lrd() {
         lrd(root);
     }
 
+    /**
+     * 后序遍历以node为根的二分搜索树, 递归算法
+     * @param node
+     */
     private void lrd(Node node) {
         if (node == null)
             return;
@@ -182,7 +196,9 @@ public class BST<E extends Comparable<E>> {
     public E minimum() {
         if (size == 0)
             throw new IllegalArgumentException("BST is empty!");
-        return minimum(root).e;
+
+        Node minNode = minimum(root);
+        return minNode.e;
     }
 
     /**
@@ -289,6 +305,7 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
+     * 返回删除节点后新的二分搜索树的根
      *
      * @param node
      * @param e
@@ -338,6 +355,13 @@ public class BST<E extends Comparable<E>> {
             return successor;
         }
 
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder res = new StringBuilder();
+        generateBSTString(root, 0, res);
+        return res.toString();
     }
 
     // 生成以node为根节点，深度为depth的描述二叉树的字符串

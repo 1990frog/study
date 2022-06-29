@@ -1,8 +1,8 @@
 package test;
 
-import binarysearchtree.Tree;
+import binarysearchtree.BinaryTree;
 
-public class BST<E extends Comparable> implements Tree<E> {
+public class BST<E extends Comparable> implements BinaryTree<E> {
 
     class Node {
         E e;
