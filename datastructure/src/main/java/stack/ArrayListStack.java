@@ -1,7 +1,6 @@
 package stack;
 
 import array.ArrayList;
-import stack.Stack;
 
 /**
  * <p>
@@ -25,7 +24,7 @@ public class ArrayListStack<E> implements Stack<E> {
 
     @Override
     public void push(E o) {
-        data.add(o);
+        data.addLast(o);
     }
 
     @Override

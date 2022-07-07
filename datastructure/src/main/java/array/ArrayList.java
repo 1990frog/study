@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 public class ArrayList<E> implements Array<E> {
 
     // 原生容器
@@ -70,6 +68,10 @@ public class ArrayList<E> implements Array<E> {
 
         data[index] = e;
         size++;
+    }
+
+    public void add(E e){
+        addLast(e);
     }
 
     /**
@@ -199,12 +201,13 @@ public class ArrayList<E> implements Array<E> {
         StringBuilder res = new StringBuilder();
         res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
         res.append('[');
-        for(int i = 0 ; i < size ; i ++){
+        for (int i = 0; i < size; i++) {
             res.append(data[i]);
-            if(i != size - 1)
+            if (i != size - 1)
                 res.append(", ");
         }
         res.append(']');
-        return res.toString();    }
+        return res.toString();
+    }
 
 }

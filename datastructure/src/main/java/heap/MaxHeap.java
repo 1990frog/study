@@ -4,7 +4,7 @@ import array.ArrayList;
 
 public class MaxHeap<E extends Comparable<E>> implements Heap<E> {
 
-    private final ArrayList<E> data;
+    private ArrayList<E> data;
 
     public MaxHeap(int capacity) {
         data = new ArrayList<>(capacity);
@@ -32,6 +32,11 @@ public class MaxHeap<E extends Comparable<E>> implements Heap<E> {
     @Override
     public boolean isEmpty() {
         return data.isEmpty();
+    }
+
+    @Override
+    public int getCapacity() {
+        return data.getCapacity();
     }
 
     /**
