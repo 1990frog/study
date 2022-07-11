@@ -53,7 +53,7 @@ public class ArrayList<E> implements Array<E> {
      * 在index索引的位置插入一个新元素（不是替换掉元素，而是向后挤）
      */
     @Override
-    public void add(int index, E e) {
+    public void addObject(int index, E e) {
 
         // 校正边界
         if (index < 0 || index > size)
@@ -70,7 +70,7 @@ public class ArrayList<E> implements Array<E> {
         size++;
     }
 
-    public void add(E e){
+    public void add(E e) {
         addLast(e);
     }
 
@@ -78,7 +78,7 @@ public class ArrayList<E> implements Array<E> {
      * 数组尾部添加一个元素
      */
     public void addLast(E e) {
-        this.add(size, e);
+        this.addObject(size, e);
     }
 
     /**
@@ -86,7 +86,7 @@ public class ArrayList<E> implements Array<E> {
      * 只有在最后加元素是O(1)，其余的都是O(n)
      */
     public void addFirst(E e) {
-        add(0, e);
+        addObject(0, e);
     }
 
 
