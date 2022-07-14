@@ -1,6 +1,5 @@
-package Test;
+package test;
 
-import linked.DummyHeadLinkedList;
 import linked.Linked;
 
 public class LinkedList<E> implements Linked<E> {
