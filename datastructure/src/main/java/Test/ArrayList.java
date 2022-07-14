@@ -36,7 +36,7 @@ public class ArrayList<E> implements Array<E> {
             throw new IllegalArgumentException();
         if (data.length == size)
             resize(data.length * 2);
-        for (int i = size; i > index; i++) {
+        for (int i = size; i > index; i--) {
             data[i] = data[i - 1];
         }
         data[index] = e;

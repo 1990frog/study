@@ -1,6 +1,8 @@
 package binarysearchtree;
 
 public interface BinaryTree<E> {
+    int size();
+    boolean isEmpty();
     void add(E e);
     boolean contains(E e);
     E minimum();
