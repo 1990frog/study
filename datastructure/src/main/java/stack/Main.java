@@ -1,4 +1,4 @@
-package playdatastructure.linkedlist.implementStack;
+package stack;
 
 import java.util.Random;
 
@@ -24,7 +24,7 @@ public class Main {
 
         int opCount = 100000;
 
-        ArrayStack<Integer> arrayStack = new ArrayStack<>();
+        ArrayListStack<Integer> arrayStack = new ArrayListStack<>();
         double time1 = testStack(arrayStack, opCount);
         System.out.println("ArrayStack, time: " + time1 + " s");
 

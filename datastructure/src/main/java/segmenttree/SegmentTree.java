@@ -11,20 +11,19 @@ public class SegmentTree<E> implements Segment<E> {
         this.merger = merger;
 
         data = (E[]) new Object[arr.length];
-        tree = (E[]) new Object[4 * arr.length];
-
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++)
             data[i] = arr[i];
-        }
+
+        tree = (E[]) new Object[4 * arr.length];
         buildSegmentTree(0, 0, data.length - 1);
     }
 
     /**
      * 在treeIndex的位置创建表示区间[l...r]的线段树
      *
-     * @param index
-     * @param l
-     * @param r
+     * @param index tree索引
+     * @param l     data左索引
+     * @param r     data右索引
      */
     private void buildSegmentTree(int index, int l, int r) {
 
@@ -59,8 +58,8 @@ public class SegmentTree<E> implements Segment<E> {
     /**
      * 返回区间[queryL, queryR]的值
      *
-     * @param queryL
-     * @param queryR
+     * @param queryL 查询区间左索引
+     * @param queryR 查询区间右索引
      * @return
      */
     @Override
@@ -74,11 +73,11 @@ public class SegmentTree<E> implements Segment<E> {
     /**
      * 在以treeIndex为根的线段树中[l...r]的范围里，搜索区间[queryL...queryR]的值
      *
-     * @param treeIndex
-     * @param l
-     * @param r
-     * @param queryL
-     * @param queryR
+     * @param treeIndex tree索引
+     * @param l         data左索引
+     * @param r         data右索引
+     * @param queryL    查询区间左索引
+     * @param queryR    查询区间右索引
      * @return
      */
     private E query(int treeIndex, int l, int r, int queryL, int queryR) {
@@ -86,17 +85,18 @@ public class SegmentTree<E> implements Segment<E> {
         if (l == queryL && r == queryR)
             return tree[treeIndex];
 
+        int mid = l + (r - l) / 2;
         int leftTreeIndex = leftChild(treeIndex);
         int rightTreeIndex = rightChild(treeIndex);
-        int mid = l + (r - l) / 2;
 
-        if (mid < queryL)
-            return query(leftTreeIndex, mid + 1, r, queryL, queryR);
-        else if (mid > queryR)
-            return query(rightTreeIndex, l, mid, queryL, queryR);
+        if (queryL >= mid + 1)
+            return query(rightTreeIndex, mid + 1, r, queryL, queryR);
+        else if (queryR <= mid)
+            return query(leftTreeIndex, l, mid, queryL, queryR);
 
-        E leftResult = query(leftTreeIndex, l, mid, queryL, queryR);
-        E rightResult = query(rightTreeIndex, mid + 1, r, queryL, queryR);
+
+        E leftResult = query(leftTreeIndex, l, mid, queryL, mid);
+        E rightResult = query(rightTreeIndex, mid + 1, r, mid + 1, queryR);
         return merger.merge(leftResult, rightResult);
 
     }
@@ -167,16 +167,16 @@ public class SegmentTree<E> implements Segment<E> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder res = new StringBuilder();
         res.append('[');
-        for(int i = 0 ; i < tree.length ; i ++){
-            if(tree[i] != null)
+        for (int i = 0; i < tree.length; i++) {
+            if (tree[i] != null)
                 res.append(tree[i]);
             else
                 res.append("null");
 
-            if(i != tree.length - 1)
+            if (i != tree.length - 1)
                 res.append(", ");
         }
         res.append(']');

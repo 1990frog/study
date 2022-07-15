@@ -1,7 +1,15 @@
-package playdatastructure.linkedlist.implementQueue;
+package queue;
 
 import java.util.Random;
 
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author cai
+ * @since 2022/7/15
+ */
 public class Main {
 
     // 测试使用q运行opCount个enqueueu和dequeue操作所需要的时间，单位：秒
@@ -24,11 +32,11 @@ public class Main {
 
         int opCount = 100000;
 
-        ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
+        ArrayListQueue<Integer> arrayQueue = new ArrayListQueue<>();
         double time1 = testQueue(arrayQueue, opCount);
         System.out.println("ArrayQueue, time: " + time1 + " s");
 
-        LoopQueue<Integer> loopQueue = new LoopQueue<>();
+        LoopArrayQueue<Integer> loopQueue = new LoopArrayQueue<>();
         double time2 = testQueue(loopQueue, opCount);
         System.out.println("LoopQueue, time: " + time2 + " s");
 

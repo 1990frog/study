@@ -80,4 +80,30 @@ public class Main {
                 throw new IllegalArgumentException("Error!");
         System.out.println("removeMax test completed.");
     }
+
+    public void order(){
+        BST<Integer> bst = new BST<>();
+        int[] nums = {5, 3, 6, 8, 4, 2};
+        for(int num: nums)
+            bst.add(num);
+
+        /////////////////
+        //      5      //
+        //    /   \    //
+        //   3    6    //
+        //  / \    \   //
+        // 2  4     8  //
+        /////////////////
+        bst.ldr();
+        System.out.println();
+
+        bst.dlr();
+        System.out.println();
+
+        bst.lrd();
+        System.out.println();
+
+        bst.levelOrder();
+        System.out.println();
+    }
 }

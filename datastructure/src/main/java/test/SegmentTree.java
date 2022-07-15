@@ -105,6 +105,30 @@ public class SegmentTree<E> implements Segment<E> {
 
     @Override
     public void set(int index, E e) {
+        if (index < 0 || index >= getSize())
+            throw new IllegalArgumentException();
+        data[index] = e;
+        set(0, 0, getSize() - 1, index, e);
+    }
+
+    private void set(int treeIndex, int l, int r, int index, E e) {
+
+        if (l == r) {
+            tree[treeIndex] = e;
+            return;
+        }
+
+        int mid = l + (r - l) / 2;
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+
+        if (index < mid)
+            set(leftTreeIndex, l, mid, index, e);
+        else
+            set(rightTreeIndex, mid + 1, r, index, e);
+
+        tree[treeIndex] = merger.merge(tree[leftTreeIndex], tree[rightTreeIndex]);
 
     }
+
 }

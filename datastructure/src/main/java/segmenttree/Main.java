@@ -1,10 +1,16 @@
-package playdatastructure.segmenttree.segmentTreeProblemsInLeetcode;
+package segmenttree;
 
-/// 该测试用例来源：Leetcode 303. Range Sum Query - Immutable
-/// https://leetcode.com/problems/range-sum-query-immutable/description/
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author cai
+ * @since 2022/7/15
+ */
 public class Main {
 
-    public static void main(String[] args) {
+     public static void main(String[] args) {
 
         Integer[] nums = {-2, 0, 3, -5, 2, -1};
 

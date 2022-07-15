@@ -1,10 +1,17 @@
-package playdatastructure.stack.moreAboutLeetcode;
+package stack;
 
-class Solution {
-
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author cai
+ * @since 2022/7/15
+ */
+public class Solution {
     public boolean isValid(String s) {
 
-        ArrayStack<Character> stack = new ArrayStack<>();
+        ArrayListStack<Character> stack = new ArrayListStack<>();
         for(int i = 0 ; i < s.length() ; i ++){
             char c = s.charAt(i);
             if(c == '(' || c == '[' || c == '{')
