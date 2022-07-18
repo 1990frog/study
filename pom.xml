@@ -17,7 +17,6 @@
         <module>algorithm</module>
         <module>netty</module>
         <module>redis</module>
-        <module>effectivejava</module>
         <module>j2se</module>
         <module>spark</module>
         <module>concurrency</module>
@@ -25,7 +24,6 @@
         <module>datastructure</module>
         <module>designpattern</module>
         <module>leetcode</module>
-        <module>jvm</module>
         <module>groovy</module>
     </modules>
 
@@ -44,7 +42,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.5</version>
-<!--            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -57,12 +54,10 @@
             <version>1.16.16</version>
             <optional>true</optional>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.10</version>
-            <scope>test</scope>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.5</version>
         </dependency>
     </dependencies>
 </project>

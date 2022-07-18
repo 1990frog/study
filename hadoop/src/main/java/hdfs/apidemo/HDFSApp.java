@@ -6,7 +6,7 @@ import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.util.Progressable;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.io.BufferedInputStream;
 import java.io.File;
