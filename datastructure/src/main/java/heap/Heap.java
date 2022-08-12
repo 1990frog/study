@@ -27,6 +27,11 @@ public interface Heap<E extends Comparable<E>> {
 
     int getCapacity();
 
+    /**
+     * 向堆中添加一个元素
+     *
+     * @param e
+     */
     void add(E e);
 
     /**
@@ -49,6 +54,6 @@ public interface Heap<E extends Comparable<E>> {
      * @param e
      * @return
      */
-    E replate(E e);
+    E replace(E e);
 
 }

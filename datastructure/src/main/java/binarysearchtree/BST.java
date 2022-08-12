@@ -4,7 +4,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class BST<E extends Comparable<E>> {
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author cai
+ * @since 2022/8/10
+ */
+public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     private class Node {
         E e;
@@ -105,6 +113,7 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 前序遍历以node为根的二分搜索树, 递归算法
+     *
      * @param node
      */
     private void dlr(Node node) {
@@ -142,6 +151,7 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 中序遍历以node为根的二分搜索树, 递归算法
+     *
      * @param node
      */
     private void ldr(Node node) {
@@ -161,6 +171,7 @@ public class BST<E extends Comparable<E>> {
 
     /**
      * 后序遍历以node为根的二分搜索树, 递归算法
+     *
      * @param node
      */
     private void lrd(Node node) {
@@ -196,9 +207,7 @@ public class BST<E extends Comparable<E>> {
     public E minimum() {
         if (size == 0)
             throw new IllegalArgumentException("BST is empty!");
-
-        Node minNode = minimum(root);
-        return minNode.e;
+        return minimum(root).e;
     }
 
     /**
@@ -358,28 +367,28 @@ public class BST<E extends Comparable<E>> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder res = new StringBuilder();
         generateBSTString(root, 0, res);
         return res.toString();
     }
 
     // 生成以node为根节点，深度为depth的描述二叉树的字符串
-    private void generateBSTString(Node node, int depth, StringBuilder res){
+    private void generateBSTString(Node node, int depth, StringBuilder res) {
 
-        if(node == null){
+        if (node == null) {
             res.append(generateDepthString(depth) + "null\n");
             return;
         }
 
-        res.append(generateDepthString(depth) + node.e +"\n");
+        res.append(generateDepthString(depth) + node.e + "\n");
         generateBSTString(node.left, depth + 1, res);
         generateBSTString(node.right, depth + 1, res);
     }
 
-    private String generateDepthString(int depth){
+    private String generateDepthString(int depth) {
         StringBuilder res = new StringBuilder();
-        for(int i = 0 ; i < depth ; i ++)
+        for (int i = 0; i < depth; i++)
             res.append("--");
         return res.toString();
     }

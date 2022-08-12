@@ -1,5 +1,13 @@
 package array;
 
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author cai
+ * @since 2022/8/10
+ */
 public class ArrayList<E> implements Array<E> {
 
     // 原生容器

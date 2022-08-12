@@ -1,7 +1,12 @@
 package linked;
 
 /**
+ * <p>
  * 使用虚拟头节点简化链表逻辑
+ * </p>
+ *
+ * @author cai
+ * @since 2022/8/10
  */
 public class DummyHeadLinkedList<E> implements Linked<E> {
 

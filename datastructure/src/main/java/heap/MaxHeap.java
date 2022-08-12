@@ -2,6 +2,14 @@ package heap;
 
 import array.ArrayList;
 
+/**
+ * <p>
+ * 最大堆
+ * </p>
+ *
+ * @author cai
+ * @since 2022/8/12
+ */
 public class MaxHeap<E extends Comparable<E>> implements Heap<E> {
 
     private ArrayList<E> data;
@@ -115,7 +123,7 @@ public class MaxHeap<E extends Comparable<E>> implements Heap<E> {
      * @return
      */
     @Override
-    public E replate(E e) {
+    public E replace(E e) {
         E ret = findMax();
         data.set(0, e);
         siftDown(0);
