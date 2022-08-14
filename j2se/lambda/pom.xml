@@ -6,21 +6,16 @@
         <artifactId>study</artifactId>
         <groupId>com</groupId>
         <version>1</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>j2se</artifactId>
 
-    <modules>
-        <module>enumeration</module>
-        <module>enumeration</module>
-        <module>collection</module>
-        <module>exception</module>
-        <module>innerclass</module>
-        <module>io</module>
-        <module>lambda</module>
-        <module>reflection</module>
-        <module>stream</module>
-        <module>optional</module>
-        <module>jvm</module>
-    </modules>
+    <artifactId>lambda</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
 </project>
