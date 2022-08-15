@@ -5,8 +5,23 @@
     <parent>
         <artifactId>study</artifactId>
         <groupId>com</groupId>
-        <version>1</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <version>1.0.0</version>
     <artifactId>datastructure</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>array</module>
+        <module>tree</module>
+        <module>heap</module>
+        <module>linked</module>
+        <module>map</module>
+        <module>queue</module>
+        <module>set</module>
+        <module>stack</module>
+        <module>trie</module>
+        <module>unionfind</module>
+    </modules>
 </project>

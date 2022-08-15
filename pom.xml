@@ -7,7 +7,7 @@
     <groupId>com</groupId>
     <artifactId>study</artifactId>
     <packaging>pom</packaging>
-    <version>1</version>
+    <version>1.0.0</version>
 
     <modules>
         <module>hadoop</module>
@@ -39,41 +39,49 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <testng.version>7.6.1</testng.version>
+        <testng.version>7.5</testng.version>
         <guava.version>31.0.1-jre</guava.version>
         <lombok.version>1.18.24</lombok.version>
         <groovy.version>3.0.12</groovy.version>
-        <hutool.version>5.7.22</hutool.version>
+        <hutool.version>5.8.4</hutool.version>
         <hadoop.version>2.6.0-cdh5.15.1</hadoop.version>
         <spark-core.version>3.3.0</spark-core.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.0-alpha7</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.testng</groupId>
-                <artifactId>testng</artifactId>
-                <version>${testng.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.codehaus.groovy</groupId>
                 <artifactId>groovy</artifactId>
                 <version>${groovy.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
