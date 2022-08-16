@@ -6,7 +6,7 @@ import java.util.Stack;
 
 /**
  * <p>
- *
+ * 二分搜索树
  * </p>
  *
  * @author cai
@@ -14,6 +14,9 @@ import java.util.Stack;
  */
 public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
+    /**
+     * 节点
+     */
     private class Node {
         E e;
         Node left, right;
@@ -25,7 +28,9 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
         }
     }
 
+    /*根节点*/
     private Node root;
+    /*元素个数*/
     private int size;
 
     public BST() {
@@ -33,10 +38,12 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
         size = 0;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -46,6 +53,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
      *
      * @param e
      */
+    @Override
     public void add(E e) {
         root = add(root, e);
     }
@@ -79,6 +87,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
      * @param e
      * @return
      */
+    @Override
     public boolean contains(E e) {
         return contains(root, e);
     }
@@ -107,6 +116,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
     /**
      * 二分搜索树的前序遍历
      */
+    @Override
     public void dlr() {
         dlr(root);
     }
@@ -145,13 +155,13 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
     /**
      * 二分搜索树的中序遍历
      */
+    @Override
     public void ldr() {
         ldr(root);
     }
 
     /**
      * 中序遍历以node为根的二分搜索树, 递归算法
-     *
      * @param node
      */
     private void ldr(Node node) {
@@ -165,6 +175,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
     /**
      * 二分搜索树的后序遍历
      */
+    @Override
     public void lrd() {
         lrd(root);
     }
@@ -201,9 +212,9 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 寻找二分搜索树的最小元素
-     *
      * @return
      */
+    @Override
     public E minimum() {
         if (size == 0)
             throw new IllegalArgumentException("BST is empty!");
@@ -227,6 +238,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
      *
      * @return
      */
+    @Override
     public E maximum() {
         if (size == 0)
             throw new IllegalArgumentException("BST is empty");
@@ -235,7 +247,6 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 返回以node为根的二分搜索树的最大值所在的节点
-     *
      * @param node
      * @return
      */
@@ -247,9 +258,9 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 从二分搜索树中删除最小值所在节点, 返回最小值
-     *
      * @return
      */
+    @Override
     public E removeMin() {
         E ret = minimum();
         root = removeMin(root);
@@ -258,8 +269,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 删除掉以node为根的二分搜索树中的最小节点
-     * 返回删除节点后新的二分搜索树的根
-     *
+     * 返回删除节点后新地二分搜索树的根
      * @param node
      * @return
      */
@@ -276,9 +286,9 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 从二分搜索树中删除最大值所在节点
-     *
      * @return
      */
+    @Override
     public E removeMax() {
         E ret = maximum();
         root = removeMax(root);
@@ -287,8 +297,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 删除掉以node为根的二分搜索树中的最大节点
-     * 返回删除节点后新的二分搜索树的根
-     *
+     * 返回删除节点后新地二分搜索树的根
      * @param node
      * @return
      */
@@ -305,17 +314,16 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
 
     /**
      * 从二分搜索树中删除元素为e的节点
-     *
      * @param e
      */
+    @Override
     public void remove(E e) {
         root = remove(root, e);
     }
 
     /**
      * 删除掉以node为根的二分搜索树中值为e的节点, 递归算法
-     * 返回删除节点后新的二分搜索树的根
-     *
+     * 返回删除节点后新地二分搜索树的根
      * @param node
      * @param e
      * @return
@@ -332,9 +340,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
             return node;
         } else { // e.compareTo(node.e) == 0
 
-            /**
-             * 待删除节点左子树为空的情况
-             */
+            /*待删除节点左子树为空的情况*/
             if (node.left == null) {
                 Node rightNode = node.right;
                 node.right = null;
@@ -342,9 +348,7 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
                 return rightNode;
             }
 
-            /**
-             * 待删除节点右子树为空的情况
-             */
+            /*待删除节点右子树为空的情况*/
             if (node.right == null) {
                 Node leftNode = node.left;
                 node.left = null;
@@ -352,11 +356,9 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
                 return leftNode;
             }
 
-            /**
-             * 待删除节点左右子树均不为空的情况
-             * 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
-             * 用这个节点顶替待删除节点的位置
-             */
+            /*待删除节点左右子树均不为空的情况*/
+            /*找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点*/
+            /*用这个节点顶替待删除节点的位置*/
             Node successor = minimum(node.right);
             successor.right = removeMin(node.right);
             successor.left = node.left;
@@ -377,11 +379,11 @@ public class BST<E extends Comparable<E>> implements BinaryTree<E> {
     private void generateBSTString(Node node, int depth, StringBuilder res) {
 
         if (node == null) {
-            res.append(generateDepthString(depth) + "null\n");
+            res.append(generateDepthString(depth)).append("null\n");
             return;
         }
 
-        res.append(generateDepthString(depth) + node.e + "\n");
+        res.append(generateDepthString(depth)).append(node.e).append("\n");
         generateBSTString(node.left, depth + 1, res);
         generateBSTString(node.right, depth + 1, res);
     }

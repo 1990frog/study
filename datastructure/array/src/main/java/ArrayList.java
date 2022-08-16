@@ -17,10 +17,7 @@ public class ArrayList<E> implements Array<E> {
      * 指定初始化容量
      */
     public ArrayList(int capacity) {
-        /**
-         * java不支持new E[size]
-         * (E[])new Object[size]
-         */
+        /*java不支持new E[size],(E[])new Object[size]*/
         data = (E[]) new Object[capacity];
     }
 
