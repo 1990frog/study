@@ -23,5 +23,6 @@
         <module>stack</module>
         <module>trie</module>
         <module>unionfind</module>
+        <module>moocbobo</module>
     </modules>
 </project>

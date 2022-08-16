@@ -33,7 +33,7 @@ public interface Array<E> {
      * @param index
      * @param e
      */
-    void addObject(int index, E e);
+    void add(int index, E e);
 
     /**
      * 获取index索引位置的元素 O(1)
