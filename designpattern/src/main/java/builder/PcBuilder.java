@@ -1,4 +1,4 @@
-package old.builder.uselombok;
+package builder;
 
 class Cpu{}
 class Memory{}
