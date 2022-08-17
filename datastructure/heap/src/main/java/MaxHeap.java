@@ -82,7 +82,7 @@ public class MaxHeap<E extends Comparable<E>> implements Heap<E> {
      */
     @Override
     public void add(E e) {
-        data.add(e);
+        data.addLast(e);
         siftUp(data.getSize() - 1);
     }
 

@@ -1,3 +1,11 @@
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author cai
+ * @since 2022/8/17
+ */
 public interface Trie {
 
     int getSize();
