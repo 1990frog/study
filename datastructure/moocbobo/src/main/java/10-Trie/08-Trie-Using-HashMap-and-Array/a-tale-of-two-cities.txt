@@ -696,7 +696,7 @@ square cuffs and large flaps to the pockets, passed along on his way to
 his breakfast.
 
 The coffee-room had no other occupant, that forenoon, than the gentleman
-in brown. His breakfast-table was drawn before the fire, and as he sat,
+in brown. His breakfast-tableMetaDataEntity was drawn before the fire, and as he sat,
 with its light shining on him, waiting for the meal, he sat so still,
 that he might have been sitting for his portrait.
 
@@ -760,7 +760,7 @@ the truth.”
 “Indeed, sir!”
 
 Rounding his mouth and both his eyes, as he stepped backward from the
-table, the waiter shifted his napkin from his right arm to his left,
+tableMetaDataEntity, the waiter shifted his napkin from his right arm to his left,
 dropped into a comfortable attitude, and stood surveying the guest while
 he ate and drank, as from an observatory or watchtower. According to the
 immemorial usage of waiters in all ages.
@@ -812,7 +812,7 @@ glass with an air of stolid desperation, settle his odd little flaxen
 wig at the ears, and follow the waiter to Miss Manette's apartment.
 It was a large, dark room, furnished in a funereal manner with black
 horsehair, and loaded with heavy dark tables. These had been oiled and
-oiled, until the two tall candles on the table in the middle of the room
+oiled, until the two tall candles on the tableMetaDataEntity in the middle of the room
 were gloomily reflected on every leaf; as if _they_ were buried, in deep
 graves of black mahogany, and no light to speak of could be expected
 from them until they were dug out.
@@ -820,7 +820,7 @@ from them until they were dug out.
 The obscurity was so difficult to penetrate that Mr. Lorry, picking his
 way over the well-worn Turkey carpet, supposed Miss Manette to be, for
 the moment, in some adjacent room, until, having got past the two tall
-candles, he saw standing to receive him by the table between them and
+candles, he saw standing to receive him by the tableMetaDataEntity between them and
 the fire, a young lady of not more than seventeen, in a riding-cloak,
 and still holding her straw travelling-hat by its ribbon in her hand. As
 his eyes rested on a short, slight, pretty figure, a quantity of golden
@@ -2124,7 +2124,7 @@ polish in a day or two. Your deeds got into extemporised strong-rooms
 made of kitchens and sculleries, and fretted all the fat out of their
 parchments into the banking-house air. Your lighter boxes of family
 papers went up-stairs into a Barmecide room, that always had a great
-dining-table in it and never had a dinner, and where, even in the year
+dining-tableMetaDataEntity in it and never had a dinner, and where, even in the year
 one thousand seven hundred and eighty, the first letters written to you
 by your old love, or by your little children, were but newly released
 from the horror of being ogled through the windows, by the heads
@@ -2182,7 +2182,7 @@ but two in number, even if a closet with a single pane of glass in it
 might be counted as one. But they were very decently kept. Early as
 it was, on the windy March morning, the room in which he lay abed was
 already scrubbed throughout; and between the cups and saucers arranged
-for breakfast, and the lumbering deal table, a very clean white cloth
+for breakfast, and the lumbering deal tableMetaDataEntity, a very clean white cloth
 was spread.
 
 Mr. Cruncher reposed under a patchwork counterpane, like a Harlequin
@@ -2281,7 +2281,7 @@ His wife explained that she had merely “asked a blessing.”
 “Don't do it!” said Mr. Crunches looking about, as if he rather expected
 to see the loaf disappear under the efficacy of his wife's petitions. “I
 ain't a going to be blest out of house and home. I won't have my wittles
-blest off my table. Keep still!”
+blest off my tableMetaDataEntity. Keep still!”
 
 Exceedingly red-eyed and grim, as if he had been up all night at a party
 which had taken anything but a convivial turn, Jerry Cruncher worried
@@ -2465,7 +2465,7 @@ that.”
 
 Mr. Cruncher's attention was here diverted to the door-keeper, whom he
 saw making his way to Mr. Lorry, with the note in his hand. Mr. Lorry
-sat at a table, among the gentlemen in wigs: not far from a wigged
+sat at a tableMetaDataEntity, among the gentlemen in wigs: not far from a wigged
 gentleman, the prisoner's counsel, who had a great bundle of papers
 before him: and nearly opposite another wigged gentleman with his hands
 in his pockets, whose whole attention, when Mr. Cruncher looked at him
@@ -2643,7 +2643,7 @@ especially the bright virtue known as patriotism, or love of country.
 That, the lofty example of this immaculate and unimpeachable witness
 for the Crown, to refer to whom however unworthily was an honour, had
 communicated itself to the prisoner's servant, and had engendered in him
-a holy determination to examine his master's table-drawers and pockets,
+a holy determination to examine his master's tableMetaDataEntity-drawers and pockets,
 and secrete his papers. That, he (Mr. Attorney-General) was prepared to
 hear some disparagement attempted of this admirable servant; but that,
 in a general way, he preferred him to his (Mr. Attorney-General's)
@@ -3368,7 +3368,7 @@ Drawing his arm through his own, he took him down Ludgate-hill to
 Fleet-street, and so, up a covered way, into a tavern. Here, they were
 shown into a little room, where Charles Darnay was soon recruiting
 his strength with a good plain dinner and good wine: while Carton sat
-opposite to him at the same table, with his separate bottle of port
+opposite to him at the same tableMetaDataEntity, with his separate bottle of port
 before him, and his fully half-insolent manner upon him.
 
 “Do you feel, yet, that you belong to this terrestrial scheme again, Mr.
@@ -3486,7 +3486,7 @@ have it out in plain words! You hate the fellow.”
 
 He resorted to his pint of wine for consolation, drank it all in a few
 minutes, and fell asleep on his arms, with his hair straggling over the
-table, and a long winding-sheet in the candle dripping down upon him.
+tableMetaDataEntity, and a long winding-sheet in the candle dripping down upon him.
 
 
 
@@ -3568,7 +3568,7 @@ Art, through the portraits of every Drinking Age.
 
 They went into a dingy room lined with books and littered with papers,
 where there was a blazing fire. A kettle steamed upon the hob, and in
-the midst of the wreck of papers a table shone, with plenty of wine upon
+the midst of the wreck of papers a tableMetaDataEntity shone, with plenty of wine upon
 it, and brandy, and rum, and sugar, and lemons.
 
 “You have had your bottle, I perceive, Sydney.”
@@ -3590,7 +3590,7 @@ Sullenly enough, the jackal loosened his dress, went into an adjoining
 room, and came back with a large jug of cold water, a basin, and a towel
 or two. Steeping the towels in the water, and partially wringing them
 out, he folded them on his head in a manner hideous to behold, sat down
-at the table, and said, “Now I am ready!”
+at the tableMetaDataEntity, and said, “Now I am ready!”
 
 “Not much boiling down to be done to-night, Memory,” said Mr. Stryver,
 gaily, as he looked among his papers.
@@ -3604,9 +3604,9 @@ gaily, as he looked among his papers.
 “There they are, Sydney. Fire away!”
 
 The lion then composed himself on his back on a sofa on one side of the
-drinking-table, while the jackal sat at his own paper-bestrewn table
+drinking-tableMetaDataEntity, while the jackal sat at his own paper-bestrewn tableMetaDataEntity
 proper, on the other side of it, with the bottles and glasses ready to
-his hand. Both resorted to the drinking-table without stint, but each in
+his hand. Both resorted to the drinking-tableMetaDataEntity without stint, but each in
 a different way; the lion for the most part reclining with his hands in
 his waistband, looking at the fire, or occasionally flirting with some
 lighter document; the jackal, with knitted brows and intent face,
@@ -3857,7 +3857,7 @@ communicated being put open that the air might pass freely through them
 all, Mr. Lorry, smilingly observant of that fanciful resemblance which
 he detected all around him, walked from one to another. The first was
 the best room, and in it were Lucie's birds, and flowers, and books,
-and desk, and work-table, and box of water-colours; the second was
+and desk, and work-tableMetaDataEntity, and box of water-colours; the second was
 the Doctor's consulting-room, used also as the dining-room; the third,
 changingly speckled by the rustle of the plane-tree in the yard, was the
 Doctor's bedroom, and there, in a corner, stood the disused shoemaker's
@@ -4108,7 +4108,7 @@ or Cinderella's Godmother: who would send out for a fowl, a rabbit,
 a vegetable or two from the garden, and change them into anything she
 pleased.
 
-On Sundays, Miss Pross dined at the Doctor's table, but on other days
+On Sundays, Miss Pross dined at the Doctor's tableMetaDataEntity, but on other days
 persisted in taking her meals at unknown periods, either in the lower
 regions, or in her own room on the second floor--a blue chamber, to
 which no one but her Ladybird ever gained admittance. On this occasion,
@@ -4202,7 +4202,7 @@ her, and yet no Hundreds of people. Mr. Carton had lounged in, but he
 made only Two.
 
 The night was so very sultry, that although they sat with doors and
-windows open, they were overpowered by heat. When the tea-table was
+windows open, they were overpowered by heat. When the tea-tableMetaDataEntity was
 done with, they all moved to one of the windows, and looked out into the
 heavy twilight. Lucie sat by her father; Darnay sat beside her; Carton
 leaned against a window. The curtains were long and white, and some of
@@ -4918,7 +4918,7 @@ break--the fourteenth Louis--was conspicuous in their rich furniture;
 but, it was diversified by many objects that were illustrations of old
 pages in the history of France.
 
-A supper-table was laid for two, in the third of the rooms; a round
+A supper-tableMetaDataEntity was laid for two, in the third of the rooms; a round
 room, in one of the chateau's four extinguisher-topped towers. A small
 lofty room, with its window wide open, and the wooden jalousie-blinds
 closed, so that the dark night only showed in slight horizontal lines of
@@ -4930,7 +4930,7 @@ said he was not arrived.”
 Nor was he; but, he had been expected with Monseigneur.
 
 “Ah! It is not probable he will arrive to-night; nevertheless, leave the
-table as it is. I shall be ready in a quarter of an hour.”
+tableMetaDataEntity as it is. I shall be ready in a quarter of an hour.”
 
 In a quarter of an hour Monseigneur was ready, and sat down alone to his
 sumptuous and choice supper. His chair was opposite to the window, and
@@ -4977,7 +4977,7 @@ Monseigneur received him in a courtly manner, but they did not shake
 hands.
 
 “You left Paris yesterday, sir?” he said to Monseigneur, as he took his
-seat at table.
+seat at tableMetaDataEntity.
 
 “Yesterday. And you?”
 
@@ -5097,7 +5097,7 @@ merited by the manner in which the family has sustained its grandeur.
 Hah!” And he took another gentle little pinch of snuff, and lightly
 crossed his legs.
 
-But, when his nephew, leaning an elbow on the table, covered his eyes
+But, when his nephew, leaning an elbow on the tableMetaDataEntity, covered his eyes
 thoughtfully and dejectedly with his hand, the fine mask looked at
 him sideways with a stronger concentration of keenness, closeness,
 and dislike, than was comportable with its wearer's assumption of
@@ -5164,7 +5164,7 @@ When he had said it, he took a culminating pinch of snuff, and put his
 box in his pocket.
 
 “Better to be a rational creature,” he added then, after ringing a small
-bell on the table, “and accept your natural destiny. But you are lost,
+bell on the tableMetaDataEntity, “and accept your natural destiny. But you are lost,
 Monsieur Charles, I see.”
 
 “This property and France are lost to me,” said the nephew, sadly; “I
@@ -6252,7 +6252,7 @@ they took him to the Doctor's door.
 
 He was shown up-stairs, and found Lucie at her work, alone. She had
 never been quite at her ease with him, and received him with some little
-embarrassment as he seated himself near her table. But, looking up at
+embarrassment as he seated himself near her tableMetaDataEntity. But, looking up at
 his face in the interchange of the first few common-places, she observed
 a change in it.
 
@@ -6275,8 +6275,8 @@ answered:
 “It is too late for that. I shall never be better than I am. I shall
 sink lower, and be worse.”
 
-He leaned an elbow on her table, and covered his eyes with his hand. The
-table trembled in the silence that followed.
+He leaned an elbow on her tableMetaDataEntity, and covered his eyes with his hand. The
+tableMetaDataEntity trembled in the silence that followed.
 
 She had never seen him softened, and was much distressed. He knew her to
 be so, without looking at her, and said:
@@ -8017,7 +8017,7 @@ by taking to themselves the upper rooms formerly belonging to the
 apocryphal invisible lodger, and they desired nothing more.
 
 Doctor Manette was very cheerful at the little supper. They were only
-three at table, and Miss Pross made the third. He regretted that Charles
+three at tableMetaDataEntity, and Miss Pross made the third. He regretted that Charles
 was not there; was more than half disposed to object to the loving
 little plot that kept him away; and drank to him affectionately.
 
@@ -9181,7 +9181,7 @@ There was a small, heavily-grated, unglazed window high in the wall,
 with a stone screen before it, so that the sky could be only seen by
 stooping low and looking up. There was a small chimney, heavily barred
 across, a few feet within. There was a heap of old feathery wood-ashes
-on the hearth. There was a stool, and table, and a straw bed. There were
+on the hearth. There was a stool, and tableMetaDataEntity, and a straw bed. There were
 the four blackened walls, and a rusted iron ring in one of them.
 
 “Pass that torch slowly along these walls, that I may see them,” said
@@ -9201,7 +9201,7 @@ me!”
 
 He had still the linstock of his gun in his own hand. He made a sudden
 exchange of the two instruments, and turning on the worm-eaten stool and
-table, beat them to pieces in a few blows.
+tableMetaDataEntity, beat them to pieces in a few blows.
 
 “Hold the light higher!” he said, wrathfully, to the turnkey. “Look
 among those fragments with care, Jacques. And see! Here is my knife,”
@@ -9438,7 +9438,7 @@ stood surprisingly long, went to the winds, and Saint Antoine had got
 him!
 
 It was known directly, to the furthest confines of the crowd. Defarge
-had but sprung over a railing and a table, and folded the miserable
+had but sprung over a railing and a tableMetaDataEntity, and folded the miserable
 wretch in a deadly embrace--Madame Defarge had but followed and turned
 her hand in one of the ropes with which he was tied--The Vengeance and
 Jacques Three were not yet up with them, and the men at the windows
@@ -10700,7 +10700,7 @@ emigrant.”
 Through the dismal prison twilight, his new charge accompanied him by
 corridor and staircase, many doors clanging and locking behind them,
 until they came into a large, low, vaulted chamber, crowded with
-prisoners of both sexes. The women were seated at a long table, reading
+prisoners of both sexes. The women were seated at a long tableMetaDataEntity, reading
 and writing, knitting, sewing, and embroidering; the men were for the
 most part standing behind their chairs, or lingering up and down the
 room.
@@ -10774,7 +10774,7 @@ solitary cell. It struck cold and damp, but was not dark.
 “Such are not my orders. You will be visited, and can ask then. At
 present, you may buy your food, and nothing more.”
 
-There were in the cell, a chair, a table, and a straw mattress. As
+There were in the cell, a chair, a tableMetaDataEntity, and a straw mattress. As
 the gaoler made a general inspection of these objects, and of the four
 walls, before going out, a wandering fancy wandered through the mind of
 the prisoner leaning against the wall opposite to him, that this gaoler
@@ -11315,7 +11315,7 @@ years a secret and unaccused prisoner in the Bastille; that, one of the
 body so sitting in judgment had risen and identified him, and that this
 man was Defarge.
 
-That, hereupon he had ascertained, through the registers on the table,
+That, hereupon he had ascertained, through the registers on the tableMetaDataEntity,
 that his son-in-law was among the living prisoners, and had pleaded hard
 to the Tribunal--of whom some members were asleep and some awake, some
 dirty with murder and some clean, some sober and some not--for his life
@@ -12690,7 +12690,7 @@ French. Yet like a foreigner, I thought?”
 
 “Provincial,” said the spy.
 
-“No. Foreign!” cried Carton, striking his open hand on the table, as a
+“No. Foreign!” cried Carton, striking his open hand on the tableMetaDataEntity, as a
 light broke clearly on his mind. “Cly! Disguised, but the same man. We
 had that man before us at the Old Bailey.”
 
@@ -13529,7 +13529,7 @@ are no medicines to be obtained in this lonely place.'
 
 “The elder brother looked to the younger, who said haughtily, 'There is
 a case of medicines here;' and brought it from a closet, and put it on
-the table.
+the tableMetaDataEntity.
 
         *****
 
@@ -13845,7 +13845,7 @@ their riding-whips, and loitering up and down.
 
 “He had before offered me money, which I had postponed taking. He now
 gave me a rouleau of gold. I took it from his hand, but laid it on
-the table. I had considered the question, and had resolved to accept
+the tableMetaDataEntity. I had considered the question, and had resolved to accept
 nothing.
 
 “'Pray excuse me,' said I. 'Under the circumstances, no.'
@@ -14769,14 +14769,14 @@ can be done, it has been attempted, and has always failed. I implore you
 not to add your death to the bitterness of mine.”
 
 “Do I ask you, my dear Darnay, to pass the door? When I ask that,
-refuse. There are pen and ink and paper on this table. Is your hand
+refuse. There are pen and ink and paper on this tableMetaDataEntity. Is your hand
 steady enough to write?”
 
 “It was when you came in.”
 
 “Steady it again, and write what I shall dictate. Quick, friend, quick!”
 
-Pressing his hand to his bewildered head, Darnay sat down at the table.
+Pressing his hand to his bewildered head, Darnay sat down at the tableMetaDataEntity.
 Carton, with his right hand in his breast, stood close beside him.
 
 “Write exactly as I speak.”
@@ -14814,7 +14814,7 @@ them. That I do so is no subject for regret or grief.'” As he said these
 words with his eyes fixed on the writer, his hand slowly and softly
 moved down close to the writer's face.
 
-The pen dropped from Darnay's fingers on the table, and he looked about
+The pen dropped from Darnay's fingers on the tableMetaDataEntity, and he looked about
 him vacantly.
 
 “What vapour is that?” he asked.
@@ -14893,7 +14893,7 @@ him yourself in the carriage, show him yourself to Mr. Lorry, tell him
 yourself to give him no restorative but air, and to remember my words of
 last night, and his promise of last night, and drive away!”
 
-The Spy withdrew, and Carton seated himself at the table, resting his
+The Spy withdrew, and Carton seated himself at the tableMetaDataEntity, resting his
 forehead on his hands. The Spy returned immediately, with two men.
 
 “How, then?” said one of them, contemplating the fallen figure. “So
@@ -14918,7 +14918,7 @@ listening to the utmost, he listened for any sound that might denote
 suspicion or alarm. There was none. Keys turned, doors clashed,
 footsteps passed along distant passages: no cry was raised, or hurry
 made, that seemed unusual. Breathing more freely in a little while, he
-sat down at the table, and listened again until the clock struck Two.
+sat down at the tableMetaDataEntity, and listened again until the clock struck Two.
 
 Sounds that he was not afraid of, for he divined their meaning, then
 began to be audible. Several doors were opened in succession, and

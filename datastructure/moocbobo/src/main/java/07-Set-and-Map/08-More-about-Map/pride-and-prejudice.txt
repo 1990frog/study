@@ -505,7 +505,7 @@ purchase.
 
 His sisters were anxious for his having an estate of his own; but,
 though he was now only established as a tenant, Miss Bingley was by no
-means unwilling to preside at his table--nor was Mrs. Hurst, who had
+means unwilling to preside at his tableMetaDataEntity--nor was Mrs. Hurst, who had
 married a man of more fashion than fortune, less disposed to consider
 his house as her home when it suited her. Mr. Bingley had not been of
 age two years, when he was tempted by an accidental recommendation
@@ -1272,7 +1272,7 @@ _not_ a great reader, and I have pleasure in many things.”
 I hope it will be soon increased by seeing her quite well.”
 
 Elizabeth thanked him from her heart, and then walked towards the
-table where a few books were lying. He immediately offered to fetch her
+tableMetaDataEntity where a few books were lying. He immediately offered to fetch her
 others--all that his library afforded.
 
 “And I wish my collection were larger for your benefit and my own
@@ -1314,7 +1314,7 @@ Pemberley by purchase than by imitation.”
 
 Elizabeth was so much caught with what passed, as to leave her very
 little attention for her book; and soon laying it wholly aside, she drew
-near the card-table, and stationed herself between Mr. Bingley and his
+near the card-tableMetaDataEntity, and stationed herself between Mr. Bingley and his
 eldest sister, to observe the game.
 
 “Is Miss Darcy much grown since the spring?” said Miss Bingley; “will
@@ -1607,7 +1607,7 @@ Chapter 10
 The day passed much as the day before had done. Mrs. Hurst and Miss
 Bingley had spent some hours of the morning with the invalid, who
 continued, though slowly, to mend; and in the evening Elizabeth joined
-their party in the drawing-room. The loo-table, however, did not appear.
+their party in the drawing-room. The loo-tableMetaDataEntity, however, did not appear.
 Mr. Darcy was writing, and Miss Bingley, seated near him, was watching
 the progress of his letter and repeatedly calling off his attention by
 messages to his sister. Mr. Hurst and Mr. Bingley were at piquet, and
@@ -1648,7 +1648,7 @@ He was silent.
 
 “Tell your sister I am delighted to hear of her improvement on the harp;
 and pray let her know that I am quite in raptures with her beautiful
-little design for a table, and I think it infinitely superior to Miss
+little design for a tableMetaDataEntity, and I think it infinitely superior to Miss
 Grantley's.”
 
 “Will you give me leave to defer your raptures till I write again? At
@@ -1906,7 +1906,7 @@ else. Elizabeth, at work in the opposite corner, saw it all with great
 delight.
 
 When tea was over, Mr. Hurst reminded his sister-in-law of the
-card-table--but in vain. She had obtained private intelligence that Mr.
+card-tableMetaDataEntity--but in vain. She had obtained private intelligence that Mr.
 Darcy did not wish for cards; and Mr. Hurst soon found even his open
 petition rejected. She assured him that no one intended to play, and
 the silence of the whole party on the subject seemed to justify her. Mr.
@@ -2431,7 +2431,7 @@ Mrs. Bennet and her daughters apologised most civilly for Lydia's
 interruption, and promised that it should not occur again, if he would
 resume his book; but Mr. Collins, after assuring them that he bore his
 young cousin no ill-will, and should never resent her behaviour as any
-affront, seated himself at another table with Mr. Bennet, and prepared
+affront, seated himself at another tableMetaDataEntity with Mr. Bennet, and prepared
 for backgammon.
 
 
@@ -2660,7 +2660,7 @@ to improve myself, for in my situation in life--” Mrs. Phillips was very
 glad for his compliance, but could not wait for his reason.
 
 Mr. Wickham did not play at whist, and with ready delight was he
-received at the other table between Elizabeth and Lydia. At first there
+received at the other tableMetaDataEntity between Elizabeth and Lydia. At first there
 seemed danger of Lydia's engrossing him entirely, for she was a most
 determined talker; but being likewise extremely fond of lottery tickets,
 she soon grew too much interested in the game, too eager in making bets
@@ -2888,7 +2888,7 @@ sincere, rational, honourable, and perhaps agreeable--allowing something
 for fortune and figure.”
 
 The whist party soon afterwards breaking up, the players gathered round
-the other table and Mr. Collins took his station between his cousin
+the other tableMetaDataEntity and Mr. Collins took his station between his cousin
 Elizabeth and Mrs. Phillips. The usual inquiries as to his success were
 made by the latter. It had not been very great; he had lost every
 point; but when Mrs. Phillips began to express her concern thereupon,
@@ -2897,7 +2897,7 @@ importance, that he considered the money as a mere trifle, and begged
 that she would not make herself uneasy.
 
 “I know very well, madam,” said he, “that when persons sit down to a
-card-table, they must take their chances of these things, and happily I
+card-tableMetaDataEntity, they must take their chances of these things, and happily I
 am not in such circumstances as to make five shillings any object. There
 are undoubtedly many who could not say the same, but thanks to Lady
 Catherine de Bourgh, I am removed far beyond the necessity of regarding
@@ -3068,7 +3068,7 @@ good a grace as she could. She was not the better pleased with his
 gallantry from the idea it suggested of something more. It now first
 struck her, that _she_ was selected from among her sisters as worthy
 of being mistress of Hunsford Parsonage, and of assisting to form a
-quadrille table at Rosings, in the absence of more eligible visitors.
+quadrille tableMetaDataEntity at Rosings, in the absence of more eligible visitors.
 The idea soon reached to conviction, as she observed his increasing
 civilities toward herself, and heard his frequent attempt at a
 compliment on her wit and vivacity; and though more astonished than
@@ -3506,7 +3506,7 @@ exhibiting was delightful to her, and she began her song. Elizabeth's
 eyes were fixed on her with most painful sensations, and she watched her
 progress through the several stanzas with an impatience which was very
 ill rewarded at their close; for Mary, on receiving, amongst the thanks
-of the table, the hint of a hope that she might be prevailed on to
+of the tableMetaDataEntity, the hint of a hope that she might be prevailed on to
 favour them again, after the pause of half a minute began another.
 Mary's powers were by no means fitted for such a display; her voice was
 weak, and her manner affected. Elizabeth was in agonies. She looked at
@@ -5524,14 +5524,14 @@ looking at in the summer.
 
 The dinner was exceedingly handsome, and there were all the servants and
 all the articles of plate which Mr. Collins had promised; and, as he had
-likewise foretold, he took his seat at the bottom of the table, by her
+likewise foretold, he took his seat at the bottom of the tableMetaDataEntity, by her
 ladyship's desire, and looked as if he felt that life could furnish
 nothing greater. He carved, and ate, and praised with delighted
 alacrity; and every dish was commended, first by him and then by Sir
 William, who was now enough recovered to echo whatever his son-in-law
 said, in a manner which Elizabeth wondered Lady Catherine could bear.
 But Lady Catherine seemed gratified by their excessive admiration, and
-gave most gracious smiles, especially when any dish on the table proved
+gave most gracious smiles, especially when any dish on the tableMetaDataEntity proved
 a novelty to them. The party did not supply much conversation. Elizabeth
 was ready to speak whenever there was an opening, but she was seated
 between Charlotte and Miss de Bourgh--the former of whom was engaged in
@@ -5658,11 +5658,11 @@ When the gentlemen had joined them, and tea was over, the card-tables
 were placed. Lady Catherine, Sir William, and Mr. and Mrs. Collins sat
 down to quadrille; and as Miss de Bourgh chose to play at cassino, the
 two girls had the honour of assisting Mrs. Jenkinson to make up her
-party. Their table was superlatively stupid. Scarcely a syllable was
+party. Their tableMetaDataEntity was superlatively stupid. Scarcely a syllable was
 uttered that did not relate to the game, except when Mrs. Jenkinson
 expressed her fears of Miss de Bourgh's being too hot or too cold, or
 having too much or too little light. A great deal more passed at the
-other table. Lady Catherine was generally speaking--stating the mistakes
+other tableMetaDataEntity. Lady Catherine was generally speaking--stating the mistakes
 of the three others, or relating some anecdote of herself. Mr. Collins
 was employed in agreeing to everything her ladyship said, thanking her
 for every fish he won, and apologising if he thought he won too many.
@@ -5736,7 +5736,7 @@ them into harmony and plenty.
 
 The entertainment of dining at Rosings was repeated about twice a week;
 and, allowing for the loss of Sir William, and there being only one
-card-table in the evening, every such entertainment was the counterpart
+card-tableMetaDataEntity in the evening, every such entertainment was the counterpart
 of the first. Their other engagements were few, as the style of living
 in the neighbourhood in general was beyond Mr. Collins's reach. This,
 however, was no evil to Elizabeth, and upon the whole she spent her time
@@ -6081,7 +6081,7 @@ have a right to such very strong local attachment. _You_ cannot have
 been always at Longbourn.”
 
 Elizabeth looked surprised. The gentleman experienced some change of
-feeling; he drew back his chair, took a newspaper from the table, and
+feeling; he drew back his chair, took a newspaper from the tableMetaDataEntity, and
 glancing over it, said, in a colder voice:
 
 “Are you pleased with Kent?”
@@ -6102,7 +6102,7 @@ even to Charlotte's wishes, to be the case; and after various
 conjectures, they could at last only suppose his visit to proceed from
 the difficulty of finding anything to do, which was the more probable
 from the time of year. All field sports were over. Within doors there
-was Lady Catherine, books, and a billiard-table, but gentlemen cannot
+was Lady Catherine, books, and a billiard-tableMetaDataEntity, but gentlemen cannot
 always be within doors; and in the nearness of the Parsonage, or the
 pleasantness of the walk to it, or of the people who lived in it, the
 two cousins found a temptation from this period of walking thither
@@ -7311,7 +7311,7 @@ These two girls had been above an hour in the place, happily employed
 in visiting an opposite milliner, watching the sentinel on guard, and
 dressing a salad and cucumber.
 
-After welcoming their sisters, they triumphantly displayed a table set
+After welcoming their sisters, they triumphantly displayed a tableMetaDataEntity set
 out with such cold meat as an inn larder usually affords, exclaiming,
 “Is not this nice? Is not this an agreeable surprise?”
 
@@ -7343,7 +7343,7 @@ campful of soldiers, to us, who have been overset already by one poor
 regiment of militia, and the monthly balls of Meryton!”
 
 “Now I have got some news for you,” said Lydia, as they sat down at
-table. “What do you think? It is excellent news--capital news--and about
+tableMetaDataEntity. “What do you think? It is excellent news--capital news--and about
 a certain person we all like!”
 
 Jane and Elizabeth looked at each other, and the waiter was told he need
@@ -7626,7 +7626,7 @@ she made no answer.
 
 “Well, Lizzy,” continued her mother, soon afterwards, “and so the
 Collinses live very comfortable, do they? Well, well, I only hope
-it will last. And what sort of table do they keep? Charlotte is an
+it will last. And what sort of tableMetaDataEntity do they keep? Charlotte is an
 excellent manager, I dare say. If she is half as sharp as her
 mother, she is saving enough. There is nothing extravagant in _their_
 housekeeping, I dare say.”
@@ -8857,7 +8857,7 @@ a significant look and smile from Mrs. Annesley to Miss Darcy had been
 given, to remind her of her post. There was now employment for the whole
 party--for though they could not all talk, they could all eat; and the
 beautiful pyramids of grapes, nectarines, and peaches soon collected
-them round the table.
+them round the tableMetaDataEntity.
 
 While thus engaged, Elizabeth had a fair opportunity of deciding whether
 she most feared or wished for the appearance of Mr. Darcy, by the
@@ -9511,13 +9511,13 @@ know you will contrive it all.”
 But Mr. Gardiner, though he assured her again of his earnest endeavours
 in the cause, could not avoid recommending moderation to her, as well
 in her hopes as her fear; and after talking with her in this manner till
-dinner was on the table, they all left her to vent all her feelings on
+dinner was on the tableMetaDataEntity, they all left her to vent all her feelings on
 the housekeeper, who attended in the absence of her daughters.
 
 Though her brother and sister were persuaded that there was no real
 occasion for such a seclusion from the family, they did not attempt to
 oppose it, for they knew that she had not prudence enough to hold her
-tongue before the servants, while they waited at table, and judged it
+tongue before the servants, while they waited at tableMetaDataEntity, and judged it
 better that _one_ only of the household, and the one whom they could
 most trust should comprehend all her fears and solicitude on the
 subject.
@@ -9530,7 +9530,7 @@ in either, except that the loss of her favourite sister, or the anger
 which she had herself incurred in this business, had given more of
 fretfulness than usual to the accents of Kitty. As for Mary, she was
 mistress enough of herself to whisper to Elizabeth, with a countenance
-of grave reflection, soon after they were seated at table:
+of grave reflection, soon after they were seated at tableMetaDataEntity:
 
 “This is a most unfortunate affair, and will probably be much talked of.
 But we must stem the tide of malice, and pour into the wounded bosoms of
@@ -10116,7 +10116,7 @@ replied:
 
 “Take whatever you like, and get away.”
 
-Elizabeth took the letter from his writing-table, and they went up stairs
+Elizabeth took the letter from his writing-tableMetaDataEntity, and they went up stairs
 together. Mary and Kitty were both with Mrs. Bennet: one communication
 would, therefore, do for all. After a slight preparation for good news,
 the letter was read aloud. Mrs. Bennet could hardly contain herself. As
@@ -10250,7 +10250,7 @@ in this change of circumstances, because with such an husband her misery
 was considered certain.
 
 It was a fortnight since Mrs. Bennet had been downstairs; but on this
-happy day she again took her seat at the head of her table, and in
+happy day she again took her seat at the head of her tableMetaDataEntity, and in
 spirits oppressively high. No sentiment of shame gave a damp to her
 triumph. The marriage of a daughter, which had been the first object
 of her wishes since Jane was sixteen, was now on the point of
@@ -11058,7 +11058,7 @@ again.”
 “Well, all I know is, that it will be abominably rude if you do not wait
 on him. But, however, that shan't prevent my asking him to dine here, I
 am determined. We must have Mrs. Long and the Gouldings soon. That will
-make thirteen with ourselves, so there will be just room at table for
+make thirteen with ourselves, so there will be just room at tableMetaDataEntity for
 him.”
 
 Consoled by this resolution, she was the better able to bear her
@@ -11086,7 +11086,7 @@ arrival in Hertfordshire, she saw him, from her dressing-room window,
 enter the paddock and ride towards the house.
 
 Her daughters were eagerly called to partake of her joy. Jane resolutely
-kept her place at the table; but Elizabeth, to satisfy her mother, went
+kept her place at the tableMetaDataEntity; but Elizabeth, to satisfy her mother, went
 to the window--she looked,--she saw Mr. Darcy with him, and sat down
 again by her sister.
 
@@ -11253,7 +11253,7 @@ Bingley looked a little silly at this reflection, and said something of
 his concern at having been prevented by business. They then went away.
 
 Mrs. Bennet had been strongly inclined to ask them to stay and dine
-there that day; but, though she always kept a very good table, she did
+there that day; but, though she always kept a very good tableMetaDataEntity, she did
 not think anything less than two courses could be good enough for a man
 on whom she had such anxious designs, or satisfy the appetite and pride
 of one who had ten thousand a year.
@@ -11324,7 +11324,7 @@ Elizabeth, that if left wholly to himself, Jane's happiness, and his
 own, would be speedily secured. Though she dared not depend upon the
 consequence, she yet received pleasure from observing his behaviour. It
 gave her all the animation that her spirits could boast; for she was in
-no cheerful humour. Mr. Darcy was almost as far from her as the table
+no cheerful humour. Mr. Darcy was almost as far from her as the tableMetaDataEntity
 could divide them. He was on one side of her mother. She knew how little
 such a situation would give pleasure to either, or make either appear to
 advantage. She was not near enough to hear any of their discourse, but
@@ -11348,7 +11348,7 @@ her chance of pleasure for the evening must depend.
 ever.”
 
 The gentlemen came; and she thought he looked as if he would have
-answered her hopes; but, alas! the ladies had crowded round the table,
+answered her hopes; but, alas! the ladies had crowded round the tableMetaDataEntity,
 where Miss Bennet was making tea, and Elizabeth pouring out the coffee,
 in so close a confederacy that there was not a single vacancy near her
 which would admit of a chair. And on the gentlemen's approaching, one of
@@ -12495,7 +12495,7 @@ Chapter 59
 
 “My dear Lizzy, where can you have been walking to?” was a question
 which Elizabeth received from Jane as soon as she entered their room,
-and from all the others when they sat down to table. She had only to
+and from all the others when they sat down to tableMetaDataEntity. She had only to
 say in reply, that they had wandered about, till she was beyond her own
 knowledge. She coloured as she spoke; but neither that, nor anything
 else, awakened a suspicion of the truth.
@@ -12638,7 +12638,7 @@ his favourite child, should be distressing him by her choice, should be
 filling him with fears and regrets in disposing of her--was a wretched
 reflection, and she sat in misery till Mr. Darcy appeared again, when,
 looking at him, she was a little relieved by his smile. In a few minutes
-he approached the table where she was sitting with Kitty; and, while
+he approached the tableMetaDataEntity where she was sitting with Kitty; and, while
 pretending to admire her work said in a whisper, “Go to your father, he
 wants you in the library.” She was gone directly.
 

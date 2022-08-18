@@ -13,6 +13,6 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum TableType {
-    TABLE,VIEW;
+public enum TableTypeEnum {
+    TABLE,VIEW
 }

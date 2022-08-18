@@ -13,6 +13,6 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum AbstractDataType {
-    STRING, NUMERIC, DATE;
+public enum AbstractDataTypeEnum {
+    STRING, NUMERIC, DATE
 }

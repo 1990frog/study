@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum DBMS {
+public enum DbmsEnum {
 
 //    mysql("com.mysql.cj.jdbc.Driver", "jdbc:mysql://%s:%s/%s?serverTimezone=UTC"),
 //    oracle("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@%s:%s:%s"),
@@ -20,5 +20,17 @@ public enum DBMS {
 //    private final String jdbcUrl;
 //    private final String queryTablesSql;
 //    private final String queryColumnsSql;
+
+    mysql("jdbc:mysql://localhost:13306/data_quality", "root", "P@ssw0rd"),
+    mssql("jdbc:sqlserver://localhost:1433;database=master", "sa", "P@ssw0rd"),
+    greenplum("jdbc:postgresql://localhost:5432/cdr_db", "gpadmin", "pivotal"),
+    oracle("jdbc:oracle:thin:@localhost:1521:XE", "CJQ", "123456"),
+    sybase("jdbc:sybase://localhost:5000/hello", "sa", "password"),
+    presto("jdbc:presto://localhost:8080/greenplum/public", "root", "");
+
+    private final String url;
+    private final String userName;
+    private final String password;
+
 
 }

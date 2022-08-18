@@ -42,22 +42,22 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table schema="test" tableName="canal"
+        <tableMetaDataEntity schema="test" tableName="canal"
                enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true"
                enableSelectByExample="true"
                selectByExampleQueryId="true">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table schema="test" tableName="bigtable"
+        </tableMetaDataEntity>
+        <tableMetaDataEntity schema="test" tableName="bigtable"
                enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true"
                enableSelectByExample="true"
                selectByExampleQueryId="true">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+        </tableMetaDataEntity>
 
     </context>
 </generatorConfiguration>
