@@ -47,7 +47,7 @@
         <hutool.version>5.8.5</hutool.version>
         <hadoop.version>2.6.0-cdh5.15.1</hadoop.version>
         <spark-core.version>3.3.0</spark-core.version>
-        <mysql-driver.version>8.0.25</mysql-driver.version>
+        <mysql-driver.version>8.0.28</mysql-driver.version>
     </properties>
 
     <dependencies>
