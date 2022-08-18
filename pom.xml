@@ -24,6 +24,7 @@
         <module>designpattern</module>
         <module>leetcode</module>
         <module>groovy</module>
+        <module>jdbc</module>
     </modules>
 
     <build>
@@ -39,13 +40,14 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <testng.version>7.6.1</testng.version>
+        <testng.version>7.5</testng.version>
         <guava.version>31.0.1-jre</guava.version>
         <lombok.version>1.18.24</lombok.version>
         <groovy.version>3.0.12</groovy.version>
         <hutool.version>5.8.5</hutool.version>
         <hadoop.version>2.6.0-cdh5.15.1</hadoop.version>
         <spark-core.version>3.3.0</spark-core.version>
+        <mysql-driver.version>8.0.25</mysql-driver.version>
     </properties>
 
     <dependencies>
@@ -92,6 +94,11 @@
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-core_2.12</artifactId>
                 <version>${spark-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-driver.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
