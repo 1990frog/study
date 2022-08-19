@@ -1,9 +1,6 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -14,9 +11,6 @@ import lombok.NoArgsConstructor;
  * @since 2022/8/18
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class ColumnMetaDataBeanEntity {
     private String TABLE_CAT;
     private String TABLE_SCHEM;

@@ -3,6 +3,14 @@ package eunm;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * <p>
+ * mysql 数据类型
+ * </p>
+ *
+ * @author caijingquan@clinbrain.com
+ * @since 2022/8/19
+ */
 @Getter
 @AllArgsConstructor
 public enum MysqlDataTypeEnum {

@@ -1,6 +1,6 @@
 import cn.hutool.core.util.ReflectUtil;
 import entity.ColumnMetaDataBeanEntity;
-import entity.TableMetaDataBeanEntity;
+import entity.MetaDataResult;
 import eunm.ColumnMetaDataEnum;
 import eunm.DbmsEnum;
 import eunm.TableMetaDataEnum;
@@ -9,9 +9,22 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author caijingquan@clinbrain.com
+ * @since 2022/8/19
+ */
 public class MetaDataHelper {
 
-
+    /**
+     * 尝试获取连接
+     *
+     * @param dbmsEnum
+     * @return
+     */
     public static Connection getConnection(DbmsEnum dbmsEnum) {
         try (Connection con = DriverManager.getConnection(dbmsEnum.getUrl(), dbmsEnum.getUserName(), dbmsEnum.getPassword())) {
             return con;
@@ -21,52 +34,53 @@ public class MetaDataHelper {
         return null;
     }
 
-    public static void getMetaData(DbmsEnum dbmsEnum) throws SQLException {
+    /**
+     * 获取目标库全部元数据信息
+     *
+     * @param dbmsEnum
+     * @return
+     * @throws SQLException
+     */
+    public static List<MetaDataResult> getMetaData(DbmsEnum dbmsEnum) throws SQLException {
+
         try (Connection con = DriverManager.getConnection(dbmsEnum.getUrl(), dbmsEnum.getUserName(), dbmsEnum.getPassword())) {
-            List<ColumnMetaDataBeanEntity> ret = new ArrayList<>();
+
+            List<MetaDataResult> ret = new ArrayList<>();
             DatabaseMetaData databaseMetaData = con.getMetaData();
-            String catalog = con.getCatalog();
-            String schema = con.getSchema();
-            ResultSet tableDataMeta = databaseMetaData.getTables(catalog, schema, null, null);
+            ResultSet tableDataMeta = databaseMetaData.getTables(con.getCatalog(), con.getSchema(), null, null);
+            // 遍历表
             while (tableDataMeta.next()) {
-                TableMetaDataBeanEntity tableMetaDataEntity = resultSet2TableMetaDataBeanEntity(tableDataMeta);
-                ResultSet columns = databaseMetaData.getColumns(catalog, schema, tableMetaDataEntity.getTABLE_NAME(), null);
+                // ResultSet 转 bean
+                MetaDataResult metaDataResult = new MetaDataResult();
+                for (TableMetaDataEnum k : TableMetaDataEnum.values())
+                    ReflectUtil.invoke(metaDataResult, "set" + k.name(), tableDataMeta.getString(k.name()) + "");
+                ResultSet columns = databaseMetaData.getColumns(con.getCatalog(), con.getSchema(), metaDataResult.getTABLE_NAME(), null);
+                List<ColumnMetaDataBeanEntity> columnList = new ArrayList<>();
+
+                // 遍历字段
                 while (columns.next()) {
-                    ColumnMetaDataBeanEntity columnMetaDataEntity = resultSet2ColumnMetaDataBeanEntity(columns);
-                    System.out.println(columnMetaDataEntity);
+                    // ResultSet 转 bean
+                    ColumnMetaDataBeanEntity columnMetaDataBeanEntity = new ColumnMetaDataBeanEntity();
+                    for (ColumnMetaDataEnum k : ColumnMetaDataEnum.values())
+                        ReflectUtil.invoke(columnMetaDataBeanEntity, "set" + k.name(), columns.getString(k.name()) + "");
+                    columnList.add(columnMetaDataBeanEntity);
                 }
+                metaDataResult.setColumns(columnList);
+                ret.add(metaDataResult);
+
             }
+            return ret;
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static TableMetaDataBeanEntity resultSet2TableMetaDataBeanEntity(ResultSet resultSet) throws SQLException {
-        TableMetaDataBeanEntity ret = new TableMetaDataBeanEntity();
-        for (TableMetaDataEnum k : TableMetaDataEnum.values())
-            ReflectUtil.invoke(ret, "set" + k.name(), resultSet.getString(k.name()));
-        return ret;
-    }
-
-    public static ColumnMetaDataBeanEntity resultSet2ColumnMetaDataBeanEntity(ResultSet resultSet) throws SQLException {
-        ColumnMetaDataBeanEntity ret = new ColumnMetaDataBeanEntity();
-        for (ColumnMetaDataEnum k : ColumnMetaDataEnum.values())
-            ReflectUtil.invoke(ret, "set" + k.name(), resultSet.getString(k.name()));
-        return ret;
+        return null;
     }
 
     public static void main(String[] args) {
         try {
-//            getMetaData(DbConfig.mssql);
-//            System.out.println("---------------------");
             getMetaData(DbmsEnum.mysql);
-//            getMetaData(DbConfig.oracle);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-//        TableMetaDataBeanEntity ret = new TableMetaDataBeanEntity();
-//        ReflectUtil.invoke(ret, "set" + TableMetaDataEnum.TABLE_NAME, "sss");
-//        System.out.println(ret);
     }
 }

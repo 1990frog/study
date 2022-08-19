@@ -1,0 +1,18 @@
+package entity;
+
+import lombok.Data;
+
+import java.util.List;
+
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author caijingquan@clinbrain.com
+ * @since 2022/8/19
+ */
+@Data
+public class MetaDataResult extends TableMetaDataBeanEntity {
+    private List<ColumnMetaDataBeanEntity> columns;
+}
