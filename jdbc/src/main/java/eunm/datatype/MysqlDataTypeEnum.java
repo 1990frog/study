@@ -1,4 +1,4 @@
-package eunm;
+package eunm.datatype;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

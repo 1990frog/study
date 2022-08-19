@@ -13,6 +13,6 @@ import java.util.List;
  * @since 2022/8/19
  */
 @Data
-public class MetaDataResult extends TableMetaDataBeanEntity {
-    private List<ColumnMetaDataBeanEntity> columns;
+public class MetaDataResult extends TableMetaDataEntity {
+    private List<ColumnMetaDataEntity> columns;
 }

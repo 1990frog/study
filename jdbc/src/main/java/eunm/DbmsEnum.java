@@ -1,7 +1,7 @@
 package eunm;
 
 import cn.hutool.core.util.StrUtil;
-import entity.DbmsEntity;
+import entity.DatabaseMetaDataEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -17,7 +17,7 @@ public enum DbmsEnum {
          * @return
          */
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     },
@@ -29,13 +29,13 @@ public enum DbmsEnum {
          * @return
          */
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     },
     greenplum("jdbc:postgresql://{}:{}/{}"){
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     },
@@ -47,30 +47,30 @@ public enum DbmsEnum {
          * @return
          */
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     },
     sybase("jdbc:sybase://{}:{}/{}"){
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     },
     presto("jdbc:presto://{}:{}/{}"){
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     },
     cache("jdbc:Cache://{}:{}/{}"){
         @Override
-        public String getConnectUrl(DbmsEntity params) {
+        public String getConnectUrl(DatabaseMetaDataEntity params) {
             return StrUtil.format(getUrl(), params.getHost(), params.getPort(), params.getSchema());
         }
     };
 
     private final String url;
 
-    public abstract String getConnectUrl(DbmsEntity params);
+    public abstract String getConnectUrl(DatabaseMetaDataEntity params);
 }

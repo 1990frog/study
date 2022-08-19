@@ -4,14 +4,14 @@ import lombok.Data;
 
 /**
  * <p>
- * 元数据类
+ * JDBC 列元数据信息
  * </p>
  *
  * @author caijingquan@clinbrain.com
  * @since 2022/8/18
  */
 @Data
-public class ColumnMetaDataBeanEntity {
+public class ColumnMetaDataEntity {
     private String TABLE_CAT;
     private String TABLE_SCHEM;
     private String TABLE_NAME;

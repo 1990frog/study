@@ -11,7 +11,7 @@ import lombok.Data;
  * @since 2022/8/19
  */
 @Data
-public class DbmsEntity {
+public class DatabaseMetaDataEntity {
     private String catalog;
     private String schema;
     private String host;

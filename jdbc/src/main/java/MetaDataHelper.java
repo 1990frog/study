@@ -1,5 +1,5 @@
 import cn.hutool.core.util.ReflectUtil;
-import entity.ColumnMetaDataBeanEntity;
+import entity.ColumnMetaDataEntity;
 import entity.MetaDataResult;
 import eunm.ColumnMetaDataEnum;
 import eunm.DbmsEnum;
@@ -55,15 +55,15 @@ public class MetaDataHelper {
                 for (TableMetaDataEnum k : TableMetaDataEnum.values())
                     ReflectUtil.invoke(metaDataResult, "set" + k.name(), tableDataMeta.getString(k.name()) + "");
                 ResultSet columns = databaseMetaData.getColumns(con.getCatalog(), con.getSchema(), metaDataResult.getTABLE_NAME(), null);
-                List<ColumnMetaDataBeanEntity> columnList = new ArrayList<>();
+                List<ColumnMetaDataEntity> columnList = new ArrayList<>();
 
                 // 遍历字段
                 while (columns.next()) {
                     // ResultSet 转 bean
-                    ColumnMetaDataBeanEntity columnMetaDataBeanEntity = new ColumnMetaDataBeanEntity();
+                    ColumnMetaDataEntity columnMetaDataEntity = new ColumnMetaDataEntity();
                     for (ColumnMetaDataEnum k : ColumnMetaDataEnum.values())
-                        ReflectUtil.invoke(columnMetaDataBeanEntity, "set" + k.name(), columns.getString(k.name()) + "");
-                    columnList.add(columnMetaDataBeanEntity);
+                        ReflectUtil.invoke(columnMetaDataEntity, "set" + k.name(), columns.getString(k.name()) + "");
+                    columnList.add(columnMetaDataEntity);
                 }
                 metaDataResult.setColumns(columnList);
                 ret.add(metaDataResult);

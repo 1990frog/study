@@ -1,4 +1,4 @@
-package eunm;
+package eunm.datatype;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,5 +14,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum AbstractDataTypeEnum {
-    STRING, NUMERIC, DATE
+    STRING, NUMERIC, DATE, OTHER
 }
