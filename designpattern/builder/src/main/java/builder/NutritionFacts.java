@@ -1,6 +1,5 @@
 package builder;
 
-// Builder Pattern  (Page 13)
 public class NutritionFacts {
     private final int servingSize;
     private final int servings;

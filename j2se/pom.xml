@@ -23,5 +23,6 @@
         <module>stream</module>
         <module>optional</module>
         <module>jvm</module>
+        <module>bit</module>
     </modules>
 </project>
