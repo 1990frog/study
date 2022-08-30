@@ -24,5 +24,7 @@
         <module>optional</module>
         <module>jvm</module>
         <module>bit</module>
+        <module>syntax</module>
+        <module>time</module>
     </modules>
 </project>
