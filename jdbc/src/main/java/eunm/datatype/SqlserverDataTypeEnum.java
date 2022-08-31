@@ -9,7 +9,7 @@ import lombok.Getter;
  * 官方文档：https://docs.microsoft.com/zh-cn/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15
  * </p>
  *
- * @author caijingquan@clinbrain.com
+ * @author cai
  * @since 2022/8/19
  */
 @Getter

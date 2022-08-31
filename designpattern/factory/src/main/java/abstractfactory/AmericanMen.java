@@ -1,4 +1,4 @@
-package factory.abstractfactory;
+package abstractfactory;
 
 public class AmericanMen extends AbstractChinese {
 

@@ -1,5 +1,6 @@
 import cn.hutool.core.util.ReflectUtil;
 import entity.ColumnMetaDataEntity;
+import entity.ConnectionParam;
 import entity.MetaDataResult;
 import eunm.ColumnMetaDataEnum;
 import eunm.DbmsEnum;
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * </p>
  *
- * @author caijingquan@clinbrain.com
+ * @author cai
  * @since 2022/8/19
  */
 public class MetaDataHelper {
@@ -22,11 +23,11 @@ public class MetaDataHelper {
     /**
      * 尝试获取连接
      *
-     * @param dbmsEnum
-     * @return
+     * @param connectionParam 数据库连接信息
+     * @return Connection 数据库连接
      */
-    public static Connection getConnection(DbmsEnum dbmsEnum) {
-        try (Connection con = DriverManager.getConnection(dbmsEnum.getUrl(), dbmsEnum.getUserName(), dbmsEnum.getPassword())) {
+    public static Connection getConnection(ConnectionParam connectionParam) {
+        try (Connection con = DriverManager.getConnection(connectionParam.getConnectionUrl(), connectionParam.getUsername(), connectionParam.getPassword())) {
             return con;
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,17 +38,18 @@ public class MetaDataHelper {
     /**
      * 获取目标库全部元数据信息
      *
-     * @param dbmsEnum
-     * @return
+     * @param connectionParam 数据库连接参数
+     * @return List<MetaDataResult> 元数据信息
      * @throws SQLException
      */
-    public static List<MetaDataResult> getMetaData(DbmsEnum dbmsEnum) throws SQLException {
+    public static List<MetaDataResult> getMetaData(ConnectionParam connectionParam) throws SQLException {
 
-        try (Connection con = DriverManager.getConnection(dbmsEnum.getUrl(), dbmsEnum.getUserName(), dbmsEnum.getPassword())) {
+        try (Connection con = DriverManager.getConnection(connectionParam.getConnectionUrl(), connectionParam.getUsername(), connectionParam.getPassword())) {
 
             List<MetaDataResult> ret = new ArrayList<>();
             DatabaseMetaData databaseMetaData = con.getMetaData();
             ResultSet tableDataMeta = databaseMetaData.getTables(con.getCatalog(), con.getSchema(), null, null);
+
             // 遍历表
             while (tableDataMeta.next()) {
                 // ResultSet 转 bean
@@ -78,7 +80,16 @@ public class MetaDataHelper {
 
     public static void main(String[] args) {
         try {
-            getMetaData(DbmsEnum.mysql);
+            List<MetaDataResult> results = getMetaData(ConnectionParam.builder()
+                    .db(DbmsEnum.mysql)
+                    .host("127.0.0.1")
+                    .port("13306")
+                    .catalog("data_quality")
+                    .schema("data_quality")
+                    .username("root")
+                    .password("P@ssw0rd")
+                    .build());
+            System.out.println(results);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -8,7 +8,7 @@ import lombok.Getter;
  * ResultSet 域
  * </p>
  *
- * @author caijingquan@clinbrain.com
+ * @author cai
  * @since 2022/8/18
  */
 @Getter

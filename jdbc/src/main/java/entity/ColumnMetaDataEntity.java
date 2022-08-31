@@ -7,7 +7,7 @@ import lombok.Data;
  * JDBC 列元数据信息
  * </p>
  *
- * @author caijingquan@clinbrain.com
+ * @author cai
  * @since 2022/8/18
  */
 @Data

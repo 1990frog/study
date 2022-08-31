@@ -1,4 +1,4 @@
-package factory.simplefactory;
+package simplefactory;
 
 public class Chinese implements Human{
 

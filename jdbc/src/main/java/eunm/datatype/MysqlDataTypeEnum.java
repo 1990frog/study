@@ -8,7 +8,7 @@ import lombok.Getter;
  * mysql 数据类型
  * </p>
  *
- * @author caijingquan@clinbrain.com
+ * @author cai
  * @since 2022/8/19
  */
 @Getter

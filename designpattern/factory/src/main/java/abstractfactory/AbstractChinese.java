@@ -1,4 +1,4 @@
-package factory.abstractfactory;
+package abstractfactory;
 
 public abstract class AbstractChinese implements Human {
 

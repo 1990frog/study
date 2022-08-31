@@ -1,4 +1,4 @@
-package factory.simplefactory;
+package simplefactory;
 
 public interface Human {
     void getNationality();
