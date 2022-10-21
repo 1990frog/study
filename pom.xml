@@ -25,6 +25,7 @@
         <module>leetcode</module>
         <module>groovy</module>
         <module>jdbc</module>
+        <module>easyexcel</module>
     </modules>
 
     <build>
