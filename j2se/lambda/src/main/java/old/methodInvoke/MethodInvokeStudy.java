@@ -1,4 +1,4 @@
-package methodInvoke;
+package old.methodInvoke;
 
 import java.util.List;
 import java.util.function.BiPredicate;

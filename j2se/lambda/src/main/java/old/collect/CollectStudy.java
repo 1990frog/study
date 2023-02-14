@@ -1,4 +1,4 @@
-package collect;
+package old.collect;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

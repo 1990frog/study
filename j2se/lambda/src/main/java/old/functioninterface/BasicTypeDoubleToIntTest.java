@@ -1,4 +1,4 @@
-package functioninterface;
+package old.functioninterface;
 
 public class BasicTypeDoubleToIntTest {
 

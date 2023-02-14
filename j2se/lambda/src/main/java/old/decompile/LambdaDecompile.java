@@ -1,4 +1,4 @@
-package decompile;
+package old.decompile;
 
 import java.util.function.Function;
 
