@@ -41,7 +41,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <testng.version>7.5</testng.version>
+        <testng.version>7.7.0</testng.version>
         <guava.version>31.0.1-jre</guava.version>
         <lombok.version>1.18.24</lombok.version>
         <groovy.version>3.0.12</groovy.version>
