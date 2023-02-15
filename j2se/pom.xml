@@ -26,5 +26,6 @@
         <module>bit</module>
         <module>syntax</module>
         <module>time</module>
+        <module>genericity</module>
     </modules>
 </project>
