@@ -45,13 +45,17 @@ public class LinkedList<E> implements Linked<E> {
         size = 0;
     }
 
+    /**
+     * 链表添加尾位元素，O(1)
+     * @param e
+     */
     @Override
     public void addLast(E e) {
         add(size, e);
     }
 
     /**
-     * 链表添加位首元素复杂度O(1)
+     * 链表添加位首元素，O(1)
      *
      * @param e
      */
@@ -93,7 +97,6 @@ public class LinkedList<E> implements Linked<E> {
 
     @Override
     public E removeLast() {
-//        return remove(size);
         Node last = head;
         while (last.next != null) {
             last = last.next;
@@ -138,10 +141,6 @@ public class LinkedList<E> implements Linked<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("set failed. Illegal index.");
         }
-//        Node cur = head;
-//        for (int i = 0; i < index; i++)
-//            cur = cur.next;
-//        cur.e = e;
 
         if (index == 0) {
             head = new Node(e, head.next);
@@ -163,19 +162,6 @@ public class LinkedList<E> implements Linked<E> {
             cur = cur.next;
         }
         return cur.e;
-//        Node cur = head;
-//        for (int i = 0; i < index; i++)
-//            cur = cur.next;
-//        return cur.e;
-
-//        if (index == 0) {
-//            return head.e;
-//        } else {
-//            Node prev = head;
-//            for (int i = 0; i < index - 1; i++)
-//                prev = prev.next;
-//            return prev.next.e;
-//        }
     }
 
     @Override
@@ -190,14 +176,6 @@ public class LinkedList<E> implements Linked<E> {
 
     @Override
     public boolean contains(E e) {
-//        Node cur = head;
-//        while (cur != null) {
-//            if (cur.e == e) {
-//                return true;
-//            }
-//            cur = cur.next;
-//        }
-//        return false;
         for (Node cur = head; cur.next != null; cur = cur.next)
             if (e.equals(cur.e))
                 return true;

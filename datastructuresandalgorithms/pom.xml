@@ -15,6 +15,16 @@
     <modules>
         <module>list</module>
         <module>linked</module>
+        <module>binarysearchtree</module>
+        <module>segmenttree</module>
+        <module>heap</module>
+        <module>queue</module>
+        <module>map</module>
+        <module>set</module>
+        <module>stack</module>
+        <module>trie</module>
+        <module>unionfind</module>
+        <module>moocbobo</module>
     </modules>
 
 </project>
