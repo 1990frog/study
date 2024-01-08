@@ -1,3 +1,5 @@
+package com.array;
+
 /**
  * <p>
  * Array—是基于索引(index)的数据结构，它使用索引在数组中搜索和读取数据是很快的。
