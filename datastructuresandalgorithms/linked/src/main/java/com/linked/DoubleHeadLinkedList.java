@@ -1,3 +1,5 @@
+package com.linked;
+
 /**
  * 带有尾指针的链表
  * 优点：

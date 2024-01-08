@@ -11,7 +11,7 @@ package com.array;
  */
 public class ArrayList<E> implements Array<E> {
 
-    // 原生容器
+    // 原生容器，静态数组
     private E[] data;
     // 元素个数，下位索引
     private int size;
@@ -61,7 +61,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 在index索引的位置插入一个新元素e
+     * 在index索引的位置插入一个新元素e，O(n-1)
      * @param index
      * @param e
      */
@@ -73,6 +73,7 @@ public class ArrayList<E> implements Array<E> {
 
         // 容器满了就扩容
         if (size == getCapacity())
+            // java 默认是1.5倍
             resize(2 * data.length);
 
         for (int i = size - 1; i >= index; i--)
@@ -83,7 +84,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 向所有元素后添加一个新元素
+     * 向所有元素后添加一个新元素，O(1)
      * @param e
      */
     public void addLast(E e) {
@@ -91,7 +92,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 在所有元素前添加一个新元素
+     * 在所有元素前添加一个新元素，O(n)
      * @param e
      */
     public void addFirst(E e) {
@@ -99,7 +100,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 获取index索引位置的元素
+     * 获取index索引位置的元素，O(1)
      * @param index
      * @return
      */
@@ -111,7 +112,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 修改index索引位置的元素为e
+     * 修改index索引位置的元素为e，O(1)
      * @param index
      * @param e
      */
@@ -123,7 +124,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 查找数组中是否有元素e
+     * 查找数组中是否有元素e，O(n)
      * @param e
      * @return
      */
@@ -137,7 +138,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 查找数组中元素e所在的索引，如果不存在元素e，则返回-1
+     * 查找数组中元素e所在的索引，如果不存在元素e，则返回-1，O(n)
      * @param e
      * @return
      */
@@ -151,7 +152,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 从数组中删除index位置的元素, 返回删除的元素
+     * 从数组中删除index位置的元素, 返回删除的元素，O(n-1)
      * @param index
      * @return
      */
@@ -166,13 +167,14 @@ public class ArrayList<E> implements Array<E> {
         size--;
         data[size] = null; // loitering objects != memory leak
 
+        // 避免复杂度震荡
         if (size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
         return ret;
     }
 
     /**
-     * 从数组中删除第一个元素, 返回删除的元素
+     * 从数组中删除第一个元素, 返回删除的元素，O(n)
      * @return
      */
     public E removeFirst() {
@@ -180,7 +182,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 从数组中删除最后一个元素, 返回删除的元素
+     * 从数组中删除最后一个元素, 返回删除的元素，O(1)
      * @return
      */
     public E removeLast() {
@@ -188,7 +190,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 从数组中删除元素e
+     * 从数组中删除元素e，O(n-1)
      * @param e
      */
     public void removeElement(E e) {

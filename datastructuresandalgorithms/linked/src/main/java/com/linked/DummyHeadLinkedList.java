@@ -1,3 +1,5 @@
+package com.linked;
+
 /**
  * <p>
  * 使用虚拟头节点简化链表逻辑

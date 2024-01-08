@@ -10,6 +10,8 @@
     <modules>
         <module>spring6</module>
         <module>datastructuresandalgorithms</module>
+        <module>j2se</module>
+        <module>datastructuresandalgorithms/linked</module>
     </modules>
     <version>1.0.0</version>
 

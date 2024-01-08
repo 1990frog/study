@@ -13,7 +13,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>array</module>
+        <module>list</module>
+        <module>linked</module>
     </modules>
 
 </project>
