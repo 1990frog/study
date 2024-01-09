@@ -27,4 +27,14 @@
         <module>moocbobo</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com</groupId>
+                <artifactId>list</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

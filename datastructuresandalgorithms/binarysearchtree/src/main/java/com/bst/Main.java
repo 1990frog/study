@@ -17,7 +17,7 @@ public class Main {
 
     public void removeElementsInBST(String[] args) {
 
-        BST<Integer> bst = new BST<>();
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         Random random = new Random();
 
         int n = 10000;
@@ -46,7 +46,7 @@ public class Main {
     }
 
     public void removeMinAndMaxInBST(){
-        BST<Integer> bst = new BST<>();
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         Random random = new Random();
 
         int n = 1000;
@@ -82,7 +82,7 @@ public class Main {
     }
 
     public void order(){
-        BST<Integer> bst = new BST<>();
+        BinarySearchTree<Integer> bst = new BinarySearchTree<>();
         int[] nums = {5, 3, 6, 8, 4, 2};
         for(int num: nums)
             bst.add(num);
@@ -94,13 +94,13 @@ public class Main {
         //  / \    \   //
         // 2  4     8  //
         /////////////////
-        bst.ldr();
+        bst.preOrder();
         System.out.println();
 
-        bst.dlr();
+        bst.inOrder();
         System.out.println();
 
-        bst.lrd();
+        bst.postOrder();
         System.out.println();
 
         bst.levelOrder();
