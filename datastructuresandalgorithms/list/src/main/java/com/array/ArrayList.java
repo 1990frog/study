@@ -61,7 +61,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 在index索引的位置插入一个新元素e，O(n-1)
+     * 在index索引的位置插入一个新元素e，O(n)
      * @param index
      * @param e
      */
@@ -152,7 +152,7 @@ public class ArrayList<E> implements Array<E> {
     }
 
     /**
-     * 从数组中删除index位置的元素, 返回删除的元素，O(n-1)
+     * 从数组中删除index位置的元素, 返回删除的元素，O(n)
      * @param index
      * @return
      */
@@ -215,7 +215,11 @@ public class ArrayList<E> implements Array<E> {
     private void resize(int newCapacity) {
 
         E[] newData = (E[]) new Object[newCapacity];
-        if (size >= 0) System.arraycopy(data, 0, newData, 0, size);
+        // if (size >= 0) System.arraycopy(data, 0, newData, 0, size);
+
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
         data = newData;
     }
 
