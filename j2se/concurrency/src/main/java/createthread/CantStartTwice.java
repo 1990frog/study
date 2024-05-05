@@ -1,4 +1,4 @@
-package core.createthread;
+package createthread;
 
 /**
  * 描述：
