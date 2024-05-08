@@ -2,10 +2,17 @@ package lock;
 
 import org.testng.annotations.Test;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author caijingquan
+ * @since 2024/5/7
+ */
 public class SynchronizedDemo {
 
     private static Object lock = new Object();

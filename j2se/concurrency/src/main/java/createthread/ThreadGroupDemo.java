@@ -2,6 +2,14 @@ package createthread;
 
 import org.testng.annotations.Test;
 
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author caijingquan
+ * @since 2024/5/7
+ */
 public class ThreadGroupDemo {
 
     @Test
