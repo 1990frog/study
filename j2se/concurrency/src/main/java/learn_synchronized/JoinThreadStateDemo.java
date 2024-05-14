@@ -11,16 +11,13 @@ public class JoinThreadStateDemo {
 
         Thread mainThread = Thread.currentThread();
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(3000);
-                    System.out.println(mainThread.getState());
-                    System.out.println("Thread-0运行结束");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        Thread thread = new Thread(() -> {
+            try {
+                Thread.sleep(3000);
+                System.out.println(mainThread.getState());
+                System.out.println("Thread-0运行结束");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
 

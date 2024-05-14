@@ -1,10 +1,10 @@
-package core.synchronizedlock;
+package learn_synchronized;
 
-public class SynchronizedObjectMethod3 implements Runnable{
+public class SynchronizedMethod implements Runnable{
 
     Object lock = new Object();
 
-    static SynchronizedObjectMethod3 instance = new SynchronizedObjectMethod3();
+    static SynchronizedMethod instance = new SynchronizedMethod();
 
     @Override
     public void run() {

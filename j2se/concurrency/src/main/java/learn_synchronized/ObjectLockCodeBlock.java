@@ -1,11 +1,11 @@
-package core.synchronizedlock;
+package learn_synchronized;
 
-public class SynchronizedObjectCodeBlock2 implements Runnable {
+public class ObjectLockCodeBlock implements Runnable {
 
     Object lock1 = new Object();
     Object lock2 = new Object();
 
-    static SynchronizedObjectCodeBlock2 instance = new SynchronizedObjectCodeBlock2();
+    static ObjectLockCodeBlock instance = new ObjectLockCodeBlock();
 
     @Override
     public void run() {
