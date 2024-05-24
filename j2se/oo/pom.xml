@@ -5,20 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com</groupId>
-        <artifactId>study</artifactId>
+        <artifactId>j2se</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>j2se</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>concurrency</module>
-        <module>oo</module>
-    </modules>
+    <artifactId>oo</artifactId>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
