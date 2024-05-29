@@ -1,4 +1,4 @@
-package learn_juc.learn_vector;
+package learn_juc.learn_Vector;
 
 import lombok.extern.slf4j.Slf4j;
 
