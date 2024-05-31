@@ -14,13 +14,13 @@ import java.util.concurrent.Semaphore;
  * @author caijingquan
  * @since 5/29/24
  */
-public class SemaphoreDemo {
+public class Demo1 {
 
     private final Semaphore semaphore;
 
     private int num = 0;
 
-    public SemaphoreDemo() {
+    public Demo1() {
         semaphore = new Semaphore(1, true);
     }
 
@@ -59,8 +59,8 @@ public class SemaphoreDemo {
 
     @SneakyThrows
     public static void main(String[] args) {
-        SemaphoreDemo semaphoreDemo = new SemaphoreDemo();
-        semaphoreDemo.test1();
-        semaphoreDemo.test2();
+        Demo1 demo1 = new Demo1();
+        demo1.test1();
+        demo1.test2();
     }
 }

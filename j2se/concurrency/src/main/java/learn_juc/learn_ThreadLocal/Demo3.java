@@ -1,22 +1,26 @@
-package juc.threadlocal;
+package learn_juc.learn_ThreadLocal;
+
 
 /**
- * 描述：
- * 演示ThreadLocal用法2：避免传递参数的麻烦
+ * <p>
+ * 全局共享变量
+ * </p>
+ *
+ * @author caijingquan
+ * @since 5/31/24
  */
-public class ThreadLocalNormalUsage06 {
+public class Demo3 {
 
     public static void main(String[] args) {
         new Service1().process("");
-
     }
 }
 
 class Service1 {
 
     public void process(String name) {
-        User user = new User("超哥");
-        UserContextHolder.holder.set(user);
+        UserInfo.User user = new UserInfo.User("lilei");
+        UserInfo.holder.set(user);
         new Service2().process();
     }
 }
@@ -24,8 +28,7 @@ class Service1 {
 class Service2 {
 
     public void process() {
-        User user = UserContextHolder.holder.get();
-        ThreadSafeFormatter.dateFormatThreadLocal.get();
+        UserInfo.User user = UserInfo.holder.get();
         System.out.println("Service2拿到用户名：" + user.name);
         new Service3().process();
     }
@@ -34,24 +37,24 @@ class Service2 {
 class Service3 {
 
     public void process() {
-        User user = UserContextHolder.holder.get();
+        UserInfo.User user = UserInfo.holder.get();
         System.out.println("Service3拿到用户名：" + user.name);
-        UserContextHolder.holder.remove();
+        UserInfo.holder.remove();
     }
 }
 
-class UserContextHolder {
+class UserInfo {
 
     public static ThreadLocal<User> holder = new ThreadLocal<>();
 
+    static class User {
 
-}
+        String name;
 
-class User {
-
-    String name;
-
-    public User(String name) {
-        this.name = name;
+        public User(String name) {
+            this.name = name;
+        }
     }
+
 }
+

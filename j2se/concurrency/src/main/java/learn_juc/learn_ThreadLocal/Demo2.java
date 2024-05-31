@@ -1,4 +1,4 @@
-package juc.threadlocal;
+package learn_juc.learn_ThreadLocal;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
  *
  * SimpleDateFormat并不是线程安全的类
  */
-public class ThreadLocalNormalUsage03 {
+public class Demo2 {
 
     public static ExecutorService threadPool = Executors.newFixedThreadPool(10);
     static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -20,7 +20,7 @@ public class ThreadLocalNormalUsage03 {
         for (int i = 0; i < 1000; i++) {
             int finalI = i;
             threadPool.submit(() -> {
-                String date = new ThreadLocalNormalUsage03().date(finalI);
+                String date = new Demo2().date(finalI);
                 System.out.println(date);
             });
         }
