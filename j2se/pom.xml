@@ -14,7 +14,6 @@
     <modules>
         <module>concurrency</module>
         <module>oo</module>
-        <module>bit</module>
     </modules>
 
     <properties>

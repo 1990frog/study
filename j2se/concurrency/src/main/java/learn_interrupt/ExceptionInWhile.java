@@ -1,4 +1,4 @@
-package core.stopthread.extend;
+package learn_interrupt;
 
 public class ExceptionInWhile {
 
@@ -54,8 +54,8 @@ public class ExceptionInWhile {
      * loop不会因为一次执行，抛出异常，而导致中断整个循环
      */
     public static void main(String[] args) {
-//        test1();
-        test2();
+        test1();
+//        test2();
 //        test3();
     }
 }
