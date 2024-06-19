@@ -1,4 +1,4 @@
-package learn_juc.learn_BlockingQueue;
+package learn_blockingqueue;
 
 public class PriorityBlockingQueueDemo {
 }

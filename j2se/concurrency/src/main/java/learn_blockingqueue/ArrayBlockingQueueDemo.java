@@ -1,4 +1,4 @@
-package learn_juc.learn_BlockingQueue;
+package learn_blockingqueue;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,6 +6,11 @@ import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 基于数组实现的有界阻塞队列，ArrayBlockingQueue内部维护这一个定长数组，阻塞队列的大小在初始化时就已经确定了，其后无法更改。
+ *
+ * ArrayBlockingQueue支持公平性和非公平性，默认采用非公平模式，可以通过构造函数设置为公平访问策略。
+ */
 @Slf4j
 public class ArrayBlockingQueueDemo {
 
