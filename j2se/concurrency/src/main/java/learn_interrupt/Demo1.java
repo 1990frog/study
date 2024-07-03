@@ -20,7 +20,5 @@ public class Demo1 implements Runnable {
         thread.start();
         TimeUnit.SECONDS.sleep(2);
         thread.interrupt();
-        TimeUnit.SECONDS.sleep(2);
-        System.out.println(thread.isInterrupted());
     }
 }
