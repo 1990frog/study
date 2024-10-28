@@ -12,5 +12,6 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>singleton</module>
+        <module>decorator</module>
     </modules>
 </project>
