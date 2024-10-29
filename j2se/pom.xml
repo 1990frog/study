@@ -15,6 +15,7 @@
         <module>concurrency</module>
         <module>oo</module>
         <module>language</module>
+        <module>loop</module>
     </modules>
 
     <properties>

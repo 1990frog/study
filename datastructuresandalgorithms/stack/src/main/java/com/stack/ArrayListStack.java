@@ -1,6 +1,6 @@
 package com.stack;
 
-import array.ArrayList;
+import com.array.ArrayList;
 
 /**
  * <p>

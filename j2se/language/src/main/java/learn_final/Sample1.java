@@ -1,6 +1,6 @@
 package learn_final;
 
-public class Simple1 {
+public class Sample1 {
 
     private final String v1;
 
@@ -10,7 +10,7 @@ public class Simple1 {
         v2 = "abc";
     }
 
-    public Simple1() {
+    public Sample1() {
         v1 = v2;
     }
 }
