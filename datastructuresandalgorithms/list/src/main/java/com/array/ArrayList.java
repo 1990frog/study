@@ -25,7 +25,6 @@ public class ArrayList<E> implements Array<E> {
         data = (E[]) new Object[capacity];
         size = 0;
     }
-
     /**
      * 无参数的构造函数，默认数组的容量capacity=10
      */
@@ -76,10 +75,14 @@ public class ArrayList<E> implements Array<E> {
             // java 默认是1.5倍
             resize(2 * data.length);
 
+        // size-1 是最后一个元素索引位置，[index, size-1]这些元素位置向后迁移
         for (int i = size - 1; i >= index; i--)
             data[i + 1] = data[i];
 
+        // 指定位置 index 元素空了，赋予新值
         data[index] = e;
+
+        // 维护 size 个数
         size++;
     }
 
@@ -88,6 +91,7 @@ public class ArrayList<E> implements Array<E> {
      * @param e
      */
     public void addLast(E e) {
+        // size - 1 是最后一个元素，size 是最后一个元素下一位
         add(size, e);
     }
 
