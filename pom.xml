@@ -12,6 +12,7 @@
         <module>datastructuresandalgorithms</module>
         <module>j2se</module>
         <module>designpatterns</module>
+        <module>leetcode</module>
     </modules>
     <version>1.0.0</version>
 
