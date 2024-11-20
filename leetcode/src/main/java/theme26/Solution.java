@@ -18,17 +18,44 @@ class Solution {
 //        return slow;
 //    }
 
+//    public int removeDuplicates(int[] nums) {
+//        int f = 1, s = 0;
+//        while (f < nums.length) {
+//            if (nums[f] != nums[s]) {
+//                nums[++s] = nums[f];
+//            }
+//            f++;
+//        }
+//        return s+1;
+//    }
+
+//    public int removeDuplicates(int[] nums) {
+//        int slow = 0;
+//        int fast = 0;
+//        int len = nums.length;
+//        while (fast < len) {
+//            if(nums[fast] != nums[slow]) {
+//                nums[++slow] = nums[fast];
+//            }
+//            fast++;
+//        }
+//        return slow + 1;
+//    }
+
     public int removeDuplicates(int[] nums) {
-        int f = 1, s = 0;
-        while (f < nums.length) {
-            if (nums[f] != nums[f - 1]) {
-                nums[s] = nums[f];
-                s++;
+        int n = nums.length;
+        int slow = 0;
+        int fast = 0;
+        while (fast < n) {
+            if(nums[fast] == nums[slow]) {
+                fast++;
+            }else{
+                nums[++slow] = nums[fast];
             }
-            f++;
         }
-        return s;
+        return slow + 1;
     }
+
 
     public static void main(String[] args) {
         Solution solution = new Solution();
