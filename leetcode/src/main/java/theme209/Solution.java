@@ -48,6 +48,7 @@ class Solution {
                 ret = Math.min(ret, i - start + 1);
                 start++;
             }
+
         }
         return ret == nums.length + 1 ? 0 : ret;
     }

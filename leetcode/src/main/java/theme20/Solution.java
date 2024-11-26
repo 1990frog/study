@@ -1,8 +1,8 @@
-package ValidParentheses;
+package theme20;
 
 import java.util.Stack;
 
-public class JavaSolution {
+public class Solution {
 
     public boolean isValid(String s) {
 
