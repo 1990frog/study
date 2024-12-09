@@ -1,7 +1,7 @@
-package theme5;
-
-class Solution {
-    public String longestPalindrome(String s) {
-        
-    }
-} 
+//package theme5;
+//
+//class Solution {
+//    public String longestPalindrome(String s) {
+//
+//    }
+//}
