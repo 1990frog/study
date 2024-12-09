@@ -11,14 +11,12 @@ import java.util.concurrent.Executors;
  */
 public class ExecutorSample {
 
+    final static Executor executor = Executors.newSingleThreadExecutor();
+
     @Test
-    public void execute(){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            public void run() {
-                System.out.println(Thread.currentThread().getName());
-            }
-        });
+    public void execute() {
+        // void execute(Runnable command);
+        executor.execute(() -> System.out.println(Thread.currentThread().getName()));
     }
 
 }
