@@ -96,10 +96,48 @@ public class ExecutorServiceSample {
         System.out.println(submit3.get());
     }
 
-    public void invokeAll() {
-
+    /**
+     * 所有提交的任务执行完成之后返回全部的 future，只调用一次的业务情景
+     *
+     * @throws InterruptedException
+     */
+    @Test
+    public void invokeAll() throws InterruptedException {
+        List<Callable<String>> tasks = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Callable<String> callable;
+            if (i == 0) {
+                callable = () -> {
+                    try {
+                        TimeUnit.SECONDS.sleep(5);
+                        return "5 seconds task";
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                };
+            } else {
+                callable = () -> {
+                    try {
+                        TimeUnit.SECONDS.sleep(100);
+                        return "100 seconds task";
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                };
+            }
+            tasks.add(callable);
+        }
+        List<Future<String>> ret = executorService.invokeAll(tasks);
+        ret.forEach(System.out::println);
     }
 
+    /**
+     * 成功一个就返回
+     *
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    @Test
     public void invokeAny() throws ExecutionException, InterruptedException {
         List<Callable<String>> tasks = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
