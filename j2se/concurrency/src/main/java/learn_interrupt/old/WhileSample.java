@@ -1,4 +1,4 @@
-package learn_interrupt;
+package learn_interrupt.old;
 
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;

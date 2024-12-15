@@ -1,5 +1,6 @@
 package learn_executor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.*;
@@ -9,6 +10,7 @@ import java.util.concurrent.*;
  * <p>
  * interface RunnableFuture<V> extends Runnable, Future<V>
  */
+@Slf4j
 public class FutureTaskSample {
 
     private static final Callable<String> callable1 = Executors.callable(() -> System.out.println("hehe"), "hehe");

@@ -1,19 +1,47 @@
 package learn_uncaughtexception;
 
-public class UncaughtExceptionSample implements Runnable {
-    @Override
-    public void run() {
-        throw new RuntimeException();
+import lombok.extern.slf4j.Slf4j;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.*;
+
+@Slf4j
+public class UncaughtExceptionSample {
+
+    @Test
+    public void thread(){
+        Thread thread = new Thread(()-> {
+            throw new RuntimeException("runtime exception!");
+        });
+        thread.setUncaughtExceptionHandler((t, e) -> {
+            log.error("{} have error!", t.getName());
+            log.error(e.getMessage());
+            // rollback
+        });
+        thread.start();
     }
 
-    public static void main(String[] args) {
-        Thread t = new Thread(new UncaughtExceptionSample());
-        t.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            public void uncaughtException(Thread t, Throwable e) {
-                // 在这里处理未捕获的异常
-                System.out.println("Uncaught Exception");
+    @Test
+    public void execute(){
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 5, 100, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        executor.setThreadFactory(new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread(r);
+                thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+                    log.error("{} have error! : {}", t.getName(), e.getMessage());
+                });
+                return thread;
             }
         });
-        t.start();
+        for (int i = 0; i < 100; i++) {
+            executor.execute(()-> {throw new RuntimeException("runtime exception!");});
+        }
     }
+
+    @Test
+    public void submit(){
+
+    }
+
 }
