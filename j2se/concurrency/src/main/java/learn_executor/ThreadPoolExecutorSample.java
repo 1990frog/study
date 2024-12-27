@@ -3,9 +3,7 @@ package learn_executor;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -87,5 +85,24 @@ public class ThreadPoolExecutorSample {
         }
     }
 
+    /**
+     * 测试池内线程抛出异常后，线程状态
+     *
+     * @throws InterruptedException
+     */
+    @Test
+    public void threadPoolThrowException() throws InterruptedException {
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(1,1,0,TimeUnit.MILLISECONDS,new LinkedBlockingQueue<>());
+        pool.submit(() -> {
+            System.out.println("Thread " + Thread.currentThread().getId() + " started");
+            throw new RuntimeException("run exception");
+        });
+        pool.submit(() -> {
+            System.out.println("Thread " + Thread.currentThread().getId() + " started");
+            throw new RuntimeException("run exception");
+        });
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println(pool.getPoolSize());
+    }
 
 }
