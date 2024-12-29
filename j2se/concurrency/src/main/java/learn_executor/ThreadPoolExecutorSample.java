@@ -105,4 +105,35 @@ public class ThreadPoolExecutorSample {
         System.out.println(pool.getPoolSize());
     }
 
+    /**
+     * 测试线程池初始化
+     *
+     * 线程池初始化之后，并不会立刻生成全部core线程
+     */
+    @Test
+    public void initCoreThread(){
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(10,100,100,TimeUnit.SECONDS,new SynchronousQueue<>());
+        System.out.println(pool.getPoolSize());
+        pool.execute(()->{});
+        System.out.println(pool.getPoolSize());
+        // 提前启动一个核心线程
+        pool.prestartCoreThread();
+        System.out.println(pool.getPoolSize());
+        pool.prestartAllCoreThreads();
+        System.out.println(pool.getPoolSize());
+    }
+
+    /**
+     * 初始化之后修改线程参数
+     */
+    @Test
+    public void editInitArgs(){
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(10,100,100,TimeUnit.SECONDS,new SynchronousQueue<>());
+        pool.prestartAllCoreThreads();
+        System.out.println(pool.getPoolSize());
+        pool.setCorePoolSize(100);
+        pool.prestartAllCoreThreads();
+        System.out.println(pool.getPoolSize());
+    }
+
 }
