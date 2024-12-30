@@ -136,4 +136,74 @@ public class ThreadPoolExecutorSample {
         System.out.println(pool.getPoolSize());
     }
 
+    @Test
+    public void abortRejected(){
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,100,TimeUnit.SECONDS,new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.AbortPolicy());
+        for (int i = 0; i < 10; i++) {
+            executor.execute(()->{});
+        }
+//        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+//        for (int i = 0; i < 10; i++) {
+//            executor.execute(()->{});
+//        }
+    }
+
+    @Test
+    public void callerRunsRejected(){
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,100,TimeUnit.SECONDS,new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.CallerRunsPolicy());
+        for (int i = 0; i < 10; i++) {
+            executor.execute(()->{
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                    System.out.println(Thread.currentThread().getName());
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+
+    }
+
+    @Test
+    public void discardPolicyRejected(){
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,100,TimeUnit.SECONDS,new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardPolicy());
+        for (int i = 0; i < 10; i++) {
+            executor.execute(()->{
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+    }
+
+    /**
+     * 当线程池中的任务队列已满时，该策略会丢弃队列中最老的任务，并尝试重新提交当前任务‌
+     *
+     * 具体行为
+     * 丢弃最老任务‌：当线程池达到其容量限制时，DiscardOldPolicy会检查任务队列，找到并丢弃队列中最老的任务。
+     * 重新提交当前任务‌：丢弃任务后，尝试重新提交当前任务到线程池中。
+     *
+     * 使用场景和优缺点
+     * 优点‌：这种策略可以避免最老的任务永远不会被执行，从而可能保留更紧急或更重要的任务。
+     * 缺点‌：如果最老的任务是被频繁提交的任务，可能会导致性能问题，因为需要不断重新提交任务。
+     *
+     * 实际应用示例
+     * 在实际应用中，DiscardOldPolicy适用于那些对任务执行顺序有严格要求，但又不能完全放弃任何任务的场景。通过丢弃最老任务，可以确保新任务有机会被执行，同时尽量减少任务的丢失。
+     */
+    @Test
+    public void discardOldPolicyRejected(){
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(1,1,100,TimeUnit.SECONDS,new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardOldestPolicy());
+        for (int i = 0; i < 10; i++) {
+            executor.execute(()->{
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+    }
+
 }
