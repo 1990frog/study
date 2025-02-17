@@ -4,15 +4,6 @@ import lombok.SneakyThrows;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * `synchronized` 关键字不能被多态继承。
- * 如果父类中的某个方法是 `synchronized` 的，
- * 而子类中覆盖了这个方法，那么默认情况下子类中的这个方法并不是 `synchronized` 的，
- * 必须显式的在子类的这个方法中加上 `synchronized` 关键字才行。当然，不覆盖的话没事。
- * <p>
- * 不过子类的那个方法也可以通过调用父类中该相应的方法来实现 `synchronized` 效果。
- */
-
 
 public class ExtendsDemo {
 
