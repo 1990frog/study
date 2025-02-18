@@ -1,4 +1,4 @@
-package learn_synchronized;
+package learn_synchronized.old;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;

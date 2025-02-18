@@ -1,4 +1,4 @@
-package learn_synchronized;
+package learn_synchronized.old;
 
 import lombok.SneakyThrows;
 
