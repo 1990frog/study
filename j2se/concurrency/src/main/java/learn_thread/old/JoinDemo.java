@@ -1,4 +1,4 @@
-package learn_thread;
+package learn_thread.old;
 
 import org.testng.annotations.Test;
 
