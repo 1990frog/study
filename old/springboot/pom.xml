@@ -28,6 +28,7 @@
         <module>sourcecode</module>
         <module>multi-datasource</module>
         <module>starter</module>
+        <module>spring</module>
     </modules>
 
     <dependencies>
