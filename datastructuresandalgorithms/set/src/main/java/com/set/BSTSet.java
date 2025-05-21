@@ -1,13 +1,14 @@
 package com.set;
 
-import binarysearchtree.BST;
+import com.bst.BST;
+import com.bst.BinarySearchTree;
 
 public class BSTSet<E extends Comparable<E>> implements Set<E> {
 
     private BST<E> bst;
 
     public BSTSet(){
-        bst = new BST<>();
+        bst = new BinarySearchTree<>();
     }
 
     @Override

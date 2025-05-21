@@ -1,6 +1,6 @@
 package com.set;
 
-import linked.LinkedList;
+import com.linked.LinkedList;
 
 /**
  * <p>

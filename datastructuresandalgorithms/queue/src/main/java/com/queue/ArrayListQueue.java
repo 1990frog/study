@@ -1,6 +1,6 @@
 package com.queue;
 
-import array.ArrayList;
+import com.array.ArrayList;
 
 /**
  * <p>
@@ -24,7 +24,7 @@ public class ArrayListQueue<E> implements Queue<E> {
 
     @Override
     public void enqueue(E o) {
-        data.add(o);
+        data.addLast(o);
     }
 
     @Override

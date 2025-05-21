@@ -1,6 +1,6 @@
 package com.stack;
 
-import linked.DummyHeadLinkedList;
+import com.linked.DummyHeadLinkedList;
 
 /**
  * 栈
