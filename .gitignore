@@ -22,3 +22,4 @@ springcloud-netflix/eureka/target/
 springcloud-netflix/zuul/target/
 /.idea/
 /.vscode/
+/target/
