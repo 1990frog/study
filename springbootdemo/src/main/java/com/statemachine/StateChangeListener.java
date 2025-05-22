@@ -1,4 +1,4 @@
-package com.example.statemachine;
+package com.statemachine;
 
 import org.springframework.messaging.Message;
 import org.springframework.statemachine.StateContext;
@@ -6,6 +6,9 @@ import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.listener.StateMachineListener;
 import org.springframework.statemachine.state.State;
 import org.springframework.statemachine.transition.Transition;
+
+import com.statemachine.config.OrderEvents;
+import com.statemachine.config.OrderStates;
 
 public class StateChangeListener implements StateMachineListener<OrderStates, OrderEvents> {
 

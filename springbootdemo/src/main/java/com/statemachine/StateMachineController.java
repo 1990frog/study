@@ -1,9 +1,12 @@
-package com.example.statemachine;
+package com.statemachine;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.statemachine.config.OrderEvents;
+import com.statemachine.config.OrderStates;
 
 
 @RestController

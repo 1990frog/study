@@ -1,4 +1,4 @@
-package com.example.statemachine;
+package com.statemachine.config;
 
 public enum OrderEvents {
     PAY,    // 支付
