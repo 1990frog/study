@@ -14,29 +14,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>list</module>
-        <module>linked</module>
-        <module>binarysearchtree</module>
-        <module>segmenttree</module>
-        <module>heap</module>
-        <module>queue</module>
-        <module>map</module>
-        <module>set</module>
-        <module>stack</module>
-        <module>trie</module>
-        <module>unionfind</module>
-        <module>moocbobo</module>
+        <module>algorithms</module>
+        <module>datastructures</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com</groupId>
-                <artifactId>list</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
