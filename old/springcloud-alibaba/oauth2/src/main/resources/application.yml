@@ -1,0 +1,12 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: oauth2
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+

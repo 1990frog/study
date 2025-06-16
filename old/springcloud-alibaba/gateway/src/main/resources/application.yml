@@ -1,0 +1,36 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          # 允许gateway通过服务发现组件找到其他的微服务
+          enabled: true
+      routes:
+        - id: between_time
+          uri: lb://customer
+          predicates:
+            - TimeBetween = 1:00 PM,11:00 PM
+          filters:
+            - PreLog = a,b
+    zipkin:
+      base-url: http://localhost:9411
+      # zipkin不支持注册发现，nacos无法识别zipkin疯狂报错
+      discovery-client-enabled: false
+    sleuth:
+      sampler:
+        # 抽样率，默认是0.1(10%)
+        probability: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

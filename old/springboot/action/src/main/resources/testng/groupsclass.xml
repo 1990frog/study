@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="groups">
+    <test name="runAll">
+        <classes>
+            <class name="com.action.testng.group.clazz.GroupsOnClass1"></class>
+            <class name="com.action.testng.group.clazz.GroupsOnClass2"></class>
+            <class name="com.action.testng.group.clazz.GroupsOnClass3"></class>
+        </classes>
+    </test>
+    <test name="runGroup">
+        <groups>
+            <run>
+                <include name="classA"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.action.testng.group.clazz.GroupsOnClass1"></class>
+            <class name="com.action.testng.group.clazz.GroupsOnClass2"></class>
+            <class name="com.action.testng.group.clazz.GroupsOnClass3"></class>
+        </classes>
+    </test>
+</suite>

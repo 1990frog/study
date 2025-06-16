@@ -1,0 +1,116 @@
+spring:
+  application:
+    name: springboot-base
+  mvc:
+    # 404封装成统一结果信息，抛出NoHandlerFoundException
+    throw-exception-if-no-handler-found: true
+  resources:
+    # add-mappings=true表示如果所有的controller都没有命中，则使用默认的静态资源处理器做匹配
+    add-mappings: false
+  redis:
+    # 配置单节点redis
+#    port: 6379
+#    host: localhost
+    sentinel:
+      master: main
+      nodes: localhost:26379,localhost:26380,localhost:26381
+  datasource:
+    # 使用mysql数据库，8+要记得加cj，虽然不加也没什么
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC&characterEncoding=utf8
+    username: root
+    password: 123456
+    # 使用druid做datasource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 初始化大小
+      initialSize: 50
+      # 最小值
+      minIdle: 100
+      # 最大值
+      maxActive: 200
+      # 最大等待时间，配置获取连接等待超时，时间单位都是毫秒ms
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，
+      # 'wall'用于防火墙，SpringBoot中没有log4j，我改成了log4j2，要用logback更麻烦要改源码配置文件
+      filters: stat,wall,log4j2
+      # 最大PSCache连接
+      maxPoolPreparedStatementPerConnectionSize: 20
+      useGlobalDataSourceStat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      # 配置StatFilter
+      web-stat-filter:
+        # 默认为false，设置为true启动
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      # 配置StatViewServlet
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        # 允许那些ip
+        allow: 127.0.0.1
+        login-username: admin
+        login-password: 123456
+        # 禁止哪些ip
+        deny: 192.168.1.102
+        # 是否可以重置
+        reset-enable: true
+        # 启用
+        enabled: true
+
+mybatis:
+  # mapper文件加载地址
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.action.mvc.domain.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    local-cache-scope: session
+
+pagehelper:
+  # 使用rowbound.offset作为页码
+  offset-as-page-num: true
+  reasonable: true
+  # 页码传0查找全部的记录
+  page-size-zero: true
+  # 开启方法参数支持
+  support-methods-arguments: true
+
+server:
+  port: 8080
+  tomcat:
+    accept-count: 1000
+    min-spare-threads: 100
+    max-threads: 300
+
+#mystarter:
+#  author:caijingquan
+#  enable:enable
+
+logging:
+  file:
+    path:/home/cai/Code/Java/logs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+
+jwt:
+  secret: 8f86ad5a5fd7
+  # 有效期，单位s，默认2周
+  expire-time-in-second: 1209600

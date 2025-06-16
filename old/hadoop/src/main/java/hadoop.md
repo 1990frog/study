@@ -1,0 +1,6 @@
+DataNode
+NameNode
+SecondaryNameNode
+
+ResourceManager
+NodeManager

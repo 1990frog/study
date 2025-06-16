@@ -1,0 +1,137 @@
+# tomcat设置
+server:
+  port: 8011
+  tomcat:
+    accept-count: 1000
+    min-spare-threads: 100
+    max-threads: 300
+
+# spring主上下文
+spring:
+
+  application:
+    name: customer # 服务名称，尽量用-，不要用_，不要用特殊字符
+
+  cloud:
+    nacos: # nacos
+      discovery:
+        server-addr: localhost:8848 # 指定nacos server的地址
+#    sentinel: # 向sentinel控制台注册服务
+#      # 关闭springmvc端点的监控,设置为false之后只有通过SphU配置的才会被sentinel监控，如果想完全自定义监控可关闭
+#      # filter:
+#        # enabled: false
+#      transport:
+#        # port端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。
+#        # 比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
+#        # 如果不设置，会自动从8719开始扫描，依次+1，直到找到未被占用的端口
+#        port: 8720
+#        dashboard: localhost:8080 # 指定控制台地址
+#        # 心跳发送周期，默认值null
+#        # 但在simpleHttpHeartbeatSender会默认值10秒
+#        heartbeat-interval-ms: 10000
+#      eager: true # 饥饿加载
+
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+        bindings:
+          # 指定channel，这里可以设置多个channel
+          output1:
+            producer:
+              transactional: true # 设置rocketmq事务，只能是生产者事务
+              group: tx-group
+          output2:
+            producer:
+              transactional: true
+              group: tx-group2
+      bindings:
+        output:
+          # 用来指定topic
+          destination: stream-test-topic
+        # 自定义输出接口，这个接口我定义了3个接口，分别发布消息到不同的topic
+        output1:
+          destination: topic1
+        output2:
+          destination: topic2
+        output3:
+          destination: topic3
+        input:
+          destination: stream-test-topic
+          # 这里group一定要设置
+          group: bind-group
+        input1:
+          destination: topic1
+          group: group1
+        input2:
+          destination: topic2
+          group: group2
+        input3:
+          destination: topic3
+          group: group3
+
+#  zipkin: # Twitter的链路追踪
+#    base-url: http://localhost:9411
+#    discovery-client-enabled: false # zipkin不支持注册发现，nacos无法识别zipkin疯狂报错
+#  sleuth:
+#    sampler:
+#      probability: 1.0 # 抽样率，默认是0.1(10%)
+  redis:
+    # 配置单节点redis
+    port: 6379
+    host: localhost
+#    sentinel:
+#      master: main
+#      nodes: localhost:26379,localhost:26380,localhost:26381
+
+
+
+ribbon:
+  ReadTimeout: 1
+  ConnectTimeout: 1
+  # ribbon饥饿加载
+#  eager-load:
+#    enabled: true
+#    clients: customer
+# 两种方式：1java代码，2配置
+#customer:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+feign:
+# 为feign整合sentinel
+#    enabled: true
+  client:
+    config:
+      default: # 全局配置
+        loggerLevel: full # 日志等级
+        connectTimeout: 1000 # 连接超时时间，这两个时间配置如果与ribbon同时配置，以feign为准
+        readTimeout: 1000 # 读取超时时间
+  httpclient:
+    connection-timeout: 2000
+
+resttemplate:
+  sentinel: # 为restTemplate配置sentinel
+    enabled: true
+
+logging:
+  level:
+    com.alibaba.nacos: error
+
+jwt:
+  secret: 8f86ad5a5fd7 # 秘钥
+  expire-time-in-second: 1209600 # 有效期，单位s，默认2周
+
+# actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #暴露所有接口
+  endpoint:
+    shutdown.enabled: true  #允许shutdown
+    health.show-details: always #展示详细的health信息
+    jolokia:
+      enabled: false #允许 jolokia
+      config.debug: true
+
